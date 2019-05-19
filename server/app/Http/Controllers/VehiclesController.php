@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Vehicle;
 use Illuminate\Http\Request;
 
 class VehiclesController extends Controller
@@ -23,7 +24,7 @@ class VehiclesController extends Controller
      */
     public function create()
     {
-        //
+        return view('projects.addVehicle');
     }
 
     /**
@@ -34,7 +35,16 @@ class VehiclesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        $vehicle = new Vehicle();
+//
+//        $vehicle->make = request('make');
+//        $vehicle->model = request('model');
+//
+//        $vehicle->save();
+//
+//        return redirect('/dashboard');
+
+        return request()->all();
     }
 
     /**
