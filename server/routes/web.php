@@ -11,22 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+//Route::get('/', function () {
+//    return view('home');
+//});
 
-Route::get('/vehicles', function () {
-    return view('vehicles');
-});
+//Route::get('/vehicles', function () {
+//    return view('vehicles');
+//});
+//
+//Route::get('/login', function () {
+//    return view('login');
+//});
+//
+//Route::get('/registration', function () {
+//    return view('registration');
+//});
 
-Route::get('/login', function () {
-    return view('login');
-});
-
-Route::get('/registration', function () {
-    return view('registration');
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
+Route::get('/dashboard', 'VehiclesController@index');
