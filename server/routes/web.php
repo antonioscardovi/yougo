@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,7 +48,10 @@ Route::delete('/vehicles/{id}', 'VehiclesController@destroy');
 // Route::delete('/users/{user}', 'UsersContoller@destroy');
 
 
-Auth::routes();
+
+
 Route::get('/', 'HomeController@index')->name('home');
 
-
+Auth::routes();
+Route::get('activate/{token}', 'Auth\RegisterController@activate')->name('activate');
+Route::get('/home', 'HomeController@index')->name('home');
