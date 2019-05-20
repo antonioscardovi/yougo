@@ -40,14 +40,14 @@ class VehiclesController extends Controller
      */
     public function store(Request $request)
     {
-//        $vehicle = new Vehicle();
-//
-//        $vehicle->make = request('make');
-//        $vehicle->model = request('model');
-//
-//        $vehicle->save();
-//
-//        return redirect('/dashboard');
+        $vehicle = new Vehicle();
+
+        $vehicle->make = request('make');
+        $vehicle->model = request('model');
+
+        $vehicle->save();
+
+        //return redirect('/dashboard');
 //
         return request()->all();
     }

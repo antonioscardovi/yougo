@@ -20,9 +20,9 @@ class CreateVehiclesTable extends Migration
             $table->string('type');
             $table->string('engine_power');
             $table->string('door_number');
-            $table->boolean('auto_ac');
+            $table->boolean('auto_ac')->default(0);
             $table->text('description');
-            $table->boolean('status');
+            $table->boolean('status')->default(0);
             $table->timestamps();
             //$table->integer('price');
         });
