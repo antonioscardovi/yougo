@@ -45,3 +45,7 @@ Route::get('/users/{user}', 'UsersContoller@show');
 Route::get('/users/{user}/edit', 'UsersContoller@edit');
 Route::patch('/users/{user}', 'UsersContoller@update');
 Route::delete('/users/{user}', 'UsersContoller@destroy');
+
+
+Auth::routes();
+Route::get('/', 'HomeController@index')->name('home');

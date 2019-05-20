@@ -14,7 +14,7 @@ class VehiclesController extends Controller
      */
     public function index()
     {
-        return view('vehicles')
+        return view('projects.vehicles')
             ->with('vehicles', Vehicle::all());
     }
 

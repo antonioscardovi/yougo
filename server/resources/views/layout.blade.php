@@ -13,7 +13,7 @@
     <ul>
         <a href="/dashboard"><li>Home</li></a>
         <a href="/vehicles"><li>Vehicles</li></a>
-        <a href="/vehicles/add"><li>Add New Vehicle</li></a>
+        <a href="/vehicles/create"><li>Add New Vehicle</li></a>
     </ul>
 
     <hr>
