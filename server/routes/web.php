@@ -27,6 +27,5 @@
 //    return view('registration');
 //});
 
-//Route::get('/', 'PagesController@login');
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
