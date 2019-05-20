@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Vehicle;
 use Illuminate\Http\Request;
-use App\Vehicle;
 
 class VehiclesController extends Controller
 {
@@ -46,7 +45,7 @@ class VehiclesController extends Controller
 //        $vehicle->save();
 //
 //        return redirect('/dashboard');
-
+//
         return request()->all();
     }
 
@@ -58,7 +57,7 @@ class VehiclesController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('projects.vehicle');
     }
 
     /**
