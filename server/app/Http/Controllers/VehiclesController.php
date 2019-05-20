@@ -38,18 +38,30 @@ class VehiclesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-//        $vehicle = new Vehicle();
-//
-//        $vehicle->make = request('make');
-//        $vehicle->model = request('model');
-//
-//        $vehicle->save();
+        Vehicle::create(request()->validate([
+            'make'=>['required', 'min:3', 'max:255'],
+            'model'=>['required', 'min:3', 'max:255'],
+            'type'=>['required', 'min:3', 'max:255'],
+            'engine_power'=>['required'],
+            'door_number'=>['required'],
+            'description'=>['required', 'min:3', 'max:255']
+
+
+            // dodati za price ijoš neke atribute
+        ]));
+    //    $vehicle = new Vehicle();
+
+    //    $vehicle->make = request('make');
+    //    $vehicle->model = request('model');
+
+    //    $vehicle->save();
 //
 //        return redirect('/dashboard');
 //
-        return request()->all();
+        //return request()->all();
+        return redirect('/vehicles');;
     }
 
     /**
