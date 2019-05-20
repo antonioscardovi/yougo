@@ -70,9 +70,11 @@ class VehiclesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Vehichle $vehichle)
+    public function show($id)
     {
-        return view('projects.vehichles', compact($vehichle));
+        $vehicle = Vehicle::find($id);
+
+        return view('vehicles')->withVehicle($vehicle);
     }
 
     /**
