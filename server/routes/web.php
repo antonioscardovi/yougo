@@ -30,10 +30,3 @@
 //Route::get('/', 'PagesController@login');
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
-
-Route::get('/dashboard', 'VehiclesController@index');
-Route::post('/dashboard', 'VehiclesController@store');
-Route::get('/vehicles', 'VehiclesController@show');
-Route::get('/vehicles/add', 'VehiclesController@create');
-
-
