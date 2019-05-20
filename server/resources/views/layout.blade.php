@@ -14,8 +14,6 @@
         <a href="/dashboard"><li>Home</li></a>
         <a href="/vehicles"><li>Vehicles</li></a>
         <a href="/vehicles/add"><li>Add New Vehicle</li></a>
-        <a href="/login"><li>Login</li></a>
-        <a href="/registration"><li>Registration</li></a>
     </ul>
 
     <hr>
