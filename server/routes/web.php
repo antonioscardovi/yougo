@@ -28,6 +28,7 @@
 //});
 
 
+
 Route::get('/dashboard', 'PagesController@index');
 
 // Vehicles
@@ -49,3 +50,6 @@ Route::delete('/users/{user}', 'UsersContoller@destroy');
 
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('/vehicles', 'VehiclesController@index');
+Route::get('/vehicles/create', 'VehiclesController@create');
