@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Vehicle;
 class VehiclesController extends Controller
 {
     /**
@@ -13,7 +13,8 @@ class VehiclesController extends Controller
      */
     public function index()
     {
-        return view('projects.dashboard');
+        $vehicles = Vehicle::all();
+        return view('projects.index', compact('vehicles'));
     }
 
     /**
@@ -23,7 +24,7 @@ class VehiclesController extends Controller
      */
     public function create()
     {
-        //
+        return view('projects.create');
     }
 
     /**

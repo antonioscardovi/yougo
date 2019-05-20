@@ -27,4 +27,6 @@
 //    return view('registration');
 //});
 
-Route::get('/dashboard', 'VehiclesController@index');
+Route::get('/vehicles', 'VehiclesController@index');
+Route::get('/vehicles/create', 'VehiclesController@create');
+

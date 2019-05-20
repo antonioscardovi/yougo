@@ -23,6 +23,7 @@ class CreateVehiclesTable extends Migration
             $table->boolean('auto_ac');
             $table->text('description');
             $table->boolean('status');
+            $table->timestamps();
             //$table->integer('price');
         });
     }
