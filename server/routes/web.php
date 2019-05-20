@@ -35,10 +35,10 @@ Route::get('/dashboard', 'PagesController@index');
 Route::get('/vehicles', 'VehiclesController@index');
 Route::get('/vehicles/create', 'VehiclesController@create');
 Route::post('/vehicles', 'VehiclesController@store')->name('vehicles.store');
-Route::get('/vehicles/{vehicle}', 'VehiclesController@show');
-Route::get('/vehicles/{vehicle}/edit', 'VehiclesController@edit');
-Route::patch('/vehicles/{vehicle}', 'VehiclesController@update');
-Route::delete('/vehicles/{vehicle}', 'VehiclesController@destroy');
+Route::get('/vehicles/{id}', 'VehiclesController@show');
+Route::get('/vehicles/{id}/edit', 'VehiclesController@edit');
+Route::patch('/vehicles/{id}', 'VehiclesController@update');
+Route::delete('/vehicles/{id}', 'VehiclesController@destroy');
 
 // Users
 // Route::get('/users', 'UsersContoller@index');
