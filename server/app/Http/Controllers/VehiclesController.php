@@ -14,9 +14,8 @@ class VehiclesController extends Controller
      */
     public function index()
     {
-        $vehicle = Vehicle::all();
-
-        return view('projects.dashboard', compact('vehicle'));
+        return view('vehicles')
+            ->with('vehicles', Vehicle::all());
     }
 
     /**
@@ -26,7 +25,7 @@ class VehiclesController extends Controller
      */
     public function create()
     {
-        //
+        return view('projects.create');
     }
 
     /**
@@ -46,9 +45,9 @@ class VehiclesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Vehichle $vehichle)
     {
-        //
+        return view('projects.vehichles', compact($vehichle));
     }
 
     /**
@@ -57,9 +56,9 @@ class VehiclesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Vehichle $vehichle)
     {
-        //
+        return view('projects.vehichles.edit', compact($vehichle));
     }
 
     /**
