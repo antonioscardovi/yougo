@@ -28,3 +28,6 @@
 //});
 
 Route::get('/dashboard', 'VehiclesController@index');
+Route::post('/dashboard', 'VehiclesController@store');
+
+Route::get('/vehicles/add', 'VehiclesController@create');
