@@ -86,7 +86,10 @@ class VehiclesController extends Controller
      */
     public function show(Vehicle $vehicle)
     {
-        return view('projects.vehicles', compact($vehicle));
+        $vehicle = Vehicle::findOrFail($id);
+     
+
+        return view('projects.vehicle', compact('vehicle'));
     }
 
     /**
