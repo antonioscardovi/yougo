@@ -22,7 +22,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
     /**
      * Create a new controller instance.
      *
@@ -72,5 +72,10 @@ class LoginController extends Controller
             $this->username() => "required|exists:users,{$field},active," . User::ACTIVE,
             'password' => 'required',
         ], $messages);
+    }
+
+    public function authenticated(Request $request, $user)
+    {
+        return redirect('/dashboard');
     }
 }

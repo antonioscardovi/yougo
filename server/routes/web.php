@@ -53,8 +53,7 @@ Route::get('/vehicle/', 'VehiclesController@show');
 
 
 
-Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('activate/{token}', 'Auth\RegisterController@activate')->name('activate');
-Route::get('/home', 'HomeController@index')->name('home');
