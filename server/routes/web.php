@@ -13,5 +13,10 @@ Route::patch('/vehicle/{vehicle}', 'VehiclesController@update');
 // Route::patch('/users/{user}', 'UsersContoller@update');
 // Route::delete('/users/{user}', 'UsersContoller@destroy');
 
+
+
+
+
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('activate/{token}', 'Auth\RegisterController@activate')->name('activate');
