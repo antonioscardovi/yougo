@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,10 +35,10 @@ Route::get('/dashboard', 'PagesController@index');
 Route::get('/vehicles', 'VehiclesController@index');
 Route::get('/vehicles/create', 'VehiclesController@create');
 Route::post('/vehicles', 'VehiclesController@store')->name('vehicles.store');
-Route::get('/vehicles/{vehicle}', 'VehiclesController@show');
-Route::get('/vehicles/{vehicle}/edit', 'VehiclesController@edit');
-Route::patch('/vehicles/{vehicle}', 'VehiclesController@update');
-Route::delete('/vehicles/{vehicle}', 'VehiclesController@destroy');
+Route::get('/vehicles/{id}', 'VehiclesController@show');
+Route::get('/vehicles/{id}/edit', 'VehiclesController@edit');
+Route::patch('/vehicles/{id}', 'VehiclesController@update');
+Route::delete('/vehicles/{id}', 'VehiclesController@destroy');
 
 // Users
 // Route::get('/users', 'UsersContoller@index');
@@ -48,7 +48,10 @@ Route::delete('/vehicles/{vehicle}', 'VehiclesController@destroy');
 // Route::delete('/users/{user}', 'UsersContoller@destroy');
 
 
-Auth::routes();
+
+
 Route::get('/', 'HomeController@index')->name('home');
 
-
+Auth::routes();
+Route::get('activate/{token}', 'Auth\RegisterController@activate')->name('activate');
+Route::get('/home', 'HomeController@index')->name('home');

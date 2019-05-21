@@ -8,7 +8,7 @@
 
     @foreach($vehicles as $vehicle)
 
-        <li>{{ $vehicle->make }} {{ $vehicle->model }}</li>
+<a href="{{ url('vehicles/' .$vehicle->vehicle_id) }}"><li>{{ $vehicle->make }} {{ $vehicle->model }}</li></a>
 
     @endforeach
 @endsection
