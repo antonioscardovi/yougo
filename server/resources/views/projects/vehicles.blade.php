@@ -10,5 +10,7 @@
 
 <a href="{{ url('vehicles/' .$vehicle->vehicle_id) }}"><li>{{ $vehicle->make }} {{ $vehicle->model }}</li></a>
 
+{{-- <a href="{{ route('vehicles.show',$vehicle->id) }}"><li>{{ $vehicle->make }} {{ $vehicle->model }}</li></a> --}}
+
     @endforeach
 @endsection

@@ -31,15 +31,18 @@
 
 Route::get('/dashboard', 'PagesController@index');
 
+Route::resource('vehicles', 'VehiclesController');
 // Vehicles
-Route::get('/vehicles', 'VehiclesController@index');
-Route::get('/vehicles/create', 'VehiclesController@create');
-Route::post('/vehicles', 'VehiclesController@store')->name('vehicles.store');
-Route::get('/vehicles/{id}', 'VehiclesController@show');
-Route::get('/vehicles/{id}/edit', 'VehiclesController@edit');
-Route::patch('/vehicles/{id}', 'VehiclesController@update');
-Route::delete('/vehicles/{id}', 'VehiclesController@destroy');
+// Route::get('/vehicles', 'VehiclesController@index');
+// Route::get('/vehicles/create', 'VehiclesController@create');
+// Route::post('/vehicles', 'VehiclesController@store')->name('vehicles.store');
+// Route::get('/vehicles/{vehicle}', 'VehiclesController@show');
+Route::get('/vehicle/', 'VehiclesController@show');
+// Route::get('/vehicles/{id}/edit', 'VehiclesController@edit');
+// Route::patch('/vehicles/{id}', 'VehiclesController@update');
+// Route::delete('/vehicles/{id}', 'VehiclesController@destroy');
 
+// Route::resource('users', 'UsersController');
 // Users
 // Route::get('/users', 'UsersContoller@index');
 // Route::get('/users/{user}', 'UsersContoller@show');
