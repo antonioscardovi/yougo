@@ -46,7 +46,9 @@ class VehiclesController extends Controller
             'type'=>['required', 'min:3', 'max:255'],
             'engine_power'=>['required'],
             'door_number'=>['required'],
-            'description'=>['required', 'min:3', 'max:255']
+            'description'=>['required', 'min:3', 'max:255'],
+            'auto_ac'=>[],
+            'status'=>[]
 
 
             // dodati za price ijoš neke atribute
@@ -98,9 +100,22 @@ class VehiclesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update()
+    public function update($id)
     {
-        dd(request()->all());
+        $vehicle = Vehicle::find($id);
+
+        $vehicle->make = request('make');
+        $vehicle->model = request('model');
+        $vehicle->type = request('type');
+        $vehicle->engine_power = request('power');
+        $vehicle->door_number = request('doors');
+        $vehicle->description = request('description');
+        $vehicle->auto_ac = request('auto_ac');
+        $vehicle->status = request('status');
+
+        $vehicle->save();
+
+        return redirect('vehicles');
     }
 
     /**
@@ -111,6 +126,8 @@ class VehiclesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Vehicle::find($id)->delete();
+
+        return redirect('vehicles');
     }
 }

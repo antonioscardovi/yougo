@@ -6,7 +6,7 @@
     <h1 class="title">Edit Vehicle </h1>
 
 
-    <form method="POST" action="/vehicle/{{ $vehicle->vehicle_id }}">
+    <form method="POST" action="/vehicle/{{ $vehicle->vehicle_id }}" style="margin-bottom: 1rem">
         {{ method_field('PATCH') }}
         {{ csrf_field() }}
 
@@ -59,7 +59,7 @@
         </div>
 
         <div class="field">
-            <label for="model" class="label">Auto AC</label>
+            <label for="auto_ac" class="label">Auto AC</label>
 
             <div class="control">
             <input type="checkbox" name="auto_ac" value='1'>
@@ -77,9 +77,21 @@
 
         <div class="field">
             <div class="control">
-                <button type="submit" class="button is-link">Update Vehicle</button>
+                <button type="submit" class="button is-link">Update</button>
             </div>
         </div>
-    </form>
 
+    </form>
+    
+<form method="POST" action="/vehicles/{{ $vehicle->vehicle_id }}" style="margin-bottom: 1rem">
+        {{ method_field('DELETE') }}
+        {{ csrf_field() }}
+        
+        <div class="field">
+                <div class="control">
+                    <button type="submit" class="button is-danger">Delete</button>
+                </div>
+            </div>
+    </form>
+    
 @endsection
