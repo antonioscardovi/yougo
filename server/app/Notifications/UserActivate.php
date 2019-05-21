@@ -40,7 +40,8 @@ class UserActivate extends Notification
             ->greeting(sprintf('Hi, %s', $this->user->name))
             ->line('We just noticed that you created a new account. You will need to activate your account to sign in into this account.')
             ->action('Activate', route('activate', [$this->user->token]))
-            ->line('Thank you for using our application!');
+            ->line('Thank you for using our application!')
+            ->to('gifijosim@quick-mail.club');
     }
     /**
      * Get the array representation of the notification.
