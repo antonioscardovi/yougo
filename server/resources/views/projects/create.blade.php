@@ -28,13 +28,13 @@
         </div>
         <div>
         <label for="auto-ac">
-            <input type="checkbox" name="auto_ac" value=1>
+            <input type="checkbox" name="auto_ac" value='1'>
             Auto AC
         </label>
         </div>
         <div>
         <label for="status">
-            <input type="checkbox" name="status">
+            <input type="checkbox" name="status" value='1'>
             Available
         </label>
         </div>

@@ -38,19 +38,33 @@ class VehiclesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Vehicle $vehicles)
     {
-        Vehicle::create(request()->validate([
+        $attributes = request()->validate([
             'make'=>['required', 'min:3', 'max:255'],
             'model'=>['required', 'min:3', 'max:255'],
             'type'=>['required', 'min:3', 'max:255'],
             'engine_power'=>['required'],
             'door_number'=>['required'],
-            'description'=>['required', 'min:3', 'max:255']
+            'description'=>['required', 'min:3', 'max:255'],
+            'auto_ac'=>[],
+            'status'=>[]
+        ]);
+            Vehicle::create($attributes);
+
+
+
+        // Vehicle::create(request()->validate([
+        //     'make'=>['required', 'min:3', 'max:255'],
+        //     'model'=>['required', 'min:3', 'max:255'],
+        //     'type'=>['required', 'min:3', 'max:255'],
+        //     'engine_power'=>['required'],
+        //     'door_number'=>['required'],
+        //     'description'=>['required', 'min:3', 'max:255']
 
 
             // dodati za price ijoš neke atribute
-        ]));
+        // ]));
     //    $vehicle = new Vehicle();
 
     //    $vehicle->make = request('make');
@@ -60,7 +74,7 @@ class VehiclesController extends Controller
 //
 //        return redirect('/dashboard');
 //
-        //return request()->all();
+
         return redirect('/vehicles');;
     }
 
@@ -70,11 +84,9 @@ class VehiclesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Vehicle $vehicle)
     {
-        $vehicle = Vehicle::find($id);
-
-        return view('vehicles')->withVehicle($vehicle);
+        return view('projects.vehicles', compact($vehicle));
     }
 
     /**
@@ -83,9 +95,9 @@ class VehiclesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Vehichle $vehichle)
+    public function edit(Vehicle $vehicle)
     {
-        return view('projects.vehichles.edit', compact($vehichle));
+        return view('projects.vehichles.edit', compact($vehicle));
     }
 
     /**
