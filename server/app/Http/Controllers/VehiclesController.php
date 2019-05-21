@@ -98,9 +98,11 @@ class VehiclesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Vehicle $vehicle)
+    public function edit($id)
     {
-        return view('projects.vehichles.edit', compact($vehicle));
+        $vehicle = Vehicle::find($id);
+
+        return view('projects.edit', compact('vehicle'));
     }
 
     /**
@@ -110,9 +112,22 @@ class VehiclesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+        $vehicle = Vehicle::find($id);
+
+        $vehicle->make = request('make');
+        $vehicle->model = request('model');
+        $vehicle->type = request('type');
+        $vehicle->engine_power = request('power');
+        $vehicle->door_number = request('doors');
+        $vehicle->description = request('description');
+        $vehicle->auto_ac = request('auto_ac');
+        $vehicle->status = request('status');
+
+        $vehicle->save();
+
+        return redirect('vehicles');
     }
 
     /**
@@ -123,6 +138,8 @@ class VehiclesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Vehicle::find($id)->delete();
+
+        return redirect('vehicles');
     }
 }
