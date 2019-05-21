@@ -84,9 +84,11 @@ class VehiclesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Vehichle $vehichle)
+    public function edit($id)
     {
-        return view('projects.vehichles.edit', compact($vehichle));
+        $vehicle = Vehicle::find($id);
+
+        return view('projects.edit', compact('vehicle'));
     }
 
     /**
@@ -96,9 +98,9 @@ class VehiclesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update()
     {
-        //
+        dd(request()->all());
     }
 
     /**

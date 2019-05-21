@@ -3,7 +3,7 @@
 @section('title', 'Vehicles')
 
 @section('content')
-    <h1> Vehicle: </h1>
+    <h1 class="title"> Vehicle: </h1>
 {{-- <p>Marka: {{ $vehicle->make }}</p> --}}
 
 
@@ -17,6 +17,8 @@
     <li>Description: {{ $vehicle->description }}</li>
     <li>Status: {{ $vehicle->status }}</li>
 </ul>
+
+<a href="{{ $vehicle->vehicle_id }}/edit"><button class="button is-link">Edit</button></a>
 
 
 

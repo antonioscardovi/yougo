@@ -37,10 +37,11 @@ Route::resource('vehicles', 'VehiclesController');
 // Route::get('/vehicles/create', 'VehiclesController@create');
 // Route::post('/vehicles', 'VehiclesController@store')->name('vehicles.store');
 // Route::get('/vehicles/{vehicle}', 'VehiclesController@show');
-Route::get('/vehicle/', 'VehiclesController@show');
 // Route::get('/vehicles/{id}/edit', 'VehiclesController@edit');
 // Route::patch('/vehicles/{id}', 'VehiclesController@update');
 // Route::delete('/vehicles/{id}', 'VehiclesController@destroy');
+Route::get('/vehicle/', 'VehiclesController@show');
+Route::patch('/vehicle/{vehicle}', 'VehiclesController@update');
 
 // Route::resource('users', 'UsersController');
 // Users
