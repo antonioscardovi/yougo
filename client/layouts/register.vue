@@ -1,17 +1,15 @@
 <template>
   <div>
-    <TheSidenav />
     <nuxt />
      
   </div>
 </template>
 
 <script>
-import TheSidenav from '~/components/Navigation/TheSidenav.vue'
 
 export default {
   components: {
-    TheSidenav
+   
   }
 }
 </script>
