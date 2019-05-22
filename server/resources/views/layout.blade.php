@@ -11,13 +11,15 @@
 
 <body>
 
-    <ul>
-        <a href="/dashboard"><li>Home</li></a>
-        <a href="/vehicles"><li>Vehicles</li></a>
-        <a href="/vehicles/create"><li>Add New Vehicle</li></a>
+
+    <ul class="navbar has-background-grey-light">
+        <a href="/dashboard" class="navbar-item"><li>Home</li></a>
+        <a href="/vehicles" class="navbar-item"><li>Vehicles</li></a>
+        <a href="/vehicles/create" class="navbar-item"><li>Add New Vehicle</li></a>
     </ul>
 
-    <hr>
+
+  
 
     <div class="container">
         @yield('content')

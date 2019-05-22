@@ -3,6 +3,10 @@
 @section('title', 'Edit')
 
 @section('content')
+<div class="container">
+    <div class="section">
+
+  
     <h1 class="title">Edit Vehicle </h1>
 
 
@@ -84,8 +88,8 @@
     </form>
     
 <form method="POST" action="/vehicles/{{ $vehicle->vehicle_id }}" style="margin-bottom: 1rem">
-        {{ method_field('DELETE') }}
-        {{ csrf_field() }}
+        @method('DELETE')
+        @csrf
         
         <div class="field">
                 <div class="control">
@@ -93,5 +97,6 @@
                 </div>
             </div>
     </form>
-    
+</div>
+</div>
 @endsection

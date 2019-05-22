@@ -3,5 +3,12 @@
 @section('title', 'Dashboard')
 
 @section('content')
-    <h1>Dashboard</h1>
+<div class="conta">
+    <div class="section">
+        <h1 class="title">Dashboard</h1>
+
+ 
+
+</div>
+</div>
 @endsection

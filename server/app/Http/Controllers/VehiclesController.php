@@ -84,9 +84,8 @@ class VehiclesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Vehicle $vehicle)
     {
-        $vehicle = Vehicle::findOrFail($id);
      
 
         return view('projects.vehicle', compact('vehicle'));
@@ -98,9 +97,8 @@ class VehiclesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Vehicle $vehicle)
     {
-        $vehicle = Vehicle::find($id);
 
         return view('projects.edit', compact('vehicle'));
     }
@@ -112,9 +110,8 @@ class VehiclesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update(Vehicle $vehicle)
     {
-        $vehicle = Vehicle::find($id);
 
         $vehicle->make = request('make');
         $vehicle->model = request('model');
@@ -136,9 +133,9 @@ class VehiclesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Vehicle $vehicle)
     {
-        Vehicle::find($id)->delete();
+        $vehicle->delete();
 
         return redirect('vehicles');
     }
