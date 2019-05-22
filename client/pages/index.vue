@@ -34,6 +34,7 @@ export default {
 .container {
   position: relative;
     background-image: url("~assets/images/audi1.jpg");
+    background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

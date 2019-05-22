@@ -17,6 +17,8 @@ export default {
 
 .container {
   background-image: url("~assets/images/Vehicles.jpg");
+      background-position: center;
+      background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
