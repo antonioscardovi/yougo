@@ -27,6 +27,7 @@ export default {
 
 .container {
      background-image: url("~assets/images/audi3.jpg");
+     background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
