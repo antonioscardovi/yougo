@@ -1,20 +1,26 @@
 <template>
-<section>
-  <div class="container">
-
-
+<section >
+  <div class="container" >
   </div>
-      <div>sadas</div>
-      <div>sadas</div>
-      <div>sadas</div>
-      <div>sadas</div>
-      <div>sadas</div>
-      <div>sadas</div>
-      <div>sadas</div>
-
-      <div>sadas</div>
-      <div>sadas</div>
-      <div>sadas</div>
+      
+    <div>
+      <p>SCROLL</p>
+      <p>SCROLL</p>
+      <p>SCROLL</p>
+      <p>SCROLL</p>
+      <p>SCROLL</p>
+      <p>SCROLL</p>
+      <p>SCROLL</p>
+      <p>SCROLL</p>
+      <p>SCROLL</p>
+      <p>SCROLL</p>
+      <p>SCROLL</p>
+      <p>SCROLL</p>
+      <p>SCROLL</p>
+      <p>SCROLL</p>
+      <p>SCROLL</p>
+      <p>SCROLL</p>
+    </div>
 
  </section>
 </template>
@@ -31,19 +37,23 @@ export default {
 
 <style>
 
-.container {
-  position: relative;
-    background-image: url("~assets/images/audi1.jpg");
-    background-position: center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  margin: 0 auto;
-  height: 107vh;
-  /* background-attachment: fixed; */
 
- 
+
+.container {
+  background: url("~assets/images/audi1.jpg");
+  background-position: center top;
+  background-size: cover;
+  height: 125vh;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .container {
+    background: url("~assets/images/audi21.jpg");
+    background-position: center top;
+    background-size: cover;
+    height: 100vh;
+  }
 }
 
 </style>
