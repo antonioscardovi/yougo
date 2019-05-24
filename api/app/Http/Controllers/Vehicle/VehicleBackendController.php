@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Vehicle;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\ApiController;
+use App\Http\Controllers\Controller;
 use App\Vehicle;
 
-class VehicleController extends ApiController
+class VehicleBackendController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,8 @@ class VehicleController extends ApiController
      */
     public function index()
     {
-        $vehicles= Vehicle::all();
-        // return view('pages.customers',compact('customers'));
-        return $this->showAll($vehicles);
+        return view('pages.vehicles')
+        ->with('vehicles', Vehicle::all());
     }
 
     /**

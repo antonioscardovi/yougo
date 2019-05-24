@@ -4,8 +4,10 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\User;
+use App\Http\Controllers\ApiController;
 
-class UserController extends Controller
+class UserController extends ApiController
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+      //  return $this->showAll($users);
+
+        return view('pages.users',compact('users'));
+        // ->with('users', User::all());
     }
 
     /**
@@ -44,9 +50,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        
+        // $user = User::findOrFail($id);
+        // return $this->showOne($user);
+        // return view('pages.user', compact('user'));
     }
 
     /**

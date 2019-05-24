@@ -2,22 +2,17 @@
 
 namespace App\Http\Controllers\Customer;
 
-use App\Customer;
 use Illuminate\Http\Request;
-use App\Http\Controllers\ApiController;
+use App\Http\Controllers\Controller;
+use App\Customer;
 
-class CustomerController extends ApiController
+class CustomerBackendController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $customers = Customer::all();
-        // return view('pages.customers',compact('customers'));
-        return $this->showAll($customers);
+        return view('pages.customers',compact('customers'));
+        // return $this->showAll($customers);
     }
 
     /**
@@ -72,11 +67,11 @@ class CustomerController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Customer $customer)
     {
-        $customer = Customer::findOrFail($id);
+        return view('pages.customer', compact('customer'));
 
-        return $this->showOne($customer);
+        // return $this->showOne($customer);
 
     }
 
