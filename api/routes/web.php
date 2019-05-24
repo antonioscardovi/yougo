@@ -25,13 +25,13 @@ Route::resource('users', 'User\UserController');
 /*
  * Vehicles
  * */
-Route::resource('vehicles', 'Vehicle\VehicleController');
+Route::resource('vehicles', 'Vehicle\VehicleBackendController');
 
 
 /*
  * Customers
  * */
-Route::resource('customers', 'Customer\CustomerController'); // 'except' create edit
+Route::resource('customers', 'Customer\CustomerBackendController'); // 'except' create edit
 
 
 /*
