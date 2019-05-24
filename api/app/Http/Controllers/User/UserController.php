@@ -41,7 +41,7 @@ class UserController extends ApiController
      */
     public function store(Request $request)
     {
-        //
+        //return $this->showOne($user, 201);
     }
 
     /**

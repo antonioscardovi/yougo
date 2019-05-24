@@ -20,11 +20,11 @@ class DatabaseSeeder extends Seeder
         \App\Vehicle::query()->truncate();
         \Illuminate\Support\Facades\DB::table('customer_vehicle')->truncate();
 
-        $makeQuantity = 20;
-        $modelQuantity = 20;
-        $userQuantity = 20;
-        $customerQuantity = 20;
-        $vehicleQuantity = 20;
+        $makeQuantity = 5;
+        $modelQuantity = 5;
+        $userQuantity = 5;
+        $customerQuantity = 5;
+        $vehicleQuantity = 5;
         $reservationQuantity = 10;
 
         factory(\App\MakeOfVehicle::class, $makeQuantity)->create();
