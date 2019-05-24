@@ -17,6 +17,10 @@ class CreateModelsTable extends Migration
 
         Schema::create('model_of_vehicles', function (Blueprint $table) {
             $table->bigIncrements('id');
+
+            $table->bigInteger('make_id')->unsigned()->default(0);
+            $table->foreign('make_id')->references('id')->on('make_of_vehicles');
+
             $table->string('name');
             $table->timestamps();
         });

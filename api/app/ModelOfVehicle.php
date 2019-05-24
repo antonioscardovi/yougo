@@ -15,4 +15,8 @@ class ModelOfVehicle extends Model
     public function vehicles() {
         return $this->hasMany(Vehicle::class);
     }
+
+    public function makes() {
+        return $this->belongsTo(MakeOfVehicle::class);
+    }
 }

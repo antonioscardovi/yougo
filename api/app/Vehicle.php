@@ -41,11 +41,11 @@ class Vehicle extends Model
     }
     */
 
-    public function makeOfVehicles() {
-        return $this->belongsToMany(MakeOfVehicle::class);
-    }
+//    public function makeOfVehicles() {
+//        return $this->belongsToMany(MakeOfVehicle::class);
+//    }
 
     public function modelOfVehicles() {
-        return $this->belongsToMany(ModelOfVehicle::class);
+        return $this->belongsTo(ModelOfVehicle::class);
     }
 }
