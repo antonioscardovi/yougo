@@ -38,3 +38,6 @@ Route::resource('customers', 'Customer\CustomerController'); // 'except' create 
  * Reservations
  * */
 Route::resource('reservations', 'Reservation\ReservationController');
+Auth::routes();
+
+Route::get('/', 'HomeController@index')->name('home');
