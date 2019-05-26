@@ -81,9 +81,9 @@ class CustomerBackendController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Customer $customer)
     {
-        //
+        return view('pages.editCustomer', compact('customer'));
     }
 
     /**

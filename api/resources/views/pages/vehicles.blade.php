@@ -1,6 +1,8 @@
-@extends('layouts.layout')
+@extends('adminlte::page')
+
 
 @section('content')
+<div class="container">
 <div class="section">
 <h1 class="title">All Vehicles</h1>
 
@@ -40,7 +42,7 @@
     @endforeach
 
 </div>
-
+</div>
 
 
 

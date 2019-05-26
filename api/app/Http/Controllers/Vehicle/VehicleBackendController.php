@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Vehicle;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Vehicle;
+use App\MakeOfVehicle;
 
 class VehicleBackendController extends Controller
 {
@@ -15,6 +16,8 @@ class VehicleBackendController extends Controller
      */
     public function index()
     {
+        // $make = Vehicle::with('make')->get();
+
         return view('pages.vehicles')
         ->with('vehicles', Vehicle::all());
     }
@@ -58,9 +61,9 @@ class VehicleBackendController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Vehicle $vehicle)
     {
-        //
+        return view('pages.vehicle', compact('vehicle'));
     }
 
     /**
@@ -69,9 +72,9 @@ class VehicleBackendController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Vehicle $vehicle)
     {
-        //
+        return view('pages.edit', compact('vehicle'));
     }
 
     /**
@@ -81,9 +84,20 @@ class VehicleBackendController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Vehicle $vehicle)
     {
-        //
+        $vehicle->make = request('make');
+        $vehicle->model = request('model');
+        $vehicle->type = request('type');
+        $vehicle->engine_power = request('power');
+        $vehicle->door_number = request('doors');
+        $vehicle->description = request('description');
+        $vehicle->auto_ac = request('auto_ac');
+        $vehicle->status = request('status');
+
+        $vehicle->save();
+
+        return redirect('vehicles');
     }
 
     /**
@@ -92,8 +106,10 @@ class VehicleBackendController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Vehicle $vehicle)
     {
-        //
+        $vehicle->delete();
+
+        return redirect('vehicles');
     }
 }
