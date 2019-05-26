@@ -18,6 +18,7 @@ class User extends Authenticatable
 
     // Možda dodati koji admin je dodao koji auto
     // Customer extends User bi mogao to riješiti indirektno
+    // Koji guest-admin je dodao kojeg guest-admina a samo admin može potvrditi ili odbiti (detalji)
 
     /**
      * The attributes that are mass assignable.
@@ -27,7 +28,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'username',
-        //'lastname',
+        'lastname',
         'email',
         'password',
         'verification',

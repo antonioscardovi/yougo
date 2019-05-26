@@ -43,6 +43,7 @@ class CustomerController extends ApiController
         $rules = [
             'name' => 'required',
             'lastname' => 'required',
+            'username' => 'required|unique:customers',
             'email' => 'required|email|unique:customers',
             'password' => [
                 'required',
@@ -104,6 +105,7 @@ class CustomerController extends ApiController
 
         $rules = [
             'email' => 'email|unique:customers,email,' . $customer->id,
+            'username' => 'required|unique:customers' . $customer->id,
             'password' => [
                 'required',
                 'min:8',
@@ -117,6 +119,10 @@ class CustomerController extends ApiController
 
         if ($request->has('lastname')) {
             $customer->lastname = $request->lastname;
+        }
+
+        if ($request->has('username')) {
+            $customer->username = $request->username;
         }
 
         if ($request->has('email') && $customer->email != $request->email) {
