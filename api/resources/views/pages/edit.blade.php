@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.layout')
 
 @section('title', 'Edit')
 
@@ -10,7 +10,7 @@
     <h1 class="title">Edit Vehicle </h1>
 
 
-    <form method="POST" action="/vehicle/{{ $vehicle->vehicle_id }}" style="margin-bottom: 1rem">
+    <form method="POST" action="/vehicles/{{ $vehicle->id }}" style="margin-bottom: 1rem">
         {{ method_field('PATCH') }}
         {{ csrf_field() }}
 
