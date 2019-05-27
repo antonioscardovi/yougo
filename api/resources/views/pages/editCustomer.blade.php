@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('adminlte::page')
 
 @section('title', 'Edit')
 
@@ -15,33 +15,33 @@
         {{ method_field('PATCH') }}
         {{ csrf_field() }}
 
-        <div class="field">
-            <label for="name" class="label">Name</label>
+        <div class="form-group">
+            <label for="name" class="">Name</label>
 
             <div class="control">
-                <input type="text" class="input" name="name" placeholder="{{ $customer->name }}">
+                <input type="text" class="form-control" name="name" placeholder="{{ $customer->name }}">
             </div>
         </div>
 
-        <div class="field">
-            <label for="lastname" class="label">Last Name</label>
+        <div class="form-group">
+            <label for="lastname" class="">Last Name</label>
 
             <div class="control">
-                <input type="text" class="input" name="lastname" placeholder="{{ $customer->lastname }}">
+                <input type="text" class="form-control" name="lastname" placeholder="{{ $customer->lastname }}">
             </div>
         </div>
 
-        <div class="field">
-            <label for="email" class="label">Email</label>
+        <div class="form-group">
+            <label for="email" class="">Email</label>
 
             <div class="control">
-                <input type="text" class="input" name="email" placeholder="{{ $customer->email }}">
+                <input type="text" class="form-control" name="email" placeholder="{{ $customer->email }}">
             </div>
         </div>
 
-        <div class="field">
+        <div class="form-group">
             <div class="control">
-                <button type="submit" class="button is-link">Update</button>
+                <button type="submit" class="btn btn-primary">Update</button>
             </div>
         </div>
 

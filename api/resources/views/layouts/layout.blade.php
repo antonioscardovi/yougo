@@ -17,8 +17,7 @@
   <div class="dashboard-panel is-small has-background-grey-lighter">
 
         <div class="has-text-centered">
-                {!! Html::image('img/yugo-tamno.png', 'YouGo logo') !!}
-              </div>
+             <a href="'/'">  {!! Html::image('img/yugo-tamno.png', 'YouGo logo') !!} </a> 
       
       <br><br>
 <aside class="menu">
