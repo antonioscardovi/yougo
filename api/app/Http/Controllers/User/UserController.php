@@ -55,7 +55,7 @@ class UserController extends ApiController
         
         // $user = User::findOrFail($id);
         // return $this->showOne($user);
-        // return view('pages.user', compact('user'));
+        return view('pages.user', compact('user'));
     }
 
     /**

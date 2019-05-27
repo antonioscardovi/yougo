@@ -48,7 +48,8 @@ class VehicleBackendController extends Controller
             'door_number'=>['required'],
             'description'=>['required', 'min:3', 'max:255'],
             'auto_ac'=>[],
-            'status'=>[]
+            'status'=>[],
+            // 'image' => []
         ]);
             Vehicle::create($attributes);
 
