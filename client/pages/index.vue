@@ -1,59 +1,25 @@
 <template>
-<section >
-  <div class="container" >
+  <div class="container">
+    <TheSidenav/>
+    <span>Hello world</span>
   </div>
-      
-    <div>
-      <p>SCROLL</p>
-      <p>SCROLL</p>
-      <p>SCROLL</p>
-      <p>SCROLL</p>
-      <p>SCROLL</p>
-      <p>SCROLL</p>
-      <p>SCROLL</p>
-      <p>SCROLL</p>
-      <p>SCROLL</p>
-      <p>SCROLL</p>
-      <p>SCROLL</p>
-      <p>SCROLL</p>
-      <p>SCROLL</p>
-      <p>SCROLL</p>
-      <p>SCROLL</p>
-      <p>SCROLL</p>
-    </div>
-
- </section>
 </template>
 
 <script>
-
+import TheSidenav from '~/components/Navigation/TheSidenav.vue'
 
 export default {
   components: {
-    
+    TheSidenav
   }
 }
 </script>
 
-<style>
-
-
-
+<style scoped>
 .container {
-  background: url("~assets/images/audi1.jpg");
-  background-position: center top;
+  padding-top: 100px;
+  min-height: 100vh;
+  background-image: url('~assets/Images/audi1.jpg');
   background-size: cover;
-  height: 125vh;
 }
-
-
-@media only screen and (max-width: 600px) {
-  .container {
-    background: url("~assets/images/audi21.jpg");
-    background-position: center top;
-    background-size: cover;
-    height: 100vh;
-  }
-}
-
 </style>

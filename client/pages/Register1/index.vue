@@ -17,22 +17,18 @@
           </div>
           <div class="group">
             <input id="check" type="checkbox" class="check" checked>
-            <label for="check" style="color: #fff"><span class="icon"></span> Keep me Signed in</label>
+            <label for="check"><span class="icon"></span> Keep me Signed in</label>
           </div>
           <div class="group">
             <input type="submit" class="button" value="Sign In">
           </div>
           <div class="hr"></div>
           <div class="foot-lnk">
-            <a><nuxt-link to="/">Back to Home</nuxt-link></a>
+            <a href="#forgot">Forgot Password?</a>
           </div>
         </div>
         <div class="sign-up-htm">
           <div class="group">
-            <label for="user" class="label">Username</label>
-            <input id="user" type="text" class="input">
-          </div>
-					 <div class="group">
             <label for="user" class="label">Username</label>
             <input id="user" type="text" class="input">
           </div>
@@ -51,13 +47,9 @@
           <div class="group">
             <input type="submit" class="button" value="Sign Up">
           </div>
-          
           <div class="hr"></div>
           <div class="foot-lnk">
             
-          </div>
-           <div class="foot-lnk">
-            <a><nuxt-link to="/">Back to Home</nuxt-link></a>
           </div>
         </div>
       </div>
@@ -79,7 +71,7 @@ a{color:inherit;text-decoration:none}
   margin-top: 5%;
 }
 .login-wrap{
-  width: 100%;
+	width:100%;
 	margin:auto;
 	max-width:525px;
 	min-height:670px;
@@ -217,8 +209,6 @@ a{color:inherit;text-decoration:none}
 }
 .foot-lnk{
 	text-align:center;
-  color: wheat;
 }
-
 
 </style>
