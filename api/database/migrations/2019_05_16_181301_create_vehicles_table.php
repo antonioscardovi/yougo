@@ -18,9 +18,6 @@ class CreateVehiclesTable extends Migration
         Schema::create('vehicles', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->bigInteger('model_id')->unsigned()->default(0);
-            $table->foreign('model_id')->references('id')->on('model_of_vehicles');
-
             //$table->enum('type',); // dodati još, i u ModelFactory
             $table->string('type');
             $table->string('engine_power');
@@ -34,7 +31,7 @@ class CreateVehiclesTable extends Migration
 
             $table->timestamps();
 
-           // $table->foreign('customer_id')->references('id')->on('customers');
+            // $table->foreign('customer_id')->references('id')->on('customers');
         });
     }
 

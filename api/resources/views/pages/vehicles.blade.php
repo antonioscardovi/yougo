@@ -10,6 +10,12 @@
 
 <a href="{{ url('vehicles/' .$vehicle->id) }}"><li>{{ $vehicle->make_id }} {{ $vehicle->model_id }}</li></a>
 
+
+$marka->name
+$marka->vehicle->name
+
+$model->marka->vehicle->name
+
 {{-- <div class="card">
         <div class="card-image">
           <figure class="image is-128x128">
