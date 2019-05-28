@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('adminlte::page')
 
 @section('content')
 <div class="section">
