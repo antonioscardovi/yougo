@@ -1,20 +1,20 @@
 @extends('adminlte::page')
 
-
 @section('content')
 <div class="container">
 <div class="section">
 <h1 class="title">All Vehicles</h1>
-
+{{$make = \App\MakeOfVehicle::all()}}
 @foreach($vehicles as $vehicle)
 
-<a href="{{ url('vehicles/' .$vehicle->id) }}"><li>{{ $vehicle->make_id }} {{ $vehicle->model_id }}</li></a>
+{{--<a href="{{ url('vehicles/' .$vehicle->id) }}"><li>{{ $vehicle->make_id }} {{ $vehicle->model_id }}</li></a>--}}
 
+    <li>{{ $vehicle->make }}</li>
 
-$marka->name
-$marka->vehicle->name
+{{--$marka->name--}}
+{{--$marka->vehicle->name--}}
 
-$model->marka->vehicle->name
+{{--$model->marka->vehicle->name--}}
 
 {{-- <div class="card">
         <div class="card-image">

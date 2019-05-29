@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Vehicle;
 
+use App\ModelOfVehicle;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Vehicle;
@@ -20,6 +21,7 @@ class VehicleBackendController extends Controller
 
         return view('pages.vehicles')
         ->with('vehicles', Vehicle::all());
+//            ->with('model', ModelOfVehicle::all());
     }
 
     /**
