@@ -68,6 +68,7 @@ $factory->define(MakeOfVehicle::class, function (Faker $faker) {
     return [
         //'vehicle_id' => factory('App\Vehicle')->create()->id,
         'name' => $faker->randomElement(['Audi', 'BMW', 'Peugeot']), // Dodati još !!
+        'vehicle_id' => factory('App\Vehicle')->create()->id,
     ];
 });
 

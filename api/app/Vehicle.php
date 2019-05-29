@@ -10,6 +10,7 @@ class Vehicle extends Model
     const UNAVAILABLE_VEHICLE = 'unavailable';
 
     protected $fillable = [
+
         'make',
         'model',
         'type',

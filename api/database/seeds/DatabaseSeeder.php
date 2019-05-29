@@ -22,8 +22,8 @@ class DatabaseSeeder extends Seeder
         //\App\CustomerVehicle::query()->truncate();
 
 
-        $makeQuantity = 5;
-        $modelQuantity = 5;
+        $makeQuantity = 0;
+        $modelQuantity = 10;
         $userQuantity = 5;
         $customerQuantity = 5;
         $vehicleQuantity = 5;
