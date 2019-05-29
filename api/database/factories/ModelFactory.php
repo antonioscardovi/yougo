@@ -51,9 +51,9 @@ $factory->define(Customer::class, function (Faker $faker) {
 
 $factory->define(Vehicle::class, function (Faker $faker) {
     return [
-        //'model_id' => factory('App\ModelOfVehicle')->create()->id,
-        'type' => $faker->name,
-        //'type' => $faker->randomElement(['hatchback', 'supercar', 'limousine', 'electric']), // Dodati kao i u tablici
+        'model_id' => factory('App\ModelOfVehicle')->create()->id,
+        //'type' => $faker->name,
+        'type' => $faker->randomElement(['hatchback', 'supercar', 'limousine', 'electric']), // Dodati kao i u tablici
         'engine_power' => $faker->numberBetween(0,2500),
         'door_number' => $faker->numberBetween(1,5),
         'description' => $faker->paragraph(2),
@@ -65,7 +65,7 @@ $factory->define(Vehicle::class, function (Faker $faker) {
 
 $factory->define(MakeOfVehicle::class, function (Faker $faker) {
     return [
-        'vehicle_id' => factory('App\Vehicle')->create()->id,
+        //'vehicle_id' => factory('App\Vehicle')->create()->id,
         'name' => $faker->randomElement(['Audi', 'BMW', 'Peugeot']), // Dodati još !!
     ];
 });
