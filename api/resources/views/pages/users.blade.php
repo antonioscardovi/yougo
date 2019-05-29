@@ -1,6 +1,7 @@
 @extends('adminlte::page')
 
 @section('content')
+<div class="container">
 <div class="section">
     <h1 class="title">All Users</h1>
 
@@ -9,6 +10,7 @@
     <a href="{{ url('users/'. $user->id) }}"><li>{{ $user->name }}</li></a>
 
     @endforeach
+</div>
 </div>
 @endsection
 

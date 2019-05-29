@@ -23,6 +23,7 @@
             <label for="model">Model</label>
             <input type="text" name="model" class="form-control {{ $errors->has('model') ? 'is-danger' : '' }}" placeholder="@if ($errors->has('model')) {{ $errors->first('model') }} @else Enter Model  @endif">
         </div>
+        
         <div class="form-group">
             <label for="type">Type</label>
             <input type="text" name="type" class="form-control {{ $errors->has('type') ? 'is-danger' : '' }}" placeholder="@if ($errors->has('type')) {{ $errors->first('type') }} @else Enter Type  @endif">
@@ -35,7 +36,7 @@
             <label for="door_number">Door Number</label>
             <input type="text" name="door_number" class="form-control {{ $errors->has('door_number') ? 'is-danger' : '' }}" placeholder="@if ($errors->has('door_number')) {{ $errors->first('door_number') }} @else Number of Doors  @endif">
         </div>
-        <div class="form-group">
+        {{-- <div class="form-group">
         <label for="auto-ac">
             <input type="checkbox" name="auto_ac" value='1'>
             Auto AC
@@ -46,7 +47,7 @@
             <input type="checkbox" name="status" value='1'>
             Available
         </label>
-        </div>
+        </div> --}}
         <div class="form-group">
             <label for="description">Description</label>
             <textarea class="form-control {{ $errors->has('description') ? 'is-danger' : '' }}" name="description" placeholder="@if ($errors->has('description')) {{ $errors->first('description') }} @else Short Description  @endif"></textarea>

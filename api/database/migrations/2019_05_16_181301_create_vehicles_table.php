@@ -23,7 +23,7 @@ class CreateVehiclesTable extends Migration
             $table->string('engine_power');
             $table->string('door_number');
             $table->string('description', 1000);
-            $table->string('image');
+            $table->string('image')->default('slika.jpg');
             $table->string('status')->default(\App\Vehicle::UNAVAILABLE_VEHICLE);
             //$table->double('price', 8, 2);//->unsigned();
 
