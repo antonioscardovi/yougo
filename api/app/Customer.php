@@ -48,6 +48,11 @@ class Customer extends Model
         return $this->hasMany(Reservation::class);
     }*/
 
+    public function reservations() {
+        return $this->hasMany(CustomerVehicle::class);
+    }
+
+
     public function isVerified() {
         return $this->verified == Customer::VERIFIED_CUSTOMER;
     }
@@ -55,4 +60,5 @@ class Customer extends Model
     public static function generateVerificationCode() {
         return str_random(40);
     }
+
 }

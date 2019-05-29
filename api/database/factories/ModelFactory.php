@@ -6,6 +6,7 @@ use App\Customer;
 use App\Vehicle;
 use \App\MakeOfVehicle;
 use \App\ModelOfVehicle;
+use \App\CustomerVehicle;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 
@@ -78,10 +79,10 @@ $factory->define(ModelOfVehicle::class, function (Faker $faker) {
     ];
 });
 
-/*$factory->define(CustomerVehicleTable::class, function (Faker $faker) {
+$factory->define(CustomerVehicle::class, function (Faker $faker) {
     return [
         'customer_id' => factory('App\Customer')->create()->id,
-        'vehicle_id' => factory('App\Customer')->create()->id,
+        'vehicle_id' => factory('App\Vehicle')->create()->id,
         'price_of_reservation' => $price = $faker->randomFloat(2,99.99,5000.00),
     ];
-});*/
+});
