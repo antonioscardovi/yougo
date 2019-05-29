@@ -1,6 +1,5 @@
 @extends('adminlte::page')
 
-
 @section('content')
 <div class="container">
 <div class="section">
@@ -15,6 +14,7 @@
 
   @endforeach
 
+    <li>{{ $vehicle->make }}</li>
 
 {{-- $marka->names
 $marka->vehicle->name

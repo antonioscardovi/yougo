@@ -17,10 +17,9 @@ class CreateMakesTable extends Migration
         //Schema::enableForeignKeyConstraints();
 
         Schema::create('make_of_vehicles', function (Blueprint $table) {
-            $table->bigInteger('vehicle_id')->unsigned()->default(0);
-            $table->foreign('vehicle_id')->references('id')->on('vehicles');
-
             $table->bigIncrements('id');
+
+
             $table->string('name');
             $table->timestamps();
         });

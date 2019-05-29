@@ -48,8 +48,16 @@ class Vehicle extends Model
     //        return $this->belongsToMany(MakeOfVehicle::class);
     //    }
 
-    public function makeOfVehicles()
+/*    public function makeOfVehicles()
     {
         return $this->hasMany(MakeOfVehicle::class);
+    }*/
+
+    public function modelOfVehicle () {
+        return $this->belongsTo(ModelOfVehicle::class);
+    }
+
+    public function reservations() {
+        return $this->hasMany(CustomerVehicle::class);
     }
 }
