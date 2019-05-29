@@ -18,6 +18,8 @@ class CreateMakesTable extends Migration
 
         Schema::create('make_of_vehicles', function (Blueprint $table) {
             $table->bigIncrements('id');
+
+
             $table->string('name');
             $table->timestamps();
         });

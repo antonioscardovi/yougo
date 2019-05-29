@@ -11,12 +11,17 @@ class ModelOfVehicle extends Model
     protected $fillable = [
         'name'
     ];
-
+/*
+    public function makeOfVehicle()
+    {
+        return $this->belongsTo(MakeOfVehicle::class);
+    }
+    */
     public function vehicles() {
         return $this->hasMany(Vehicle::class);
     }
 
-    public function makes() {
+    public function makeOfVehicle() {
         return $this->belongsTo(MakeOfVehicle::class);
     }
 }

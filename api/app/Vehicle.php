@@ -10,6 +10,7 @@ class Vehicle extends Model
     const UNAVAILABLE_VEHICLE = 'unavailable';
 
     protected $fillable = [
+
         'make',
         'model',
         'type',
@@ -27,11 +28,13 @@ class Vehicle extends Model
         'model_id'
     ];
 
-    public function isAvailable() {
+    public function isAvailable()
+    {
         return $this->status == Vehicle::AVAILABLE_VEHICLE;
     }
 
-    public function customers() {
+    public function customers()
+    {
         return $this->hasMany(Customer::class); // belongsToMany ???
     }
 
@@ -41,11 +44,20 @@ class Vehicle extends Model
     }
     */
 
-//    public function makeOfVehicles() {
-//        return $this->belongsToMany(MakeOfVehicle::class);
-//    }
+    //    public function makeOfVehicles() {
+    //        return $this->belongsToMany(MakeOfVehicle::class);
+    //    }
 
-    public function modelOfVehicles() {
+/*    public function makeOfVehicles()
+    {
+        return $this->hasMany(MakeOfVehicle::class);
+    }*/
+
+    public function modelOfVehicle () {
         return $this->belongsTo(ModelOfVehicle::class);
+    }
+
+    public function reservations() {
+        return $this->hasMany(CustomerVehicle::class);
     }
 }

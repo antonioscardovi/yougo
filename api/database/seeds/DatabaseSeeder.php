@@ -15,26 +15,31 @@ class DatabaseSeeder extends Seeder
 
         \App\User::query()->truncate();
         \App\Customer::query()->truncate();
+        \App\Vehicle::query()->truncate();
         \App\MakeOfVehicle::query()->truncate();
         \App\ModelOfVehicle::query()->truncate();
-        \App\Vehicle::query()->truncate();
-        \Illuminate\Support\Facades\DB::table('customer_vehicle')->truncate();
+        //\Illuminate\Support\Facades\DB::table('customer_vehicle')->truncate();
+        //\App\CustomerVehicle::query()->truncate();
 
-        $makeQuantity = 5;
-        $modelQuantity = 5;
+
+        $makeQuantity = 0;
+        $modelQuantity = 10;
         $userQuantity = 5;
         $customerQuantity = 5;
         $vehicleQuantity = 5;
-        $reservationQuantity = 10;
+        //$reservationQuantity = 10;
 
-        factory(\App\MakeOfVehicle::class, $makeQuantity)->create();
-        factory(\App\ModelOfVehicle::class, $modelQuantity)->create();
+
 
         factory(\App\User::class, $userQuantity)->create();
         factory(\App\Customer::class, $customerQuantity)->create();
 
         factory(\App\Vehicle::class, $vehicleQuantity)->create();
 
-        //factory(database/migrations/CustomerVehicleTable::class, $reservationQuantity)->create();
+        factory(\App\MakeOfVehicle::class, $makeQuantity)->create();
+        factory(\App\ModelOfVehicle::class, $modelQuantity)->create();
+
+        //factory(database/migrations/CustomerVehicle::class, $reservationQuantity)->create();
+        //factory(\App\CustomerVehicle::class, $reservationQuantity)->create();
     }
 }

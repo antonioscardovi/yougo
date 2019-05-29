@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Vehicle;
 
+use App\ModelOfVehicle;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Vehicle;
 use App\MakeOfVehicle;
+use App\ModelOfVehicle;
 
 class VehicleBackendController extends Controller
 {
@@ -17,9 +19,19 @@ class VehicleBackendController extends Controller
     public function index()
     {
         // $make = Vehicle::with('make')->get();
-
-        return view('pages.vehicles')
-        ->with('vehicles', Vehicle::all());
+        // $vehicles = MakeOfVehicle::with('vehicle')->get();
+        // $vehicles = ModelOfVehicle::with('make')->get();
+        $vehicles = Vehicle::with('makeOfVehicles')->get();
+        $models = ModelOfVehicle::with('makeOfVehicle')->get();
+        // $vehicles = makeOfVehicle::all();
+        // $vehicles = ModelOfVehicle::all();
+        // $vehicles->makeOfVehicle->get('name');
+        // $vehicles->load('make');
+        // return $vehicles[2]->makeOfVehicles->first()->name;
+        return view('pages.vehicles', compact('vehicles', 'models'));
+        // ->with('vehicles', Vehicle::all())
+        // ->with('makes', MakeOfVehicle::all())
+        //     ->with('models', ModelOfVehicle::all());
     }
 
     /**
@@ -41,17 +53,17 @@ class VehicleBackendController extends Controller
     public function store(Request $request)
     {
         $attributes = request()->validate([
-            'make'=>['required', 'min:3', 'max:255'],
-            'model'=>['required', 'min:3', 'max:255'],
-            'type'=>['required', 'min:3', 'max:255'],
-            'engine_power'=>['required'],
-            'door_number'=>['required'],
-            'description'=>['required', 'min:3', 'max:255'],
-            'auto_ac'=>[],
-            'status'=>[],
+            'make' => ['required', 'min:3', 'max:255'],
+            'model' => ['required', 'min:3', 'max:255'],
+            'type' => ['required', 'min:3', 'max:255'],
+            'engine_power' => ['required'],
+            'door_number' => ['required'],
+            'description' => ['required', 'min:3', 'max:255'],
+            'auto_ac' => [],
+            'status' => [],
             // 'image' => []
         ]);
-            Vehicle::create($attributes);
+        Vehicle::create($attributes);
 
         return redirect('/vehicles');;
     }

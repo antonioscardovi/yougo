@@ -11,9 +11,18 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/auth": "^4.5.3",
+    "@nuxtjs/axios": "^5.5.2",
+    "@nuxtjs/bootstrap-vue": "^2.0.4",
+    "bootstrap": "^4.3.1",
     "cross-env": "^5.2.0",
+    "mdbvue": "^5.4.1",
     "nuxt": "^2.4.0",
-    "@nuxtjs/axios": "^5.3.6"
+    "vue": "^2.6.10",
+    "vue-full-calendar": "^2.7.0",
+    "vue-tree-nav": "0.0.16",
+    "vue2-datepicker": "^2.11.2",
+    "vuelendar": "^1.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.9",
