@@ -72,16 +72,16 @@
               <div class="form-group">
                 <label>Potvrdite Lozinku</label>
                 <input
-                  v-model="form.password_confiramtion"
+                  v-model="form.password_confirmation"
                   type="password"
                   class="form-control"
-                  :class="{'is-invalid': errors.password_confiramtion }"
+                  :class="{'is-invalid': errors.password_confirmation }"
                   placeholder="Potvrdite Lozinku..."
                 >
                 <div
                   class="invalid-feedback"
-                  v-if="errors.password_confiramtion"
-                >{{ errors.password_confiramtion[0]}}</div>
+                  v-if="errors.password_confirmation"
+                >{{ errors.password_confirmation[0]}}</div>
               </div>
 
               <div class="form2">
@@ -95,11 +95,11 @@
             </form>
 
             <div class="form3">
-              <b-button to="/auth/login" class="btn btn-secondary w-100">Prijava</b-button>
+              <button to="/auth/login" class="btn btn-secondary w-100">Prijava</button>
             </div>
 
             <div class="form3">
-              <b-button to="/" class="btn btn-secondary w-100">Vrati me na početnu</b-button>
+              <button to="/" class="btn btn-secondary w-100">Vrati me na početnu</button>
             </div>
           </div>
         </div>
@@ -121,25 +121,29 @@ export default {
         username: 'mhrastnik',
         email: 'hrastnik@mail.com',
         password: 'test1234',
-        password_confiramtion: 'test1234'
+        password_confirmation: 'test1234'
       }
     }
   },
   methods: {
     async register() {
       try {
-        console.log('evo me ovdje')
+        //console.log('evo me ovdje')
         const response = await this.$axios.post('/customers', {
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
+          },
           name: this.form.name,
           lastname: this.form.lastname,
           username: this.form.username,
           email: this.form.email,
           password: this.form.password,
-          password_confiramtion: this.form.password_confiramtion
+          password_confirmation: this.form.password_confirmation
         })
-        console.log('got response', response)
+       // console.log('got response', response)
       } catch (e) {
-        console.log('error', e.message)
+        console.log('error', e.message, response)
       }
 
       //   this.$auth.login({ data: this.form })
