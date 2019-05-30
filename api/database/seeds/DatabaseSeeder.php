@@ -15,9 +15,9 @@ class DatabaseSeeder extends Seeder
 
         \App\User::query()->truncate();
         \App\Customer::query()->truncate();
-        \App\Vehicle::query()->truncate();
-        \App\MakeOfVehicle::query()->truncate();
         \App\ModelOfVehicle::query()->truncate();
+        \App\MakeOfVehicle::query()->truncate();
+        \App\Vehicle::query()->truncate();
         //\Illuminate\Support\Facades\DB::table('customer_vehicle')->truncate();
         //\App\CustomerVehicle::query()->truncate();
 
@@ -34,11 +34,11 @@ class DatabaseSeeder extends Seeder
         factory(\App\User::class, $userQuantity)->create();
         factory(\App\Customer::class, $customerQuantity)->create();
 
-        factory(\App\Vehicle::class, $vehicleQuantity)->create();
 
         factory(\App\MakeOfVehicle::class, $makeQuantity)->create();
         factory(\App\ModelOfVehicle::class, $modelQuantity)->create();
 
+        factory(\App\Vehicle::class, $vehicleQuantity)->create();
         //factory(database/migrations/CustomerVehicle::class, $reservationQuantity)->create();
         //factory(\App\CustomerVehicle::class, $reservationQuantity)->create();
     }

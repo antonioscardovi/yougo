@@ -1,7 +1,7 @@
 <template>
   <div>
     <nuxt />
-     
+
   </div>
 </template>
 
@@ -9,7 +9,7 @@
 
 export default {
   components: {
-   
+
   }
 }
 </script>
@@ -25,6 +25,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  background-color: #f1f5f5;
 }
 
 *,
