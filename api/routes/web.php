@@ -40,4 +40,10 @@ Route::resource('customers', 'Customer\CustomerBackendController'); // 'except' 
 Route::resource('reservations', 'Reservation\ReservationBackendController');
 Auth::routes();
 
+
+/*
+* Statistics
+* */
+Route::resource('home', 'Statistic\StatisticController');
+
 Route::get('/', 'HomeController@index')->name('home');
