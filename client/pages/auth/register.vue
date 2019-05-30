@@ -1,8 +1,7 @@
 <template>
   <div class="box1">
     <div class="container">
-      <div class="col-md-6 offset-md-3">
-        <div class="card mt-4">
+          <div class="form-wrap">
           <div class="card-header">
             <p class="mb-20">Registriraj Se</p>
           </div>
@@ -85,25 +84,28 @@
               </div>
 
               <div class="form2">
-                <input
+                <!-- <input
                   type="submit"
                   variant="primary"
                   value="Register"
                   class="btn btn-primary w-100"
-                >
+                > -->
+
+                <button>Registracija</button>
               </div>
             </form>
 
-            <div class="form3">
+            <!-- <div class="form3">
               <button to="/auth/login" class="btn btn-secondary w-100">Prijava</button>
+            </div> -->
+            <footer>
+             <p>Imaš stvoren korisnički račun?<nuxt-link to="/auth/login">Prijava</nuxt-link></p>
+            <div class=home-pg>
+              <nuxt-link to="/">Home</nuxt-link>
             </div>
-
-            <div class="form3">
-              <button to="/" class="btn btn-secondary w-100">Vrati me na početnu</button>
-            </div>
+            </footer>
           </div>
         </div>
-      </div>
     </div>
   </div>
 </template>
@@ -154,16 +156,75 @@ export default {
 }
 </script>
 
-<style>
-.box1 {
-  margin-top: 5%;
+<style scoped>
+html {
+  background-color: #333;
 }
 
-.form2 {
-  margin-top: 10%;
+
+.container {
+  margin:  30px auto;
+  max-width: 400px;
+  padding: 20px;
+  overflow:auto;
+
 }
 
-.form3 {
-  margin-top: 7%;
+.form-wrap {
+  background-color: #fff ;
+  padding: 15px 25px;
+  color: #333;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+.form-wrap h1,
+.form-wrap p {
+  text-align: center;
+
+}
+
+.form-wrap .form-group {
+  margin-top: 15px;
+}
+
+.form-wrap .form-group label {
+
+  display: block;
+  color: #333;
+}
+
+.form-wrap .form-group input {
+
+  width: 100%;
+  padding: 10px;
+  border: #ddd 1px solid;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.form-wrap button {
+
+  display: block;
+  width:100%;
+  background:#0054Db;
+  padding: 10px;
+  margin-top:20px;
+  color: #fff;
+  border: #ddd 1px solid;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1.1rem;
+}
+
+footer, .home-pg {
+
+  text-align: center;
+  padding-top:1rem;
+}
+
+span {
+  text-decoration: none;
+}
+
 </style>
