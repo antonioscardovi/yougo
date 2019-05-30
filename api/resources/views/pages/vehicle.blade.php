@@ -5,8 +5,8 @@
 <div class="section">
 <h1 class="title">Vehicle ID: {{ $vehicle->id }}</h1>
 <div class="table">
-<li><span class="has-text-weight-bold">Make:</span> {{ $vehicle->name }}</li>
-<li><span class="has-text-weight-bold">Model:</span> {{ $vehicle->model_id }}</li>
+<li><span class="has-text-weight-bold">Make:</span> {{ $vehicle->modelOfVehicle->makeOfVehicle['name'] }}</li>
+<li><span class="has-text-weight-bold">Model:</span> {{ $vehicle->modelOfVehicle['name'] }}</li>
 <li><span class="has-text-weight-bold">Type:</span> {{ $vehicle->type }}</li>
 <li><span class="has-text-weight-bold">Power:</span> {{ $vehicle->engine_power }}</li>
 <li><span class="has-text-weight-bold">Doors:</span> {{ $vehicle->door_number }}</li>

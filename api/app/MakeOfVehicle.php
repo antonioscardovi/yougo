@@ -12,13 +12,13 @@ class MakeOfVehicle extends Model
         'name'
     ];
 
-/*    public function vehicle()
+    /*    public function vehicle()
     {
         return $this->belongsTo(Vehicle::class);
     }*/
 
     public function makeOfVehicles()
     {
-        return $this->hasMany(ModelOfVehicle::class);
+        return $this->hasMany(ModelOfVehicle::class, 'make_id', 'id');
     }
 }

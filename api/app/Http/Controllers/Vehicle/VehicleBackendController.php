@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Vehicle;
 
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Vehicle;
@@ -18,20 +17,12 @@ class VehicleBackendController extends Controller
      */
     public function index()
     {
-        // $make = Vehicle::with('make')->get();
-        // $vehicles = MakeOfVehicle::with('vehicle')->get();
-        // $vehicles = ModelOfVehicle::with('make')->get();
-        $vehicles = Vehicle::with('makeOfVehicles')->get();
-        $models = ModelOfVehicle::with('makeOfVehicle')->get();
-        // $vehicles = makeOfVehicle::all();
-        // $vehicles = ModelOfVehicle::all();
-        // $vehicles->makeOfVehicle->get('name');
-        // $vehicles->load('make');
-        // return $vehicles[2]->makeOfVehicles->first()->name;
-        return view('pages.vehicles', compact('vehicles', 'models'));
-        // ->with('vehicles', Vehicle::all())
-        // ->with('makes', MakeOfVehicle::all())
-        //     ->with('models', ModelOfVehicle::all());
+        $vehicles = Vehicle::with('modelOfVehicle')->get();
+        // $vehicles = Vehicle::all();
+        // $vehicles::with('makeOfVehicle')->get();
+        // $make = modelOfVehicle::with('makeOfVehicle')->get();
+
+        return view('pages.vehicles', compact('vehicles'));
     }
 
     /**
