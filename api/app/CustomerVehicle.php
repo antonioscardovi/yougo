@@ -17,4 +17,8 @@ class CustomerVehicle extends Model
     public function customer() {
         return $this->belongsTo(Customer::class);
     }
+
+//    public function renting() {
+//        return $this->rent == Vehicle::UNAVAILABLE_VEHICLE;
+//    }
 }

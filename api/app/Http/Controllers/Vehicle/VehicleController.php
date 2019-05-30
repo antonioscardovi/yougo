@@ -63,7 +63,7 @@ class VehicleController extends ApiController
     {
         $vehicle = Vehicle::findOrFail($id);
 
-        return $this->shownOne($vehicle);
+        return $this->showOne($vehicle);
     }
 
     /**

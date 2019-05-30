@@ -39,7 +39,15 @@ class ReservationController extends ApiController
      */
     public function store(Request $request)
     {
-        //
+//        $rules = [
+//            'customer_id' => 'required',
+//            'vehicle_id' => 'required',
+//        ];
+//        //Auth::user()->id
+//        $this->validate($request, $rules);
+//
+//        $data = $request->all();
+//        $data['customer_id'] =;
     }
 
     /**
