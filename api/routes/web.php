@@ -37,7 +37,7 @@ Route::resource('customers', 'Customer\CustomerBackendController'); // 'except' 
 /*
  * Reservations
  * */
-Route::resource('reservations', 'Reservation\ReservationController');
+Route::resource('reservations', 'Reservation\ReservationBackendController');
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
