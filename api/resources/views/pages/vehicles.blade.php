@@ -1,22 +1,7 @@
 @extends('adminlte::page')
 
 @section('content')
-{{-- <div class="container"> --}}
-<h1 class="title" style="margin-top:0;">All Vehicles</h1>
-
-<!-- Sva Vozila -->
-{{-- {{ $vehicle->modelOfVehicle::with('makeOfVehicle')->get() }} --}}
-
-{{-- @foreach($vehicles as $vehicle)
-<a href="{{ url('vehicles/' .$vehicle->id) }}">
-  <ul>
-    <li> {{ $vehicle->modelOfVehicle->makeOfVehicle['name'] }} - {{ $vehicle->modelOfVehicle['name'] }}</li>
-  </ul>
-</a>
- @endforeach --}}
-
-
- 
+<h1 class="title" style="margin-top:0;">Vehicles</h1>
 
  <table id="table1" class="display cell-border table table-striped table-bordered" style="font-size: 2rem;">
   <thead>
@@ -35,10 +20,13 @@
               <a href="{{ url('vehicles/' .$vehicle->id) }}">
             <button class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span> About</button>
               </a>
-            <button class="edit-modal btn btn-info"
+
+            <a href="vehicles/{{$vehicle->id}}/edit">
+            <button class="edit-modal btn btn-info" data-toggle="edit-modal" data-target="#myModal"
             data-info="{{$vehicle->id}},{{$vehicle->type}}">
             <span class="glyphicon glyphicon-edit"></span> Edit
         </button>
+            </a>
         <button class="delete-modal btn btn-danger"
             data-info="{{$vehicle->id}},{{$vehicle->type}}">
             <span class="glyphicon glyphicon-trash"></span> Delete
@@ -49,16 +37,5 @@
       @endforeach
   </tbody>
 </table>
-    
-
-{{-- $marka->names
-$marka->vehicle->name
-
-$model->marka->vehicle->name --}}
-
-{{-- </div> --}}
-
-
-
 
 @endsection
