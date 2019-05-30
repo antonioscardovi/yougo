@@ -34,7 +34,9 @@ Route::resource('customers', 'Customer\CustomerController', ['except' => ['creat
 /*
  * Reservations
  * */
-Route::resource('reservations', 'Reservation\ReservationController', ['except' => ['update', 'edit']]);
+Route::resource('reservations', 'Reservation\ReservationController', ['except' => ['update', 'edit', 'create', 'store']]);
+//Route::post('reservations/{reservation}', 'Reservation\ReservationController@store')->name('reservations.store');
+
 
 
 //
