@@ -19,7 +19,21 @@ export default {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css?family=Roboto'
       },
-      {rel: 'stylesheet', href: "https://use.fontawesome.com/releases/v5.8.2/css/all.css", integrity:"sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay", crossorigin:"anonymous"}
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css?family=Lato:300&display=swap'
+      },
+      {rel: 'stylesheet',
+      href:'https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap'
+      },
+      {rel: 'stylesheet',
+      href:'https://fonts.googleapis.com/css?family=Work+Sans:300,400&display=swap'
+      },
+      {rel: 'stylesheet',
+      href:'https://fonts.googleapis.com/css?family=Raleway&display=swap'
+      }
+      
+
     ],
     script: [
       {

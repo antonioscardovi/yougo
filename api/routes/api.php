@@ -23,7 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
  * Vehicles
  * */
 Route::resource('vehicles', 'Vehicle\VehicleController', ['only' => ['index', 'show']]);
-
+Route::post('vehicles/{vehicle}', 'Vehicle\VehicleController@store')->name('vehicleReservation.store');
 
 /*
  * Customers
@@ -36,12 +36,3 @@ Route::resource('customers', 'Customer\CustomerController', ['except' => ['creat
  * */
 Route::resource('reservations', 'Reservation\ReservationController', ['except' => ['update', 'edit', 'create', 'store']]);
 //Route::post('reservations/{reservation}', 'Reservation\ReservationController@store')->name('reservations.store');
-
-
-
-//
-///*
-// * Transaction
-// * */
-//Route::resource('transactions', 'Transaction\TransactionController');
-//
