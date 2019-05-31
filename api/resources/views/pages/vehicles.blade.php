@@ -2,13 +2,17 @@
 
 @section('content')
 <h1 class="title" style="margin-top:0;">Vehicles</h1>
-
- <table id="table1" class="display cell-border table table-striped table-bordered" style="font-size: 2rem;">
+<hr>
+ <table id="table1" class="display cell-border table table-striped table-bordered" style="font-size: 2rem; background-color: #fff;  border: 2px solid #ccc;">
   <thead>
       <tr>
           <th>Manufacturer</th>
           <th>Model</th>
-          <th>Actions</th>
+          <th>Type</th>
+          <th>Power</th>
+          <th>Doors</th>
+          <th>Availability</th>
+          <th style="text-align:right;">Actions</th>
       </tr>
   </thead>
   <tbody>
@@ -16,7 +20,11 @@
       <tr>
           <td>{{ $vehicle->modelOfVehicle->makeOfVehicle['name'] }}</td>
           <td>{{ $vehicle->modelOfVehicle['name'] }}</td>
-          <td>
+          <td>{{ $vehicle->type }}</td>
+          <td>{{ $vehicle->engine_power }}</td>
+          <td>{{ $vehicle->door_number }}</td>
+          <td>{{ $vehicle->status }}</td>
+          <td style="text-align:right;">
               <a href="{{ url('vehicles/' .$vehicle->id) }}">
             <button class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span> About</button>
               </a>
@@ -37,5 +45,4 @@
       @endforeach
   </tbody>
 </table>
-
 @endsection
