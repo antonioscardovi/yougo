@@ -27,7 +27,7 @@
         </b-nav-item-dropdown>
       </template>
       <template v-else>
-        <li class="nav-item link-1">
+        <li class="nav-item link-1 link2">
           <nuxt-link class="register" to="/auth/register">Registracija</nuxt-link>
         </li>
       </template>
@@ -51,7 +51,7 @@ export default {
 /* header */
 
 .header {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgb(250, 250, 250);
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0);
   position: fixed;
   width: 100%;
@@ -94,11 +94,13 @@ export default {
   text-decoration: none;
   
 }
-.link-1:hover {
-  
-  border-top: 4px solid rgb(95, 95, 95);
-  
+.link-1:hover, .link-1:active {  
+  border-top: 4px solid rgb(95, 95, 95); 
    
+}
+
+.link2:hover{
+  border-top: 4px solid #0054DB;
 }
 
 .header li a.register:hover {
@@ -216,8 +218,17 @@ export default {
 
 @media (max-width:900px){
   .header .menu {background-color: rgb(255, 255, 255);
-  margin-left: 3%;
+  margin-left: 5%;
   font-size: 16px;
   }
+  .nav-item:hover {
+  font-family: Roboto;
+  font-size: 18px;
+}
+
+.link-1:hover {  
+  border-top: 0px solid rgb(95, 95, 95); 
+   
+}
 }
 </style>
