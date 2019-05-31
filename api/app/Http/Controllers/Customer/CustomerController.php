@@ -64,9 +64,9 @@ class CustomerController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Customer $customer)
     {
-        $customer = Customer::findOrFail($id);
+        //$customer = Customer::findOrFail($id);
 
         return $this->showOne($customer);
 
@@ -80,9 +80,9 @@ class CustomerController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Customer $customer) //$id
     {
-        $customer = Customer::findOrFail($id);
+        //$customer = Customer::findOrFail($id);
 
         $rules = [
             'email' => 'email|unique:customers,email,' . $customer->id,
@@ -131,9 +131,9 @@ class CustomerController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Customer $customer)
     {
-        $customer = Customer::findOrFail($id);
+        //$customer = Customer::findOrFail($id);
 
         $customer->delete();
 
