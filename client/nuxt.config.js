@@ -28,7 +28,11 @@ export default {
       },
       {rel: 'stylesheet',
       href:'https://fonts.googleapis.com/css?family=Work+Sans:300,400&display=swap'
+      },
+      {rel: 'stylesheet',
+      href:'https://fonts.googleapis.com/css?family=Raleway&display=swap'
       }
+      
 
     ],
     script: [

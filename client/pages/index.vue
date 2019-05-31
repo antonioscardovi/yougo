@@ -2,8 +2,8 @@
   <div class="container">
     <TheSidenav/>
     <div id="formahome">
-      <div id="blue"><center><h1>Rezerviraj auto po mjeri!
-      ________________________
+      <div id="blue"><center><h1>REZERVIRAJ AUTO PO MJERI!
+      <br>
       </h1></center>
       <section id="container">
       <section class="form-wrap">
@@ -40,13 +40,33 @@
       </section>
       
     </section>
-    <button type="submit" class="btn"><nuxt-link to="/Vehicles"><span>REZERVIRAJ!</span></nuxt-link></button>
+    <button type="submit" class="btn"><a id="link" href="/Vehicles"><span>REZERVIRAJ!</span></a></button>
       </div>
       <img id="image" src="~/assets/Images/a5.png"></div>
-    
-    
-    
+
+      <section class="sekcija2"></section>    
   </div>
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 </template>
 
 <script>
@@ -70,12 +90,50 @@ export default {
 h1{
   color:white;
   font-family: 'Montserrat';
+  
   padding-top: 7%;
   padding-left: 4%;
   padding-right:4%;
-  font-size: 30px;
-    }
+  font-size: 27px;
+  font-weight: bolder;
+  -webkit-animation: focus-in-expand-fwd 1.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: focus-in-expand-fwd 1.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
 
+@-webkit-keyframes focus-in-expand-fwd {
+  0% {
+    letter-spacing: -0.5em;
+    -webkit-transform: translateZ(-800px);
+            transform: translateZ(-800px);
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    -webkit-filter: blur(0);
+            filter: blur(0);
+    opacity: 1;
+  }
+}
+@keyframes focus-in-expand-fwd {
+  0% {
+    letter-spacing: -0.5em;
+    -webkit-transform: translateZ(-800px);
+            transform: translateZ(-800px);
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    -webkit-filter: blur(0);
+            filter: blur(0);
+    opacity: 1;
+  }
+}
 #image{
   
     margin-top:-19%;
@@ -97,17 +155,23 @@ h1{
   z-index: 3;
 }
 
+#sekcija2{
+  background-color: red;
+  height:100px;
+  width:100%;
+}
+
 #formahome{
   background-color: #0054db;
   min-height: 400px;
   width:35%;
-  margin-left: 25%;
+  margin-left: 30%;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.517), 0 6px 20px 0 rgba(0, 0, 0, 0.51);
 }
 
 .btn{
-  text-decoration: none;
+  text-decoration: none!important;
   font-family: 'Montserrat';
   font-weight: bold;
   text-shadow: 2px 2px 6px #444444;
@@ -128,17 +192,22 @@ h1{
   color:rgb(200, 233, 253);
   font-size:23px;
   border:2px solid white;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.517), 0 6px 20px 0 rgba(0, 0, 0, 0.51);
-  
-  
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.517), 0 6px 20px 0 rgba(0, 0, 0, 0.51);  
 }
 
- .btn:hover{
-  color:rgb(255, 255, 255);
+#link{
+  text-decoration: none;
+  color:rgb(200, 233, 253);
 }
-.btn span {
+
+ .btn:hover,#link:hover,.btn span:hover{
+  color:rgb(255, 255, 255);
+  text-shadow: 1px 1px 6px #1b1b1b;
+}
+.btn span  {
   position: relative;
    z-index: 1;
+   text-decoration: none;
   
 }
 
@@ -149,7 +218,7 @@ h1{
   top: 0;
   height: 350%;
   width: 130%;
-  background: #78c7d2;
+  background: #6ab3bd;
   -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
   -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
@@ -170,9 +239,7 @@ h1{
     width:60%;
   }
   #image{
-    height:auto;
-  width:100%;
-  margin-top:0;
+    display: none;
   }
   
 
@@ -182,16 +249,14 @@ h1{
   
 }
 
+
 @media screen and (max-width: 900px) and (min-width: 523px) {
   #formahome {
     z-index: 1;
     width:60%;
   }
   #image{
-     height:auto;
-  width:100%;
-  margin-top:0%;
-  z-index: -1;
+     display:none;
 
   }
   .form-group{
@@ -212,9 +277,7 @@ h1{
     
   }
 .image {
-  height:auto;
-  width:100%;
-   z-index: -2;
+  display:none;
   
 }
 .form-group{
@@ -227,6 +290,11 @@ h1{
   }
 }
 
+@media screen and (max-width:1300px){
+  #image{
+    display:none;
+  }
+}
 
 
 </style>
