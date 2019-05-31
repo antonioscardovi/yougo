@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Reservation;
 
 use App\CustomerVehicle;
-use App\Http\Controllers\ApiController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ReservationController extends ApiController
+class ReservationBackendController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +16,7 @@ class ReservationController extends ApiController
     public function index()
     {
         $reservations = CustomerVehicle::all();
-        //echo CustomerVehicle::all();
-        return $this->showAll($reservations);
+        return view('pages.reservations', compact('reservations'));
     }
 
     /**
@@ -39,15 +37,7 @@ class ReservationController extends ApiController
      */
     public function store(Request $request)
     {
-//        $rules = [
-//            'customer_id' => 'required',
-//            'vehicle_id' => 'required',
-//        ];
-//        //Auth::user()->id
-//        $this->validate($request, $rules);
-//
-//        $data = $request->all();
-//        $data['customer_id'] =;
+        //
     }
 
     /**
@@ -56,11 +46,9 @@ class ReservationController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(CustomerVehicle $reservation)
     {
-        $reservation = CustomerVehicle::findOrFail($id);
-
-        return $this->showOne($reservation);
+        return view('pages.reservation', compact('reservation'));
     }
 
     /**

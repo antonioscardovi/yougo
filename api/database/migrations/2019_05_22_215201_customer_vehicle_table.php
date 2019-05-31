@@ -13,7 +13,9 @@ class CustomerVehicleTable extends Migration
      */
     public function up()
     {
-        Schema::create('customer_vehicle', function (Blueprint $table) {
+        Schema::create('customer_vehicles', function (Blueprint $table) {
+            $table->bigIncrements('id');
+
             $table->bigInteger('customer_id')->unsigned();
             $table->foreign('customer_id')->references('id')->on('customers');
 

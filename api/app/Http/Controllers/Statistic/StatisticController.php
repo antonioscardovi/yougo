@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Reservation;
+namespace App\Http\Controllers;
 
-use App\CustomerVehicle;
-use App\Http\Controllers\ApiController;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Customer;
+use App\Vehicle;
+use App\CustomerVehicle;
 
-class ReservationController extends ApiController
+class StatisticStatisticController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,10 @@ class ReservationController extends ApiController
      */
     public function index()
     {
+        $customers = Customer::all();
+        $vehicles = Vehicle::all();
         $reservations = CustomerVehicle::all();
-        //echo CustomerVehicle::all();
-        return $this->showAll($reservations);
+        return view('pages.reservations', compact('customers', 'vehicles', 'reservations'));
     }
 
     /**
@@ -39,15 +40,7 @@ class ReservationController extends ApiController
      */
     public function store(Request $request)
     {
-//        $rules = [
-//            'customer_id' => 'required',
-//            'vehicle_id' => 'required',
-//        ];
-//        //Auth::user()->id
-//        $this->validate($request, $rules);
-//
-//        $data = $request->all();
-//        $data['customer_id'] =;
+        //
     }
 
     /**
@@ -58,9 +51,7 @@ class ReservationController extends ApiController
      */
     public function show($id)
     {
-        $reservation = CustomerVehicle::findOrFail($id);
-
-        return $this->showOne($reservation);
+        //
     }
 
     /**

@@ -1,39 +1,39 @@
 @extends('adminlte::page')
 
 @section('content')
-<h1 class="title" style="margin-top:0;">Vehicles</h1>
+<h1 class="title" style="margin-top:0;">Reservations</h1>
 
  <table id="table1" class="display cell-border table table-striped table-bordered" style="font-size: 2rem;">
   <thead>
       <tr>
-          <th>Manufacturer</th>
-          <th>Model</th>
+          <th>Customer</th>
+          <th>Vehicle</th>
           <th>Actions</th>
       </tr>
   </thead>
   <tbody>
-      @foreach($vehicles as $vehicle)
+      @foreach($reservations as $reservation)
       <tr>
-          <td>{{ $vehicle->modelOfVehicle->makeOfVehicle['name'] }}</td>
-          <td>{{ $vehicle->modelOfVehicle['name'] }}</td>
+          <td>{{ $reservation->customer_id }}</td>
+          <td>{{ $reservation->vehicle_id }}</td>
           <td>
-              <a href="{{ url('vehicles/' .$vehicle->id) }}">
+              <a href="{{ url('reservations/' .$reservation->id) }}">
             <button class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span> About</button>
               </a>
 
-            <a href="vehicles/{{$vehicle->id}}/edit">
+            <a href="reservations/{{$reservation->id}}/edit">
             <button class="edit-modal btn btn-info" data-toggle="edit-modal" data-target="#myModal"
-            data-info="{{$vehicle->id}},{{$vehicle->type}}">
+            data-info="{{$reservation->id}},{{$reservation->type}}">
             <span class="glyphicon glyphicon-edit"></span> Edit
         </button>
             </a>
         <button class="delete-modal btn btn-danger"
-            data-info="{{$vehicle->id}},{{$vehicle->type}}">
+            data-info="{{$reservation->id}},{{$reservation->type}}">
             <span class="glyphicon glyphicon-trash"></span> Delete
         </button></td>
         </a>
       </tr>
-      {{-- <a href="{{ url('vehicles/' .$vehicle->id) }}"></a> --}} <!-- LINK ZA JEDNO VOZILO -->
+      {{-- <a href="{{ url('reservations/' .$reservation->id) }}"></a> --}} <!-- LINK ZA JEDNO VOZILO -->
       @endforeach
   </tbody>
 </table>
