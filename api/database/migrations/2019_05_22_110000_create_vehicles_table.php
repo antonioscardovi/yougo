@@ -28,7 +28,7 @@ class CreateVehiclesTable extends Migration
             $table->string('description', 1000);
             $table->string('image')->default('slika.jpg');
             $table->string('status')->default(\App\Vehicle::UNAVAILABLE_VEHICLE);
-            //$table->double('price', 8, 2);//->unsigned();
+            $table->double('price', 8, 2);//->unsigned();
 
             //$table->integer('customer_id')->unsigned();
 

@@ -35,6 +35,11 @@ class Vehicle extends Model
         return $this->status == Vehicle::AVAILABLE_VEHICLE;
     }
 
+    public function setToNotAvailable()
+    {
+        return Vehicle::UNAVAILABLE_VEHICLE;
+    }
+
     public function customers()
     {
         return $this->hasMany(Customer::class); // belongsToMany ???

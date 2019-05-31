@@ -90,7 +90,7 @@ $factory->define(Vehicle::class, function (Faker $faker) {
         'description' => $faker->paragraph(2),
         'image' => $faker->randomElement(['1.jpg', '2.jpg', '3.jpg']), //$faker->image(null,640,480,'vehicle'),
         'status' => $status = $faker->randomElement([Vehicle::AVAILABLE_VEHICLE, Vehicle::UNAVAILABLE_VEHICLE]),
-        //'price' => $price = $faker->randomFloat(2,99.99,5000.00),
+        'price' => $price = $faker->randomFloat(2,99.99,5000.00),
     ];
 });
 $factory->define(CustomerVehicle::class, function (Faker $faker) {
