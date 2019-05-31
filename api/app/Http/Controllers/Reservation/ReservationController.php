@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Reservation;
 
+use App\Customer;
 use App\CustomerVehicle;
 use App\Http\Controllers\ApiController;
+use App\Vehicle;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class ReservationController extends ApiController
 {
@@ -21,15 +24,6 @@ class ReservationController extends ApiController
         return $this->showAll($reservations);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -37,17 +31,28 @@ class ReservationController extends ApiController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Vehicle $vehicle, Customer $customer)
     {
-//        $rules = [
-//            'customer_id' => 'required',
-//            'vehicle_id' => 'required',
-//        ];
-//        //Auth::user()->id
-//        $this->validate($request, $rules);
-//
-//        $data = $request->all();
-//        $data['customer_id'] =;
+        if (!$customer->isVerified()) {
+            return $this->errorResponse('Morate biti verificirani za nastavak', 409);
+        }
+
+        if (!$vehicle->isAvailable()) {
+            return $this->errorResponse('Vozilo nije dostupno za rentanje',409);
+        }
+
+        return DB::transaction(function () use ($request, $vehicle, $customer) {
+            $vehicle->isAvailable();
+            $vehicle->save();
+
+            $reservation = CustomerVehicle::create([
+                'customer_id' => $customer->id,
+                'vehicle_id' => $vehicle->id,
+                'price_of_reservation' => 2500,
+            ]);
+
+            return $this->showOne($reservation, 201);
+        });
     }
 
     /**
@@ -56,34 +61,11 @@ class ReservationController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(CustomerVehicle $reservation)
     {
-        $reservation = CustomerVehicle::findOrFail($id);
+        //$reservation = CustomerVehicle::findOrFail($id);
 
         return $this->showOne($reservation);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
     }
 
     /**
@@ -92,7 +74,7 @@ class ReservationController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(CustomerVehicle $reservation)
     {
         //
     }
