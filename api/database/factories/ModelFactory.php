@@ -86,11 +86,13 @@ $factory->define(Vehicle::class, function (Faker $faker) {
         //'type' => $faker->name,
         'type' => $faker->randomElement(['hatchback', 'supercar', 'limousine', 'electric']), // Dodati kao i u tablici
         'engine_power' => $faker->numberBetween(0, 2500),
+        'auto_ac' => $faker->randomElement([Vehicle::HAVE_AUTO_AC, Vehicle::DONT_HAVE_AUTO_AC]),
+        'gearbox' => $faker->randomElement([Vehicle::MANUAL_GEARBOX, Vehicle::AUTOMATIC_GEARBOX]),
         'door_number' => $faker->numberBetween(1, 5),
         'description' => $faker->paragraph(2),
         'image' => $faker->randomElement(['1.jpg', '2.jpg', '3.jpg']), //$faker->image(null,640,480,'vehicle'),
         'status' => $status = $faker->randomElement([Vehicle::AVAILABLE_VEHICLE, Vehicle::UNAVAILABLE_VEHICLE]),
-        //'price' => $price = $faker->randomFloat(2,99.99,5000.00),
+        'price' => $price = $faker->randomFloat(2,99.99,5000.00),
     ];
 });
 $factory->define(CustomerVehicle::class, function (Faker $faker) {

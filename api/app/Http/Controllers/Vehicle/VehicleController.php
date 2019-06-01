@@ -54,13 +54,13 @@ class VehicleController extends ApiController
         }
 
         return DB::transaction(function () use ($request, $vehicle, $customer) {
-            $vehicle->isAvailable();
+            $vehicle['status'] =  $vehicle->setToNotAvailable();
             $vehicle->save();
 
             $reservation = CustomerVehicle::create([
                 'customer_id' => $request->get('customer_id'),
                 'vehicle_id' => $vehicle->id,
-                'price_of_reservation' => 2500,
+                'price_of_reservation' => $request->get('days') * $vehicle['price'],
             ]);
 
             return $this->showOne($reservation, 201);

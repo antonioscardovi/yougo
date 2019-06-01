@@ -45,7 +45,11 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#0054db', height: '4px', duration: 5000 },
+  loading: { color: "#fa923f", height: "4px", duration: 5000 },
+  loadingIndicator: {
+    name: "circle",
+    color: "#fa923f"
+  },
 
   router: {
     middleware: ['clearValidationErrors']
