@@ -11,6 +11,9 @@
           <th>Type</th>
           <th>Power</th>
           <th>Doors</th>
+          <th>Gearbox</th>
+          <th>AC</th>
+          <th>Price/per Day</th>
           <th>Availability</th>
           <th style="text-align:right;">Actions</th>
       </tr>
@@ -21,8 +24,15 @@
           <td>{{ $vehicle->modelOfVehicle->makeOfVehicle['name'] }}</td>
           <td>{{ $vehicle->modelOfVehicle['name'] }}</td>
           <td>{{ $vehicle->type }}</td>
-          <td>{{ $vehicle->engine_power }}</td>
+          <td>{{ $vehicle->engine_power }} kW</td>
           <td>{{ $vehicle->door_number }}</td>
+          <td>{{ $vehicle->gearbox }}</td>
+          @if($vehicle->auto_ac == "true")
+              <td>Yes</td>
+          @else
+              <td>No</td>
+          @endif
+          <td>{{ $vehicle->price }} HRK</td>
           <td>{{ $vehicle->status }}</td>
           <td style="text-align:right;">
               <a href="{{ url('vehicles/' .$vehicle->id) }}">
@@ -35,10 +45,15 @@
             <span class="glyphicon glyphicon-edit"></span> Edit
         </button>
             </a>
-        <button class="delete-modal btn btn-danger"
+              <form method="POST" action="/vehicles/{{ $vehicle->id }}" style="display: inline;">
+                  @method('DELETE')
+                  @csrf
+        <button type="submit" class="delete-modal btn btn-danger"
             data-info="{{$vehicle->id}},{{$vehicle->type}}">
             <span class="glyphicon glyphicon-trash"></span> Delete
-        </button></td>
+        </button>
+              </form>
+          </td>
         </a>
       </tr>
       {{-- <a href="{{ url('vehicles/' .$vehicle->id) }}"></a> --}} <!-- LINK ZA JEDNO VOZILO -->

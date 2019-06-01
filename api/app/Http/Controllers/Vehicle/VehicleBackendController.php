@@ -38,7 +38,10 @@ class VehicleBackendController extends Controller
      */
     public function create()
     {
-        return view('pages.addVehicle');
+        $makes = MakeOfVehicle::all();
+        $models = ModelOfVehicle::with('makeOfVehicle')->get();
+
+        return view('pages.addVehicle', compact('makes', 'models'));
     }
 
     /**
