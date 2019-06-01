@@ -15,7 +15,7 @@ class ReservationBackendController extends Controller
      */
     public function index()
     {
-        $reservations = CustomerVehicle::all();
+        $reservations = CustomerVehicle::with('vehicle', 'customer')->get();
         return view('pages.reservations', compact('reservations'));
     }
 

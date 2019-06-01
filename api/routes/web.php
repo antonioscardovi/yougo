@@ -44,6 +44,6 @@ Auth::routes();
 /*
 * Statistics
 * */
-//Route::resource('home', 'Statistic\StatisticController');
+Route::resource('home', 'Statistic\StatisticController', ['only' => ['index']]);
 
 Route::get('/', 'HomeController@index')->name('home');

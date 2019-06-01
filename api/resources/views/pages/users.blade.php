@@ -2,6 +2,7 @@
 
 @section('content')
     <h1 class="title" style="margin-top:0;">Users</h1>
+    <hr>
 
 
     <table id="table1" class="display cell-border table table-striped table-bordered" style="font-size: 2rem;">
