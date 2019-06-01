@@ -5,7 +5,7 @@
     <hr>
 
 
-    <table id="table1" class="display cell-border table table-striped table-bordered" style="font-size: 2rem;">
+    <table id="table1" class="display cell-border table table-striped table-bordered" style="font-size: 2rem; background-color: #fff;  border: 2px solid #ccc;">
             <thead>
                 <tr>
                     <th>Name</th>

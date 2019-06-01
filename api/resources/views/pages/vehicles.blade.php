@@ -45,10 +45,15 @@
             <span class="glyphicon glyphicon-edit"></span> Edit
         </button>
             </a>
-        <button class="delete-modal btn btn-danger"
+              <form method="POST" action="/vehicles/{{ $vehicle->id }}" style="display: inline;">
+                  @method('DELETE')
+                  @csrf
+        <button type="submit" class="delete-modal btn btn-danger"
             data-info="{{$vehicle->id}},{{$vehicle->type}}">
             <span class="glyphicon glyphicon-trash"></span> Delete
-        </button></td>
+        </button>
+              </form>
+          </td>
         </a>
       </tr>
       {{-- <a href="{{ url('vehicles/' .$vehicle->id) }}"></a> --}} <!-- LINK ZA JEDNO VOZILO -->
