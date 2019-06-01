@@ -58,7 +58,7 @@ class CustomerBackendController extends Controller
         $customer = Customer::create($data);
 
         //return response()->json(['data' => $customer], 201);
-        return $this->showOne($customer, 201);
+//        return $this->showOne($customer, 201);
     }
 
     /**
@@ -124,13 +124,14 @@ class CustomerBackendController extends Controller
             $customer->password = bcrypt($request->password);
         }
 
-        if (!$customer->isDirty()) {
+        /*if (!$customer->isDirty()) {
             return $this->errorResponse('Prilikom update profila neka vrijednost mora biti zamjenjena', 422);
-        }
+        }*/
 
         $customer->save();
 
-        return $this->showOne($customer, 201);
+        return view('pages.customer', compact('customer'));
+//        return $this->showOne($customer, 201);
     }
 
     /**
@@ -145,6 +146,6 @@ class CustomerBackendController extends Controller
 
         $customer->delete();
 
-        return $this->showOne($customer);
+//        return $this->showOne($customer);
     }
 }
