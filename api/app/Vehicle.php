@@ -9,7 +9,11 @@ class Vehicle extends Model
     const AVAILABLE_VEHICLE = 'available';
     const UNAVAILABLE_VEHICLE = 'unavailable';
 
+    const HAVE_AUTO_AC = 'true';
+    const DONT_HAVE_AUTO_AC = 'false';
 
+    const AUTOMATIC_GEARBOX = 'automatic';
+    const MANUAL_GEARBOX = 'manual';
 
     protected $fillable = [
 
@@ -17,8 +21,8 @@ class Vehicle extends Model
         'model',
         'type',
         'engine_power',
-        //'auto_ac',
-        //'gearbox',
+        'auto_ac',
+        'gearbox',
         'door_number',
         'description',
         'image',

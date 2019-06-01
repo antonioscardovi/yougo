@@ -24,6 +24,8 @@ class CreateVehiclesTable extends Migration
             //$table->enum('type',); // dodati još, i u ModelFactory
             $table->string('type');
             $table->string('engine_power');
+            $table->string('auto_ac')->default(\App\Vehicle::DONT_HAVE_AUTO_AC);
+            $table->string('gearbox')->default(\App\Vehicle::MANUAL_GEARBOX);
             $table->string('door_number');
             $table->string('description', 1000);
             $table->string('image')->default('slika.jpg');
