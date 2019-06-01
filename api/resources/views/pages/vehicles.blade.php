@@ -13,6 +13,7 @@
           <th>Doors</th>
           <th>Gearbox</th>
           <th>AC</th>
+          <th>Price/per Day</th>
           <th>Availability</th>
           <th style="text-align:right;">Actions</th>
       </tr>
@@ -31,6 +32,7 @@
           @else
               <td>No</td>
           @endif
+          <td>{{ $vehicle->price }} HRK</td>
           <td>{{ $vehicle->status }}</td>
           <td style="text-align:right;">
               <a href="{{ url('vehicles/' .$vehicle->id) }}">
