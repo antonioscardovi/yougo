@@ -8,6 +8,11 @@ use App\Customer;
 
 class CustomerBackendController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $customers = Customer::all();

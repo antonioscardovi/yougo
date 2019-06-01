@@ -9,6 +9,12 @@ use App\Http\Controllers\ApiController;
 
 class UserController extends ApiController
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
