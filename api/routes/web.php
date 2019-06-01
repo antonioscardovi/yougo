@@ -31,13 +31,13 @@ Route::resource('vehicles', 'Vehicle\VehicleBackendController');
 /*
  * Customers
  * */
-Route::resource('customers', 'Customer\CustomerBackendController'); // 'except' create edit
+Route::resource('customers', 'Customer\CustomerBackendController', ['only' => ['index', 'show', 'edit']]); // 'except' create edit
 
 
 /*
  * Reservations
  * */
-Route::resource('reservations', 'Reservation\ReservationBackendController');
+Route::resource('reservations', 'Reservation\ReservationBackendController', ['only' => ['index', 'show', 'destroy']]);
 Auth::routes();
 
 

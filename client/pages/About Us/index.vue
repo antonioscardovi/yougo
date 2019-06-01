@@ -4,11 +4,7 @@
 
     <section class="intro">
       <div class="about-page">
-        <h1>This is my absolutely fantastic "About Us" Page!</h1>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam officiis ab voluptatibus assumenda error quas deleniti eius? Suscipit, numquam? Quis aliquid non animi numquam amet voluptas dolorum sunt aspernatur commodi?</p>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam officiis ab voluptatibus assumenda error quas deleniti eius? Suscipit, numquam? Quis aliquid non animi numquam amet voluptas dolorum sunt aspernatur commodi?</p>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam officiis ab voluptatibus assumenda error quas deleniti eius? Suscipit, numquam? Quis aliquid non animi numquam amet voluptas dolorum sunt aspernatur commodi?</p>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam officiis ab voluptatibus assumenda error quas deleniti eius? Suscipit, numquam? Quis aliquid non animi numquam amet voluptas dolorum sunt aspernatur commodi?</p>
+        <h1> Ovo je naša priča </h1>
       </div>
     </section>
   </div>
@@ -25,7 +21,7 @@ export default {
 
 <style scoped>
 .container {
-  background-image: url(~assets/Images/audi3.jpg);
+  
   background-size: cover;
   background-position: center;
   padding-top: 100px;
@@ -41,10 +37,12 @@ export default {
 
 .about-page {
   text-align: center;
-  padding: 30px;
-  position: relative;
-  padding: 30px;
+  padding-top:200px;
+  margin-top: -10%;
+  height:500px;
+  
   box-sizing: border-box;
+  background-color: #0054db;
 }
 
 .about-page p {

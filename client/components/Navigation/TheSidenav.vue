@@ -10,14 +10,14 @@
       <span class="navicon"></span>
     </label>
     <ul class="menu">
-      <li class="nav-item">
-        <nuxt-link to="/">HOME</nuxt-link>
+      <li class="nav-item link-1">
+        <nuxt-link to="/">Početna</nuxt-link>
       </li>
-      <li class="nav-item">
-        <nuxt-link to="/Vehicles">VEHICLES</nuxt-link>
+      <li class="nav-item link-1">
+        <nuxt-link to="/Vehicles">Popis vozila</nuxt-link>
       </li>
-      <li class="nav-item">
-        <nuxt-link to="/About Us">ABOUT US</nuxt-link>
+      <li class="nav-item link-1">
+        <nuxt-link to="/About Us">O nama</nuxt-link>
       </li>
 
       <template v-if="authenticated">
@@ -27,8 +27,8 @@
         </b-nav-item-dropdown>
       </template>
       <template v-else>
-        <li class="nav-item">
-          <nuxt-link class="register" to="/auth/register">REGISTER</nuxt-link>
+        <li class="nav-item link-1 link2">
+          <nuxt-link class="register" to="/auth/register">Registracija</nuxt-link>
         </li>
       </template>
     </ul>
@@ -51,7 +51,7 @@ export default {
 /* header */
 
 .header {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgb(250, 250, 250);
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0);
   position: fixed;
   width: 100%;
@@ -71,15 +71,15 @@ export default {
   display: block;
   padding: 20px 20px;
   text-decoration: none;
-  color: #fff;
+  color: #333;
   font-weight: bold;
-  text-shadow: 2px 2px 4px #333;
+  /*text-shadow: 2px 2px 4px #333;*/
   transition: all 0.2s ease-in-out;
 }
 
 .header li a:hover,
 .header .menu-btn:hover {
-  color: rgb(235, 235, 235);
+  color: rgb(112, 112, 112);
 
   transform: scale(1.1);
 }
@@ -87,6 +87,20 @@ export default {
 .header li a.register {
   color: #1161ee;
   text-shadow: 0 0 0;
+}
+
+.link-1 {
+  transition: 0.3s ease;  
+  text-decoration: none;
+  
+}
+.link-1:hover, .link-1:active {  
+  border-top: 4px solid rgb(95, 95, 95); 
+   
+}
+
+.link2:hover{
+  border-top: 4px solid #0054DB;
 }
 
 .header li a.register:hover {
@@ -122,6 +136,7 @@ export default {
   padding: 28px 20px;
   position: relative;
   user-select: none;
+  
 }
 
 .header .menu-icon .navicon {
@@ -150,6 +165,7 @@ export default {
 
 .header .menu-icon .navicon:after {
   top: -5px;
+  
 }
 
 /* menu btn */
@@ -181,7 +197,7 @@ export default {
 
 /* 48em = 768px */
 
-@media (min-width: 48em) {
+@media (min-width: 55em) {
   .header li {
     float: left;
   }
@@ -190,11 +206,29 @@ export default {
   }
   .header .menu {
     clear: none;
+    
     float: right;
     max-height: none;
   }
   .header .menu-icon {
     display: none;
   }
+  
+}
+
+@media (max-width:900px){
+  .header .menu {background-color: rgb(255, 255, 255);
+  margin-left: 5%;
+  font-size: 16px;
+  }
+  .nav-item:hover {
+  font-family: Roboto;
+  font-size: 18px;
+}
+
+.link-1:hover {  
+  border-top: 0px solid rgb(95, 95, 95); 
+   
+}
 }
 </style>

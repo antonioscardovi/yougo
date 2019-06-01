@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Vehicle;
 
+use App\Customer;
+use App\CustomerVehicle;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 use App\Vehicle;
+use Illuminate\Support\Facades\DB;
 
 class VehicleController extends ApiController
 {
@@ -20,14 +23,18 @@ class VehicleController extends ApiController
         return $this->showAll($vehicles);
     }
 
+
     /**
-     * Show the form for creating a new resource.
+     * Display the specified resource.
      *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function show(Vehicle $vehicle)
     {
-        return view('pages.addVehicle');
+        //$vehicle = Vehicle::findOrFail($id);
+
+        return $this->showOne($vehicle);
     }
 
     /**
@@ -36,67 +43,27 @@ class VehicleController extends ApiController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Vehicle $vehicle, Customer $customer)
     {
-        $attributes = request()->validate([
-            'make'=>['required', 'min:3', 'max:255'],
-            'model'=>['required', 'min:3', 'max:255'],
-            'type'=>['required', 'min:3', 'max:255'],
-            'engine_power'=>['required'],
-            'door_number'=>['required'],
-            'description'=>['required', 'min:3', 'max:255'],
-            'auto_ac'=>[],
-            'status'=>[]
-        ]);
-            Vehicle::create($attributes);
+//        if (!$customer->isVerified()) {
+//            return $this->errorResponse('Morate biti verificirani za nastavak', 409);
+//        }
 
-        return redirect('/vehicles');;
-    }
+        if (!$vehicle->isAvailable()) {
+            return $this->errorResponse('Vozilo nije dostupno za rentanje',409);
+        }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $vehicle = Vehicle::findOrFail($id);
+        return DB::transaction(function () use ($request, $vehicle, $customer) {
+            $vehicle['status'] =  $vehicle->setToNotAvailable();
+            $vehicle->save();
 
-        return $this->shownOne($vehicle);
-    }
+            $reservation = CustomerVehicle::create([
+                'customer_id' => $request->get('customer_id'),
+                'vehicle_id' => $vehicle->id,
+                'price_of_reservation' => $request->get('days') * $vehicle['price'],
+            ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+            return $this->showOne($reservation, 201);
+        });
     }
 }

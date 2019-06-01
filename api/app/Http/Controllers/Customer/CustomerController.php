@@ -20,15 +20,6 @@ class CustomerController extends ApiController
         return $this->showAll($customers);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -73,24 +64,14 @@ class CustomerController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Customer $customer)
     {
-        $customer = Customer::findOrFail($id);
+        //$customer = Customer::findOrFail($id);
 
         return $this->showOne($customer);
 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -99,9 +80,9 @@ class CustomerController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Customer $customer) //$id
     {
-        $customer = Customer::findOrFail($id);
+        //$customer = Customer::findOrFail($id);
 
         $rules = [
             'email' => 'email|unique:customers,email,' . $customer->id,
@@ -150,9 +131,9 @@ class CustomerController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Customer $customer)
     {
-        $customer = Customer::findOrFail($id);
+        //$customer = Customer::findOrFail($id);
 
         $customer->delete();
 

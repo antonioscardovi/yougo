@@ -18,7 +18,22 @@ export default {
       {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css?family=Roboto'
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css?family=Lato:300&display=swap'
+      },
+      {rel: 'stylesheet',
+      href:'https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap'
+      },
+      {rel: 'stylesheet',
+      href:'https://fonts.googleapis.com/css?family=Work+Sans:300,400&display=swap'
+      },
+      {rel: 'stylesheet',
+      href:'https://fonts.googleapis.com/css?family=Raleway&display=swap'
       }
+      
+
     ],
     script: [
       {
@@ -30,7 +45,11 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#0054db', height: '4px', duration: 5000 },
+  loading: { color: "#fa923f", height: "4px", duration: 5000 },
+  loadingIndicator: {
+    name: "circle",
+    color: "#fa923f"
+  },
 
   router: {
     middleware: ['clearValidationErrors']
