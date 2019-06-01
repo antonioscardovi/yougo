@@ -11,6 +11,8 @@
           <th>Type</th>
           <th>Power</th>
           <th>Doors</th>
+          <th>Gearbox</th>
+          <th>AC</th>
           <th>Availability</th>
           <th style="text-align:right;">Actions</th>
       </tr>
@@ -21,8 +23,14 @@
           <td>{{ $vehicle->modelOfVehicle->makeOfVehicle['name'] }}</td>
           <td>{{ $vehicle->modelOfVehicle['name'] }}</td>
           <td>{{ $vehicle->type }}</td>
-          <td>{{ $vehicle->engine_power }}</td>
+          <td>{{ $vehicle->engine_power }} kW</td>
           <td>{{ $vehicle->door_number }}</td>
+          <td>{{ $vehicle->gearbox }}</td>
+          @if($vehicle->auto_ac == "true")
+              <td>Yes</td>
+          @else
+              <td>No</td>
+          @endif
           <td>{{ $vehicle->status }}</td>
           <td style="text-align:right;">
               <a href="{{ url('vehicles/' .$vehicle->id) }}">
