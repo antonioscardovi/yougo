@@ -1,5 +1,6 @@
 <template>
   <div class="single-post-page">
+    <section class="post-list">
    <article>
       <div
         class="post-thumbnail"
@@ -13,7 +14,8 @@
         <h1>Dostupnost: {{ vehicles.status }}</h1>
       </div>
     </article>
-  </div>
+   </section>
+</div>
 </template>
 
 <script>
@@ -25,8 +27,9 @@ export default {
         }
     },
     methods: {
-    getVehicles() {
-      axios.get('http://localhost/api/vehicles/')
+    },
+    created(){
+      axios.get('http://localhost/api/vehicles/' + this.$route.params.id)
         .then((res) => {
           console.log(res);
           this.vehicles = res.data.data;
@@ -35,57 +38,37 @@ export default {
           // eslint-disable-next-line
           console.error(error);
         });
-      },
+      
     },
-    created(){
-        this.getVehicles();
-    },
- 
-    props: {
-    id: {
-      type: Number,
-      required: true
-    },
-    type: {
-      type: String,
-      required: true
-    },
-    engine_power: {
-      type: String,
-      required: true
-    },
-    door_number :{
-        type:String,
-        required: true
-    },
-    image : {
-        type:String,
-        required:true
-    },
-    description :{
-        type:String,
-        required:true
-    },
-    status: {
-        type:String,
-        required:true
-    }
-  },
-  components: {
-  },
 }
 </script>
 
 
 <style scoped>
 .single-post-page {
+  margin-top: 20px;
   padding: 30px;
   text-align: center;
   box-sizing: border-box;
 }
+.post-preview {
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 2px #ccc;
+  background-color: white;
+  width: 90%;
+}
 
 .post {
   width: 100%;
+}
+.post-list {
+  background-color: #ccc;
+  display: flex;
+  padding: 20px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (min-width: 768px) {
@@ -107,6 +90,24 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+
+.post-thumbnail {
+  width: 100%;
+  height: 200px;
+  background-position: center;
+  background-size: cover;
+}
+
+.post-content {
+  padding: 10px;
+  text-align: center;
+}
+
+a:hover .post-content,
+a:active .post-content {
+  background-color: #ccc;
 }
 
 @media (min-width: 768px) {
