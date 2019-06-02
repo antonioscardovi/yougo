@@ -8,12 +8,12 @@
     <form method="POST" action="{{ route('vehicles.store') }}" enctype="multipart/form-data">
     {{ csrf_field() }}
 
-        <div class="form-group">
+        {{-- <div class="form-group">
             <label for="make">Manufacturer</label>
             <select name="make" class="form-control">
-                <option disabled selected value> Select a Manufacturer</option>
-                @foreach($makes as $make)
-                    <option value="{{ $make['id'] }}">{{ $make['name'] }}</option>
+                <option disabled selected value style="display: none;"> </option>
+                @foreach($makes as $key => $value)
+                    <option value="{{ $key }}">{{ $value['name'] }}</option>
                     @endforeach
             </select>
         </div>
@@ -22,48 +22,81 @@
         <div>
         {{ $errors->first('make') }}
         </div>
-        @endif
+        @endif --}}
 
         <div class="form-group">
-            <label for="model">Model</label>
-            <select name="model" class="form-control">
-                <option disabled selected value> Select a Model </option>
+            <label for="model_id">Model</label>
+            <select name="model_id" class="form-control">
+                <option disabled selected value style="display: none;">  </option>
                 @foreach($models as $model)
-                    <option value="{{ $model }}">{{ $model['name'] }}</option>
+                    <option value="{{ $model['id'] }}"> {{ $model->makeOfVehicle['name'] }} {{ $model['name'] }}</option>
             @endforeach
             </select>
         </div>
         
         <div class="form-group">
             <label for="type">Type</label>
-            <input type="text" name="type" class="form-control {{ $errors->has('type') ? 'is-danger' : '' }}" placeholder="@if ($errors->has('type')) {{ $errors->first('type') }} @else Enter Type  @endif">
+            <select name="type" class="form-control">
+                <option disabled selected value style="display: none;"></option>
+                <option value="hatchback">Hatchback</option>
+                <option value="limousine">Limousine</option>
+                <option value="sport">Sport</option>
+                <option value="supersport">Supersport</option>
+                <option value="suv">SUV</option>
+                <option value="caravan">Caravan</option>
+            </select>
         </div>
-        <div class="form-group">
-            <label for="engine_power">Engine Power</label>
-            <input type="text" name="engine_power" class="form-control {{ $errors->has('engine_power') ? 'is-danger' : '' }}" placeholder="@if ($errors->has('engine_power')) {{ $errors->first('engine_power') }} @else Enter Engine Power (kW)  @endif">
-        </div>
+
         <div class="form-group">
             <label for="door_number">Door Number</label>
-            <input type="text" name="door_number" class="form-control {{ $errors->has('door_number') ? 'is-danger' : '' }}" placeholder="@if ($errors->has('door_number')) {{ $errors->first('door_number') }} @else Number of Doors  @endif">
+            <select name="door_number" class="form-control">
+                <option disabled selected value style="display: none;"></option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+            {{-- <input type="text" name="door_number" class="form-control {{ $errors->has('door_number') ? 'is-danger' : '' }}" placeholder="@if ($errors->has('door_number')) {{ $errors->first('door_number') }} @else   @endif"> --}}
         </div>
 
         <div class="form-group">
-            <label for="gearbox" class="form-check-label">Gearbox </label>
-            <input type="checkbox" name="gearbox" value="1" class="form-check-input">
+            <label for="gearbox">Gearbox</label>
+            <select name="gearbox" class="form-control">
+                <option disabled selected value style="display: none;"></option>
+                <option value="autmoatic">Automatic</option>
+                <option value="manual">Manual</option>
+            </select>
+            {{-- <input type="checkbox" name="gearbox" value="1" class="form-check-input"> --}}
+        </div>
 
-        <label for="auto-ac" class="form-check-label">
-            Auto AC </label>
-            <input type="checkbox" name="auto_ac" value='1' class="form-check-input">
+
+        <div class="form-group">
+        <label for="auto_ac"> AC </label>
+        <select name="auto_ac" class="form-control">
+            <option disabled selected value style="display: none;"></option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+        {{-- <input type="checkbox" name="auto_ac" value='1' class="form-check-input"> --}}
         </div>
 
         <div class="form-group">
-            <label for="price">Price</label>
+            <label for="engine_power">Engine Power <small>(kW)</small> </label>
+            <input type="text" name="engine_power" class="form-control {{ $errors->has('engine_power') ? 'is-danger' : '' }}" placeholder="@if ($errors->has('engine_power')) {{ $errors->first('engine_power') }} @else   @endif">
+        </div>
+
+        <div class="form-group">
+            <label for="price">Price <small>(HRK)</small> </label>
             <input type="number" name="price" class="form-control">
         </div>
 
         <div class="form-group">
             <label for="description">Description</label>
-            <textarea class="form-control {{ $errors->has('description') ? 'is-danger' : '' }}" name="description" placeholder="@if ($errors->has('description')) {{ $errors->first('description') }} @else Short Description  @endif"></textarea>
+            <textarea class="form-control {{ $errors->has('description') ? 'is-danger' : '' }}" name="description" placeholder="@if ($errors->has('description')) {{ $errors->first('description') }} @else  @endif"></textarea>
         </div>
 
         <div class="form-group">
