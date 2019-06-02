@@ -31,9 +31,10 @@ class VehicleController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Vehicle $vehicle)
+    public function show($id)
     {
         // $vehicle = Vehicle::with('modelOfVehicle.makeOfVehicle')->get();
+        $vehicle = Vehicle::with('modelOfVehicle.makeOfVehicle')->findOrFail($id);
 
         // $vehicle = Vehicle::with('modelOfVehicle.makeOfVehicle')->get();
 
