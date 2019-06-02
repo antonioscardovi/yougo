@@ -75,8 +75,8 @@
 
 
         <div class="form-group">
-        <label for="auto-ac"> AC </label>
-        <select name="auto-ac" class="form-control">
+        <label for="auto_ac"> AC </label>
+        <select name="auto_ac" class="form-control">
             <option disabled selected value style="display: none;"></option>
             <option value="true">Yes</option>
             <option value="false">No</option>

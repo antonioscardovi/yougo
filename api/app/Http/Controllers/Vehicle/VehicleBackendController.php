@@ -84,7 +84,9 @@ class VehicleBackendController extends Controller
      */
     public function edit(Vehicle $vehicle)
     {
-        return view('pages.edit', compact('vehicle'));
+        $models = ModelOfVehicle::with('makeOfVehicle')->get();
+
+        return view('pages.edit', compact('vehicle', 'models'));
     }
 
     /**
@@ -96,14 +98,15 @@ class VehicleBackendController extends Controller
      */
     public function update(Vehicle $vehicle)
     {
-        $vehicle->make = request('make');
-        $vehicle->model = request('model');
+        $vehicle->model_id = request('model_id');
         $vehicle->type = request('type');
-        $vehicle->engine_power = request('power');
-        $vehicle->door_number = request('doors');
+        $vehicle->engine_power = request('engine_power');
+        $vehicle->door_number = request('door_number');
+        $vehicle->gearbox = request('gearbox');
+        $vehicle->price = request('price');
         $vehicle->description = request('description');
         $vehicle->auto_ac = request('auto_ac');
-        $vehicle->status = request('status');
+        $vehicle->image = request('picture');
 
         $vehicle->save();
 
