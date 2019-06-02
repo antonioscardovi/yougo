@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Vehicle;
 use App\MakeOfVehicle;
 use App\ModelOfVehicle;
+use Illuminate\Database\Eloquent\Model;
 
 class VehicleBackendController extends Controller
 {
@@ -46,16 +47,18 @@ class VehicleBackendController extends Controller
      */
     public function store(Request $request)
     {
+
         $attributes = request()->validate([
-            'make' => ['required', 'min:3', 'max:255'],
-            'model' => ['required', 'min:3', 'max:255'],
-            'type' => ['required', 'min:3', 'max:255'],
+            'model_id' => ['required'],
+            'type' => ['required'],
             'engine_power' => ['required'],
             'door_number' => ['required'],
             'description' => ['required', 'min:3', 'max:255'],
+            'price' => ['required'],
             'auto_ac' => [],
+            'gearbox' => [],
             'status' => [],
-            // 'image' => []
+            'image' => []
         ]);
         Vehicle::create($attributes);
 
