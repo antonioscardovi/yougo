@@ -18,7 +18,8 @@ class VehicleController extends ApiController
      */
     public function index()
     {
-        $vehicles= Vehicle::all();
+        $vehicles = Vehicle::with('modelOfVehicle.makeOfVehicle')->get();
+        // $vehicles= Vehicle::all();
         // return view('pages.customers',compact('customers'));
         return $this->showAll($vehicles);
     }
@@ -32,7 +33,9 @@ class VehicleController extends ApiController
      */
     public function show(Vehicle $vehicle)
     {
-        //$vehicle = Vehicle::findOrFail($id);
+        // $vehicle = Vehicle::with('modelOfVehicle.makeOfVehicle')->get();
+
+        // $vehicle = Vehicle::with('modelOfVehicle.makeOfVehicle')->get();
 
         return $this->showOne($vehicle);
     }
@@ -45,12 +48,12 @@ class VehicleController extends ApiController
      */
     public function store(Request $request, Vehicle $vehicle, Customer $customer)
     {
-//        if (!$customer->isVerified()) {
-//            return $this->errorResponse('Morate biti verificirani za nastavak', 409);
-//        }
+        //        if (!$customer->isVerified()) {
+        //            return $this->errorResponse('Morate biti verificirani za nastavak', 409);
+        //        }
 
         if (!$vehicle->isAvailable()) {
-            return $this->errorResponse('Vozilo nije dostupno za rentanje',409);
+            return $this->errorResponse('Vozilo nije dostupno za rentanje', 409);
         }
 
         return DB::transaction(function () use ($request, $vehicle, $customer) {
