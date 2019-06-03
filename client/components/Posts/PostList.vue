@@ -10,8 +10,8 @@
       :image="post.image"
       :description="post.description"
       :status="post.status"
-      :model_of_vehicle:name="post.model"
-    />
+      :make_of_vehicle="post.make_of_vehicle"
+      :model_of_vehicle="post.model_of_vehicle" />
   </section>
 </template>
 <script>
