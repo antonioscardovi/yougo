@@ -1,16 +1,41 @@
 <template>
-  <section class="post-list">
-    <PostPreview
-      v-for="post in Vehicles"
-      :key="post.id"
-      :id="post.id"
-      :type="post.type"
-      :engine_power="post.engine_power"
-      :door_number="post.door_number"
-      :image="post.image"
-      :description="post.description"
-      :status="post.status" />
-  </section>
+<div class="container">
+   <div class="prazno"></div>
+   <div class="forms">
+      <div class="form-wrap">
+        <h3>Types</h3>
+        <ul>
+        <li v-for="tip in types" :key="tip">
+        <input type="checkbox" v-model="checkedVehicles" v-bind:value="tip"> {{ tip }}
+        </li>
+        </ul>
+      </div>
+      <div class="form-wrap">
+        <h3>Transmission</h3>
+        <ul>
+        <li v-for="trans in transmission" :key="trans">
+        <input type="checkbox" v-model="checkedVehicles" v-bind:value="trans"> {{ trans }}
+        </li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="post-list">
+
+
+
+      <PostPreview
+        v-for="vehicle in filteredVehicles"
+        :key="vehicle.id"
+        :id="vehicle.id"
+        :type="vehicle.type"
+        :engine_power="vehicle.engine_power"
+        :door_number="vehicle.door_number"
+        :image="vehicle.image"
+        :description="vehicle.description"
+        :status="vehicle.status" />
+    </section>
+  </div>
 </template>
 <script>
 import PostPreview from '@/components/Posts/PostPreview'
@@ -18,14 +43,32 @@ import axios from 'axios';
 export default {
     data(){
         return {
-            Vehicles: {},
+            Vehicles: [],
+            checkedVehicles: [],
+            types: ['electric', 'supercar', 'hatchback', 'limousine'],
+            transmission: ['automatic', 'manual'],
+
         }
+    },
+    computed: {
+      filteredVehicles() {
+        if(!this.checkedVehicles.length)
+          return this.Vehicles
+
+          return this.Vehicles.filter(j=>this.checkedVehicles.includes(j.type))
+      },
+        filteredVehiclesGear() {
+          if(!this.checkedVehicles.length)
+           return this.Vehicles
+
+           return this.Vehicles.filter(j=>this.checkedVehicles.includes(j.gear))
+      }
     },
     methods: {
     getVehicles() {
       axios.get('http://localhost/api/vehicles')
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           this.Vehicles = res.data.data;
         })
         .catch((error) => {
@@ -33,7 +76,14 @@ export default {
           console.error(error);
         });
       },
+
+    // ispis() {
+    //     this.checkedVehicles=this.Vehicles.filter(function(el) {
+    //       return el.status=='available';
+    //     })
+    //   }
     },
+
     created(){
         this.getVehicles();
     },
@@ -50,5 +100,17 @@ export default {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+}
+.forms {
+  display: flex;
+  justify-content: space-evenly;
+}
+.form-wrap {
+  background-color: #ccc;
+  padding:10px;
+  border-radius:10px;
+}
+.prazno {
+  height: 100px;
 }
 </style>
