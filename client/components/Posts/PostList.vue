@@ -9,7 +9,9 @@
       :door_number="post.door_number"
       :image="post.image"
       :description="post.description"
-      :status="post.status" />
+      :status="post.status"
+      :make_of_vehicle="post.make_of_vehicle"
+      :model_of_vehicle="post.model_of_vehicle" />
   </section>
 </template>
 <script>

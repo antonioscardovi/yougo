@@ -11,7 +11,10 @@
         <h1>Konjaža: {{ vehicles.engine_power }}</h1>
         <h1>Broj Vrata: {{ vehicles.door_number }}</h1>
         <h1>Opis: {{ vehicles.description }}</h1>
+        <h1>Marka Vozila: {{vehicles.model_of_vehicle.make_of_vehicle.name}}</h1>
+        <h1>Model: {{vehicles.model_of_vehicle.name}}</h1>
         <h1>Dostupnost: {{ vehicles.status }}</h1>
+
       </div>
     </article>
    </section>
@@ -23,7 +26,11 @@ import axios from 'axios';
 export default {
     data(){
         return {
-            vehicles: {},
+            vehicles: {
+              model_of_vehicle:{
+                make_of_vehicle:{}
+              }     
+            },
         }
     },
     methods: {
