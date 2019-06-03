@@ -74,6 +74,10 @@ class VehicleBackendController extends Controller
 
         $vehicle = Vehicle::all();
 
+        $request->file('image')->move(public_path('img/'), $request->file('image')->getClientOriginalName());
+        $image = $vehicle->image = 'img/' . $request->file('image')->getClientOriginalName();
+
+
         $attributes = request()->validate([
             'model_id' => ['required'],
             'type' => ['required'],
@@ -84,7 +88,7 @@ class VehicleBackendController extends Controller
             'auto_ac' => [],
             'gearbox' => [],
             // 'status' => [],
-            // 'image' => ['required']
+            // $image => ['required']
         ]);
 
         // $image = request()->validate([
@@ -92,8 +96,6 @@ class VehicleBackendController extends Controller
         // ]);
 
         // if (Input::hasfile('image')) 
-        $request->file('image')->move(public_path('img/'), $request->file('image')->getClientOriginalName());
-        $image = $vehicle->image = 'img/' . $request->file('image')->getClientOriginalName();
 
 
         // dd(Storage::disk('public')->put($attributes['image'], 'car'));
