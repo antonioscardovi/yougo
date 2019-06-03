@@ -67,7 +67,7 @@
             <label for="gearbox">Gearbox</label>
             <select name="gearbox" class="form-control">
                 <option disabled selected value style="display: none;"></option>
-                <option value="autmoatic">Automatic</option>
+                <option value="automatic">Automatic</option>
                 <option value="manual">Manual</option>
             </select>
             {{-- <input type="checkbox" name="gearbox" value="1" class="form-check-input"> --}}
@@ -100,8 +100,8 @@
         </div>
 
         <div class="form-group">
-            <label for="picture">Photo(s)</label>
-            <input type="file" name="picture" class="form-control-file">
+            <label for="image">Photo(s)</label>
+            <input type="file" name="image" class="form-control-file">
         </div>
 
         <div>
