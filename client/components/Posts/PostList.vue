@@ -9,37 +9,40 @@
       :door_number="post.door_number"
       :image="post.image"
       :description="post.description"
-      :status="post.status" />
+      :status="post.status"
+      :make_of_vehicle="post.make_of_vehicle"
+      :model_of_vehicle="post.model_of_vehicle" />
   </section>
 </template>
 <script>
 import PostPreview from '@/components/Posts/PostPreview'
-import axios from 'axios';
+import axios from 'axios'
 export default {
-    data(){
-        return {
-            Vehicles: {},
-        }
-    },
-    methods: {
+  data() {
+    return {
+      Vehicles: {}
+    }
+  },
+  methods: {
     getVehicles() {
-      axios.get('http://localhost/api/vehicles')
-        .then((res) => {
-          console.log(res);
-          this.Vehicles = res.data.data;
+      axios
+        .get('http://localhost/api/vehicles')
+        .then(res => {
+          console.log(res)
+          this.Vehicles = res.data.data
         })
-        .catch((error) => {
+        .catch(error => {
           // eslint-disable-next-line
-          console.error(error);
-        });
-      },
-    },
-    created(){
-        this.getVehicles();
-    },
+          console.error(error)
+        })
+    }
+  },
+  created() {
+    this.getVehicles()
+  },
   components: {
     PostPreview
-  },
+  }
 }
 </script>
 <style scoped>

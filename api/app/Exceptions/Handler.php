@@ -129,8 +129,8 @@ class Handler extends ExceptionHandler
      */
     protected function unauthenticated($request, AuthenticationException $exception)
     {
-        return $this->errorResponse('Neautentificirani ste', 401);
-
+        //return $this->errorResponse('Neautentificirani ste', 401);
+        return redirect('/login');
     }
 
 

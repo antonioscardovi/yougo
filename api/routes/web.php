@@ -20,30 +20,47 @@ Route::get('/', function () {
 /*
  * Users
  * */
-Route::resource('users', 'User\UserController');
+Route::resource('users', 'User\UserController', [
+    'middleware' => 'auth'
+]);
 
 /*
  * Vehicles
  * */
-Route::resource('vehicles', 'Vehicle\VehicleBackendController');
+Route::resource('vehicles', 'Vehicle\VehicleBackendController', [
+    'middleware' => 'auth'
+]);
 
 
 /*
  * Customers
  * */
-Route::resource('customers', 'Customer\CustomerBackendController', ['only' => ['index', 'show', 'edit']]); // 'except' create edit
+Route::resource('customers', 'Customer\CustomerBackendController', [
+    'only' => ['index', 'show', 'edit'],
+    'middleware' => 'auth'
+]);
 
 
 /*
  * Reservations
  * */
-Route::resource('reservations', 'Reservation\ReservationBackendController', ['only' => ['index', 'show', 'destroy']]);
+Route::resource('reservations', 'Reservation\ReservationBackendController', [
+    'only' => ['index', 'show', 'destroy'],
+    'middleware' => 'auth'
+]);
+
+/*
+* Auth
+* */
 Auth::routes();
 
 
 /*
 * Statistics
 * */
-Route::resource('home', 'Statistic\StatisticController', ['only' => ['index']]);
+Route::resource('home', 'Statistic\StatisticController', [
+    'only' => ['index'],
+    'middleware' => 'auth'
+]);
 
 Route::get('/', 'HomeController@index')->name('home');
