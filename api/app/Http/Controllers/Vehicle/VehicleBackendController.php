@@ -8,6 +8,7 @@ use App\Vehicle;
 use App\MakeOfVehicle;
 use App\ModelOfVehicle;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class VehicleBackendController extends Controller
 {
@@ -53,6 +54,29 @@ class VehicleBackendController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($path = $request->file('image')->store('public/img'));
+
+        // return $path;
+
+        // dd(request(
+        //     [
+        //         'model_id',
+        //         'type',
+        //         'engine_power',
+        //         'door_number',
+        //         'description',
+        //         'price',
+        //         'auto_ac',
+        //         'gearbox',
+        //         'image',
+        //     ]
+        // ));
+
+        $vehicle = Vehicle::all();
+
+        $request->file('image')->move(public_path('img/'), $request->file('image')->getClientOriginalName());
+        $image = $vehicle->image = 'img/' . $request->file('image')->getClientOriginalName();
+
 
         $attributes = request()->validate([
             'model_id' => ['required'],
@@ -63,10 +87,23 @@ class VehicleBackendController extends Controller
             'price' => ['required'],
             'auto_ac' => [],
             'gearbox' => [],
-            'status' => [],
-            'image' => []
+            // 'status' => [],
+            // $image => ['required']
         ]);
-        Vehicle::create($attributes);
+
+        // $image = request()->validate([
+        //     'image' => ['required']
+        // ]);
+
+        // if (Input::hasfile('image')) 
+
+
+        // dd(Storage::disk('public')->put($attributes['image'], 'car'));
+
+        // $imageName = time() . '.' . request()->image->getClientOriginalExtension();
+        // request()->image->move(public_path('img'), $imageName);
+
+        Vehicle::create($attributes, $image);
 
         return redirect('/vehicles');;
     }
@@ -112,7 +149,7 @@ class VehicleBackendController extends Controller
         $vehicle->price = request('price');
         $vehicle->description = request('description');
         $vehicle->auto_ac = request('auto_ac');
-        $vehicle->image = request('picture');
+        $vehicle->image = request('image');
 
         $vehicle->save();
 
