@@ -7,6 +7,7 @@
         :style="{backgroundImage: 'url(' + vehicles.image + ')'}"></div>
 
       <div class="post-content">
+        <h1>Model: {{ vehicles.model }}</h1>
         <h1>Vrsta: {{ vehicles.type }}</h1>
         <h1>Konjaža: {{ vehicles.engine_power }}</h1>
         <h1>Broj Vrata: {{ vehicles.door_number }}</h1>
