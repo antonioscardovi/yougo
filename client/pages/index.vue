@@ -34,38 +34,79 @@
               <option value="mercedes">Mercedes</option>
               <option value="audi">Audi</option>
             </select>
-          </div>
-          
+          </div>          
         </form>
-      </section>
-      
+      </section>      
     </section>
     <button type="submit" class="btn"><a id="link" href="/Vehicles"><span>REZERVIRAJ!</span></a></button>
       </div>
       <img id="image" src="~/assets/Images/a5.png"></div>
 
-      <section class="sekcija2"></section>    
+  
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <section id="about" class="aboutus">
+    
+    <div class="divBox div1"><h2>O nama</h2><p id="p1">IZAĐI IZ OKVIRA SVAKODNEVICE UZ YouGo!</p>
+    <p id="p2">YouGo je sigurna i provjerena stranica za rezervaciju automobila</p>
+  	<p id="p3">Integer luctus enim in odio semper, molestie convallis ipsum vehicula. Integer elementum mattis pretium. Etiam hendrerit lobortis justo, in lacinia justo efficitur ac. Fusce venenatis vitae odio dapibus mollis. Nunc pretium, libero ut rutrum sagittis, mauris nunc sollicitudin quam, a ullamcorper arcu leo nec ligula. Sed gravida nisi quam, ac tincidunt augue pharetra et. Mauris quis felis libero. Vivamus vehicula, leo ac volutpat tempus, purus mauris tincidunt dui, vitae tincidunt turpis ante quis purus. Nullam tempus aliquam sapien non accumsan.</p>      
+      <button type="submit" class="btn btn2"><a id="link" href="/Vehicles"><span>REZERVIRAJ!</span></a></button>
+    </div>
+    <div class="divBox div2"><div class="map-responsive">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d44879.80263543315!2d14.403759344503271!3d45.32887154779649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4764a6dcf256984b%3A0x1d0c2bb4ee6443b1!2sZametska+ul.%2C+51000%2C+Rijeka!5e0!3m2!1shr!2shr!4v1559565424534!5m2!1shr!2shr" 
+        width="300" height="800" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+        <br>
+        <p id="p2" style="color:grey">Obratite nam se s povjerenjem!</p>
+        <p style="color:grey"><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Rent-a-car</p>
+          <p style="color:grey"><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Rijeka, HR</p>
+          <p style="color:grey"><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>yougo@mail.com</p>
+          <p style="color:grey"><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>099/ 562 / 7892</p></div>
+        
+    </section>
+    <br><br><br><br><h2><center>Upoznajte naš tim!</center></h2><br><br><br><br>
+      <section class="div3">
+    <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="~/assets/Images/c1.jpg" alt="Avatar" style="width:100%;height:100%;">
+    </div>
+    <div class="flip-card-back">
+      <h1><i class="fa fa-paint-brush" style="font-size:40px;color:white"></i> <br><br>Lana Horvat</h1> 
+      <br><p>Arhitektica & dizajnerica</p> 
+      <p style="font-weight:lighter;">Lana je ambiciozna i kreativa. Jako dobar radnik!
+      </p>
+    </div>
   </div>
+</div>
 
-  
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="~/assets/Images/c2.jpg" alt="Avatar" style="width:100%;height:100%;">
+    </div>
+    <div class="flip-card-back" style="background-color:grey">
+      <h1><i class="fa fa-at" style="font-size:40px;color:white"></i> <br><br>Ivan Horvat</h1>
+     <br><p>Programer, Back-end i Front-end</p> 
+      <p>Jako marljiv i vrijedan naš Ivan Horvat</p>
+    </div>
+  </div>
+</div>
 
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="~/assets/Images/c3.jpg" alt="Avatar" style="width:100%;height:100%;">
+    </div>
+    <div class="flip-card-back" style="padding-left:3%;padding-right:3%">
+     <h1><i class="fa fa-cogs" style="font-size:40px;color:white"></i> <br><br>Marko Srdoč</h1>
+     <br>
+      <p>Organizator i podrška</p> 
+      <p>Glavni organizator i menadžer, sve kreće od ovog čovjeka.</p>
+    </div>
+  </div>
+</div>       
+    </section> 
+    <br><br><br>  
+  </div>
   
 </template>
 
@@ -80,6 +121,139 @@ export default {
 </script>
 
 <style scoped>
+.flip-card {
+  margin-top:5%;
+  background-color: transparent;
+  width: 33.3333%;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg);
+}
+.map-responsive{
+    overflow:hidden;
+    padding-bottom:70%;
+    position:relative;   
+}
+
+i{
+  font-size: 22px;
+  padding-top:3%;
+  color:#0054dB;
+  padding-right: 7%;
+}
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+.divBox{
+ 
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 2%;
+  border-top: solid 30px #0054db;
+}
+
+.div1{
+  background-color:white;
+   width:60%;
+   
+   padding-right:5%;
+   padding-top: 5%;
+  
+}
+.div2{
+  background-color: rgba(204, 204, 204, 0.39);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   width:40%;
+   color:white;
+   font-size: 17px;
+}
+
+.div3{
+  width:100%;
+  display: flex;
+  min-height: 50vh;
+  flex-direction: row;
+  flex-wrap: wrap;  
+  background-color: #0054dB;
+}
+.aboutus{
+  display: flex;
+  min-height: 50vh;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-left:5%;
+  margin-right: 5%;
+}
+h2{
+  color:#0054dB;
+  font-family: 'Montserrat';
+  
+  font-size:30px;
+  font-weight: bolder;
+}
+#p2{
+margin-top: 1%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size:18px;  
+  color: #0054db;
+}
+#p1{
+  padding-right: 13%;
+  margin-top: 5%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size:29px;
+  color: white;
+  text-shadow:
+   -1px -1px 0 #0054db,  
+    1px -1px 0 #0054db,
+    -1px 1px 0 #0054db,
+     1px 1px 0 #0054db;
+}
+
+
+#p3{
+   margin-top: 3%;
+  font-family: 'Roboto';
+  font-size:16px;
+  padding-right: 13%;
+  text-align: justify;
+  color: #333;
+}
 .container {
   padding-top: 100px;
   min-height: 100vh;
@@ -155,17 +329,13 @@ h1{
   z-index: 3;
 }
 
-#sekcija2{
-  background-color: red;
-  height:100px;
-  width:100%;
-}
+
 
 #formahome{
   background-color: #0054db;
   min-height: 400px;
-  width:35%;
-  margin-left: 30%;
+  width:37%;
+  margin-left: 29%;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.517), 0 6px 20px 0 rgba(0, 0, 0, 0.51);
 }
@@ -225,7 +395,14 @@ h1{
   transform: translateX(-98%) translateY(-25%) rotate(45deg);
 }
 
-
+#aboutus{
+  background-color: red;
+  height:500px;
+  width:100%;
+}
+.btn2{
+  width:60%;
+}
 
 .btn:hover:after {
   -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
@@ -290,11 +467,13 @@ h1{
   }
 }
 
-@media screen and (max-width:1300px){
+@media screen and (max-width:1276px){
   #image{
     display:none;
   }
 }
+
+
 
 
 </style>
