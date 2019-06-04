@@ -54,60 +54,24 @@ class VehicleBackendController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($path = $request->file('image')->store('public/img'));
 
-        // return $path;
-
-        // dd(request(
-        //     [
-        //         'model_id',
-        //         'type',
-        //         'engine_power',
-        //         'door_number',
-        //         'description',
-        //         'price',
-        //         'auto_ac',
-        //         'gearbox',
-        //         'image',
-        //     ]
-        // ));
-
-        // $vehicle = Vehicle
-        $vehicle = Vehicle::where("id", $request->input('id'))->first();
+        $vehicle = new Vehicle;
 
         $request->file('image')->move(public_path('img/'), $request->file('image')->getClientOriginalName());
-        $image = $vehicle->image = 'img/' . $request->file('image')->getClientOriginalName();
+        $image = $vehicle->image = 'http://localhost/img/' . $request->file('image')->getClientOriginalName();
 
-
-        $attributes = request()->validate([
-            'model_id' => ['required'],
-            'type' => ['required'],
-            'engine_power' => ['required'],
-            'door_number' => ['required'],
-            'description' => ['required', 'min:3', 'max:255'],
-            'price' => ['required'],
-            'auto_ac' => [],
-            'gearbox' => [],
-            // 'status' => [],
-            // $image => ['required']
-        ]);
-
-        // $image = request()->validate([
-        //     'image' => ['required']
-        // ]);
-
-        // if (Input::hasfile('image')) 
-
-
-        // dd(Storage::disk('public')->put($attributes['image'], 'car'));
-
-        // $imageName = time() . '.' . request()->image->getClientOriginalExtension();
-        // request()->image->move(public_path('img'), $imageName);
-
+        $vehicle->model_id = request('model_id');
+        $vehicle->type = request('type');
+        $vehicle->engine_power = request('engine_power');
+        $vehicle->door_number = request('door_number');
+        $vehicle->description = request('description');
+        $vehicle->price = request('price');
+        $vehicle->auto_ac = request('auto_ac');
+        $vehicle->gearbox = request('gearbox');
         $vehicle->image = $image;
         $vehicle->save();
 
-        Vehicle::create($attributes, $image);
+        // Vehicle::create($attributes, $image);
 
         return redirect('/vehicles');;
     }
