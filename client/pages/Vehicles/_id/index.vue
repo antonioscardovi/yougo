@@ -46,7 +46,20 @@ export default {
           // eslint-disable-next-line
           console.error(error);
         });
-      
+      },
+    },
+    created(){
+        this.getVehicles();
+    },
+
+    props: {
+    id: {
+      type: Number,
+      required: true
+    },
+    type: {
+      type: String,
+      required: true
     },
 }
 </script>
