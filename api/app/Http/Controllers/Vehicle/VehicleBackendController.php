@@ -72,7 +72,8 @@ class VehicleBackendController extends Controller
         //     ]
         // ));
 
-        $vehicle = Vehicle::all();
+        // $vehicle = Vehicle
+        $vehicle = Vehicle::where("id", $request->input('id'))->first();
 
         $request->file('image')->move(public_path('img/'), $request->file('image')->getClientOriginalName());
         $image = $vehicle->image = 'img/' . $request->file('image')->getClientOriginalName();
@@ -102,6 +103,9 @@ class VehicleBackendController extends Controller
 
         // $imageName = time() . '.' . request()->image->getClientOriginalExtension();
         // request()->image->move(public_path('img'), $imageName);
+
+        $vehicle->image = $image;
+        $vehicle->save();
 
         Vehicle::create($attributes, $image);
 
