@@ -55,11 +55,11 @@
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d44879.80263543315!2d14.403759344503271!3d45.32887154779649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4764a6dcf256984b%3A0x1d0c2bb4ee6443b1!2sZametska+ul.%2C+51000%2C+Rijeka!5e0!3m2!1shr!2shr!4v1559565424534!5m2!1shr!2shr" 
         width="300" height="800" frameborder="0" style="border:0" allowfullscreen></iframe></div>
         <br>
-        <p id="p2" style="color:grey">Obratite nam se s povjerenjem!</p>
-        <p style="color:grey"><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Rent-a-car</p>
-          <p style="color:grey"><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Rijeka, HR</p>
-          <p style="color:grey"><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>yougo@mail.com</p>
-          <p style="color:grey"><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>099/ 562 / 7892</p></div>
+        <p id="p2" style="color:#333;">Obratite nam se s povjerenjem!</p>
+        <p style="color:#4c4c4c"><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Rent-a-car</p>
+          <p style="color:#4c4c4c"><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Rijeka, HR</p>
+          <p style="color:#4c4c4c"><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>yougo@mail.com</p>
+          <p style="color:#4c4c4c"><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>099/ 562 / 7892</p><br><br></div>
         
     </section>
     <br><br><br><br><h2><center>Upoznajte naš tim!</center></h2><br><br><br><br>
@@ -122,11 +122,14 @@ export default {
 
 <style scoped>
 .flip-card {
-  margin-top:5%;
+  padding-left: 1%;
+  margin-top:2%;
+  margin-bottom:2%;
   background-color: transparent;
   width: 33.3333%;
-  height: 300px;
+  height: 330px;
   perspective: 1000px;
+  
 }
 
 .flip-card-inner {
@@ -190,7 +193,7 @@ i{
 .div1{
   background-color:white;
    width:60%;
-   
+   padding-left:5%;
    padding-right:5%;
    padding-top: 5%;
   
@@ -206,14 +209,18 @@ i{
 .div3{
   width:100%;
   display: flex;
-  min-height: 50vh;
+  min-height: 40vh;
   flex-direction: row;
   flex-wrap: wrap;  
-  background-color: #0054dB;
+  background-image: linear-gradient(-90deg, #d1d1d1, rgb(238, 238, 238));
+  -moz-box-shadow:    inset 0 0 5px #000000;
+   -webkit-box-shadow: inset 0 0 5px #000000;
+   box-shadow:         inset 0 0 5px #000000;
 }
 .aboutus{
+
   display: flex;
-  min-height: 50vh;
+  min-height: 75vh;
   flex-direction: row;
   flex-wrap: wrap;
   padding-left:5%;
