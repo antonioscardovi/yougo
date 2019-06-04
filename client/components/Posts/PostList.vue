@@ -33,7 +33,9 @@
         :door_number="vehicle.door_number"
         :image="vehicle.image"
         :description="vehicle.description"
-        :status="vehicle.status" />
+        :status="vehicle.status"
+        :make_of_vehicle="vehicle.make_of_vehicle"
+        :model_of_vehicle="vehicle.model_of_vehicle" />
     </section>
   </div>
 </template>

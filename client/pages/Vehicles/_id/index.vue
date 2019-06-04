@@ -30,7 +30,7 @@ export default {
             vehicles: {
               model_of_vehicle:{
                 make_of_vehicle:{}
-              }     
+              }
             },
         }
     },
@@ -47,21 +47,11 @@ export default {
           console.error(error);
         });
       },
-    },
-    created(){
-        this.getVehicles();
-    },
+    }
 
-    props: {
-    id: {
-      type: Number,
-      required: true
-    },
-    type: {
-      type: String,
-      required: true
-    },
-}
+
+
+
 </script>
 
 
