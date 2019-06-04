@@ -105,7 +105,8 @@ export default {
 
     // '@nuxtjs/bootstrap-vue',
 
-    '@nuxtjs/auth'
+    '@nuxtjs/auth',
+
   ],
   /*
    ** Axios module configuration
