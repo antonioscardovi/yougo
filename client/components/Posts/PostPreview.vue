@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="postLink" class="post-preview">
+  <nuxt-link :to="'Vehicles/' + id" class="post-preview">
     <article>
       <div
         class="post-thumbnail"
@@ -11,6 +11,8 @@
         <h1>Broj Vrata: {{ door_number }}</h1>
         <h1>Opis: {{ description }}</h1>
         <h1>Dostupnost: {{ status }}</h1>
+        <h1>Marka Vozila: {{model_of_vehicle.make_of_vehicle.name}}</h1>
+        <h1>Model: {{model_of_vehicle.name}}</h1>
       </div>
     </article>
   </nuxt-link>
@@ -47,6 +49,14 @@ export default {
     status: {
         type:String,
         required:true
+    },
+    model_of_vehicle:{
+      type:Object,
+      required:true,
+       make_of_vehicle:{
+        type:Object,
+         required:true
+         }
     }
   },
   computed: {

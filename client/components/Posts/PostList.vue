@@ -39,7 +39,7 @@
 </template>
 <script>
 import PostPreview from '@/components/Posts/PostPreview'
-import axios from 'axios';
+import axios from 'axios'
 export default {
     data(){
         return {
@@ -75,7 +75,7 @@ export default {
           // console.log(res);
           this.Vehicles = res.data.data;
         })
-        .catch((error) => {
+        .catch(error => {
           // eslint-disable-next-line
           console.error(error);
         });
@@ -93,7 +93,7 @@ export default {
     },
   components: {
     PostPreview
-  },
+  }
 }
 </script>
 <style scoped>

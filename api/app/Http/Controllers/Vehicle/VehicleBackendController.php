@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Vehicle;
 use App\MakeOfVehicle;
 use App\ModelOfVehicle;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class VehicleBackendController extends Controller
 {
@@ -52,18 +54,24 @@ class VehicleBackendController extends Controller
      */
     public function store(Request $request)
     {
-        $attributes = request()->validate([
-            'make' => ['required', 'min:3', 'max:255'],
-            'model' => ['required', 'min:3', 'max:255'],
-            'type' => ['required', 'min:3', 'max:255'],
-            'engine_power' => ['required'],
-            'door_number' => ['required'],
-            'description' => ['required', 'min:3', 'max:255'],
-            'auto_ac' => [],
-            'status' => [],
-            // 'image' => []
-        ]);
-        Vehicle::create($attributes);
+
+        $vehicle = new Vehicle;
+
+        $request->file('image')->move(public_path('img/'), $request->file('image')->getClientOriginalName());
+        $image = $vehicle->image = 'http://localhost/img/' . $request->file('image')->getClientOriginalName();
+
+        $vehicle->model_id = request('model_id');
+        $vehicle->type = request('type');
+        $vehicle->engine_power = request('engine_power');
+        $vehicle->door_number = request('door_number');
+        $vehicle->description = request('description');
+        $vehicle->price = request('price');
+        $vehicle->auto_ac = request('auto_ac');
+        $vehicle->gearbox = request('gearbox');
+        $vehicle->image = $image;
+        $vehicle->save();
+
+        // Vehicle::create($attributes, $image);
 
         return redirect('/vehicles');;
     }
@@ -87,7 +95,9 @@ class VehicleBackendController extends Controller
      */
     public function edit(Vehicle $vehicle)
     {
-        return view('pages.edit', compact('vehicle'));
+        $models = ModelOfVehicle::with('makeOfVehicle')->get();
+
+        return view('pages.edit', compact('vehicle', 'models'));
     }
 
     /**
@@ -99,14 +109,15 @@ class VehicleBackendController extends Controller
      */
     public function update(Vehicle $vehicle)
     {
-        $vehicle->make = request('make');
-        $vehicle->model = request('model');
+        $vehicle->model_id = request('model_id');
         $vehicle->type = request('type');
-        $vehicle->engine_power = request('power');
-        $vehicle->door_number = request('doors');
+        $vehicle->engine_power = request('engine_power');
+        $vehicle->door_number = request('door_number');
+        $vehicle->gearbox = request('gearbox');
+        $vehicle->price = request('price');
         $vehicle->description = request('description');
         $vehicle->auto_ac = request('auto_ac');
-        $vehicle->status = request('status');
+        $vehicle->image = request('image');
 
         $vehicle->save();
 

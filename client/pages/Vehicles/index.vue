@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="top">
  <TheSidenav/>
 <PostList :vehicles="loadedPosts" />
 </div>
@@ -23,4 +23,7 @@ export default {
 }
 </script>
 <style scoped>
+.top{
+  margin-top: 156px;
+}
 </style>
