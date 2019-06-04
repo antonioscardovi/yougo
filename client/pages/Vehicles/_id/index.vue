@@ -40,7 +40,7 @@ export default {
     created(){
         this.getVehicles();
     },
- 
+
     props: {
     id: {
       type: Number,
