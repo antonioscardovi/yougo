@@ -47,22 +47,26 @@ export default {
             checkedVehicles: [],
             types: ['electric', 'supercar', 'hatchback', 'limousine'],
             transmission: ['automatic', 'manual'],
+            fVehicles: [],
 
         }
     },
     computed: {
       filteredVehicles() {
-        if(!this.checkedVehicles.length)
-          return this.Vehicles
-
+        if(!this.checkedVehicles.length){
+          return this.Vehicles;
+        }
+        else if(this.checkedVehicles.filter(x=>x == 'automatic' || x == 'manual').length <= 0){
           return this.Vehicles.filter(j=>this.checkedVehicles.includes(j.type))
-      },
-        filteredVehiclesGear() {
-          if(!this.checkedVehicles.length)
-           return this.Vehicles
+        }
+        else if(this.checkedVehicles.filter(x=>x == 'electric' || x == 'supercar' || x == 'hatchback' || x == 'limousine').length <= 0){
+          return this.Vehicles.filter(j=>this.checkedVehicles.includes(j.gearbox));
+        }
+        else{
+          return this.Vehicles.filter(j=>this.checkedVehicles.includes(j.type)).filter(j=>this.checkedVehicles.includes(j.gearbox));
+        }
 
-           return this.Vehicles.filter(j=>this.checkedVehicles.includes(j.gear))
-      }
+      },
     },
     methods: {
     getVehicles() {
