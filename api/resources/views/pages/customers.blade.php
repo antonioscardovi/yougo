@@ -7,6 +7,7 @@
     <table id="table1" class="display cell-border table table-striped table-bordered" style="font-size: 2rem; background-color: #fff;  border: 2px solid #ccc;">
             <thead>
                 <tr>
+                    <th>Username</th>
                     <th>Name</th>
                     <th>Last Name</th>
                     <th>Email</th>
@@ -16,6 +17,7 @@
             <tbody>
                 @foreach($customers as $customer)
                 <tr>
+                    <td>{{ $customer->username }}</td>
                     <td>{{ $customer->name }}</td>
                     <td>{{ $customer->lastname }}</td>
                     <td>{{ $customer->email }}</td>
@@ -23,10 +25,10 @@
                         <a href="{{ url('customers/' .$customer->id) }}">
                     <button class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span> About</button>
                          </a>
-                        <button class="edit-modal btn btn-info"
+                        {{-- <button class="edit-modal btn btn-info"
                         data-info="{{$customer->id}},{{$customer->name}}">
                         <span class="glyphicon glyphicon-edit"></span> Edit
-                    </button>
+                    </button> --}}
                     <button class="delete-modal btn btn-danger"
                         data-info="{{$customer->id}},{{$customer->name}}">
                         <span class="glyphicon glyphicon-trash"></span> Delete

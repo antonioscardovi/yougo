@@ -3,7 +3,7 @@
 @section('content')
 <h1 class="title" style="margin-top:0;">Vehicles</h1>
 <hr>
- <table id="table1" class="display cell-border table table-striped table-bordered" style="font-size: 2rem; background-color: #fff;  border: 2px solid #ccc;">
+ <table id="table1" class="display cell-border table table-striped table-bordered table-responsive" style="font-size: 2rem; background-color: #fff;  border: 2px solid #ccc;">
   <thead>
       <tr>
           <th>Manufacturer</th>
