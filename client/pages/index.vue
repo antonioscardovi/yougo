@@ -40,7 +40,8 @@
     </section>
     <button type="submit" class="btn"><a id="link" href="/Vehicles"><span>REZERVIRAJ!</span></a></button>
       </div>
-      <img id="image" src="~/assets/Images/a5.png"></div>
+      <img id="image" src="~/assets/Images/a5.png">
+    </div>
 
   
   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -281,33 +282,45 @@ margin-top: 1%;
   background-size: cover;*/
 }
 
-h1{
-  color:white;
+h1 {
+  color: white;
   font-family: 'Montserrat';
-  
+
   padding-top: 7%;
   padding-left: 4%;
-  padding-right:4%;
+  padding-right: 4%;
   font-size: 27px;
   font-weight: bolder;
-  -webkit-animation: focus-in-expand-fwd 1.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: focus-in-expand-fwd 1.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  -webkit-animation: focus-in-expand-fwd 1.2s
+    cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: focus-in-expand-fwd 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+input,
+select {
+  width: 90%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 @-webkit-keyframes focus-in-expand-fwd {
   0% {
     letter-spacing: -0.5em;
     -webkit-transform: translateZ(-800px);
-            transform: translateZ(-800px);
+    transform: translateZ(-800px);
     -webkit-filter: blur(12px);
-            filter: blur(12px);
+    filter: blur(12px);
     opacity: 0;
   }
   100% {
     -webkit-transform: translateZ(0);
-            transform: translateZ(0);
+    transform: translateZ(0);
     -webkit-filter: blur(0);
-            filter: blur(0);
+    filter: blur(0);
     opacity: 1;
   }
 }
@@ -315,32 +328,29 @@ h1{
   0% {
     letter-spacing: -0.5em;
     -webkit-transform: translateZ(-800px);
-            transform: translateZ(-800px);
+    transform: translateZ(-800px);
     -webkit-filter: blur(12px);
-            filter: blur(12px);
+    filter: blur(12px);
     opacity: 0;
   }
   100% {
     -webkit-transform: translateZ(0);
-            transform: translateZ(0);
+    transform: translateZ(0);
     -webkit-filter: blur(0);
-            filter: blur(0);
+    filter: blur(0);
     opacity: 1;
   }
 }
-#image{
-  
-    margin-top:-19%;
-    position:absolute;
-    float:right;
-    right:0;
-    clear:both;
-    z-index: 0;
-    
-    
+#image {
+  margin-top: -19%;
+  position: absolute;
+  float: right;
+  right: 0;
+  clear: both;
+  z-index: 0;
 }
-.form-group{
-  color:wheat;
+.form-group {
+  color: wheat;
   font-size: 18px;
   font-family: 'Montserrat';
   font-weight: lighter;
@@ -351,7 +361,7 @@ h1{
 
 
 
-#formahome{
+#formahome {
   background-color: #0054db;
   min-height: 400px;
   width:37%;
@@ -360,8 +370,8 @@ h1{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.517), 0 6px 20px 0 rgba(0, 0, 0, 0.51);
 }
 
-.btn{
-  text-decoration: none!important;
+.btn {
+  text-decoration: none !important;
   font-family: 'Montserrat';
   font-weight: bold;
   text-shadow: 2px 2px 6px #444444;
@@ -373,44 +383,45 @@ h1{
   outline: none;
   overflow: hidden;
   position: relative;
-  width:100%;
+  width: 100%;
   margin: 0 auto;
-  background-image: linear-gradient(to right, #004ac1 , #6a8fcb);
-  height:80px;
+  background-image: linear-gradient(to right, #004ac1, #6a8fcb);
+  height: 80px;
   border-radius: 5px;
   margin-top: 15%;
-  color:rgb(200, 233, 253);
-  font-size:23px;
-  border:2px solid white;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.517), 0 6px 20px 0 rgba(0, 0, 0, 0.51);  
+  color: rgb(200, 233, 253);
+  font-size: 23px;
+  border: 2px solid white;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.517), 0 6px 20px 0 rgba(0, 0, 0, 0.51);
 }
 
-#link{
+#link {
   text-decoration: none;
-  color:rgb(200, 233, 253);
+  color: rgb(200, 233, 253);
 }
 
- .btn:hover,#link:hover,.btn span:hover{
-  color:rgb(255, 255, 255);
+.btn:hover,
+#link:hover,
+.btn span:hover {
+  color: rgb(255, 255, 255);
   text-shadow: 1px 1px 6px #1b1b1b;
 }
-.btn span  {
+.btn span {
   position: relative;
-   z-index: 1;
-   text-decoration: none;
-  
+  z-index: 1;
+  text-decoration: none;
 }
 
 .btn:after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   top: 0;
   height: 350%;
   width: 130%;
   background: #6ab3bd;
-  -webkit-transition: all .5s ease-in-out;
-  transition: all .5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
   transform: translateX(-98%) translateY(-25%) rotate(45deg);
 }
@@ -427,62 +438,62 @@ h1{
 .btn:hover:after {
   -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
   transform: translateX(-9%) translateY(-25%) rotate(45deg);
-  color:#333;
+  color: #333;
 }
 
-@media screen and (max-width: 550px) and (min-width: 423px) {
+@media screen and (max-width: 550px) {
   #formahome {
     margin-left:25%;
     width:60%;
   }
-  #image{
+  #image {
     display: none;
   }
-  
 
-  .btn{
-    margin-top:15%;
+  .btn {
+    position: absolute;
+    bottom: 0;
+    margin-top: 15%;
   }
-  
-}
 
+  .container {
+    padding-top: 70px;
+    min-height: 100vh;
+  }
+}
 
 @media screen and (max-width: 900px) and (min-width: 523px) {
   #formahome {
     z-index: 1;
-    width:60%;
+    margin: 0 auto;
+    width: 50%;
   }
-  #image{
-     display:none;
-
+  #image {
+    display: none;
   }
-  .form-group{
-  z-index: 3;
-}
-  
+  .form-group {
+    z-index: 3;
+  }
 
-  .btn{
-    margin-top:15%;
+  .btn {
+    margin-top: 15%;
     z-index: 1;
   }
-  
 }
 
-@media screen and (max-width: 1103px) and (min-width: 861px){
-  #formahome{
-    width:40%;
-    
+@media screen and (max-width: 1103px) and (min-width: 861px) {
+  #formahome {
+    width: 40%;
   }
-.image {
-  display:none;
-  
-}
-.form-group{
-  z-index: 3;
-}
+  .image {
+    display: none;
+  }
+  .form-group {
+    z-index: 3;
+  }
 
-.btn{
-    margin-top:15%;
+  .btn {
+    margin-top: 15%;
     z-index: 1;
   }
 }

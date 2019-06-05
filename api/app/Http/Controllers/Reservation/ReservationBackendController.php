@@ -87,6 +87,8 @@ class ReservationBackendController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $reservation = CustomerVehicle::findOrFail($id);
+
+        $reservation->delete();
     }
 }

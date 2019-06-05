@@ -91,9 +91,8 @@ export default {
 }
 
 .link-1 {
-  transition: 0.3s ease;  
+  transition: 0.3s ease;
   text-decoration: none;
-  
 }
 .link-1:hover, .link-1:active {  
   
@@ -132,7 +131,6 @@ export default {
   padding: 28px 20px;
   position: relative;
   user-select: none;
-  
 }
 
 .header .menu-icon .navicon {
@@ -168,6 +166,7 @@ export default {
 }
 
 .header .menu-btn:checked ~ .menu {
+  text-align: center;
   max-height: 240px;
 }
 
@@ -197,7 +196,7 @@ export default {
   }
   .header .menu {
     clear: none;
-    
+
     float: right;
     max-height: none;
   }
