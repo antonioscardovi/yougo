@@ -2,7 +2,7 @@
   <div class="header">
     <nuxt-link to="/">
       <div class="logo">
-        <img class="logo" src="~/assets/images/yugo-tamno.png" alt="logo">
+        <img class="logo" src="~/assets/images/yugo-svijetli.png" alt="logo">
       </div>
     </nuxt-link>
     <input class="menu-btn" type="checkbox" id="menu-btn">
@@ -17,7 +17,7 @@
         <nuxt-link to="/Vehicles">POPIS VOZILA</nuxt-link>
       </li>
       <li class="nav-item link-1">
-        <nuxt-link to="/About Us">O NAMA</nuxt-link>
+        <nuxt-link to="/#onama">O NAMA</nuxt-link>
       </li>
 
       <template v-if="authenticated">
@@ -48,9 +48,12 @@ export default {
 
 
 <style scoped>
+
+
 .header {
-  background-color: rgb(250, 250, 250);
-  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0);
+   background-color:#333;
+   
+  box-shadow: 0px 2px 8px 0 rgba(0, 0, 0, 0.707);
   position: fixed;
   width: 100%;
   height: auto;
@@ -69,21 +72,21 @@ export default {
   display: block;
   padding: 20px 20px;
   text-decoration: none;
-  color: #333;
-  font-weight: bold;
+  color: rgb(255, 255, 255);
+  
   /*text-shadow: 2px 2px 4px #333;*/
   transition: all 0.2s ease-in-out;
 }
 
 .header li a:hover,
 .header .menu-btn:hover {
-  color: rgb(112, 112, 112);
+  color: rgb(201, 201, 201);
 
   transform: scale(1.1);
 }
 
 .header li a.register {
-  color: #1161ee;
+  color: #c2c2c2;
   text-shadow: 0 0 0;
 }
 
@@ -91,18 +94,21 @@ export default {
   transition: 0.3s ease;
   text-decoration: none;
 }
-.link-1:hover,
-.link-1:active {
-  border-top: 4px solid rgb(95, 95, 95);
+.link-1:hover, .link-1:active {  
+  
+  border-top: 5px solid rgb(211, 211, 211); 
+  
+   
 }
 
-.link2:hover {
-  border-top: 4px solid #0054db;
+.link2:hover{
+  border-top: 4px solid rgb(235, 235, 235);
 }
 
 .logo {
   width: 150px;
-  margin-left: 5px;
+  margin-left: 7px;
+  
   display: inline-block;
   vertical-align: middle;
 }
@@ -122,14 +128,13 @@ export default {
 .header .menu-icon {
   cursor: pointer;
   display: inline-block;
-  float: right;
   padding: 28px 20px;
   position: relative;
   user-select: none;
 }
 
 .header .menu-icon .navicon {
-  background: #333;
+  background: rgb(251, 251, 251);
   display: block;
   height: 2px;
   position: relative;
@@ -139,7 +144,7 @@ export default {
 
 .header .menu-icon .navicon:before,
 .header .menu-icon .navicon:after {
-  background: #333;
+  background: rgb(251, 251, 251);
   content: '';
   display: block;
   height: 100%;
@@ -200,13 +205,14 @@ export default {
   }  
 }
 @media (max-width:900px){
-  .header .menu {background-color: rgb(255, 255, 255);
+  .header .menu {background-color: #333;
   margin-left: 5%;
   font-size: 16px;
+  color:white;
   }
   .nav-item:hover {
   font-family: Roboto;
-  font-size: 18px;
+  font-size: 17px;
 }
 .link-1:hover {  
   border-top: 0px solid rgb(95, 95, 95);   

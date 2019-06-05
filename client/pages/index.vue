@@ -45,7 +45,7 @@
 
   
   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  <section id="about" class="aboutus">
+  <section id="onama" class="aboutus">
     
     <div class="divBox div1"><h2>O nama</h2><p id="p1">IZAĐI IZ OKVIRA SVAKODNEVICE UZ YouGo!</p>
     <p id="p2">YouGo je sigurna i provjerena stranica za rezervaciju automobila</p>
@@ -57,13 +57,13 @@
         width="300" height="800" frameborder="0" style="border:0" allowfullscreen></iframe></div>
         <br>
         <p id="p2" style="color:#333;">Obratite nam se s povjerenjem!</p>
-        <p style="color:#4c4c4c"><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Rent-a-car</p>
-          <p style="color:#4c4c4c"><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Rijeka, HR</p>
-          <p style="color:#4c4c4c"><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>yougo@mail.com</p>
-          <p style="color:#4c4c4c"><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>099/ 562 / 7892</p><br><br></div>
+        <p style="color:#4c4c4c;"><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal" style="padding-right: 7%;"></i>Rent-a-car</p>
+          <p style="color:#4c4c4c"><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal" style="padding-right: 7%;"></i>Rijeka, HR</p>
+          <p style="color:#4c4c4c"><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal" style="padding-right: 7%;"></i>yougo@mail.com</p>
+          <p style="color:#4c4c4c"><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal" style="padding-right: 7%;"></i>099/ 562 / 7892</p><br><br></div>
         
     </section>
-    <br><br><br><br><h2><center>Upoznajte naš tim!</center></h2><br><br><br><br>
+    <br><br><br><br><center><i style="font-size:65px;padding-bottom:2%" class="fa fa-user-circle"></i><br><h2 class="upoznajtetim">/&nbsp;  UPOZNAJTE NAŠ TIM  &nbsp;/</h2></center><br><br><br><br>
       <section class="div3">
     <div class="flip-card">
   <div class="flip-card-inner">
@@ -84,7 +84,7 @@
     <div class="flip-card-front">
       <img src="~/assets/Images/c2.jpg" alt="Avatar" style="width:100%;height:100%;">
     </div>
-    <div class="flip-card-back" style="background-color:grey">
+    <div class="flip-card-back" style="background-color:#666666">
       <h1><i class="fa fa-at" style="font-size:40px;color:white"></i> <br><br>Ivan Horvat</h1>
      <br><p>Programer, Back-end i Front-end</p> 
       <p>Jako marljiv i vrijedan naš Ivan Horvat</p>
@@ -97,7 +97,7 @@
     <div class="flip-card-front">
       <img src="~/assets/Images/c3.jpg" alt="Avatar" style="width:100%;height:100%;">
     </div>
-    <div class="flip-card-back" style="padding-left:3%;padding-right:3%">
+    <div class="flip-card-back" style="padding-left:3%;padding-right:3%;">
      <h1><i class="fa fa-cogs" style="font-size:40px;color:white"></i> <br><br>Marko Srdoč</h1>
      <br>
       <p>Organizator i podrška</p> 
@@ -122,6 +122,9 @@ export default {
 </script>
 
 <style scoped>
+
+
+
 .flip-card {
   padding-left: 1%;
   margin-top:2%;
@@ -160,7 +163,7 @@ export default {
 }
 
 .flip-card-back {
-  background-color: #2980b9;
+  background-color: #0054dB;
   color: white;
   transform: rotateY(180deg);
 }
@@ -174,7 +177,7 @@ i{
   font-size: 22px;
   padding-top:3%;
   color:#0054dB;
-  padding-right: 7%;
+  
 }
 .map-responsive iframe{
     left:0;
@@ -207,16 +210,26 @@ i{
    font-size: 17px;
 }
 
+.upoznajtetim{
+ 
+ font-size:26px;
+ font-weight:bolder;
+ padding-left:2%;
+ padding-right: 2%;
+
+  
+
+}
 .div3{
   width:100%;
   display: flex;
   min-height: 40vh;
   flex-direction: row;
   flex-wrap: wrap;  
-  background-image: linear-gradient(-90deg, #d1d1d1, rgb(238, 238, 238));
-  -moz-box-shadow:    inset 0 0 5px #000000;
-   -webkit-box-shadow: inset 0 0 5px #000000;
-   box-shadow:         inset 0 0 5px #000000;
+  background-image: linear-gradient(-90deg, #5b5b5b, rgb(238, 238, 238));
+  -moz-box-shadow:    inset 0 0 36x #000000a0;
+   -webkit-box-shadow: inset 0 0 6px #000000a0;
+   box-shadow:         inset 0 0 6px #000000a0;
 }
 .aboutus{
 
@@ -430,10 +443,8 @@ select {
 
 @media screen and (max-width: 550px) {
   #formahome {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100vh;
+    margin-left:25%;
+    width:60%;
   }
   #image {
     display: none;
