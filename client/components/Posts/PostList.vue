@@ -1,6 +1,6 @@
 <template>
 <div class="container">
-   <div class="prazno"></div>
+
    <div class="forms">
       <div class="form-wrap">
         <h3>Types</h3>
@@ -18,6 +18,14 @@
         </li>
         </ul>
       </div>
+      <div class="form-wrap">
+        <h3>Status</h3>
+        <ul>
+        <li v-for="stat in status" :key="stat">
+        <input type="checkbox" v-model="checkedVehicles" v-bind:value="stat"> {{ stat }}
+        </li>
+        </ul>
+      </div>
     </div>
 
     <section class="post-list">
@@ -29,6 +37,7 @@
         :key="vehicle.id"
         :id="vehicle.id"
         :type="vehicle.type"
+        :gearbox="vehicle.gearbox"
         :engine_power="vehicle.engine_power"
         :door_number="vehicle.door_number"
         :image="vehicle.image"
@@ -49,6 +58,7 @@ export default {
             checkedVehicles: [],
             types: ['electric', 'supercar', 'hatchback', 'limousine'],
             transmission: ['automatic', 'manual'],
+            status: ['available', 'unavailable'],
             fVehicles: [],
 
         }
@@ -58,14 +68,36 @@ export default {
         if(!this.checkedVehicles.length){
           return this.Vehicles;
         }
-        else if(this.checkedVehicles.filter(x=>x == 'automatic' || x == 'manual').length <= 0){
-          return this.Vehicles.filter(j=>this.checkedVehicles.includes(j.type))
-        }
-        else if(this.checkedVehicles.filter(x=>x == 'electric' || x == 'supercar' || x == 'hatchback' || x == 'limousine').length <= 0){
+        else if(this.checkedVehicles.filter(x=>x == 'electric' || x == 'supercar' || x == 'hatchback' || x == 'limousine').length <= 0 && this.checkedVehicles.filter(x=>x == 'available' || x == 'unavailable').length <= 0){
+          console.log("gearbox");
           return this.Vehicles.filter(j=>this.checkedVehicles.includes(j.gearbox));
         }
+
+        else if(this.checkedVehicles.filter(x=>x == 'automatic' || x == 'manual').length <= 0 && this.checkedVehicles.filter(x=>x == 'available' || x == 'unavailable').length <= 0){
+          console.log("type");
+          return this.Vehicles.filter(j=>this.checkedVehicles.includes(j.type));
+        }
+
+        else if(this.checkedVehicles.filter(x=>x == 'electric' || x == 'supercar' || x == 'hatchback' || x == 'limousine').length <= 0 && this.checkedVehicles.filter(x=>x == 'automatic' || x == 'manual').length <= 0){
+          console.log("status");
+          return this.Vehicles.filter(j=>this.checkedVehicles.includes(j.status));
+        }
+        else if(this.checkedVehicles.filter(x=>x == 'available' || x == 'unavailable').length <= 0){
+          console.log("gearbox - type");
+          return this.Vehicles.filter(j=>this.checkedVehicles.includes(j.gearbox)).filter(j=>this.checkedVehicles.includes(j.type));
+        }
+
+        else if(this.checkedVehicles.filter(x=>x == 'electric' || x == 'supercar' || x == 'hatchback' || x == 'limousine').length <= 0){
+          console.log("gearbox - status");
+          return this.Vehicles.filter(j=>this.checkedVehicles.includes(j.gearbox)).filter(j=>this.checkedVehicles.includes(j.status));
+        }
+        else if(this.checkedVehicles.filter(x=>x == 'automatic' || x == 'manual').length <= 0){
+          console.log("type - status");
+          return this.Vehicles.filter(j=>this.checkedVehicles.includes(j.type)).filter(j=>this.checkedVehicles.includes(j.status));
+        }
         else{
-          return this.Vehicles.filter(j=>this.checkedVehicles.includes(j.type)).filter(j=>this.checkedVehicles.includes(j.gearbox));
+          console.log("else");
+          return this.Vehicles.filter(j=>this.checkedVehicles.includes(j.type)).filter(j=>this.checkedVehicles.includes(j.gearbox)).filter(j=>this.checkedVehicles.includes(j.status));
         }
 
       },
@@ -99,6 +131,7 @@ export default {
 }
 </script>
 <style scoped>
+
 .post-list {
   display: flex;
   padding: 20px;
@@ -110,13 +143,15 @@ export default {
 .forms {
   display: flex;
   justify-content: space-evenly;
+  background:#ccc;
 }
 .form-wrap {
   background-color: #ccc;
   padding:10px;
+  margin: 20px;
   border-radius:10px;
 }
-.prazno {
-  height: 100px;
-}
+
+
+
 </style>
