@@ -15,7 +15,7 @@
   <tbody>
       @foreach($reservations as $reservation)
       <tr>
-          <td>{{ $reservation->customer['name'] }}</td>
+      <td>{{ $reservation->customer['name'] }} {{ $reservation->customer['lastname'] }}</td>
           <td>{{ $reservation->vehicle->modelOfVehicle->makeOfVehicle['name'] }} {{ $reservation->vehicle->modelOfVehicle['name'] }}</td>
           <td style="text-align:right;">
               <a href="{{ url('reservations/' .$reservation->id) }}">
@@ -23,10 +23,10 @@
               </a>
 
             <a href="reservations/{{$reservation->id}}/edit">
-            <button class="edit-modal btn btn-info" data-toggle="edit-modal" data-target="#myModal"
+            {{-- <button class="edit-modal btn btn-info" data-toggle="edit-modal" data-target="#myModal"
             data-info="{{$reservation->id}},{{$reservation->type}}">
             <span class="glyphicon glyphicon-edit"></span> Edit
-        </button>
+        </button> --}}
             </a>
         <button class="delete-modal btn btn-danger"
             data-info="{{$reservation->id}},{{$reservation->type}}">

@@ -9,6 +9,8 @@
   
     <h1 class="title">Edit Vehicle </h1>
 
+    {{-- {{ Form::model($vehicle, array('route' => array('vehicles.edit', $vehicle->id))) }} --}}
+
 
     <form method="POST" action="/vehicles/{{ $vehicle->id }}" style="margin-bottom: 1rem">
         {{ method_field('PATCH') }}
@@ -25,7 +27,7 @@
         <div class="form-group">
                 <label for="model_id">Model</label>
                 <select name="model_id" class="form-control">
-                    <option disabled selected value style="display: none;">  </option>
+                <option disabled selected value style="display: none;"></option>
                     @foreach($models as $model)
                         <option value="{{ $model['id'] }}"> {{ $model->makeOfVehicle['name'] }} {{ $model['name'] }}</option>
                 @endforeach

@@ -55,6 +55,21 @@ class VehicleBackendController extends Controller
     public function store(Request $request)
     {
 
+        $request->validate(
+            [
+                'model_id'   => 'required',
+                'type'      => 'required',
+                'engine_power' => 'required|numeric',
+                'door_number' => 'required|numeric',
+                'description' => 'required',
+                'price' => 'required|numeric',
+                'auto_ac' => 'required',
+                'gearbox' => 'required',
+                'image' => 'required',
+            ]
+        );
+
+
         $vehicle = new Vehicle;
 
         $request->file('image')->move(public_path('img/'), $request->file('image')->getClientOriginalName());
