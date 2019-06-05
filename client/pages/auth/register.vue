@@ -1,5 +1,7 @@
 <template>
+
   <div class="box1">
+    <TheSidenav />
     <div class="container">
           <div class="form-wrap">
           <div class="card-header">
@@ -113,6 +115,7 @@
 
 
 <script>
+import TheSidenav from '~/components/Navigation/TheSidenav.vue'
 export default {
   middleware: 'guest',
   data() {
@@ -126,6 +129,9 @@ export default {
         password_confirmation: 'test1234'
       }
     }
+  },
+   components: {
+    TheSidenav
   },
   methods: {
     async register() {
@@ -163,7 +169,7 @@ html {
 
 
 .container {
-  margin:  30px auto;
+  margin:  70px auto;
   max-width: 400px;
   padding: 20px;
   overflow:auto;

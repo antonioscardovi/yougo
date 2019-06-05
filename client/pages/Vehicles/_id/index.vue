@@ -1,5 +1,8 @@
 <template>
-  <div class="single-post-page">
+<div>
+      <TheSidenav/>
+
+  <div class="single-post-page">  
     <section class="post-list">
    <article>
       <div
@@ -16,26 +19,78 @@
         <h1>Model: {{vehicles.model_of_vehicle.name}}</h1>
         <h1>Dostupnost: {{ vehicles.status }}</h1>
 
+         <form @submit.prevent="register">
+          <div class="form-group">
+            <label for="date">1. Koliko dana zelite:</label>
+             <input
+                  v-model="form.days"
+                  type="text"
+                  class="form-control"
+                  :class="{'is-invalid': errors.days }"
+                  placeholder="Dana..."
+                >
+          </div><br>
+           <div class="form-group">
+            <label for="date">2. Unesite vas id: </label>
+            <input
+                  v-model="form.customer_id"
+                  type="text"
+                  class="form-control"
+                  :class="{'is-invalid': errors.customer_id }"
+                  placeholder="Vas id..."
+                >
+          </div><br>
+
+          <div class="form-group">
+            <label for="date">3.Od datuma: </label>
+                    <date-pick
+                  v-model="date"
+                  :pickTime="true"
+                  :format="'DD.MM.YYYY HH:mm'"
+                 ></date-pick>
+          </div><br>
+
+          <div class="form-group">
+            <label for="date">4.Do datuma: </label>
+                   <date-pick
+                    v-model="date2"
+                    :pickTime="true"
+                    :format="'DD.MM.YYYY HH:mm'"
+               ></date-pick>
+          </div><br>      
+              
+          <button>Rezerviraj</button>       
+        </form>
+         
       </div>
     </article>
    </section>
 </div>
+</div>
 </template>
 
 <script>
+import TheSidenav from '~/components/Navigation/TheSidenav.vue'
 import axios from 'axios';
+import DatePick from 'vue-date-pick';
+import 'vue-date-pick/dist/vueDatePick.css';
 export default {
     data(){
         return {
+           date: '14-06-2019 14:30',
+           date2: '01-07-2019 14:30',
+          form:{
+            days:'',
+            customer_id:''
+          },
             vehicles: {
               model_of_vehicle:{
                 make_of_vehicle:{}
-              }     
+              }
             },
         }
     },
-    methods: {
-    },
+  
     created(){
       axios.get('http://localhost/api/vehicles/' + this.$route.params.id)
         .then((res) => {
@@ -46,9 +101,38 @@ export default {
           // eslint-disable-next-line
           console.error(error);
         });
+      },
       
-    },
-}
+      components: {
+         TheSidenav,
+         DatePick
+      },
+      methods :{
+            async register() {
+        try {
+          //console.log('evo me ovdje')
+          const response = await this.$axios.post('http://localhost/api/vehicles/' + this.$route.params.id, {
+            headers: {
+              'Access-Control-Allow-Origin': '*',
+              'Content-Type': 'application/json',
+            },
+            days: this.form.days,
+            customer_id: this.form.customer_id,
+          })
+        // console.log('got response', response)
+        } catch (e) {
+          console.log('error', e.message, response)
+        }
+        //   this.$auth.login({ data: this.form }
+      }
+     }
+
+      
+    }
+
+
+
+
 </script>
 
 
@@ -70,6 +154,7 @@ export default {
   width: 100%;
 }
 .post-list {
+  margin-top: 40px;
   background-color: #ccc;
   display: flex;
   padding: 20px;

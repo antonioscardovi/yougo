@@ -86,7 +86,7 @@
 
         <div class="form-group">
             <label for="engine_power">Engine Power <small>(kW)</small> </label>
-            <input type="text" name="engine_power" class="form-control {{ $errors->has('engine_power') ? 'is-danger' : '' }}" placeholder="@if ($errors->has('engine_power')) {{ $errors->first('engine_power') }} @else   @endif">
+            <input type="number" name="engine_power" class="form-control {{ $errors->has('engine_power') ? 'is-danger' : '' }}" placeholder="@if ($errors->has('engine_power')) {{ $errors->first('engine_power') }} @else   @endif">
         </div>
 
         <div class="form-group">

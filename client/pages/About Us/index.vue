@@ -21,7 +21,7 @@ export default {
 
 <style scoped>
 .container {
-  
+
   background-size: cover;
   background-position: center;
   padding-top: 100px;
@@ -40,7 +40,7 @@ export default {
   padding-top:200px;
   margin-top: -10%;
   height:500px;
-  
+
   box-sizing: border-box;
   background-color: #0054db;
 }
