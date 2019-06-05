@@ -124,6 +124,10 @@ class VehicleBackendController extends Controller
      */
     public function update(Vehicle $vehicle)
     {
+
+        // $request->file('image')->move(public_path('img/'), $request->file('image')->getClientOriginalName());
+        // $image = $vehicle->image = 'http://localhost/img/' . $request->file('image')->getClientOriginalName();
+
         $vehicle->model_id = request('model_id');
         $vehicle->type = request('type');
         $vehicle->engine_power = request('engine_power');
@@ -132,7 +136,7 @@ class VehicleBackendController extends Controller
         $vehicle->price = request('price');
         $vehicle->description = request('description');
         $vehicle->auto_ac = request('auto_ac');
-        $vehicle->image = request('image');
+        $vehicle->image = $image;
 
         $vehicle->save();
 

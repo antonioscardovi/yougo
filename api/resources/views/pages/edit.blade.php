@@ -27,7 +27,7 @@
         <div class="form-group">
                 <label for="model_id">Model</label>
                 <select name="model_id" class="form-control">
-                <option disabled selected value style="display: none;"></option>
+                <option disabled selected value style="display: none;">{{ $vehicle->modelOfVehicle->makeOfVehicle['name'] }} {{ $vehicle->modelOfVehicle['name'] }}</option>
                     @foreach($models as $model)
                         <option value="{{ $model['id'] }}"> {{ $model->makeOfVehicle['name'] }} {{ $model['name'] }}</option>
                 @endforeach
@@ -37,7 +37,7 @@
             <div class="form-group">
                 <label for="type">Type</label>
                 <select name="type" class="form-control">
-                    <option disabled selected value style="display: none;"></option>
+                    <option disabled selected value style="display: none;">{{ $vehicle->type }}</option>
                     <option value="hatchback">Hatchback</option>
                     <option value="limousine">Limousine</option>
                     <option value="sport">Sport</option>
@@ -50,7 +50,7 @@
             <div class="form-group">
                 <label for="door_number">Door Number</label>
                 <select name="door_number" class="form-control">
-                    <option disabled selected value style="display: none;"></option>
+                <option disabled selected value style="display: none;">{{ $vehicle->door_number }}</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -66,7 +66,7 @@
             <div class="form-group">
                 <label for="gearbox">Gearbox</label>
                 <select name="gearbox" class="form-control">
-                    <option disabled selected value style="display: none;"></option>
+                <option disabled selected value style="display: none;">{{ $vehicle->gearbox }}</option>
                     <option value="autmoatic">Automatic</option>
                     <option value="manual">Manual</option>
                 </select>
@@ -77,7 +77,7 @@
             <div class="form-group">
             <label for="auto_ac"> AC </label>
             <select name="auto_ac" class="form-control">
-                <option disabled selected value style="display: none;"></option>
+            <option disabled selected value style="display: none;">{{ $vehicle->auto_ac }}</option>
                 <option value="true">Yes</option>
                 <option value="false">No</option>
             </select>
@@ -86,23 +86,23 @@
     
             <div class="form-group">
                 <label for="engine_power">Engine Power <small>(kW)</small> </label>
-                <input type="text" name="engine_power" class="form-control {{ $errors->has('engine_power') ? 'is-danger' : '' }}" placeholder="@if ($errors->has('engine_power')) {{ $errors->first('engine_power') }} @else   @endif">
+            <input type="text" name="engine_power" class="form-control {{ $errors->has('engine_power') ? 'is-danger' : '' }}" placeholder="@if ($errors->has('engine_power')) {{ $errors->first('engine_power') }} @else   @endif" value="{{ $vehicle->engine_power }}">
             </div>
     
             <div class="form-group">
                 <label for="price">Price <small>(HRK)</small> </label>
-                <input type="number" name="price" class="form-control">
+                <input type="number" name="price" class="form-control" value="{{ $vehicle->price }}">
             </div>
     
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea class="form-control {{ $errors->has('description') ? 'is-danger' : '' }}" name="description" placeholder="@if ($errors->has('description')) {{ $errors->first('description') }} @else  @endif"></textarea>
+                <textarea class="form-control {{ $errors->has('description') ? 'is-danger' : '' }}" name="description" placeholder="@if ($errors->has('description')) {{ $errors->first('description') }} @else  @endif" value="{{ $vehicle->description }}"></textarea>
             </div>
     
-            <div class="form-group">
-                <label for="picture">Photo(s)</label>
-                <input type="file" name="picture" class="form-control-file">
-            </div>
+            {{-- <div class="form-group">
+                <label for="image">Photo(s)</label>
+                <input type="file" name="image" class="form-control-file">
+            </div> --}}
 
 
         <div class="form-group">
