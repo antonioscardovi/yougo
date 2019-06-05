@@ -136,7 +136,7 @@ class VehicleBackendController extends Controller
         $vehicle->price = request('price');
         $vehicle->description = request('description');
         $vehicle->auto_ac = request('auto_ac');
-        $vehicle->image = $image;
+        // $vehicle->image = $image;
 
         $vehicle->save();
 

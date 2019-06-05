@@ -3,6 +3,13 @@
 @section('title', 'Edit')
 
 @section('content')
+
+<?php  
+    $doors = [2,3,4,5];
+    $types = ['Hatchback', 'Sedan', 'SUV', 'Sport', 'Wagon', 'Coupe', 'Compact', 'Crossover', 'Van'];
+    $gears = ['Automatic', 'Manual'];
+    $ACs = ['Yes', 'No'];
+?>
 <div class="container">
     <div class="section">
 
@@ -27,9 +34,9 @@
         <div class="form-group">
                 <label for="model_id">Model</label>
                 <select name="model_id" class="form-control">
-                <option disabled selected value style="display: none;">{{ $vehicle->modelOfVehicle->makeOfVehicle['name'] }} {{ $vehicle->modelOfVehicle['name'] }}</option>
+                    <option value="0">--Select--</option>
                     @foreach($models as $model)
-                        <option value="{{ $model['id'] }}"> {{ $model->makeOfVehicle['name'] }} {{ $model['name'] }}</option>
+                        <option value="{{ $model['id'] }}" {{$vehicle->model_id == $model['id'] ? 'selected="selected"' : '' }}> {{ $model->makeOfVehicle['name'] }} {{ $model['name'] }}</option>
                 @endforeach
                 </select>
             </div>
@@ -37,28 +44,20 @@
             <div class="form-group">
                 <label for="type">Type</label>
                 <select name="type" class="form-control">
-                    <option disabled selected value style="display: none;">{{ $vehicle->type }}</option>
-                    <option value="hatchback">Hatchback</option>
-                    <option value="limousine">Limousine</option>
-                    <option value="sport">Sport</option>
-                    <option value="supersport">Supersport</option>
-                    <option value="suv">SUV</option>
-                    <option value="caravan">Caravan</option>
+                    <option value="0">--Select--</option>
+                    @foreach($types as $type)
+                        <option value="{{ $type }}" {{$vehicle->type == $type ? 'selected="selected"' : '' }}> {{ $type }}</option>
+                @endforeach
                 </select>
             </div>
     
             <div class="form-group">
                 <label for="door_number">Door Number</label>
                 <select name="door_number" class="form-control">
-                <option disabled selected value style="display: none;">{{ $vehicle->door_number }}</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
+                    <option value="0">--Select--</option>
+                    @foreach($doors as $door)
+                    <option value="{{ $door }}" {{$vehicle->door_number == $door ? 'selected="selected"' : '' }}>{{ $door }}</option>   
+                    @endforeach
                 </select>
                 {{-- <input type="text" name="door_number" class="form-control {{ $errors->has('door_number') ? 'is-danger' : '' }}" placeholder="@if ($errors->has('door_number')) {{ $errors->first('door_number') }} @else   @endif"> --}}
             </div>
@@ -66,9 +65,10 @@
             <div class="form-group">
                 <label for="gearbox">Gearbox</label>
                 <select name="gearbox" class="form-control">
-                <option disabled selected value style="display: none;">{{ $vehicle->gearbox }}</option>
-                    <option value="autmoatic">Automatic</option>
-                    <option value="manual">Manual</option>
+                    <option value="0">--Select--</option>
+                    @foreach($gears as $gearbox)
+                    <option value="{{ $gearbox }}" {{$vehicle->gearbox == $gearbox ? 'selected="selected"' : '' }}>{{ $gearbox }}</option>
+                    @endforeach
                 </select>
                 {{-- <input type="checkbox" name="gearbox" value="1" class="form-check-input"> --}}
             </div>
@@ -77,9 +77,11 @@
             <div class="form-group">
             <label for="auto_ac"> AC </label>
             <select name="auto_ac" class="form-control">
-            <option disabled selected value style="display: none;">{{ $vehicle->auto_ac }}</option>
-                <option value="true">Yes</option>
-                <option value="false">No</option>
+            <option value="0">--Select--</option>
+            @foreach($ACs as $ac)
+            <option value="{{ $ac }}" {{ $vehicle->auto_ac == $ac ? 'selected="selected"' : '' }}>{{ $ac }}</option>
+            @endforeach
+            
             </select>
             {{-- <input type="checkbox" name="auto_ac" value='1' class="form-check-input"> --}}
             </div>
