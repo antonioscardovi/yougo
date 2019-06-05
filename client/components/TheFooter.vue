@@ -92,6 +92,9 @@ export default {
   background: #0054Db;
 
 }
+.footer-center{
+  background-color: rgba(0, 84, 219, 0);
+}
 
 .news-img img {
     width:90px; /* you can use % */
