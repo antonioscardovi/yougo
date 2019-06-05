@@ -11,13 +11,13 @@
     </label>
     <ul class="menu">
       <li class="nav-item link-1">
-        <nuxt-link to="/">Početna</nuxt-link>
+        <nuxt-link to="/">POČETNA</nuxt-link>
       </li>
       <li class="nav-item link-1">
-        <nuxt-link to="/Vehicles">Popis vozila</nuxt-link>
+        <nuxt-link to="/Vehicles">POPIS VOZILA</nuxt-link>
       </li>
       <li class="nav-item link-1">
-        <nuxt-link to="/About Us">O nama</nuxt-link>
+        <nuxt-link to="/About Us">O NAMA</nuxt-link>
       </li>
 
       <template v-if="authenticated">
@@ -28,7 +28,7 @@
       </template>
       <template v-else>
         <li class="nav-item link-1 link2">
-          <nuxt-link class="register" to="/auth/register">Registracija</nuxt-link>
+          <nuxt-link class="register" to="/auth/register">REGISTRACIJA</nuxt-link>
         </li>
       </template>
     </ul>
@@ -48,8 +48,6 @@ export default {
 
 
 <style scoped>
-/* header */
-
 .header {
   background-color: rgb(250, 250, 250);
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0);
@@ -102,9 +100,6 @@ export default {
   border-top: 4px solid #0054db;
 }
 
-.header li a.register:hover {
-}
-
 .logo {
   width: 150px;
   margin-left: 5px;
@@ -114,10 +109,8 @@ export default {
 
 .nav-item {
   font-family: Roboto;
-  font-size: 18px;
+  font-size: 16px;
 }
-
-/* menu */
 
 .header .menu {
   clear: both;
@@ -125,8 +118,6 @@ export default {
   transition: max-height 0.2s ease-out;
   background-color: rgba(0, 0, 0, 0);
 }
-
-/* menu icon */
 
 .header .menu-icon {
   cursor: pointer;
@@ -162,10 +153,8 @@ export default {
 }
 
 .header .menu-icon .navicon:after {
-  top: -5px;
+  top: -5px;  
 }
-
-/* menu btn */
 
 .header .menu-btn {
   display: none;
@@ -192,9 +181,7 @@ export default {
 .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
   top: 0;
 }
-
 /* 48em = 768px */
-
 @media (min-width: 55em) {
   .header li {
     float: left;
@@ -210,22 +197,19 @@ export default {
   }
   .header .menu-icon {
     display: none;
-  }
+  }  
 }
-
-@media (max-width: 900px) {
-  .header .menu {
-    background-color: rgb(255, 255, 255);
-    margin-left: 5%;
-    font-size: 16px;
+@media (max-width:900px){
+  .header .menu {background-color: rgb(255, 255, 255);
+  margin-left: 5%;
+  font-size: 16px;
   }
   .nav-item:hover {
-    font-family: Roboto;
-    font-size: 18px;
-  }
-
-  .link-1:hover {
-    border-top: 0px solid rgb(95, 95, 95);
-  }
+  font-family: Roboto;
+  font-size: 18px;
+}
+.link-1:hover {  
+  border-top: 0px solid rgb(95, 95, 95);   
+}
 }
 </style>

@@ -1,31 +1,8 @@
 <template>
 <div class="container">
-   <div class="prazno"></div>
-   <div class="forms">
-      <div class="form-wrap">
-        <h3>Types</h3>
-        <ul>
-        <li v-for="tip in types" :key="tip">
-        <input type="checkbox" v-model="checkedVehicles" v-bind:value="tip"> {{ tip }}
-        </li>
-        </ul>
-      </div>
-      <div class="form-wrap">
-        <h3>Transmission</h3>
-        <ul>
-        <li v-for="trans in transmission" :key="trans">
-        <input type="checkbox" v-model="checkedVehicles" v-bind:value="trans"> {{ trans }}
-        </li>
-        </ul>
-      </div>
-    </div>
-
     <section class="post-list">
-
-
-
       <PostPreview
-        v-for="vehicle in filteredVehicles"
+        v-for="vehicle in Vehicles"
         :key="vehicle.id"
         :id="vehicle.id"
         :type="vehicle.type"
@@ -54,21 +31,21 @@ export default {
         }
     },
     computed: {
-      filteredVehicles() {
-        if(!this.checkedVehicles.length){
-          return this.Vehicles;
-        }
-        else if(this.checkedVehicles.filter(x=>x == 'automatic' || x == 'manual').length <= 0){
-          return this.Vehicles.filter(j=>this.checkedVehicles.includes(j.type))
-        }
-        else if(this.checkedVehicles.filter(x=>x == 'electric' || x == 'supercar' || x == 'hatchback' || x == 'limousine').length <= 0){
-          return this.Vehicles.filter(j=>this.checkedVehicles.includes(j.gearbox));
-        }
-        else{
-          return this.Vehicles.filter(j=>this.checkedVehicles.includes(j.type)).filter(j=>this.checkedVehicles.includes(j.gearbox));
-        }
+      // filteredVehicles() {
+      //   if(!this.checkedVehicles.length){
+      //     return this.Vehicles;
+      //   }
+      //   else if(this.checkedVehicles.filter(x=>x == 'automatic' || x == 'manual').length <= 0){
+      //     return this.Vehicles.filter(j=>this.checkedVehicles.includes(j.type))
+      //   }
+      //   else if(this.checkedVehicles.filter(x=>x == 'electric' || x == 'supercar' || x == 'hatchback' || x == 'limousine').length <= 0){
+      //     return this.Vehicles.filter(j=>this.checkedVehicles.includes(j.gearbox));
+      //   }
+      //   else{
+      //     return this.Vehicles.filter(j=>this.checkedVehicles.includes(j.type)).filter(j=>this.checkedVehicles.includes(j.gearbox));
+      //   }
 
-      },
+      // },
     },
     methods: {
     getVehicles() {

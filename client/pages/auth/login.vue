@@ -1,5 +1,6 @@
 <template>
 <div class="box1">
+  <TheSidenav />
 	<div class="container">
     <div class="form-wrap">
 				<div class="card-header">
@@ -55,7 +56,12 @@
 
 
 <script>
+import TheSidenav from '~/components/Navigation/TheSidenav.vue'
+
 export default {
+    components: {
+    TheSidenav
+  },
 	middleware:'guest',
 	data(){
 		return {
@@ -78,7 +84,7 @@ export default {
 
 <style scoped>
 .container {
-  margin:  30px auto;
+  margin:  70px auto;
   max-width: 400px;
   padding: 20px;
   overflow:auto;
