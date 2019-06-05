@@ -19,45 +19,26 @@
         <h1>Model: {{vehicles.model_of_vehicle.name}}</h1>
         <h1>Dostupnost: {{ vehicles.status }}</h1>
 
-         <form @submit.prevent="register">
+         <form @submit.prevent="rezerviraj">
           <div class="form-group">
-            <label for="date">1. Koliko dana zelite:</label>
-             <input
-                  v-model="form.days"
-                  type="text"
-                  class="form-control"
-                  :class="{'is-invalid': errors.days }"
-                  placeholder="Dana..."
-                >
-          </div><br>
-           <div class="form-group">
-            <label for="date">2. Unesite vas id: </label>
-            <input
-                  v-model="form.customer_id"
-                  type="text"
-                  class="form-control"
-                  :class="{'is-invalid': errors.customer_id }"
-                  placeholder="Vas id..."
-                >
-          </div><br>
 
-          <div class="form-group">
-            <label for="date">3.Od datuma: </label>
+            <label for="date">3.Datum znajmljivanja: </label>
                     <date-pick
-                  v-model="date"
+                  v-model="form.date"
                   :pickTime="true"
-                  :format="'DD.MM.YYYY HH:mm'"
+                  :format="'DD-MM-YYYY HH:mm'"
                  ></date-pick>
           </div><br>
 
           <div class="form-group">
-            <label for="date">4.Do datuma: </label>
+            <label for="date">4.Datum vracanja: </label>
                    <date-pick
-                    v-model="date2"
+                    v-model="form.date2"
                     :pickTime="true"
-                    :format="'DD.MM.YYYY HH:mm'"
+                    :format="'DD-MM-YYYY HH:mm'"
+                    
                ></date-pick>
-          </div><br>      
+          </div><br>
               
           <button>Rezerviraj</button>       
         </form>
@@ -77,11 +58,11 @@ import 'vue-date-pick/dist/vueDatePick.css';
 export default {
     data(){
         return {
-           date: '14-06-2019 14:30',
-           date2: '01-07-2019 14:30',
           form:{
+            date: '',
+            date2: '',
             days:'',
-            customer_id:''
+            customer_id:'11'
           },
             vehicles: {
               model_of_vehicle:{
@@ -90,6 +71,16 @@ export default {
             },
         }
     },
+
+/*
+    console.log("Datumi:");
+     console.log(this.date, this.date2);
+     var dateP = new Date(this.date);
+     console.log(dateP);
+     var dateK = new Date(this.date2);
+     var rezult = dateK.getDate() - dateP.getDate();
+     console.log(rezult);
+*/
   
     created(){
       axios.get('http://localhost/api/vehicles/' + this.$route.params.id)
@@ -108,7 +99,12 @@ export default {
          DatePick
       },
       methods :{
-            async register() {
+            async rezerviraj() {
+
+              var dateP = new Date(this.form.date);
+              var dateK = new Date(this.form.date2);
+              var num = dateK.getDate() - dateP.getDate();
+              this.form.days = num.toString();
         try {
           //console.log('evo me ovdje')
           const response = await this.$axios.post('http://localhost/api/vehicles/' + this.$route.params.id, {
@@ -116,6 +112,7 @@ export default {
               'Access-Control-Allow-Origin': '*',
               'Content-Type': 'application/json',
             },
+            
             days: this.form.days,
             customer_id: this.form.customer_id,
           })

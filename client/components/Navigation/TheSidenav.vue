@@ -31,7 +31,7 @@
           <nuxt-link class="register" to="/auth/register">REGISTRACIJA</nuxt-link>
         </li>
       </template>
-    </ul>
+    </ul>  
   </div>
 </template>
 
