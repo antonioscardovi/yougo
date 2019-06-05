@@ -40,6 +40,25 @@
                   placeholder="Vas id..."
                 >
           </div><br>
+
+          <div class="form-group">
+            <label for="date">3.Od datuma: </label>
+                    <date-pick
+                  v-model="date"
+                  :pickTime="true"
+                  :format="'DD.MM.YYYY HH:mm'"
+                 ></date-pick>
+          </div><br>
+
+          <div class="form-group">
+            <label for="date">4.Do datuma: </label>
+                   <date-pick
+                    v-model="date2"
+                    :pickTime="true"
+                    :format="'DD.MM.YYYY HH:mm'"
+               ></date-pick>
+          </div><br>      
+              
           <button>Rezerviraj</button>       
         </form>
          
@@ -53,9 +72,13 @@
 <script>
 import TheSidenav from '~/components/Navigation/TheSidenav.vue'
 import axios from 'axios';
+import DatePick from 'vue-date-pick';
+import 'vue-date-pick/dist/vueDatePick.css';
 export default {
     data(){
         return {
+           date: '14-06-2019 14:30',
+           date2: '01-07-2019 14:30',
           form:{
             days:'',
             customer_id:''
@@ -67,6 +90,7 @@ export default {
             },
         }
     },
+  
     created(){
       axios.get('http://localhost/api/vehicles/' + this.$route.params.id)
         .then((res) => {
@@ -80,7 +104,8 @@ export default {
       },
       
       components: {
-         TheSidenav
+         TheSidenav,
+         DatePick
       },
       methods :{
             async register() {
