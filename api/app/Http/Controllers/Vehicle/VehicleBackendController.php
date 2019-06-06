@@ -57,8 +57,8 @@ class VehicleBackendController extends Controller
 
         $request->validate(
             [
-                'model_id'   => 'required',
-                'type'      => 'required',
+                'model_id' => 'required',
+                'type' => 'required',
                 'engine_power' => 'required|numeric',
                 'door_number' => 'required|numeric',
                 'description' => 'required',
@@ -68,6 +68,11 @@ class VehicleBackendController extends Controller
                 'image' => 'required',
             ]
         );
+
+        $this->validate($request, [
+            'filename' => 'required',
+            'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
 
 
         $vehicle = new Vehicle;
@@ -85,6 +90,21 @@ class VehicleBackendController extends Controller
         $vehicle->gearbox = request('gearbox');
         $vehicle->image = $image;
         $vehicle->save();
+
+
+        if ($request->hasfile('filename')) {
+            foreach ($request->file('filename') as $image) {
+                $name = $image->getClientOriginalName();
+                $image->move(public_path() . 'img/', $name);
+                $data[] = $name;
+            }
+        }
+
+        $images = new Image();
+        $images->filename = json_encode($data);
+
+
+        $images->save();
 
         // Vehicle::create($attributes, $image);
 

@@ -2,43 +2,55 @@
   <div class="container">
     <TheSidenav/>
     <div id="formahome">
-      <div id="blue"><center><h1>REZERVIRAJ AUTO PO MJERI!
-      <br>
-      </h1></center>
-      <section id="container">
-      <section class="form-wrap">
-        <br><br>
-        <form action="">
-          <div class="form-group">
-            <label for="date">1. Datum iznajmljivanja</label>
-            <input type="date" name="date">
-          </div><br>
-           <div class="form-group">
-            <label for="date">2. Datum vraćanja: </label>
-            <input type="date" name="date">
-          </div><br>
-          <div class="form-group">
-            <label for="type">3. Tip automobila</label>
-            <select name="type" id="type">
-              <option value="karavan">Karavan</option>
-              <option value="kabriolet">Kabriolet</option>
-              <option value="suv">SUV</option>
-              <option value="teretni">Teretni</option>
-            </select>
-          </div>
-          <div class="form-group"><br>
-            <label for="model">4. Model automobila</label>
-            <select name="type" id="type">
-              <option value="volvo">Volvo</option>
-              <option value="saab">Saab</option>
-              <option value="mercedes">Mercedes</option>
-              <option value="audi">Audi</option>
-            </select>
-          </div>          
-        </form>
-      </section>      
-    </section>
-    <button type="submit" class="btn"><a id="link" href="/Vehicles"><span>REZERVIRAJ!</span></a></button>
+      <div id="blue">
+        <center>
+          <h1>
+            REZERVIRAJ AUTO PO MJERI!
+            <br>
+          </h1>
+        </center>
+        <section id="container">
+          <section class="form-wrap">
+            <br>
+            <br>
+            <form action>
+              <div class="form-group">
+                <label for="date">1. Datum iznajmljivanja</label>
+                <input type="date" name="date">
+              </div>
+              <br>
+              <div class="form-group">
+                <label for="date">2. Datum vraćanja:</label>
+                <input type="date" name="date">
+              </div>
+              <br>
+              <div class="form-group">
+                <label for="type">3. Tip automobila</label>
+                <select name="type" id="type">
+                  <option value="karavan">Karavan</option>
+                  <option value="kabriolet">Kabriolet</option>
+                  <option value="suv">SUV</option>
+                  <option value="teretni">Teretni</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <br>
+                <label for="model">4. Model automobila</label>
+                <select name="type" id="type">
+                  <option value="volvo">Volvo</option>
+                  <option value="saab">Saab</option>
+                  <option value="mercedes">Mercedes</option>
+                  <option value="audi">Audi</option>
+                </select>
+              </div>
+            </form>
+          </section>
+        </section>
+        <button type="submit" class="btn">
+          <a id="link" href="/Vehicles">
+            <span>REZERVIRAJ!</span>
+          </a>
+        </button>
       </div>
       <img id="image" src="~/assets/Images/a5.png">
     </div>
@@ -108,7 +120,6 @@
     </section> 
     <br><br><br>  
   </div>
-  
 </template>
 
 <script>
@@ -116,7 +127,7 @@ import TheSidenav from '~/components/Navigation/TheSidenav.vue'
 
 export default {
   components: {
-    TheSidenav,
+    TheSidenav
   }
 }
 </script>
@@ -127,13 +138,12 @@ export default {
 
 .flip-card {
   padding-left: 1%;
-  margin-top:2%;
-  margin-bottom:2%;
+  margin-top: 2%;
+  margin-bottom: 2%;
   background-color: transparent;
   width: 33.3333%;
   height: 330px;
   perspective: 1000px;
-  
 }
 
 .flip-card-inner {
@@ -143,14 +153,15 @@ export default {
   text-align: center;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
 }
 
-.flip-card-front, .flip-card-back {
+.flip-card-front,
+.flip-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -167,47 +178,45 @@ export default {
   color: white;
   transform: rotateY(180deg);
 }
-.map-responsive{
-    overflow:hidden;
-    padding-bottom:70%;
-    position:relative;   
+.map-responsive {
+  overflow: hidden;
+  padding-bottom: 70%;
+  position: relative;
 }
 
-i{
+i {
   font-size: 22px;
   padding-top:3%;
   color:#0054dB;
   
 }
-.map-responsive iframe{
-    left:0;
-    top:0;
-    height:100%;
-    width:100%;
-    position:absolute;
+.map-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
-.divBox{
- 
+.divBox {
   padding-left: 2%;
   padding-right: 2%;
   padding-top: 2%;
   border-top: solid 30px #0054db;
 }
 
-.div1{
-  background-color:white;
-   width:60%;
-   padding-left:5%;
-   padding-right:5%;
-   padding-top: 5%;
-  
+.div1 {
+  background-color: white;
+  width: 60%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 5%;
 }
-.div2{
+.div2 {
   background-color: rgba(204, 204, 204, 0.39);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-   width:40%;
-   color:white;
-   font-size: 17px;
+  width: 40%;
+  color: white;
+  font-size: 17px;
 }
 
 .upoznajtetim{
@@ -231,46 +240,41 @@ i{
    -webkit-box-shadow: inset 0 0 6px #000000a0;
    box-shadow:         inset 0 0 6px #000000a0;
 }
-.aboutus{
-
+.aboutus {
   display: flex;
   min-height: 75vh;
   flex-direction: row;
   flex-wrap: wrap;
-  padding-left:5%;
+  padding-left: 5%;
   margin-right: 5%;
 }
-h2{
-  color:#0054dB;
+h2 {
+  color: #0054db;
   font-family: 'Montserrat';
-  
-  font-size:30px;
+
+  font-size: 30px;
   font-weight: bolder;
 }
-#p2{
-margin-top: 1%;
+#p2 {
+  margin-top: 1%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size:18px;  
+  font-size: 18px;
   color: #0054db;
 }
-#p1{
+#p1 {
   padding-right: 13%;
   margin-top: 5%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size:29px;
+  font-size: 29px;
   color: white;
-  text-shadow:
-   -1px -1px 0 #0054db,  
-    1px -1px 0 #0054db,
-    -1px 1px 0 #0054db,
-     1px 1px 0 #0054db;
+  text-shadow: -1px -1px 0 #0054db, 1px -1px 0 #0054db, -1px 1px 0 #0054db,
+    1px 1px 0 #0054db;
 }
 
-
-#p3{
-   margin-top: 3%;
+#p3 {
+  margin-top: 3%;
   font-family: 'Roboto';
-  font-size:16px;
+  font-size: 16px;
   padding-right: 13%;
   text-align: justify;
   color: #333;
@@ -359,13 +363,11 @@ select {
   z-index: 3;
 }
 
-
-
 #formahome {
   background-color: #0054db;
-  min-height: 400px;
-  width:37%;
-  margin-left: 29%;
+  min-height: 600px;
+  width: 35%;
+  margin-left: 30%;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.517), 0 6px 20px 0 rgba(0, 0, 0, 0.51);
 }
@@ -383,9 +385,9 @@ select {
   outline: none;
   overflow: hidden;
   position: relative;
-  width: 100%;
+  width: 300px;
   margin: 0 auto;
-  background-image: linear-gradient(to right, #004ac1, #6a8fcb);
+  background: #00eb3b;
   height: 80px;
   border-radius: 5px;
   margin-top: 15%;
@@ -426,13 +428,13 @@ select {
   transform: translateX(-98%) translateY(-25%) rotate(45deg);
 }
 
-#aboutus{
+#aboutus {
   background-color: red;
-  height:500px;
-  width:100%;
+  height: 500px;
+  width: 100%;
 }
-.btn2{
-  width:60%;
+.btn2 {
+  width: 60%;
 }
 
 .btn:hover:after {
@@ -454,6 +456,7 @@ select {
     position: absolute;
     bottom: 0;
     margin-top: 15%;
+    width: 100%;
   }
 
   .container {
@@ -498,13 +501,9 @@ select {
   }
 }
 
-@media screen and (max-width:1276px){
-  #image{
-    display:none;
+@media screen and (max-width: 1276px) {
+  #image {
+    display: none;
   }
 }
-
-
-
-
 </style>
