@@ -9,16 +9,26 @@
             <thead>
                 <tr>
                     <th>Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
                     <th>Email</th>
                     <th>Admin</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($users as $user)
                 <tr>
                     <td>{{ $user->name }}</td>
+                    <td>{{ $user->lastname }}</td>
+                    <td>{{ $user->username }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->admin }}</td>
+                    <td style="text-align:right;">
+                            <a href="{{ url('users/' .$user->id) }}">
+                        <button class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span> About</button>
+                             </a>
+                    </td>
                 </tr>
                 {{-- <a href="{{ url('users/'. $user->id) }}"></a> --}} <!-- LINK ZA JEDNOG userA -->
                 @endforeach

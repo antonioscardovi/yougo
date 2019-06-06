@@ -1,6 +1,14 @@
 @extends('adminlte::page')
 
 @section('content')
+
+<?php  
+    $doors = [2,3,4,5];
+    $types = ['Hatchback', 'Sedan', 'SUV', 'Sport', 'Wagon', 'Coupe', 'Compact', 'Crossover', 'Van'];
+    $gears = ['Automatic', 'Manual'];
+    $ACs = ['Yes', 'No'];
+?>
+
 <h1 class="title" style="margin-top:0;">Vehicles</h1>
 <hr>
  <table id="table1" class="display cell-border table table-striped table-bordered table-responsive" style="font-size: 2rem; background-color: #fff;  border: 2px solid #ccc;">
@@ -45,6 +53,12 @@
             <span class="glyphicon glyphicon-edit"></span> Edit
         </button>
             </a>
+
+            {{-- <button class="delete-modal btn btn-danger" data-toggle="modal" data-target="#myModal"
+            data-info="{{$vehicle->id}},{{$vehicle->model_id}},{{$vehicle->type}},{{$vehicle->engine_power}},{{$vehicle->door_number}},{{$vehicle->gearbox}},{{$vehicle->auto_ac}},{{$vehicle->description}},{{$vehicle->status}},{{$vehicle->image}},{{$vehicle->price}}">
+            <span class="glyphicon glyphicon-trash"></span> Delete
+        </button> --}}
+    
               <form method="POST" action="/vehicles/{{ $vehicle->id }}" style="display: inline;">
                   @method('DELETE')
                   @csrf
