@@ -9,6 +9,7 @@
          <h1> Vrsta: {{ type }}</h1>
         <h1>Konjaža: {{ engine_power }}</h1>
         <h1>Broj Vrata: {{ door_number }}</h1>
+        <h1>Mjenjač: {{ gearbox }}</h1>
         <h1>Opis: {{ description }}</h1>
         <h1>Dostupnost: {{ status }}</h1>
         <h1>Marka Vozila: {{model_of_vehicle.make_of_vehicle.name}}</h1>
@@ -35,6 +36,10 @@ export default {
       required: true
     },
     door_number :{
+        type:String,
+        required: true
+    },
+    gearbox: {
         type:String,
         required: true
     },
