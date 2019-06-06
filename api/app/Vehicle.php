@@ -73,4 +73,9 @@ class Vehicle extends Model
     {
         return $this->hasMany(CustomerVehicle::class);
     }
+
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
 }

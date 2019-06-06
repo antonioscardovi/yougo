@@ -101,8 +101,23 @@
 
         <div class="form-group">
             <label for="image">Photo(s)</label>
-            <input type="file" name="image" class="form-control-file">
+            <input type="file" name="image" multiple class="form-control-file">
         </div>
+
+        {{-- <div class="input-group control-group increment" >
+                <input type="file" name="filename[]" class="form-control">
+                <div class="input-group-btn"> 
+                  <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
+                </div>
+              </div>
+              <div class="clone hide">
+                    <div class="control-group input-group" style="margin-top:10px">
+                      <input type="file" name="filename[]"  class="form-control">
+                      <div class="input-group-btn"> 
+                        <button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
+                      </div>
+                    </div>
+                  </div> --}}
 
         <div>
             <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Submit</button>
@@ -111,5 +126,20 @@
     </form>
 </div>
     </div>
+
+    <script type="text/javascript"> 
+        $(document).ready(function() {
+    
+          $(".btn-success").click(function(){ 
+              var html = $(".clone").html();
+              $(".increment").after(html);
+          });
+    
+          $("body").on("click",".btn-danger",function(){ 
+              $(this).parents(".control-group").remove();
+          });
+    
+        });
+    </script>
 
     @endsection
