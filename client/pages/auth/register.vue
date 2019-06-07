@@ -121,12 +121,11 @@ export default {
   data() {
     return {
       form: {
-        name: 'Mateo',
-        lastname: 'Hrastnik',
-        username: 'mhrastnik',
-        email: 'hrastnik@mail.com',
-        password: 'test1234',
-        password_confirmation: 'test1234'
+        name: '',
+        lastname: '',
+        username: '',
+         password: '',
+        password_confirmation: ''
       }
     }
   },
@@ -156,7 +155,7 @@ export default {
 
       //   this.$auth.login({ data: this.form })
 
-      this.$router.push({ name: 'index' })
+      this.$router.push({ name: '/auth/login' })
     }
   }
 }
