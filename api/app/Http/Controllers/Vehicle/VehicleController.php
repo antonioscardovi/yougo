@@ -18,7 +18,7 @@ class VehicleController extends ApiController
      */
     public function index()
     {
-        $vehicles = Vehicle::with('modelOfVehicle.makeOfVehicle', 'images')->get();
+        $vehicles = Vehicle::with('modelOfVehicle.makeOfVehicle')->get();
         // $vehicles= Vehicle::all();
         // return view('pages.customers',compact('customers'));
         return $this->showAll($vehicles);
@@ -34,7 +34,7 @@ class VehicleController extends ApiController
     public function show($id)
     {
         // $vehicle = Vehicle::with('modelOfVehicle.makeOfVehicle')->get();
-        $vehicle = Vehicle::with('modelOfVehicle.makeOfVehicle', 'images')->findOrFail($id);
+        $vehicle = Vehicle::with('modelOfVehicle.makeOfVehicle')->findOrFail($id);
 
         // $vehicle = Vehicle::with('modelOfVehicle.makeOfVehicle')->get();
 
@@ -71,4 +71,3 @@ class VehicleController extends ApiController
         });
     }
 }
-// git merge

@@ -100,8 +100,8 @@
         </div>
 
         <div class="form-group">
-            <label for="filename">Photo(s)</label>
-            <input type="file" name="filename[]" multiple class="form-control-file">
+            <label for="image">Photo(s)</label>
+            <input type="file" name="image" multiple class="form-control-file">
         </div>
 
         {{-- <div class="input-group control-group increment" >
