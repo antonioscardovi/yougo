@@ -55,6 +55,7 @@
       <img id="image" src="~/assets/Images/a5.png">
     </div>
 
+<<<<<<< HEAD
   
   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   <section id="onama" class="aboutus">
@@ -119,6 +120,137 @@
 </div>       
     </section> 
     <br><br><br>  
+=======
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <section id="about" class="aboutus">
+      <div class="divBox div1">
+        <h2>O nama</h2>
+        <p id="p1">IZAĐI IZ OKVIRA SVAKODNEVICE UZ YouGo!</p>
+        <p id="p2">YouGo je sigurna i provjerena stranica za rezervaciju automobila</p>
+        <p
+          id="p3"
+        >Integer luctus enim in odio semper, molestie convallis ipsum vehicula. Integer elementum mattis pretium. Etiam hendrerit lobortis justo, in lacinia justo efficitur ac. Fusce venenatis vitae odio dapibus mollis. Nunc pretium, libero ut rutrum sagittis, mauris nunc sollicitudin quam, a ullamcorper arcu leo nec ligula. Sed gravida nisi quam, ac tincidunt augue pharetra et. Mauris quis felis libero. Vivamus vehicula, leo ac volutpat tempus, purus mauris tincidunt dui, vitae tincidunt turpis ante quis purus. Nullam tempus aliquam sapien non accumsan.</p>
+        <!-- <button type="submit" class="btn btn2"> -->
+          <a id="link" href="/Vehicles">
+            <span>REZERVIRAJ!</span>
+          </a>
+        </button>
+      </div>
+      <div class="divBox div2">
+        <div class="map-responsive">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d44879.80263543315!2d14.403759344503271!3d45.32887154779649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4764a6dcf256984b%3A0x1d0c2bb4ee6443b1!2sZametska+ul.%2C+51000%2C+Rijeka!5e0!3m2!1shr!2shr!4v1559565424534!5m2!1shr!2shr"
+            width="300"
+            height="800"
+            frameborder="0"
+            style="border:0"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <br>
+        <p id="p2" style="color:#333;">Obratite nam se s povjerenjem!</p>
+        <p style="color:#4c4c4c">
+          <i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Rent-a-car
+        </p>
+        <p style="color:#4c4c4c">
+          <i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Rijeka, HR
+        </p>
+        <p style="color:#4c4c4c">
+          <i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>yougo@mail.com
+        </p>
+        <p style="color:#4c4c4c">
+          <i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>099/ 562 / 7892
+        </p>
+        <br>
+        <br>
+      </div>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h2>
+      <center>Upoznajte naš tim!</center>
+    </h2>
+    <br>
+    <br>
+    <br>
+    <br>
+    <section class="div3">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="~/assets/Images/c1.jpg" alt="Avatar" style="width:100%;height:100%;">
+          </div>
+          <div class="flip-card-back">
+            <h1>
+              <i class="fa fa-paint-brush" style="font-size:40px;color:white"></i>
+              <br>
+              <br>Lana Horvat
+            </h1>
+            <br>
+            <p>Arhitektica & dizajnerica</p>
+            <p style="font-weight:lighter;">Lana je ambiciozna i kreativa. Jako dobar radnik!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="~/assets/Images/c2.jpg" alt="Avatar" style="width:100%;height:100%;">
+          </div>
+          <div class="flip-card-back" style="background-color:grey">
+            <h1>
+              <i class="fa fa-at" style="font-size:40px;color:white"></i>
+              <br>
+              <br>Ivan Horvat
+            </h1>
+            <br>
+            <p>Programer, Back-end i Front-end</p>
+            <p>Jako marljiv i vrijedan naš Ivan Horvat</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="~/assets/Images/c3.jpg" alt="Avatar" style="width:100%;height:100%;">
+          </div>
+          <div class="flip-card-back" style="padding-left:3%;padding-right:3%">
+            <h1>
+              <i class="fa fa-cogs" style="font-size:40px;color:white"></i>
+              <br>
+              <br>Marko Srdoč
+            </h1>
+            <br>
+            <p>Organizator i podrška</p>
+            <p>Glavni organizator i menadžer, sve kreće od ovog čovjeka.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <br>
+    <br>
+    <br>
+>>>>>>> multiple images
   </div>
 </template>
 
@@ -186,9 +318,15 @@ export default {
 
 i {
   font-size: 22px;
+<<<<<<< HEAD
   padding-top:3%;
   color:#0054dB;
   
+=======
+  padding-top: 3%;
+  color: #0054db;
+  padding-right: 7%;
+>>>>>>> multiple images
 }
 .map-responsive iframe {
   left: 0;
@@ -219,6 +357,7 @@ i {
   font-size: 17px;
 }
 
+<<<<<<< HEAD
 .upoznajtetim{
  
  font-size:26px;
@@ -239,6 +378,18 @@ i {
   -moz-box-shadow:    inset 0 0 36x #000000a0;
    -webkit-box-shadow: inset 0 0 6px #000000a0;
    box-shadow:         inset 0 0 6px #000000a0;
+=======
+.div3 {
+  width: 100%;
+  display: flex;
+  min-height: 40vh;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-image: linear-gradient(-90deg, #d1d1d1, rgb(238, 238, 238));
+  -moz-box-shadow: inset 0 0 5px #000000;
+  -webkit-box-shadow: inset 0 0 5px #000000;
+  box-shadow: inset 0 0 5px #000000;
+>>>>>>> multiple images
 }
 .aboutus {
   display: flex;
