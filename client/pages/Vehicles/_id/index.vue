@@ -20,7 +20,6 @@
         <h1>Mjenjač: {{vehicles.gearbox}}</h1>
         <h1>Dostupnost: {{ vehicles.status }}</h1>
 
-
         <template v-if="vehicles.status === 'available'">
           <br>
              <form @submit.prevent="alert">
@@ -115,7 +114,6 @@ export default {
          DatePick
       },
       methods :{
-
       alert()
             { Swal.fire({
             title: 'Potvrdite Rezervaciju?',

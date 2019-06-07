@@ -52,10 +52,11 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: "#fa923f", height: "4px", duration: 5000 },
+  loading: { color: "#0054dB", height: "4px", duration: 5000 },
   loadingIndicator: {
     name: "circle",
-    color: "#fa923f"
+    color: "#0054dB",
+    background: 'white'
   },
 
   router: {
@@ -95,7 +96,9 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: [
+    '~assets/styles/main.css'
+  ],
 
   /*
    ** Plugins to load before mounting the App
@@ -159,5 +162,9 @@ export default {
      */
     // extractCSS: true,
     extend(config, ctx) {}
+  },
+  transition: {
+    name:'fade',
+    mode:'out-in'
   }
 }

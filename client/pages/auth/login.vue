@@ -76,7 +76,7 @@ export default {
 
 			await this.$auth.login({ data: this.form });
 
-			this.$router.push({name: 'index' });
+			this.$router.push({name: '/' });
 		}
 	}
 }
