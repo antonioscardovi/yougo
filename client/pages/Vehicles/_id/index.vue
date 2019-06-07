@@ -17,16 +17,20 @@
         <h1>Opis: {{ vehicles.description }}</h1>
         <h1>Marka Vozila: {{vehicles.model_of_vehicle.make_of_vehicle.name}}</h1>
         <h1>Model: {{vehicles.model_of_vehicle.name}}</h1>
+        <h1>Mjenjač: {{vehicles.gearbox}}</h1>
         <h1>Dostupnost: {{ vehicles.status }}</h1>
 
-         <form @submit.prevent="rezerviraj">
+
+        <template v-if="vehicles.status === 'available'">
+          <br>
+             <form @submit.prevent="alert">
           <div class="form-group">
 
             <label for="date">3.Datum znajmljivanja: </label>
                     <date-pick
                   v-model="form.date"
                   :pickTime="true"
-                  :format="'DD-MM-YYYY HH:mm'"
+                  :format="'YYYY-MM-DD HH:mm'"
                  ></date-pick>
           </div><br>
 
@@ -35,14 +39,21 @@
                    <date-pick
                     v-model="form.date2"
                     :pickTime="true"
-                    :format="'DD-MM-YYYY HH:mm'"
-                    
+                    :format="'YYYY-MM-DD HH:mm'"    
                ></date-pick>
           </div><br>
-              
-          <button>Rezerviraj</button>       
+          <button @click="alert()">Potvrdi Rezervaciju </button>       
         </form>
-         
+
+        </template>
+     
+        <template v-else>
+           <br>
+              <h1>Vozilo je trenutačno iznajmljeno</h1>
+          </template>    
+
+
+
       </div>
     </article>
    </section>
@@ -55,16 +66,21 @@ import TheSidenav from '~/components/Navigation/TheSidenav.vue'
 import axios from 'axios';
 import DatePick from 'vue-date-pick';
 import 'vue-date-pick/dist/vueDatePick.css';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import swal from 'sweetalert2/dist/sweetalert2.all.min.js'
+
 export default {
     data(){
         return {
+          status1: true,
           form:{
             date: '',
             date2: '',
             days:'',
-            customer_id:'11'
+            customer_id:'7'
           },
             vehicles: {
+              status:'',
               model_of_vehicle:{
                 make_of_vehicle:{}
               }
@@ -99,33 +115,53 @@ export default {
          DatePick
       },
       methods :{
+
+      alert()
+            { Swal.fire({
+            title: 'Potvrdite Rezervaciju?',
+            text: "Rezervirajte svoje vozilo",
+            type: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Da Rezerviraj'
+          }).then((result) => {
+            if (result.value){
+              Swal.fire(
+                'Rezervirano!',
+                'Uspješno ste rezervirali vase vozilo',
+                'success',
+                this.rezerviraj()
+              )
+            }})},
             async rezerviraj() {
 
               var dateP = new Date(this.form.date);
               var dateK = new Date(this.form.date2);
-              var num = dateK.getDate() - dateP.getDate();
+              var num = Math.floor((dateK - dateP)/ 1000 / 24 / 60 / 60);
               this.form.days = num.toString();
         try {
-          //console.log('evo me ovdje')
+          
           const response = await this.$axios.post('http://localhost/api/vehicles/' + this.$route.params.id, {
             headers: {
               'Access-Control-Allow-Origin': '*',
               'Content-Type': 'application/json',
             },
-            
             days: this.form.days,
             customer_id: this.form.customer_id,
           })
-        // console.log('got response', response)
+        //console.log('got response', response, this.form.days, this.form.customer_id);
         } catch (e) {
           console.log('error', e.message, response)
         }
-        //   this.$auth.login({ data: this.form }
-      }
-     }
+          setTimeout( () => this.$router.push({ path: '/'}), 1500);
+      },
+    
+     },
 
-      
-    }
+   
+
+}
 
 
 
