@@ -2,7 +2,6 @@
   <div class="container">
     <TheSidenav/>
     <div id="formahome">
-<<<<<<< HEAD
       <div id="blue">
         <center>
           <h1>
@@ -52,45 +51,6 @@
             <span>REZERVIRAJ!</span>
           </a>
         </button>
-=======
-      <div id="blue"><center><h1>REZERVIRAJ AUTO PO MJERI!
-      <br>
-      </h1></center>
-      <section id="container">
-      <section class="form-wrap">
-        <br><br>
-        <form action="">
-          <div class="form-group">
-            <label for="date">1. Datum iznajmljivanja</label>
-            <input type="date" name="date">
-          </div><br>
-           <div class="form-group">
-            <label for="date">2. Datum vraćanja: </label>
-            <input type="date" name="date">
-          </div><br>
-          <div class="form-group">
-            <label for="type">3. Tip automobila</label>
-            <select name="type" id="type">
-              <option value="karavan">Karavan</option>
-              <option value="kabriolet">Kabriolet</option>
-              <option value="suv">SUV</option>
-              <option value="teretni">Teretni</option>
-            </select>
-          </div>
-          <div class="form-group"><br>
-            <label for="model">4. Model automobila</label>
-            <select name="type" id="type">
-              <option value="volvo">Volvo</option>
-              <option value="saab">Saab</option>
-              <option value="mercedes">Mercedes</option>
-              <option value="audi">Audi</option>
-            </select>
-          </div>
-        </form>
-      </section>
-    </section>
-    <button type="submit" class="btn"><a id="link" href="/Vehicles"><span>REZERVIRAJ!</span></a></button>
->>>>>>> Made an dropdown checkbox filter
       </div>
       <img id="image" src="~/assets/Images/a5.png">
     </div>
@@ -160,10 +120,6 @@
     </section>
     <br><br><br>
   </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> Made an dropdown checkbox filter
 </template>
 
 <script>
@@ -188,10 +144,6 @@ export default {
   width: 33.3333%;
   height: 330px;
   perspective: 1000px;
-<<<<<<< HEAD
-=======
-
->>>>>>> Made an dropdown checkbox filter
 }
 
 .flip-card-inner {
@@ -226,17 +178,10 @@ export default {
   color: white;
   transform: rotateY(180deg);
 }
-<<<<<<< HEAD
 .map-responsive {
   overflow: hidden;
   padding-bottom: 70%;
   position: relative;
-=======
-.map-responsive{
-    overflow:hidden;
-    padding-bottom:70%;
-    position:relative;
->>>>>>> Made an dropdown checkbox filter
 }
 
 i {
@@ -252,34 +197,19 @@ i {
   width: 100%;
   position: absolute;
 }
-<<<<<<< HEAD
 .divBox {
-=======
-.divBox{
-
->>>>>>> Made an dropdown checkbox filter
   padding-left: 2%;
   padding-right: 2%;
   padding-top: 2%;
   border-top: solid 30px #0054db;
 }
 
-<<<<<<< HEAD
 .div1 {
   background-color: white;
   width: 60%;
   padding-left: 5%;
   padding-right: 5%;
   padding-top: 5%;
-=======
-.div1{
-  background-color:white;
-   width:60%;
-   padding-left:5%;
-   padding-right:5%;
-   padding-top: 5%;
-
->>>>>>> Made an dropdown checkbox filter
 }
 .div2 {
   background-color: rgba(204, 204, 204, 0.39);
@@ -322,21 +252,13 @@ h2 {
   color: #0054db;
   font-family: 'Montserrat';
 
-<<<<<<< HEAD
   font-size: 30px;
-=======
-  font-size:30px;
->>>>>>> Made an dropdown checkbox filter
   font-weight: bolder;
 }
 #p2 {
   margin-top: 1%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-<<<<<<< HEAD
   font-size: 18px;
-=======
-  font-size:18px;
->>>>>>> Made an dropdown checkbox filter
   color: #0054db;
 }
 #p1 {
@@ -345,16 +267,8 @@ h2 {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 29px;
   color: white;
-<<<<<<< HEAD
   text-shadow: -1px -1px 0 #0054db, 1px -1px 0 #0054db, -1px 1px 0 #0054db,
     1px 1px 0 #0054db;
-=======
-  text-shadow:
-   -1px -1px 0 #0054db,
-    1px -1px 0 #0054db,
-    -1px 1px 0 #0054db,
-     1px 1px 0 #0054db;
->>>>>>> Made an dropdown checkbox filter
 }
 
 #p3 {
@@ -592,12 +506,4 @@ select {
     display: none;
   }
 }
-<<<<<<< HEAD
 </style>
-=======
-
-
-
-
-</style>
->>>>>>> Made an dropdown checkbox filter

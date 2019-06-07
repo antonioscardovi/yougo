@@ -33,14 +33,14 @@
       <div class="multiselect">
         <div class="selectBox" @click="showCheckboxes1()">
           <select>
-            <option>Odaberite Tip Vozila</option>
+            <option>Tip Vozila</option>
           </select>
           <div class="overSelect"></div>
         </div>
         <div id="checkboxes1">
           <ul>
             <li v-for="tip in types" :key="tip">
-            <input type="checkbox" v-model="checkedVehicles" v-bind:value="tip"> {{ tip }}
+            <input type="checkbox"  v-model="checkedVehicles" v-bind:value="tip"> {{ tip }}
             </li>
           </ul>
         </div>
@@ -51,7 +51,7 @@
       <div class="multiselect">
         <div class="selectBox" @click="showCheckboxes2()">
           <select>
-            <option>Odaberite Vrstu Mjenjača</option>
+            <option>Vrsta Mjenjača</option>
           </select>
           <div class="overSelect"></div>
         </div>
@@ -91,6 +91,7 @@
         :key="vehicle.id"
         :id="vehicle.id"
         :type="vehicle.type"
+        :price="vehicle.price"
         :gearbox="vehicle.gearbox"
         :engine_power="vehicle.engine_power"
         :door_number="vehicle.door_number"
@@ -218,7 +219,7 @@ export default {
   box-sizing: border-box;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+   justify-content: center;
 }
 .forms {
   display: flex;
@@ -234,16 +235,38 @@ export default {
 /* _____________________________________________________________________________________________ */
 .multiselect {
   width: 200px;
-  height:300px;
+  height:200px;
 }
 
+ul {
+  background:#0054dB;
+  border-bottom-left-radius: 15px;
+  border: none;
+  color:white;
+  padding-bottom: 10px;
+}
+.multiselect li {
+  list-style-type: none;
+  line-height: 2rem;
+  font-size: 1.2rem;
+}
+select {
+  padding:0.5rem 1rem;
+}
 .selectBox {
   position: relative;
+
 }
 
 .selectBox select {
   width: 100%;
-  font-weight: bold;
+  /* font-weight: bold; */
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 20px;
+  line-height:1.7rem;
+  padding:0.5 0.5rem;
+  border:none;
 }
 
 .overSelect {
@@ -256,7 +279,7 @@ export default {
 
 #checkboxes1, #checkboxes2, #checkboxes3 {
   display: none;
-  border: 1px #dadada solid;
+  /* border: 1px #dadada solid; */
 }
 
 #checkboxes1 label, #checkboxes2 label, #checkboxes3 label  {
