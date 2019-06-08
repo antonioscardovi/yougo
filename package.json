@@ -1,0 +1,23 @@
+{
+  "name": "yougo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "nuxt": "^2.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/aaljukic/yougo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/aaljukic/yougo/issues"
+  },
+  "homepage": "https://gitlab.com/aaljukic/yougo#readme"
+}

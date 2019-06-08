@@ -2,7 +2,7 @@
   <div class="container">
     <TheSidenav/>
     <div id="formahome">
-      <div id="blue">
+      
         <center>
           <h1>
             REZERVIRAJ AUTO PO MJERI!
@@ -45,14 +45,15 @@
               </div>
             </form>
           </section>
-        </section>
-        <button type="submit" class="btn">
+          <button type="submit" class="btn">
           <a id="link" href="/Vehicles">
             <span>REZERVIRAJ!</span>
           </a>
         </button>
-      </div>
-      <img id="image" src="~/assets/Images/a5.png">
+      
+    </section>
+        
+      <img id="image" src="~/assets/Images/a6.png">
     </div>
 
 
@@ -62,7 +63,7 @@
     <div class="divBox div1"><h2>O nama</h2><p id="p1">IZAĐI IZ OKVIRA SVAKODNEVICE UZ YouGo!</p>
     <p id="p2">YouGo je sigurna i provjerena stranica za rezervaciju automobila</p>
   	<p id="p3">Integer luctus enim in odio semper, molestie convallis ipsum vehicula. Integer elementum mattis pretium. Etiam hendrerit lobortis justo, in lacinia justo efficitur ac. Fusce venenatis vitae odio dapibus mollis. Nunc pretium, libero ut rutrum sagittis, mauris nunc sollicitudin quam, a ullamcorper arcu leo nec ligula. Sed gravida nisi quam, ac tincidunt augue pharetra et. Mauris quis felis libero. Vivamus vehicula, leo ac volutpat tempus, purus mauris tincidunt dui, vitae tincidunt turpis ante quis purus. Nullam tempus aliquam sapien non accumsan.</p>
-      <button type="submit" class="btn btn2"><a id="link" href="/Vehicles"><span>REZERVIRAJ!</span></a></button>
+      <button type="submit" class="btn2"><a id="link" href="/Vehicles"><span>REZERVIRAJ!</span></a></button>
     </div>
     <div class="divBox div2"><div class="map-responsive">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d44879.80263543315!2d14.403759344503271!3d45.32887154779649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4764a6dcf256984b%3A0x1d0c2bb4ee6443b1!2sZametska+ul.%2C+51000%2C+Rijeka!5e0!3m2!1shr!2shr!4v1559565424534!5m2!1shr!2shr"
@@ -75,12 +76,14 @@
           <p style="color:#4c4c4c"><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal" style="padding-right: 7%;"></i>099/ 562 / 7892</p><br><br></div>
 
     </section>
-    <br><br><br><br><center><i style="font-size:65px;padding-bottom:2%" class="fa fa-user-circle"></i><br><h2 class="upoznajtetim">/&nbsp;  UPOZNAJTE NAŠ TIM  &nbsp;/</h2></center><br><br><br><br>
+    <br><br><br><br><center><i style="font-size:65px;padding-bottom:2%" class="fa fa-user-circle"></i><br><h2 class="upoznajtetim"> UPOZNAJTE NAŠ TIM </h2></center><br><br><br><br>
       <section class="div3">
     <div class="flip-card">
   <div class="flip-card-inner">
     <div class="flip-card-front">
-      <img src="~/assets/Images/c1.jpg" alt="Avatar" style="width:100%;height:100%;">
+      <source srcset="~/assets/Images/vecaslika1.jpg" media="(min-width: 1076px)" style="background-size: cover;height:auto;width:100%" >
+      <source srcset="~/assets/Images/c1.jpg" style="width:100%;height:100%;">
+      <img src="~/assets/Images/c1.jpg" style="width:100%;height:100%;" alt="Avatar" >
     </div>
     <div class="flip-card-back">
       <h1><i class="fa fa-paint-brush" style="font-size:40px;color:white"></i> <br><br>Lana Horvat</h1>
@@ -94,7 +97,7 @@
 <div class="flip-card">
   <div class="flip-card-inner">
     <div class="flip-card-front">
-      <img src="~/assets/Images/c2.jpg" alt="Avatar" style="width:100%;height:100%;">
+      <img src="~/assets/Images/c2.jpg" alt="Avatar" style="width:100%;height:100%;" class="slika1">
     </div>
     <div class="flip-card-back" style="background-color:#666666">
       <h1><i class="fa fa-at" style="font-size:40px;color:white"></i> <br><br>Ivan Horvat</h1>
@@ -217,17 +220,14 @@ i {
   width: 40%;
   color: white;
   font-size: 17px;
+   
 }
 
 .upoznajtetim{
-
  font-size:26px;
  font-weight:bolder;
  padding-left:2%;
  padding-right: 2%;
-
-
-
 }
 .div3{
   width:100%;
@@ -346,7 +346,7 @@ select {
   }
 }
 #image {
-  margin-top: -19%;
+  margin-top: -15%;
   position: absolute;
   float: right;
   right: 0;
@@ -365,11 +365,12 @@ select {
 
 #formahome {
   background-color: #0054db;
-  min-height: 600px;
-  width: 35%;
-  margin-left: 30%;
+  min-height: 580px;
+  width: 33%;
+  margin-left: 32%;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.517), 0 6px 20px 0 rgba(0, 0, 0, 0.51);
+  z-index: 1;
 }
 
 .btn {
@@ -384,15 +385,15 @@ select {
   text-transform: uppercase;
   outline: none;
   overflow: hidden;
-  position: relative;
-  width: 300px;
+  position: absolute;
+  min-width: 21%;
   margin: 0 auto;
-  background: #00eb3b;
+  background: #448cff;
   height: 80px;
   border-radius: 5px;
-  margin-top: 15%;
+  margin-top: 6%;
   color: rgb(200, 233, 253);
-  font-size: 23px;
+  font-size: 24px;
   border: 2px solid white;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.517), 0 6px 20px 0 rgba(0, 0, 0, 0.51);
 }
@@ -408,13 +409,13 @@ select {
   color: rgb(255, 255, 255);
   text-shadow: 1px 1px 6px #1b1b1b;
 }
-.btn span {
+.btn span, .btn2 span {
   position: relative;
   z-index: 1;
   text-decoration: none;
 }
 
-.btn:after {
+.btn:after, .btn2:after {
   content: '';
   position: absolute;
   left: 0;
@@ -434,42 +435,62 @@ select {
   width: 100%;
 }
 .btn2 {
+  font-family: 'Montserrat';
+  font-weight: bold;
+  text-shadow: 2px 2px 6px #444444;
+  border: none;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  width: 300px;
+  margin: 0 auto;
+  background: #0054db;
+  height: 80px;
+  border-radius: 5px;
+  margin-top: 15%;
+  color: rgb(200, 233, 253);
+  font-size: 23px;
+  border: 2px solid white;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.517), 0 6px 20px 0 rgba(0, 0, 0, 0.51);
   width: 60%;
 }
 
-.btn:hover:after {
+.btn:hover:after, .btn2:hover:after {
   -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
   transform: translateX(-9%) translateY(-25%) rotate(45deg);
   color: #333;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 499px) {
   #formahome {
-    margin-left:25%;
-    width:60%;
+    margin-left:10%;
+    width:100%;
   }
   #image {
     display: none;
   }
 
   .btn {
-    position: absolute;
-    bottom: 0;
-    margin-top: 15%;
-    width: 100%;
+    position: relative;   
   }
 
   .container {
+    margin-top:18%;
     padding-top: 70px;
     min-height: 100vh;
+    width:100%;   
   }
 }
 
-@media screen and (max-width: 900px) and (min-width: 523px) {
+@media screen and (max-width: 900px) and (min-width: 500px) {
   #formahome {
     z-index: 1;
     margin: 0 auto;
-    width: 50%;
+    width: 60%;
   }
   #image {
     display: none;
@@ -479,10 +500,17 @@ select {
   }
 
   .btn {
-    margin-top: 15%;
-    z-index: 1;
+    width:40%;
+    margin-top:16%;
+    padding: 0 auto;   
+  }
+  .container{
+    margin-top: 5%;
+    width:100%;
   }
 }
+
+
 
 @media screen and (max-width: 1103px) and (min-width: 861px) {
   #formahome {
@@ -496,7 +524,7 @@ select {
   }
 
   .btn {
-    margin-top: 15%;
+    margin-top: 8%;
     z-index: 1;
   }
 }
@@ -506,4 +534,99 @@ select {
     display: none;
   }
 }
+
+@media screen and (max-width: 800px) {
+  .aboutus {
+  display: flex;
+  min-height: 75vh;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding-left: 5%;
+  margin-left: 5%;
+}
+.div1 {
+  flex: 1;  
+  width: 100%;
+  padding-left: 5%;  
+  padding-top: 5%;
+  padding-bottom: 20%;
+}
+.div2 {
+  flex:1;  
+  width: 100%;
+  padding-left:5%;  
+}
+.p3{
+  padding-right: 2%;
+}
+}
+@media screen and (min-width:671px) and (max-width:999px) {
+  .div3{
+  flex:1;
+  width:100%;
+  display: flex;
+  min-height: 84vh;
+  flex-direction: column;
+  flex-wrap: wrap;
+  }
+  
+  .slika1{
+    width:100%;
+    height:400px;
+  }
+  .flip-card{
+    flex:1;
+    min-height: 45vh;
+  width:70%;
+  display: flex;
+  margin-left:15%;
+  margin-top:4%;
+  
+  flex-direction: column;
+  flex-wrap: wrap;
+  }
+  .flip-card-inner{
+    font-size:25px;
+  }
+  .slika1{
+    width:100%;
+    
+  }
+}
+
+@media screen and (min-width:400px) and (max-width:670px){
+  .div3{
+  flex:1;
+  width:100%;
+  display: flex;
+  min-height: 84vh;
+  flex-direction: column;
+  flex-wrap: wrap;
+  }
+  
+  .slika1{
+    width:100%;
+    height:400px;
+  }
+  .flip-card{
+    flex:1;
+    min-height: 45vh;
+  width:100%;
+  display: flex;
+  
+  margin-top:4%;
+  
+  flex-direction: column;
+  flex-wrap: wrap;
+  }
+
+  .slika1{
+    width:100%;
+    
+  }
+  .flip-card-inner{
+    font-size:25px;
+  }
+}
+
 </style>

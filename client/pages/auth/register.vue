@@ -101,9 +101,9 @@
               <button to="/auth/login" class="btn btn-secondary w-100">Prijava</button>
             </div> -->
             <footer>
-             <p>Imaš stvoren korisnički račun?<nuxt-link to="/auth/login">Prijava</nuxt-link></p>
+             <p>Imaš stvoren korisnički račun?<nuxt-link to="/auth/login" class="linkovi">Prijavi se!</nuxt-link></p>
             <div class=home-pg>
-              <nuxt-link to="/">Home</nuxt-link>
+              <nuxt-link to="/" class="linkovi">Početna stranica</nuxt-link>
             </div>
             </footer>
           </div>
@@ -230,6 +230,14 @@ footer, .home-pg {
 
 span {
   text-decoration: none;
+}
+
+.linkovi{text-decoration:none;
+				color:#0054db;}
+.linkovi:hover{
+	color:#0054db;
+	font-weight: bolder;
+	text-shadow: 0px 1px 2px #00000057;
 }
 
 </style>
