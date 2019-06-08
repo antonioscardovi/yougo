@@ -4,7 +4,7 @@
 	<div class="container">
     <div class="form-wrap">
 				<div class="card-header">
-					<p class="mb-0">Logiraj Se</p>
+					<p class="mb-0">Prijavi se!</p>
 				</div>
 
 				<div class="card-body">
@@ -29,7 +29,7 @@
 
 						<div class="form-group">
 							<!-- <input type="submit" value="Logiraj se" class="btn btn-primary w-100"> -->
-              <button>Loggin</button>
+              <button>Prijava</button>
 						</div>
 
 						<!-- <div class="form3">
@@ -41,9 +41,9 @@
 						</div> -->
 
             <footer>
-             <p>Nemaš korisnički račun? <nuxt-link to="/auth/register">Registracija</nuxt-link></p>
+             <p class="prijava">Nemaš korisnički račun? <nuxt-link to="/auth/register" class="linkovi">Registriraj se!</nuxt-link></p>
             <div class=home-pg>
-              <nuxt-link to="/">Home</nuxt-link>
+              <nuxt-link to="/" class="linkovi">Početna stranica</nuxt-link>
             </div>
             </footer>
 					</form>
@@ -103,7 +103,7 @@ export default {
 }
 
 .form-wrap .form-group {
-  margin-top: 15px;
+  margin-top:20px;
 }
 
 .form-wrap .form-group label {
@@ -133,9 +133,20 @@ export default {
   font-size: 1.1rem;
 }
 
+button:hover{
+	background-color: rgb(67, 139, 255);
+}
+
 footer, .home-pg {
 
   text-align: center;
   padding-top:1rem;
+}
+.linkovi{text-decoration:none;
+				color:#0054db;}
+.linkovi:hover{
+	color:#0054db;
+	font-weight: bolder;
+	text-shadow: 0px 1px 2px #00000057;
 }
 </style>
