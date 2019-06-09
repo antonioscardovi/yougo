@@ -1,34 +1,37 @@
 <template>
 <div class="container">
 
-   <!-- <div class="forms">
-      <div class="form-wrap">
+   <div class="forms">
+      <div class="form-wrap-1">
         <h3>Types</h3>
         <ul>
         <li v-for="tip in types" :key="tip">
-        <input type="checkbox" v-model="checkedVehicles" v-bind:value="tip"> {{ tip }}
+          <label>
+        <input type="checkbox" style="display:none" v-model="checkedVehicles" v-bind:value="tip"> <span>{{ tip }}</span></label>
         </li>
         </ul>
       </div>
-      <div class="form-wrap">
+      <div class="form-wrap-2">
         <h3>Transmission</h3>
         <ul>
         <li v-for="trans in transmission" :key="trans">
-        <input type="checkbox" v-model="checkedVehicles" v-bind:value="trans"> {{ trans }}
+          <label>
+        <input type="checkbox" style="display:none" v-model="checkedVehicles" v-bind:value="trans"> <span>{{ trans }}</span></label>
         </li>
         </ul>
       </div>
-      <div class="form-wrap">
+      <div class="form-wrap-3">
         <h3>Status</h3>
         <ul>
         <li v-for="stat in status" :key="stat">
-        <input type="checkbox" v-model="checkedVehicles" v-bind:value="stat"> {{ stat }}
+          <label>
+        <input type="checkbox" style="display:none" v-model="checkedVehicles" v-bind:value="stat"> <span>{{ stat }}</span></label>
         </li>
         </ul>
       </div>
-    </div> -->
+    </div>
 
-      <div class="forms">
+      <!-- <div class="forms">
       <form>
       <div class="multiselect">
         <div class="selectBox" @click="showCheckboxes1()">
@@ -82,7 +85,7 @@
         </div>
       </div>
     </form>
-    </div>
+    </div> -->
 
     <section class="post-list">
 
@@ -91,6 +94,7 @@
         :key="vehicle.id"
         :id="vehicle.id"
         :type="vehicle.type"
+        :auto_ac="vehicle.auto_ac"
         :price="vehicle.price"
         :gearbox="vehicle.gearbox"
         :engine_power="vehicle.engine_power"
@@ -212,6 +216,24 @@ export default {
 }
 </script>
 <style scoped>
+.container {
+  display: flex;
+}
+.forms span {
+  background: #fff;
+  /* margin: 5px 0;
+  padding:5px; */
+  border-radius: 5px;
+  display: inline-block;
+  width: 80%;
+  text-align: center;
+  border: 1px solid #333;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+input[type=checkbox]:checked ~ span {
+   background:#0054dB;
+   color: #fff;
+}
 
 .post-list {
   display: flex;
@@ -219,18 +241,54 @@ export default {
   box-sizing: border-box;
   flex-wrap: wrap;
   align-items: center;
-   justify-content: center;
+  justify-content: center;
+  flex:3;
 }
 .forms {
-  display: flex;
+  /* display: flex; */
   justify-content: space-evenly;
-  background:#ccc;
+  background:#333;
+  /* flex:1; */
+  min-width: 250px;
+  /* margin-bottom: 200px; */
+
+
 }
-.form-wrap {
-  background-color: #ccc;
-  padding:10px;
-  margin: 20px;
-  border-radius:10px;
+.form-wrap-1{
+  background-color: #333;
+  padding:20px auto;
+  margin: 20px 30px;
+  /* border-radius:10px; */
+  position: -webkit-sticky;
+  position: sticky;
+  top: 95px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.form-wrap-2 {
+  background-color: #333;
+  padding:20px auto;
+  margin: 20px 30px;
+  /* border-radius:10px; */
+  position: -webkit-sticky;
+  position: sticky;
+  top: 355px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.form-wrap-3 {
+  background-color: #333;
+  padding:20px auto;
+  margin: 20px 30px;
+  /* border-radius:10px; */
+  position: -webkit-sticky;
+  position: sticky;
+  top: 530px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.forms h3 {
+  color:#fff;
+  text-align: center;
+  padding-bottom: 10px;
+  background-color: #1e90ff;
 }
 /* _____________________________________________________________________________________________ */
 .multiselect {
@@ -239,19 +297,27 @@ export default {
 }
 
 ul {
-  background:#0054dB;
-  border-bottom-left-radius: 15px;
+  background:#fff;
+  border-bottom-left-radius: 10px;
   border: none;
-  color:white;
+  color:#333;
   padding-bottom: 10px;
+  padding-top: 10px
 }
-.multiselect li {
+
+ li {
   list-style-type: none;
   line-height: 2rem;
-  font-size: 1.2rem;
+  /* font-size: 1.2rem; */
+  margin:10px 0;
 }
+span:hover {
+  background-color: #1e90ff;
+  cursor: pointer;
+}
+
 select {
-  padding:0.5rem 1rem;
+  padding:1rem 1rem;
 }
 .selectBox {
   position: relative;
