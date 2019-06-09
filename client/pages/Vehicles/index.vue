@@ -2,7 +2,7 @@
 <div class="top">
  <TheSidenav/>
 <PostList :vehicles="loadedPosts" />
-<div class="bot"></div>
+<!-- <div class="bot"></div> -->
 </div>
 
 </template>
