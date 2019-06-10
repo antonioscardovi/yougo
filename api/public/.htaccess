@@ -90,7 +90,6 @@
 	ModPagespeedEnableFilters extend_cache
 	ModPagespeedEnableFilters local_storage_cache
 	ModPagespeedEnableFilters insert_dns_prefetch
-	ModPagespeedEnableFilters hint_preload_subresources
 	ModPagespeedEnableFilters elide_attributes
 	ModPagespeedEnableFilters remove_comments
 	ModPagespeedEnableFilters remove_quotes
