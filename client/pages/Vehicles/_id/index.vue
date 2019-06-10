@@ -30,16 +30,18 @@
               <form @submit.prevent="alert">
                 <div class="form-group">
                   <label for="date">3.Datum znajmljivanja:</label>
-                  <date-pick v-model="form.date" :pickTime="true" :format="'YYYY-MM-DD HH:mm'"></date-pick>
+                  <date-pick v-model="form.fromDate" :pickTime="true" :format="'YYYY-MM-DD HH:mm'"></date-pick>
                 </div>
                 <br>
 
                 <div class="form-group">
                   <label for="date">4.Datum vracanja:</label>
-                  <date-pick v-model="form.date2" :pickTime="true" :format="'YYYY-MM-DD HH:mm'"></date-pick>
+                  <date-pick v-model="form.toDate" :pickTime="true" :format="'YYYY-MM-DD HH:mm'"></date-pick>
                 </div>
                 <br>
-                <button @click="alert()">Potvrdi Rezervaciju</button>
+                {{ numDays }}
+                <br>
+                <button @click="alert()">Potvrdi Rezervaciju za {{ numDays }} dana</button>
               </form>
             </template>
 
@@ -65,26 +67,36 @@ import swal from 'sweetalert2/dist/sweetalert2.all.min.js'
 export default {
   data() {
     return {
-      status1: true,
       form: {
-        date: '',
-        date2: '',
-        days: '',
-        customer_id: '7'
+        fromDate: '',
+        toDate: ''
       },
       isLoading: true,
       vehicle: undefined
     }
   },
-  /*
-    console.log("Datumi:");
-     console.log(this.date, this.date2);
-     var dateP = new Date(this.date);
-     console.log(dateP);
-     var dateK = new Date(this.date2);
-     var rezult = dateK.getDate() - dateP.getDate();
-     console.log(rezult);
-*/
+  computed: {
+    numDays() {
+      console.log('racunam numDays')
+      if (this.form.fromDate === '' || this.form.toDate === '')
+        return 'Odaberite datum'
+
+      console.log({
+        toDate: this.form.toDate,
+        fromDate: this.form.fromDate
+      })
+
+      return (
+        (new Date(this.form.toDate) - new Date(this.form.fromDate)) /
+        (24 * 60 * 60 * 1000)
+      )
+    },
+    totalPrice() {
+      if (this.vehicle === undefined) return -1
+
+      return this.numDays * this.vehicle.price
+    }
+  },
 
   created() {
     axios
@@ -126,14 +138,8 @@ export default {
       })
     },
     async rezerviraj() {
-      var dateP = new Date(this.form.date)
-      var dateK = new Date(this.form.date2)
-      var num = Math.floor((dateK - dateP) / 1000 / 24 / 60 / 60)
-      this.form.days = num.toString()
       try {
         const token = localStorage.getItem('authToken')
-
-        console.log({ token })
 
         if (!token) throw new Error('Nema tokena')
 
@@ -146,8 +152,8 @@ export default {
             Authorization: 'Bearer ' + token
           },
           data: {
-            days: this.form.days,
-            customer_id: 6 // TODO: Fix this !!!!!!
+            from_date: this.fromDate,
+            to_date: this.toDate
           }
         })
 
