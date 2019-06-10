@@ -29,11 +29,11 @@ class InvitationsController extends Controller
         $email = $request->email;
 
         $invitation = new Invitation($request->all());
-        $inviteCode = $invitation->generateInvitationToken();
+        $invitation->generateInvitationToken();
         $invitation->save();
 
 
-        Mail::send(new SendMail($email, $request->inviteCode));
+        Mail::send(new SendMail($email, $invitation));
 
         return redirect()->route('requestInvitation')
             ->with('success', 'Invitation to register successfully requested. Please wait for registration link.');
