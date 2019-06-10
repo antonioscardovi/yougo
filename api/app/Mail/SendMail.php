@@ -13,14 +13,18 @@ class SendMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $email;
+    public $invitation;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($email, $invitation)
     {
-        //
+        $this->email = $email;
+        $this->invitation = $invitation;
     }
 
     /**
@@ -30,7 +34,7 @@ class SendMail extends Mailable
      */
     public function build(Request $request)
     {
-        return $this->view('mails.registrationMail', ['msg' => $request->inviteCode])->to($request->email);
+        return $this->view('mails.registrationMail')->to($this->email);
     }
 }
 

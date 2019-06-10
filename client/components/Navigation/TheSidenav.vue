@@ -31,7 +31,7 @@
           <nuxt-link class="register" to="/auth/register">REGISTRACIJA</nuxt-link>
         </li>
       </template>
-    </ul>  
+    </ul>
   </div>
 </template>
 
@@ -51,14 +51,24 @@ export default {
 
 
 .header {
-   background-color:#333;
-   
-  box-shadow: 0px 2px 8px 0 rgba(0, 0, 0, 0.707);
+  /* background-color:#333; */
+  transition: all 0.6s ease-in-out;
+  background-color:transparent;
+  /* box-shadow: 0px 2px 8px 0 rgba(0, 0, 0, 0.707); */
   position: fixed;
   width: 100%;
   height: auto;
   top: 0px;
   z-index: 3;
+}
+.header:hover {
+  background-color:#333;
+  box-shadow: 0px 2px 8px 0 rgba(0, 0, 0, 0.707);
+  transition: all 0.6s ease-in-out;
+}
+.header:hover li a {
+  transition: all 0.6s ease-in-out;
+  color:#f4f4f4;
 }
 
 .header ul {
@@ -72,18 +82,24 @@ export default {
   display: block;
   padding: 20px 20px;
   text-decoration: none;
-  color: rgb(255, 255, 255);
-  
+  /* color: rgb(255, 255, 255);  promjenjeno*/
+  color: #333;
+  transition: all 0.6s ease-in-out;
+
+
   /*text-shadow: 2px 2px 4px #333;*/
   transition: all 0.2s ease-in-out;
 }
 
 .header li a:hover,
 .header .menu-btn:hover {
-  color: rgb(201, 201, 201);
-
+  /* color: rgb(201, 201, 201); */
+  color: #ff6002;
   transform: scale(1.1);
 }
+/* .header li a.nuxt-link-active {
+  color:#ff6002;
+} */
 
 .header li a.register {
   color: #c2c2c2;
@@ -94,11 +110,11 @@ export default {
   transition: 0.3s ease;
   text-decoration: none;
 }
-.link-1:hover, .link-1:active {  
-  
-  border-top: 5px solid rgb(211, 211, 211); 
-  
-   
+.link-1:hover, .link-1:active {
+
+  border-top: 5px solid rgb(211, 211, 211);
+
+
 }
 
 .link2:hover{
@@ -108,7 +124,7 @@ export default {
 .logo {
   width: 150px;
   margin-left: 7px;
-  
+
   display: inline-block;
   vertical-align: middle;
 }
@@ -158,7 +174,7 @@ export default {
 }
 
 .header .menu-icon .navicon:after {
-  top: -5px;  
+  top: -5px;
 }
 
 .header .menu-btn {
@@ -202,7 +218,7 @@ export default {
   }
   .header .menu-icon {
     display: none;
-  }  
+  }
 }
 @media (max-width:900px){
   .header .menu {background-color: #333;
@@ -214,8 +230,8 @@ export default {
   font-family: Roboto;
   font-size: 17px;
 }
-.link-1:hover {  
-  border-top: 0px solid rgb(95, 95, 95);   
+.link-1:hover {
+  border-top: 0px solid rgb(95, 95, 95);
 }
 }
 </style>
