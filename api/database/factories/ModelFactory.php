@@ -21,18 +21,28 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(User::class, function (Faker $faker) {
+//$factory->define(User::class, function (Faker $faker) {
+//    return [
+//        'name' => $faker->name,
+//        'username' => $faker->userName,
+//        'lastname' => $faker->lastName,
+//        'email' => $faker->unique()->safeEmail,
+//        'email_verified_at' => now(),
+//        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+//        'remember_token' => Str::random(10),
+//        'verified' => $verified = $faker->randomElement([User::VERIFIED_USER, User::UNVERIFIED_USER]),
+//        'verification_token' => $verified == User::VERIFIED_USER ? null : User::generateVerificationCode(), // ako je verificiran null inače generator
+//        'admin' => $verified = $faker->randomElement([User::ADMIN_USER, User::REGULAR_USER]),
+//    ];
+//});
+
+$factory->define(App\User::class, function (Faker $faker) {
+    static $password;
     return [
         'name' => $faker->name,
-        'username' => $faker->userName,
-        'lastname' => $faker->lastName,
         'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-        'remember_token' => Str::random(10),
-        'verified' => $verified = $faker->randomElement([User::VERIFIED_USER, User::UNVERIFIED_USER]),
-        'verification_token' => $verified == User::VERIFIED_USER ? null : User::generateVerificationCode(), // ako je verificiran null inače generator
-        'admin' => $verified = $faker->randomElement([User::ADMIN_USER, User::REGULAR_USER]),
+        'password' => $password ?: $password = bcrypt('password'),
+        'remember_token' => str_random(10),
     ];
 });
 

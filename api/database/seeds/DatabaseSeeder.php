@@ -13,7 +13,9 @@ class DatabaseSeeder extends Seeder
     {
         \Illuminate\Support\Facades\DB::statement('SET FOREIGN_KEY_CHECKS = 0');
 
-        \App\User::query()->truncate();
+
+
+        //\App\User::query()->truncate();
         \App\Customer::query()->truncate();
         \App\ModelOfVehicle::query()->truncate();
         \App\MakeOfVehicle::query()->truncate();
@@ -24,14 +26,14 @@ class DatabaseSeeder extends Seeder
 
         $makeQuantity = 0;
         $modelQuantity = 10;
-        $userQuantity = 5;
+        //$userQuantity = 5;
         $customerQuantity = 5;
         $vehicleQuantity = 5;
         $reservationQuantity = 10;
 
 
 
-        factory(\App\User::class, $userQuantity)->create();
+        //factory(\App\User::class, $userQuantity)->create();
         factory(\App\Customer::class, $customerQuantity)->create();
 
 
@@ -41,5 +43,10 @@ class DatabaseSeeder extends Seeder
         factory(\App\Vehicle::class, $vehicleQuantity)->create();
 
         factory(\App\CustomerVehicle::class, $reservationQuantity)->create();
+
+        $this->call([
+            RolesTableSeeder::class,
+            UsersTableSeeder::class,
+        ]);
     }
 }
