@@ -18,7 +18,6 @@
             
             </figure>
 
-            {{-- <img src="https://img.icons8.com/windows/32/000000/long-arrow-right.png"> --}}
 
             <figure class="figure" style="background: #f0f0f0; padding: 20px; text-align: center; width:400px; margin:20px auto;  border-radius:15px; box-shadow: 1px 1px 5px 2px #333;">
                     <h1 class="title" style="margin-top:0;">reservation ID: {{ $reservation->vehicle['id'] }}</h1>

@@ -36,7 +36,7 @@ Route::resource('vehicles', 'Vehicle\VehicleBackendController', [
  * Customers
  * */
 Route::resource('customers', 'Customer\CustomerBackendController', [
-    'only' => ['index', 'show', 'edit'],
+    'only' => ['index', 'show', 'edit', 'destroy'],
     'middleware' => 'auth'
 ]);
 

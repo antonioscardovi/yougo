@@ -14,17 +14,6 @@
                                 <li><span style="font-weight:bold;">Is Verified:</span> @if ( $user->admin ) verified @else not verified @endif</li>
                         </ul>
                 </figcaption>
-                <a href="{{ $user->id }}/edit"><button class="btn btn-primary" style="margin-top: 1rem; width: 100px;">Edit</button></a>
-            {{-- <form method="POST" action="/users/{{ $user->id }}" style="margin-top: 1rem">
-                @method('DELETE')
-                @csrf
-                
-                <div class="field">
-                        <div class="control">
-                            <button type="submit" class="btn btn-danger" style="width: 100px;">Delete</button>
-                        </div>
-                    </div>
-            </form> --}}
             </figure>
 
 </div>

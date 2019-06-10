@@ -26,11 +26,13 @@ class VehicleBackendController extends Controller
     public function index()
     {
         $vehicles = Vehicle::with('modelOfVehicle')->get();
+        $models = ModelOfVehicle::with('makeOfVehicle')->get();
+        $i = 1;
         // $vehicles = Vehicle::all();
         // $vehicles::with('makeOfVehicle')->get();
         // $make = modelOfVehicle::with('makeOfVehicle')->get();
 
-        return view('pages.vehicles', compact('vehicles'));
+        return view('pages.vehicles', compact('vehicles', 'models', 'i'));
     }
 
     /**
@@ -119,7 +121,9 @@ class VehicleBackendController extends Controller
      */
     public function show(Vehicle $vehicle)
     {
-        return view('pages.vehicle', compact('vehicle'));
+        $image = Vehicle::with('images')->first();
+        $i = 1;
+        return view('pages.vehicle', compact('vehicle', 'image', 'i'));
     }
 
     /**
@@ -145,9 +149,6 @@ class VehicleBackendController extends Controller
     public function update(Vehicle $vehicle)
     {
 
-        // $request->file('image')->move(public_path('img/'), $request->file('image')->getClientOriginalName());
-        // $image = $vehicle->image = 'http://localhost/img/' . $request->file('image')->getClientOriginalName();
-
         $vehicle->model_id = request('model_id');
         $vehicle->type = request('type');
         $vehicle->engine_power = request('engine_power');
@@ -156,7 +157,7 @@ class VehicleBackendController extends Controller
         $vehicle->price = request('price');
         $vehicle->description = request('description');
         $vehicle->auto_ac = request('auto_ac');
-        // $vehicle->image = $image;
+
 
         $vehicle->save();
 

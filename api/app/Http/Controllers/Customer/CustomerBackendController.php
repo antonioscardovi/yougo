@@ -16,7 +16,7 @@ class CustomerBackendController extends Controller
     public function index()
     {
         $customers = Customer::all();
-        return view('pages.customers',compact('customers'));
+        return view('pages.customers', compact('customers'));
         // return $this->showAll($customers);
     }
 
@@ -63,7 +63,7 @@ class CustomerBackendController extends Controller
         $customer = Customer::create($data);
 
         //return response()->json(['data' => $customer], 201);
-//        return $this->showOne($customer, 201);
+        //        return $this->showOne($customer, 201);
     }
 
     /**
@@ -108,7 +108,8 @@ class CustomerBackendController extends Controller
                 'required',
                 'min:8',
                 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%]).*$/',
-                'confirmed']
+                'confirmed'
+            ]
         ];
 
         if ($request->has('name')) {
@@ -136,7 +137,7 @@ class CustomerBackendController extends Controller
         $customer->save();
 
         return view('pages.customer', compact('customer'));
-//        return $this->showOne($customer, 201);
+        //        return $this->showOne($customer, 201);
     }
 
     /**
@@ -145,12 +146,11 @@ class CustomerBackendController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Customer $customer)
     {
-        $customer = Customer::findOrFail($id);
 
         $customer->delete();
 
-//        return $this->showOne($customer);
+        return redirect('customers');
     }
 }

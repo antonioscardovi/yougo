@@ -5,7 +5,12 @@
 
 <figure class="figure" style="background: #f0f0f0; padding: 20px; text-align: center; width:400px; margin:20px auto; border-radius:15px; box-shadow: 1px 1px 5px 2px #333;">
     <h1 class="title" style="margin-top:0;">Vehicle ID: {{ $vehicle->id }}</h1>
-    <img src="{{ asset($vehicle->image) }}" class="figure-img img-fluid rounded" style="border: 2px solid #333; border-radius:10px; width:285px;">
+    
+    @foreach ($vehicle->images as $image)
+        <?php $i = $i+1 ?> 
+        <img class="figure-img img-fluid rounded" src="{{ asset($image->filename) }}" alt="" style="border: 2px solid #333; border-radius:10px; width:285px;">
+        @if ($i > 1) @break @endif
+    @endforeach
     <figcaption class="figure-caption">
             <ul style="list-style: none; font-size: 2rem; text-align:left;">
             <li style=" border-bottom:1px solid #999;"><span style="font-weight:bold;">Make:</span> {{ $vehicle->modelOfVehicle->makeOfVehicle['name'] }}</li>

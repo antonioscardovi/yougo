@@ -13,8 +13,6 @@
 <div class="container">
     <div class="section">
 
-  
-    <h1 class="title">Edit Vehicle </h1>
 
     {{-- {{ Form::model($vehicle, array('route' => array('vehicles.edit', $vehicle->id))) }} --}}
 
@@ -101,10 +99,10 @@
                 <textarea class="form-control {{ $errors->has('description') ? 'is-danger' : '' }}" name="description" placeholder="@if ($errors->has('description')) {{ $errors->first('description') }} @else  @endif" value="{{ $vehicle->description }}"></textarea>
             </div>
     
-            {{-- <div class="form-group">
-                <label for="image">Photo(s)</label>
-                <input type="file" name="image" class="form-control-file">
-            </div> --}}
+            <div class="form-group">
+                <label for="filename">Photo(s)</label>
+                <input type="file" name="filename[]" multiple class="form-control-file">
+            </div>
 
 
         <div class="form-group">
