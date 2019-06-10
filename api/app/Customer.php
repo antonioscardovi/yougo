@@ -15,6 +15,8 @@ class Customer extends Authenticatable implements JWTSubject
     const VERIFIED_CUSTOMER = '1';
     const UNVERIFIED_CUSTOMER = '0';
 
+    protected $guard = 'customers-api';
+
     // Rest omitted for brevity
 
     /**
