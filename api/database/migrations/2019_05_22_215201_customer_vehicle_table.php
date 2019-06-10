@@ -22,11 +22,11 @@ class CustomerVehicleTable extends Migration
             $table->bigInteger('vehicle_id')->unsigned();
             $table->foreign('vehicle_id')->references('id')->on('vehicles');
 
-            $table->double('price_of_reservation', 8, 2);//->unsigned();
+            $table->double('vehicle_price', 8, 2);//->unsigned();
             //$table->foreign('price_of_reservation')->references('price')->on('vehicles');
 
-            //$table->date('from_date')->default('23.05.2019');
-            //$table->date('to_date')->default('30.05.2019');
+            $table->date('from_date');
+            $table->date('to_date');
             $table->timestamps();
 
         });

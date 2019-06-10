@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         \App\MakeOfVehicle::query()->truncate();
         \App\Vehicle::query()->truncate();
         //\Illuminate\Support\Facades\DB::table('customer_vehicle')->truncate();
-        \App\CustomerVehicle::query()->truncate();
+        //\App\CustomerVehicle::query()->truncate();
 
 
         $makeQuantity = 0;
@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
 
         factory(\App\Vehicle::class, $vehicleQuantity)->create();
 
-        factory(\App\CustomerVehicle::class, $reservationQuantity)->create();
+        //factory(\App\CustomerVehicle::class, $reservationQuantity)->create();
 
         $this->call([
             RolesTableSeeder::class,
