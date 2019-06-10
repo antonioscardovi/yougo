@@ -139,4 +139,15 @@ class CustomerController extends ApiController
 
         return $this->showOne($customer);
     }
+
+    public function login(Request $request) {
+        $token = auth('customers-api')->attempt([
+            'email' => $request->email,
+            'password' => $request->password
+        ]);
+
+        return response()->json([
+            'token' => $token
+        ]);
+    }
 }

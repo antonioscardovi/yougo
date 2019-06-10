@@ -29,6 +29,7 @@ Route::post('vehicles/{vehicle}', 'Vehicle\VehicleController@store')->name('vehi
  * Customers
  * */
 Route::resource('customers', 'Customer\CustomerController', ['except' => ['create', 'edit']]); // 'except' create edit
+Route::post('/login', 'Customer\CustomerController@login');
 
 
 /*
