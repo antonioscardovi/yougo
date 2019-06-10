@@ -79,19 +79,32 @@ export default {
   methods: {
     async login() {
       try {
-        const response = await this.$axios.post('/api/auth/login', {
-          email: this.email,
-          password: this.password
+        const response = await this.$axios({
+          url: '//localhost/api/login',
+          method: 'post',
+          data: {
+            email: this.email,
+            password: this.password
+          },
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json'
+          }
         })
 
-        if (response.data.code == 404) {
-          throw new Error('Boom')
+        if (response.data.error) {
+          throw new Error(response.data.error)
+        }
+
+        if (!response.data.token) {
+          throw new Error('Invalid login data')
         }
 
         localStorage.setItem('authToken', response.data.token)
 
-        this.$router.push({ name: '/' })
+        this.$router.push({ path: '/' })
       } catch (error) {
+        console.log('Error', error.message)
         alert('nesto je poslo po zlu')
       }
     }

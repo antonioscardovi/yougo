@@ -145,13 +145,6 @@ export default {
     '@nuxtjs/auth',
 
   ],
-  /*
-   ** Axios module configuration
-   */
-  axios: {
-    // See https://github.com/nuxt-community/axios-module#options
-    baseURL: 'http://localhost/api'
-  },
 
   /*
    ** Build configuration

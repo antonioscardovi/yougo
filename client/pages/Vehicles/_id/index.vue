@@ -88,7 +88,7 @@ export default {
 
   created() {
     axios
-      .get('http://localhost/api/vehicles/' + this.$route.params.id)
+      .get('//localhost/api/vehicles/' + this.$route.params.id)
       .then(res => {
         console.log(res)
         this.vehicle = res.data.data
@@ -133,20 +133,23 @@ export default {
       try {
         const token = localStorage.getItem('authToken')
 
-        if (token == null) throw new Error('Nema tokena')
+        console.log({ token })
 
-        const response = await this.$axios.post(
-          'http://localhost/api/vehicles/' + this.$route.params.id,
-          {
-            headers: {
-              'Access-Control-Allow-Origin': '*',
-              'Content-Type': 'application/json',
-              Authorization: 'Bearer ' + token
-            },
+        if (!token) throw new Error('Nema tokena')
+
+        const response = await this.$axios({
+          url: '//localhost/api/vehicles/' + this.$route.params.id,
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+            Authorization: 'Bearer ' + token
+          },
+          data: {
             days: this.form.days,
-            customer_id: this.form.customer_id
+            customer_id: 6 // TODO: Fix this !!!!!!
           }
-        )
+        })
 
         setTimeout(() => {
           this.$router.push({ path: '/' })
