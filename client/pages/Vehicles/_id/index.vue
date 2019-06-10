@@ -1,93 +1,82 @@
 <template>
-<div>
-      <TheSidenav/>
+  <div>
+    <TheSidenav/>
 
-  <div class="single-post-page">  
-    <section class="post-list">
-   <article>
-      <div
-        class="post-thumbnail"
-        :style="{backgroundImage: 'url(' + vehicles.image + ')'}"></div>
+    <div class="single-post-page">
+      <section class="post-list">
+        <div v-if="isLoading">Loading...</div>
 
-      <div class="post-content">
-        <h1>Model: {{ vehicles.model }}</h1>
-        <h1>Vrsta: {{ vehicles.type }}</h1>
-        <h1>Konjaža: {{ vehicles.engine_power }}</h1>
-        <h1>Broj Vrata: {{ vehicles.door_number }}</h1>
-        <h1>Opis: {{ vehicles.description }}</h1>
-        <h1>Marka Vozila: {{vehicles.model_of_vehicle.make_of_vehicle.name}}</h1>
-        <h1>Model: {{vehicles.model_of_vehicle.name}}</h1>
-        <h1>Mjenjač: {{vehicles.gearbox}}</h1>
-        <h1>Dostupnost: {{ vehicles.status }}</h1>
+        <article v-else>
+          <div
+            v-for="(image, index) in vehicle.images"
+            :key="index"
+            class="post-thumbnail"
+            :style="{backgroundImage: 'url(' + image.filename + ')'}"
+          ></div>
 
-        <template v-if="vehicles.status === 'available'">
-          <br>
-             <form @submit.prevent="alert">
-          <div class="form-group">
+          <div class="post-content">
+            <h1>Model: {{ vehicle.model }}</h1>
+            <h1>Vrsta: {{ vehicle.type }}</h1>
+            <h1>Konjaža: {{ vehicle.engine_power }}</h1>
+            <h1>Broj Vrata: {{ vehicle.door_number }}</h1>
+            <h1>Opis: {{ vehicle.description }}</h1>
+            <h1>Marka Vozila: {{vehicle.model_of_vehicle.make_of_vehicle.name}}</h1>
+            <h1>Model: {{vehicle.model_of_vehicle.name}}</h1>
+            <h1>Mjenjač: {{vehicle.gearbox}}</h1>
+            <h1>Dostupnost: {{ vehicle.status }}</h1>
 
-            <label for="date">3.Datum znajmljivanja: </label>
-                    <date-pick
-                  v-model="form.date"
-                  :pickTime="true"
-                  :format="'YYYY-MM-DD HH:mm'"
-                 ></date-pick>
-          </div><br>
+            <template v-if="vehicle.status === 'available'">
+              <br>
+              <form @submit.prevent="alert">
+                <div class="form-group">
+                  <label for="date">3.Datum znajmljivanja:</label>
+                  <date-pick v-model="form.date" :pickTime="true" :format="'YYYY-MM-DD HH:mm'"></date-pick>
+                </div>
+                <br>
 
-          <div class="form-group">
-            <label for="date">4.Datum vracanja: </label>
-                   <date-pick
-                    v-model="form.date2"
-                    :pickTime="true"
-                    :format="'YYYY-MM-DD HH:mm'"    
-               ></date-pick>
-          </div><br>
-          <button @click="alert()">Potvrdi Rezervaciju </button>       
-        </form>
+                <div class="form-group">
+                  <label for="date">4.Datum vracanja:</label>
+                  <date-pick v-model="form.date2" :pickTime="true" :format="'YYYY-MM-DD HH:mm'"></date-pick>
+                </div>
+                <br>
+                <button @click="alert()">Potvrdi Rezervaciju</button>
+              </form>
+            </template>
 
-        </template>
-     
-        <template v-else>
-           <br>
+            <template v-else>
+              <br>
               <h1>Vozilo je trenutačno iznajmljeno</h1>
-          </template>    
-
-
-
-      </div>
-    </article>
-   </section>
-</div>
-</div>
+            </template>
+          </div>
+        </article>
+      </section>
+    </div>
+  </div>
 </template>
 
 <script>
 import TheSidenav from '~/components/Navigation/TheSidenav.vue'
-import axios from 'axios';
-import DatePick from 'vue-date-pick';
-import 'vue-date-pick/dist/vueDatePick.css';
-import Swal from 'sweetalert2/dist/sweetalert2.js';
+import axios from 'axios'
+import DatePick from 'vue-date-pick'
+import 'vue-date-pick/dist/vueDatePick.css'
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 import swal from 'sweetalert2/dist/sweetalert2.all.min.js'
 
 export default {
-    data(){
-        return {
-          status1: true,
-          form:{
-            date: '',
-            date2: '',
-            days:'',
-            customer_id:'7'
-          },
-            vehicles: {
-              status:'',
-              model_of_vehicle:{
-                make_of_vehicle:{}
-              }
-            },
-        }
-    },
-
-/*
+  data() {
+    return {
+      status1: true,
+      form: {
+        date: '',
+        date2: '',
+        days: '',
+        customer_id: '7'
+      },
+      isLoading: true,
+      vehicle: undefined
+    }
+  },
+  /*
     console.log("Datumi:");
      console.log(this.date, this.date2);
      var dateP = new Date(this.date);
@@ -96,74 +85,80 @@ export default {
      var rezult = dateK.getDate() - dateP.getDate();
      console.log(rezult);
 */
-  
-    created(){
-      axios.get('http://localhost/api/vehicles/' + this.$route.params.id)
-        .then((res) => {
-          console.log(res);
-          this.vehicles = res.data.data;
-        })
-        .catch((error) => {
-          // eslint-disable-next-line
-          console.error(error);
-        });
-      },
-      
-      components: {
-         TheSidenav,
-         DatePick
-      },
-      methods :{
-      alert()
-            { Swal.fire({
-            title: 'Potvrdite Rezervaciju?',
-            text: "Rezervirajte svoje vozilo",
-            type: 'question',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Da Rezerviraj'
-          }).then((result) => {
-            if (result.value){
-              Swal.fire(
-                'Rezervirano!',
-                'Uspješno ste rezervirali vase vozilo',
-                'success',
-                this.rezerviraj()
-              )
-            }})},
-            async rezerviraj() {
 
-              var dateP = new Date(this.form.date);
-              var dateK = new Date(this.form.date2);
-              var num = Math.floor((dateK - dateP)/ 1000 / 24 / 60 / 60);
-              this.form.days = num.toString();
-        try {
-          
-          const response = await this.$axios.post('http://localhost/api/vehicles/' + this.$route.params.id, {
+  created() {
+    axios
+      .get('http://localhost/api/vehicles/' + this.$route.params.id)
+      .then(res => {
+        console.log(res)
+        this.vehicle = res.data.data
+        this.isLoading = false
+      })
+      .catch(error => {
+        // eslint-disable-next-line
+        console.error(error)
+      })
+  },
+
+  components: {
+    TheSidenav,
+    DatePick
+  },
+  methods: {
+    alert() {
+      Swal.fire({
+        title: 'Potvrdite Rezervaciju?',
+        text: 'Rezervirajte svoje vozilo',
+        type: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Da Rezerviraj'
+      }).then(result => {
+        if (result.value) {
+          Swal.fire(
+            'Rezervirano!',
+            'Uspješno ste rezervirali vase vozilo',
+            'success',
+            this.rezerviraj()
+          )
+        }
+      })
+    },
+    async rezerviraj() {
+      var dateP = new Date(this.form.date)
+      var dateK = new Date(this.form.date2)
+      var num = Math.floor((dateK - dateP) / 1000 / 24 / 60 / 60)
+      this.form.days = num.toString()
+      try {
+        const token = localStorage.getItem('authToken')
+
+        if (token == null) throw new Error('Nema tokena')
+
+        const response = await this.$axios.post(
+          'http://localhost/api/vehicles/' + this.$route.params.id,
+          {
             headers: {
               'Access-Control-Allow-Origin': '*',
               'Content-Type': 'application/json',
+              Authorization: 'Bearer ' + token
             },
             days: this.form.days,
-            customer_id: this.form.customer_id,
-          })
+            customer_id: this.form.customer_id
+          }
+        )
+
+        setTimeout(() => {
+          this.$router.push({ path: '/' })
+        }, 1500)
         //console.log('got response', response, this.form.days, this.form.customer_id);
-        } catch (e) {
-          console.log('error', e.message, response)
-        }
-          setTimeout( () => this.$router.push({ path: '/'}), 1500);
-      },
-    
-     },
-
-   
-
+      } catch (error) {
+        console.log('error', error.message, error.response)
+        alert('Doslo je do greske')
+      }
+    }
+  }
 }
-
-
-
-
 </script>
 
 
@@ -215,7 +210,6 @@ export default {
   align-items: center;
   flex-direction: column;
 }
-
 
 .post-thumbnail {
   width: 100%;

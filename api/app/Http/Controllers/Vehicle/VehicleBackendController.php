@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Vehicle;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Vehicle;
+use App\Image;
 use App\MakeOfVehicle;
 use App\ModelOfVehicle;
 use Illuminate\Database\Eloquent\Model;
@@ -25,8 +26,9 @@ class VehicleBackendController extends Controller
      */
     public function index()
     {
-        $vehicles = Vehicle::with('modelOfVehicle')->get();
         $models = ModelOfVehicle::with('makeOfVehicle')->get();
+        $vehicles = Vehicle::with('modelOfVehicle.makeOfVehicle', 'images')->get();
+
         $i = 1;
         // $vehicles = Vehicle::all();
         // $vehicles::with('makeOfVehicle')->get();
@@ -67,7 +69,7 @@ class VehicleBackendController extends Controller
                 'price' => 'required|numeric',
                 'auto_ac' => 'required',
                 'gearbox' => 'required',
-                'image' => 'required',
+                // 'image' => 'required',
             ]
         );
 
@@ -77,41 +79,33 @@ class VehicleBackendController extends Controller
         ]);
 
 
-        $vehicle = new Vehicle;
-
-        $request->file('image')->move(public_path('img/'), $request->file('image')->getClientOriginalName());
-        $image = $vehicle->image = 'http://localhost/img/' . $request->file('image')->getClientOriginalName();
-
-        $vehicle->model_id = request('model_id');
-        $vehicle->type = request('type');
-        $vehicle->engine_power = request('engine_power');
-        $vehicle->door_number = request('door_number');
-        $vehicle->description = request('description');
-        $vehicle->price = request('price');
-        $vehicle->auto_ac = request('auto_ac');
-        $vehicle->gearbox = request('gearbox');
-        $vehicle->image = $image;
-        $vehicle->save();
+        $id_vehicle = Vehicle::insertGetId(array(
+            'model_id' => request('model_id'),
+            'type' => request('type'),
+            'engine_power' => request('engine_power'),
+            'door_number' => request('door_number'),
+            'description' => request('description'),
+            'price' => request('price'),
+            'auto_ac' => request('auto_ac'),
+            'gearbox' => request('gearbox'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ));
 
 
-        if ($request->hasfile('filename')) {
-            foreach ($request->file('filename') as $image) {
-                $name = $image->getClientOriginalName();
-                $image->move(public_path() . 'img/', $name);
-                $data[] = $name;
-            }
+
+        foreach ($request->file('filename') as $file) {
+            $name = $file->hashName();
+            $url = Storage::disk('public')->putFileAs('img', $file, $name);
+            $image = new Image(array(
+                'vehicle_id' => $id_vehicle,
+                'filename' => 'http://localhost/storage/' . $url,
+            ));
+            $image->save();
         }
-
-        $images = new Image();
-        $images->filename = json_encode($data);
-
-
-        $images->save();
-
-        // Vehicle::create($attributes, $image);
-
-        return redirect('/vehicles');;
+        return redirect('/vehicles');
     }
+
 
     /**
      * Display the specified resource.
@@ -172,6 +166,8 @@ class VehicleBackendController extends Controller
      */
     public function destroy(Vehicle $vehicle)
     {
+        $vehicle->images()->delete();
+
         $vehicle->delete();
 
         return redirect('vehicles');
