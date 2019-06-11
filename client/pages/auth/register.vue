@@ -9,6 +9,7 @@
 
         <div class="card-body">
           <form @submit.prevent="register">
+            <input type="hidden" name="_token" :value="csrf">
             <div class="form-group">
               <label>Ime</label>
               <input
@@ -141,11 +142,12 @@ export default {
         //console.log('evo me ovdje')
         const response = await this.$axios({
           method: 'post',
-          url: '//localhost/customers',
+          url: '//localhost/register',
           data: this.form,
           headers: {
             'Content-Type': 'application/json',
-            Accept: 'application/json'
+            Accept: 'application/json',
+            Allow: 'http-methods'
           }
         })
 
