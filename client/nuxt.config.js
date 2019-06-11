@@ -52,20 +52,53 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: "#fa923f", height: "4px", duration: 5000 },
+  loading: { color: "#0054dB", height: "4px", duration: 5000 },
   loadingIndicator: {
     name: "circle",
-    color: "#fa923f"
+    color: "#0054dB",
+    background: 'white'
   },
 
   router: {
-    middleware: ['clearValidationErrors']
+    middleware: ['clearValidationErrors'],
+    // Dodano za smooth scroll
+    
+    scrollBehavior: async (to, from, savedPosition) => {
+      if (savedPosition) {
+        return savedPosition
+      }
+
+      const findEl = async (hash, x) => {
+        return document.querySelector(hash) ||
+          new Promise((resolve, reject) => {
+            if (x > 50) {
+              return resolve()
+            }
+            setTimeout(() => { resolve(findEl(hash, ++x || 1)) }, 100)
+          })
+      }
+
+      if (to.hash) {
+        let el = await findEl(to.hash)
+        if ('scrollBehavior' in document.documentElement.style) {
+          return window.scrollTo({ top: el.offsetTop, behavior: 'smooth' })
+        } else {
+          return window.scrollTo(0, el.offsetTop)
+        }
+      }
+
+      return { x: 0, y: 0 }
+    }
+
+    //kraj
   },
 
   /*
    ** Global CSS
    */
-  css: [],
+  css: [
+    '~assets/styles/main.css'
+  ],
 
   /*
    ** Plugins to load before mounting the App
@@ -112,13 +145,6 @@ export default {
     '@nuxtjs/auth',
 
   ],
-  /*
-   ** Axios module configuration
-   */
-  axios: {
-    // See https://github.com/nuxt-community/axios-module#options
-    baseURL: 'http://localhost/api'
-  },
 
   /*
    ** Build configuration
@@ -129,5 +155,9 @@ export default {
      */
     // extractCSS: true,
     extend(config, ctx) {}
+  },
+  transition: {
+    name:'fade',
+    mode:'out-in'
   }
 }

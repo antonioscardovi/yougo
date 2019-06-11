@@ -50,8 +50,8 @@
 
 <IfModule mod_headers.c>
 	Header set Access-Control-Allow-Origin "*"
+	Header set Access-Control-Allow-Headers "Content-Type, Authorization"
 	Header set Access-Control-Allow-Credentials "true"
-	Header set Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept"
 </IfModule>
 
 <IfModule mod_expires.c>
@@ -90,7 +90,6 @@
 	ModPagespeedEnableFilters extend_cache
 	ModPagespeedEnableFilters local_storage_cache
 	ModPagespeedEnableFilters insert_dns_prefetch
-	ModPagespeedEnableFilters hint_preload_subresources
 	ModPagespeedEnableFilters elide_attributes
 	ModPagespeedEnableFilters remove_comments
 	ModPagespeedEnableFilters remove_quotes

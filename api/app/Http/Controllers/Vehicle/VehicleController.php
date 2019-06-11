@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Vehicle;
 
-use App\Customer;
 use App\CustomerVehicle;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
@@ -11,6 +10,8 @@ use Illuminate\Support\Facades\DB;
 
 class VehicleController extends ApiController
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +19,9 @@ class VehicleController extends ApiController
      */
     public function index()
     {
-        $vehicles = Vehicle::with('modelOfVehicle.makeOfVehicle')->get();
+
+        $vehicles = Vehicle::with('modelOfVehicle.makeOfVehicle', 'images')->get();
+
         // $vehicles= Vehicle::all();
         // return view('pages.customers',compact('customers'));
         return $this->showAll($vehicles);
@@ -34,7 +37,8 @@ class VehicleController extends ApiController
     public function show($id)
     {
         // $vehicle = Vehicle::with('modelOfVehicle.makeOfVehicle')->get();
-        $vehicle = Vehicle::with('modelOfVehicle.makeOfVehicle')->findOrFail($id);
+        $vehicle = Vehicle::with('modelOfVehicle.makeOfVehicle', 'images')->findOrFail($id);
+
 
         // $vehicle = Vehicle::with('modelOfVehicle.makeOfVehicle')->get();
 
@@ -47,8 +51,11 @@ class VehicleController extends ApiController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Vehicle $vehicle, Customer $customer)
+    public function store(Request $request, Vehicle $vehicle)
     {
+        $user = auth('customers-api')->user();
+        if(!$user) return abort(403);
+
         //        if (!$customer->isVerified()) {
         //            return $this->errorResponse('Morate biti verificirani za nastavak', 409);
         //        }
@@ -57,15 +64,20 @@ class VehicleController extends ApiController
             return $this->errorResponse('Vozilo nije dostupno za rentanje', 409);
         }
 
-        return DB::transaction(function () use ($request, $vehicle, $customer) {
+        return DB::transaction(function () use ($request, $vehicle, $user) {
             $vehicle['status'] =  $vehicle->setToNotAvailable();
             $vehicle->save();
 
             $reservation = CustomerVehicle::create([
-                'customer_id' => $request->get('customer_id'),
+
+                'customer_id' => $user->id,
                 'vehicle_id' => $vehicle->id,
-                'price_of_reservation' => $request->get('days') * $vehicle['price'],
+                'from_date' => $request->from_date,
+                'to_date' => $request->to_date,
+                'vehicle_price' => $vehicle->price
             ]);
+
+            //'price_of_reservation' => $request->get('days') * $vehicle['price'],
 
             return $this->showOne($reservation, 201);
         });

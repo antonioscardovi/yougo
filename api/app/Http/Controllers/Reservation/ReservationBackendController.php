@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Reservation;
 
 use App\CustomerVehicle;
+use App\Vehicle;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -21,7 +22,9 @@ class ReservationBackendController extends Controller
     public function index()
     {
         $reservations = CustomerVehicle::with('vehicle', 'customer')->get();
-        return view('pages.reservations', compact('reservations'));
+        $vehicles = Vehicle::with('modelOfVehicle')->get();
+        $i = 1;
+        return view('pages.reservations', compact('reservations', 'vehicles', 'i'));
     }
 
     /**
@@ -87,6 +90,10 @@ class ReservationBackendController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $reservation = CustomerVehicle::findOrFail($id);
+
+        $reservation->delete();
+
+        return redirect('reservations');
     }
 }

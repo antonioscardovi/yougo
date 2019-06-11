@@ -29,6 +29,8 @@ Route::post('vehicles/{vehicle}', 'Vehicle\VehicleController@store')->name('vehi
  * Customers
  * */
 Route::resource('customers', 'Customer\CustomerController', ['except' => ['create', 'edit']]); // 'except' create edit
+Route::post('/login', 'Customer\CustomerController@login');
+Route::post('/register', 'Customer\CustomerController@register');
 
 
 /*
@@ -36,3 +38,22 @@ Route::resource('customers', 'Customer\CustomerController', ['except' => ['creat
  * */
 Route::resource('reservations', 'Reservation\ReservationController', ['except' => ['update', 'edit', 'create', 'store']]);
 //Route::post('reservations/{reservation}', 'Reservation\ReservationController@store')->name('reservations.store');
+
+
+
+/*
+ * JWT
+ * */
+Route::group([
+
+    //'middleware' => 'api',
+    'prefix' => 'auth'
+
+], function () {
+
+    Route::post('login', 'AuthController@login');
+    Route::post('logout', 'AuthController@logout');
+    Route::post('refresh', 'AuthController@refresh');
+    Route::post('me', 'AuthController@me');
+
+});

@@ -139,4 +139,28 @@ class CustomerController extends ApiController
 
         return $this->showOne($customer);
     }
+
+    public function login(Request $request) {
+        $token = auth('customers-api')->attempt([
+            'email' => $request->email,
+            'password' => $request->password
+        ]);
+
+        return response()->json([
+            'token' => $token
+        ]);
+    }
+
+    public function register(Request $request) {
+
+        Customer::create([
+            'name' => $request->name,
+            'lastname' => $request->lastname,
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ]);
+
+        return $this->login($request);
+    }
 }

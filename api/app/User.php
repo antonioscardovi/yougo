@@ -1,70 +1,36 @@
 <?php
-
 namespace App;
-
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
 class User extends Authenticatable
 {
     use Notifiable;
-
-    const VERIFIED_USER = '1';
-    const UNVERIFIED_USER = '0';
-
-    const ADMIN_USER = 'true';
-    const REGULAR_USER = 'false';
-
-    // Možda dodati koji admin je dodao koji auto
-    // Customer extends User bi mogao to riješiti indirektno
-    // Koji guest-admin je dodao kojeg guest-admina a samo admin može potvrditi ili odbiti (detalji)
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name',
-        'username',
-        'lastname',
-        'email',
-        'password',
-        'verification',
-        'verification_token',
-        'admin'
+        'name', 'email', 'password',
     ];
-
     /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
      */
     protected $hidden = [
-        'password',
-        'remember_token',
-        'verification_token'
+        'password', 'remember_token',
     ];
-
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-
-    public function isVerified() {
-        return $this->verified == User::VERIFIED_USER;
+    public function role() {
+        return $this->hasOne('App\Role', 'id', 'role_id');
     }
-
+    /**
+     * @return bool
+     */
     public function isAdmin() {
-        return $this->admin == User::ADMIN_USER;
-    }
-
-    public static function generateVerificationCode() {
-        return str_random(40);
+        return ($this->role->name == 'Administrator');
     }
 }
