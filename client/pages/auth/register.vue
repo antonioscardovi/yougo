@@ -142,7 +142,7 @@ export default {
         //console.log('evo me ovdje')
         const response = await this.$axios({
           method: 'post',
-          url: '//localhost/register',
+          url: '//localhost/api/register',
           data: this.form,
           headers: {
             'Content-Type': 'application/json',
