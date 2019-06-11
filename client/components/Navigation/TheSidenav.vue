@@ -20,14 +20,21 @@
         <nuxt-link to="/#onama">O NAMA</nuxt-link>
       </li>
 
+      <li class="nav-item link-1">
+        <nuxt-link to="/auth/login">PRIJAVA</nuxt-link>
+      </li>
+
       <template v-if="authenticated">
-        <b-nav-item-dropdown>
+        <li class="nav-item">
+          <nuxt-link class="register" to="/auth/register">LOGOUT</nuxt-link>
+        </li>
+        <!-- <b-nav-item-dropdown>
           <template slot="button-content">{{user.name}}</template>
           <b-dropdown-item @click.prevent="signOut">Izlogiraj Se</b-dropdown-item>
-        </b-nav-item-dropdown>
+        </b-nav-item-dropdown>-->
       </template>
       <template v-else>
-        <li class="nav-item link-1 link2">
+        <li class="nav-item">
           <nuxt-link class="register" to="/auth/register">REGISTRACIJA</nuxt-link>
         </li>
       </template>
@@ -48,12 +55,10 @@ export default {
 
 
 <style scoped>
-
-
 .header {
   /* background-color:#333; */
-  transition: all 0.6s ease-in-out;
-  background-color:transparent;
+  transition: all 0.1s ease-in-out;
+  background-color: transparent;
   /* box-shadow: 0px 2px 8px 0 rgba(0, 0, 0, 0.707); */
   position: fixed;
   width: 100%;
@@ -62,13 +67,19 @@ export default {
   z-index: 3;
 }
 .header:hover {
-  background-color:#333;
+  background-color: #333;
   box-shadow: 0px 2px 8px 0 rgba(0, 0, 0, 0.707);
-  transition: all 0.6s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 .header:hover li a {
-  transition: all 0.6s ease-in-out;
-  color:#f4f4f4;
+  transition: all 0.1s ease-in-out;
+  color: #f4f4f4;
+}
+
+.header:hover li a.register {
+  transition: all 0.1s ease-in-out;
+  color: #f4f4f4;
+  border-color: #f4f4f4;
 }
 
 .header ul {
@@ -84,8 +95,7 @@ export default {
   text-decoration: none;
   /* color: rgb(255, 255, 255);  promjenjeno*/
   color: #333;
-  transition: all 0.6s ease-in-out;
-
+  transition: all 0.2s ease-in-out;
 
   /*text-shadow: 2px 2px 4px #333;*/
   transition: all 0.2s ease-in-out;
@@ -95,29 +105,47 @@ export default {
 .header .menu-btn:hover {
   /* color: rgb(201, 201, 201); */
   color: #ff6002;
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
 }
 /* .header li a.nuxt-link-active {
   color:#ff6002;
 } */
 
 .header li a.register {
-  color: #c2c2c2;
+  color: #333;
   text-shadow: 0 0 0;
+  border: 3px solid #333;
+  border-radius: 20px;
+  transition: 0.3s ease;
+}
+
+.header li a.register:hover {
+  color: #ff6002;
+  text-shadow: 0 0 0;
+  border: 3px solid #ff6002;
+}
+
+.header li a.register:active {
+  background: #ff6002;
+  color: #f4f4f4;
+}
+.header li a.register:active:after {
+  transform: translateX(-50%) translateY(-50%) scale(1.1);
+  transition: opacity 100ms, transform 100ms;
+  transition-delay: 0s;
+  opacity: 1;
 }
 
 .link-1 {
   transition: 0.3s ease;
   text-decoration: none;
 }
-.link-1:hover, .link-1:active {
-
+.link-1:hover,
+.link-1:active {
   border-top: 5px solid rgb(211, 211, 211);
-
-
 }
 
-.link2:hover{
+.link2:hover {
   border-top: 4px solid rgb(235, 235, 235);
 }
 
@@ -220,18 +248,19 @@ export default {
     display: none;
   }
 }
-@media (max-width:900px){
-  .header .menu {background-color: #333;
-  margin-left: 5%;
-  font-size: 16px;
-  color:white;
+@media (max-width: 900px) {
+  .header .menu {
+    background-color: #333;
+    margin-left: 5%;
+    font-size: 16px;
+    color: white;
   }
   .nav-item:hover {
-  font-family: Roboto;
-  font-size: 17px;
-}
-.link-1:hover {
-  border-top: 0px solid rgb(95, 95, 95);
-}
+    font-family: Roboto;
+    font-size: 17px;
+  }
+  .link-1:hover {
+    border-top: 0px solid rgb(95, 95, 95);
+  }
 }
 </style>
