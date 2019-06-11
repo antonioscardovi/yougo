@@ -326,8 +326,6 @@ i {
   min-height: 75vh;
   flex-direction: row;
   flex-wrap: wrap;
-  padding-left: 5%;
-  margin-right: 5%;
 }
 h2 {
   color: #0054db;
