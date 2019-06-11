@@ -43,19 +43,31 @@
           <td>{{ $vehicle->price }} HRK</td>
           <td>{{ $vehicle->status }}</td>
           <td style="text-align:right;">
-            <button class="btn btn-primary" data-vehicleid={{$vehicle->id}} data-toggle="modal" data-target="#about"><span class="glyphicon glyphicon-eye-open"></span> About</button>
+            {{-- <button class="btn btn-primary" data-vehicleid={{$vehicle->id}} data-toggle="modal" data-target="#about"><span class="glyphicon glyphicon-eye-open"></span> About</button> --}}
+
+            <a href="vehicles/{{ $vehicle->id }}">
+              <button class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span> About</button>
+            </a>
             
 
-            {{-- <a href="vehicles/{{$vehicle->id}}/edit">
+            <a href="vehicles/{{$vehicle->id}}/edit">
             <button class="edit-modal btn btn-info" data-toggle="edit-modal" data-target="#myModal"
             data-info="{{$vehicle->id}},{{$vehicle->type}}">
             <span class="glyphicon glyphicon-edit"></span> Edit
         </button>
-            </a> --}}
+            </a>
 
-            <button class="btn btn-info" data-mymodel="{{$vehicle->model}}" data-mytype="{{$vehicle->type}}" data-mydoor_number={{$vehicle->door_number}} data-mygearbox={{$vehicle->gearbox}} data-myauto_ac={{$vehicle->auto_ac}} data-myengine_power={{$vehicle->engine_power}} data-myprice={{$vehicle->price}} data-mydescription={{$vehicle->description}} data-vehicleid={{$vehicle->id}} data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+            {{-- <button class="btn btn-info" data-mymodel="{{$vehicle->model}}" data-mytype="{{$vehicle->type}}" data-mydoor_number="{{$vehicle->door_number}}" data-mygearbox="{{$vehicle->gearbox}}" data-myauto_ac="{{$vehicle->auto_ac}}" data-myengine_power="{{$vehicle->engine_power}}" data-myprice="{{$vehicle->price}}" data-mydescription="{{$vehicle->description}}" data-vehicleid="{{$vehicle->id}}" data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon-edit"></span> Edit</button> --}}
     
-        <button class="btn btn-danger" data-vehicleid={{$vehicle->id}} data-toggle="modal" data-target="#delete"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        {{-- <button class="btn btn-danger" data-vehicleid={{$vehicle->id}} data-toggle="modal" data-target="#delete"><span class="glyphicon glyphicon-trash"></span> Delete</button> --}}
+
+        <form method="POST" action="/vehicles/{{ $vehicle->id }}" style="display:inline;">
+          @method('DELETE')
+          @csrf
+             <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+      </form>
+
+      
  
           </td>
       </tr>
@@ -64,30 +76,30 @@
 </table>
 
 <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title text-center" id="myModalLabel">Delete Confirmation</h4>
-        </div>
-        <form method="POST" action="/vehicles/{{ $vehicle->id }}">
-                @method('DELETE')
-                {{csrf_field()}}
-            <div class="modal-body">
-                  <p class="text-center">
-                      Are you sure you want to delete this?
-                  </p>
-                    <input type="hidden" name="vehicle_id" id="vehicle_id" value="">
-  
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-              <button type="submit" class="btn btn-danger">Delete</button>
-            </div>
-        </form>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center" id="myModalLabel">Delete Confirmation</h4>
       </div>
+      <form method="POST" action="/vehicles/{{ $vehicle->id }}">
+              @method('DELETE')
+              {{csrf_field()}}
+          <div class="modal-body">
+                <p class="text-center">
+                    Are you sure you want to delete this?
+                </p>
+                  <input type="hidden" name="vehicle_id" id="vehicle_id" value="">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </div>
+      </form>
     </div>
   </div>
+</div>
 
   {{-- About Modal --}}
 <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
