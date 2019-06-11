@@ -9,7 +9,6 @@
 
         <div class="card-body">
           <form @submit.prevent="register">
-            <input type="hidden" name="_token" :value="csrf">
             <div class="form-group">
               <label>Ime</label>
               <input
@@ -146,8 +145,7 @@ export default {
           data: this.form,
           headers: {
             'Content-Type': 'application/json',
-            Accept: 'application/json',
-            Allow: 'http-methods'
+            Accept: 'application/json'
           }
         })
 
