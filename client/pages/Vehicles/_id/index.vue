@@ -152,8 +152,8 @@ export default {
             Authorization: 'Bearer ' + token
           },
           data: {
-            from_date: this.fromDate,
-            to_date: this.toDate
+            from_date: this.form.fromDate,
+            to_date: this.form.toDate
           }
         })
 
