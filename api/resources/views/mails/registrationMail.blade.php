@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Dobrodošli Adis u YouGo d.o.o.</h2>
+    <h2>Dobrodošli u YouGo d.o.o.</h2>
     <h3>Registrirajte se putem linka</h3>
     <h4>Invite code: <a href="{{ $invitation->getLink() }}">{{ $invitation->getLink() }}</a></h4>
 </body>
