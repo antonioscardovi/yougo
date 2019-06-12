@@ -11,55 +11,6 @@
         </button>
       </a>
     </div>
-    <!-- <div id="formahome">
-      <center>
-        <h1>
-          REZERVIRAJ AUTO PO MJERI!
-          <br>
-        </h1>
-      </center>
-      <section id="container">
-        <div class="bg-pic" style="background: url('assets/images/rentacar-audi.jpg') cover"></div>
-        <section class="form-wrap">
-          <br>
-          <br>
-          <form action>
-            <div class="form-group">
-              <label for="date">1. Datum iznajmljivanja</label>
-              <input type="date" name="date">
-            </div>
-            <br>
-            <div class="form-group">
-              <label for="date">2. Datum vraćanja:</label>
-              <input type="date" name="date">
-            </div>
-            <br>
-            <div class="form-group">
-              <label for="type">3. Tip automobila</label>
-              <select name="type" id="type">
-                <option value="karavan">Karavan</option>
-                <option value="kabriolet">Kabriolet</option>
-                <option value="suv">SUV</option>
-                <option value="teretni">Teretni</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <br>
-              <label for="model">4. Model automobila</label>
-              <select name="type" id="type">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
-              </select>
-            </div>
-          </form>
-        </section>
-        
-      </section>
-
-      <img id="image" src="~/assets/Images/a6.png">
-    </div>-->
 
     <section id="onama" class="aboutus">
       <div class="divBox div1">
@@ -69,11 +20,11 @@
         <p
           id="p3"
         >Integer luctus enim in odio semper, molestie convallis ipsum vehicula. Integer elementum mattis pretium. Etiam hendrerit lobortis justo, in lacinia justo efficitur ac. Fusce venenatis vitae odio dapibus mollis. Nunc pretium, libero ut rutrum sagittis, mauris nunc sollicitudin quam, a ullamcorper arcu leo nec ligula. Sed gravida nisi quam, ac tincidunt augue pharetra et. Mauris quis felis libero. Vivamus vehicula, leo ac volutpat tempus, purus mauris tincidunt dui, vitae tincidunt turpis ante quis purus. Nullam tempus aliquam sapien non accumsan.</p>
-        <button type="submit" class="btn">
-          <a id="link" href="/Vehicles">
+        <a id="link" href="/Vehicles">
+          <button type="submit" class="btn btn-1">
             <span>REZERVIRAJ!</span>
-          </a>
-        </button>
+          </button>
+        </a>
       </div>
       <div class="divBox div2">
         <div class="map-responsive">
@@ -222,9 +173,9 @@ html {
   flex-wrap: nowrap;
   flex-direction: column;
   position: relative;
-  height: 90vh;
+  height: 100vh;
   background-image: url('~assets/images/rentacar-audi.jpg');
-  background-position: center;
+  background-position: center center;
   background-size: cover;
 }
 
@@ -300,30 +251,14 @@ html {
   color: #448cff;
 }
 
-/* .btn {
-  text-decoration: none !important;
-  font-family: 'Montserrat';
-  font-weight: bold;
-  text-shadow: 2px 2px 6px #444444;
-  border: none;
-  display: block;
-  text-align: center;
-  cursor: pointer;
-  text-transform: uppercase;
-  outline: none;
-  overflow: hidden;
-  position: relative;
-  top: 30vh;
-  min-width: 21%;
-  margin: 0 auto;
-  background: #448cff;
-  height: 80px;
-  border-radius: 5px;
-  margin-top: 0;
+.btn-1:hover {
   color: #f4f4f4;
-  font-size: 24px;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.517), 0 6px 20px 0 rgba(0, 0, 0, 0.51);
-} */
+  background-color: #448cff;
+}
+
+.btn-1:active {
+  border: 4px solid #333;
+}
 
 .flip-card {
   padding-left: 1%;
@@ -413,6 +348,7 @@ i {
   padding-left: 2%;
   padding-right: 2%;
 }
+
 .div3 {
   width: 100%;
   display: flex;
@@ -424,12 +360,14 @@ i {
   -webkit-box-shadow: inset 0 0 6px #000000a0;
   box-shadow: inset 0 0 6px #000000a0;
 }
+
 .aboutus {
   display: flex;
   min-height: 75vh;
   flex-direction: row;
   flex-wrap: wrap;
 }
+
 h2 {
   color: #0054db;
   font-family: 'Montserrat';
@@ -437,12 +375,14 @@ h2 {
   font-size: 30px;
   font-weight: bolder;
 }
+
 #p2 {
   margin-top: 1%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 18px;
   color: #0054db;
 }
+
 #p1 {
   padding-right: 13%;
   margin-top: 5%;
@@ -461,11 +401,10 @@ h2 {
   text-align: justify;
   color: #333;
 }
+
 .container {
-  padding-top: 100px;
+  padding-top: 0;
   min-height: 100vh;
-  /*background-image: url('~assets/Images/audi1.jpg');
-  background-size: cover;*/
 }
 
 h1 {
@@ -527,6 +466,7 @@ select {
     opacity: 1;
   }
 }
+
 #image {
   margin-top: -15%;
   position: absolute;
@@ -535,6 +475,7 @@ select {
   clear: both;
   z-index: 0;
 }
+
 .form-group {
   color: wheat;
   font-size: 18px;
@@ -575,7 +516,6 @@ select {
 
   .container {
     margin-top: 18%;
-    padding-top: 70px;
     min-height: 100vh;
     width: 100%;
   }
@@ -600,7 +540,6 @@ select {
     padding: 0 auto;
   }
   .container {
-    margin-top: 5%;
     width: 100%;
   }
 }
@@ -705,9 +644,7 @@ select {
     min-height: 45vh;
     width: 100%;
     display: flex;
-
     margin-top: 4%;
-
     flex-direction: column;
     flex-wrap: wrap;
   }
