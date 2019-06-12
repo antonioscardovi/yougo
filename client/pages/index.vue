@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <TheSidenav/>
-    <div id="bg-pic">
+    <div id="bg-pic" class="overlay">
       <div class="headline">
         <h1>Iznajmite vozilo po svojoj mjeri!</h1>
       </div>
@@ -179,19 +179,37 @@ html {
   background-size: cover;
 }
 
+.overlay {
+  position: relative;
+}
+
+.overlay:before {
+  position: absolute;
+  content: ' ';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+  background-color: rgba(51, 51, 51, 0.5);
+}
+
 .headline {
   position: relative;
   top: 20vh;
   margin: 0 auto;
   text-transform: uppercase;
   text-align: center;
+  border: 3px solid #f4f4f4;
 }
 
 .headline h1 {
   font-size: 3rem;
+  padding: 10px;
 }
 
-.button {
+/* .button {
   position: relative;
   background: none;
   top: 30vh;
@@ -214,11 +232,11 @@ html {
 
 .button:active {
   background-color: #3364b4;
-}
+} */
 
 .btn {
   position: relative;
-  top: 30vh;
+  top: 45vh;
   border: none;
   font-family: inherit;
   font-size: inherit;
