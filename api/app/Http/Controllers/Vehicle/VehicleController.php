@@ -9,7 +9,7 @@ use App\Http\Controllers\ApiController;
 use App\Vehicle;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
-// use DateTime;
+use DateTime;
 
 class VehicleController extends ApiController
 {
@@ -86,6 +86,13 @@ class VehicleController extends ApiController
             $lastname = $user->lastname;
             $email = $user->email;
 
+            $fDate = $request->from_date;
+            $tDate = $request->to_date;
+            $dateTime1 = new DateTime($fDate);
+            $dateTime2 = new DateTime($tDate);
+            $interval = $dateTime1->diff($dateTime2);
+            echo $days = $interval->format('%a');
+
             $data = [
                 'name' => $name,
                 'lastname' => $lastname,
@@ -93,7 +100,8 @@ class VehicleController extends ApiController
                 'vehicle' => $vehicle->id,
                 'from_date' => $request->from_date,
                 'to_date' => $request->to_date,
-                'vehicle_price' => $vehicle->price
+                'vehicle_price' => $vehicle->price,
+                'days' => $days,
             ];
 
             Mail::send('mails.reservation', $data, function ($message) use ($name, $lastname, $email) {
@@ -114,12 +122,7 @@ class VehicleController extends ApiController
 
             //'price_of_reservation' => $request->get('days') * $vehicle['price'],
 
-            // $fDate = $reservation->from_date;
-            // $tDate = $reservation->to_date;
-            // $dateTime1 = new DateTime($fDate);
-            // $dateTime2 = new DateTime($tDate);
-            // $interval = $dateTime1->diff($dateTime2);
-            // $days = $interval->format('%a');
+
 
             // Mail::send(new SendMail($user->email, $days));
 

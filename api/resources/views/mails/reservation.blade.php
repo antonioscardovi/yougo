@@ -9,7 +9,7 @@
 </head>
 <body>
 <h2>Uspješna rezervacija automobila {{$vehicle}} za datume od {{$from_date}} do {{$to_date}}</h2>
-<h3>Vaš račun je: {{$vehicle_price * 5 }}</h3>
+<h3>Vaš račun je: {{$vehicle_price * $days }} Kn za {{$days}} dana</h3>
 <h4></h4>
 </body>
 </html>
