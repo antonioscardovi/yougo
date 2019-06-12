@@ -99,10 +99,10 @@
                 <textarea class="form-control {{ $errors->has('description') ? 'is-danger' : '' }}" name="description" placeholder="@if ($errors->has('description')) {{ $errors->first('description') }} @else  @endif" value="{{ $vehicle->description }}"></textarea>
             </div>
     
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="filename">Photo(s)</label>
                 <input type="file" name="filename[]" multiple class="form-control-file">
-            </div>
+            </div> --}}
 
 
         <div class="form-group">

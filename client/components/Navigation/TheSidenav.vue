@@ -2,7 +2,7 @@
   <div class="header">
     <nuxt-link to="/">
       <div class="logo">
-        <img class="logo" src="~/assets/images/yugo-svijetli.png" alt="logo">
+        <!-- <img class="logo" src="~/assets/images/yugo-svijetli.png" alt="logo"> -->
       </div>
     </nuxt-link>
     <input class="menu-btn" type="checkbox" id="menu-btn">
@@ -55,6 +55,14 @@ export default {
 
 
 <style scoped>
+.logo {
+  background-image: url('~assets/images/yugo-tamno.png');
+  background-size: cover;
+  background-position: center center;
+  height: 64px;
+  width: 64px;
+}
+
 .header {
   /* background-color:#333; */
   transition: all 0.1s ease-in-out;
@@ -74,6 +82,10 @@ export default {
 .header:hover li a {
   transition: all 0.1s ease-in-out;
   color: #f4f4f4;
+}
+
+.header:hover .logo {
+  background-image: url('~assets/images/yugo-svijetli.png');
 }
 
 .header:hover li a.register {
