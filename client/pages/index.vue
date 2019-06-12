@@ -1,7 +1,17 @@
 <template>
   <div class="container">
     <TheSidenav/>
-    <div id="formahome">
+    <div id="bg-pic">
+      <div class="headline">
+        <h1>Iznajmite vozilo po svojoj mjeri!</h1>
+      </div>
+      <a id="link" href="/Vehicles">
+        <button type="submit" class="btn btn-1">
+          <span>REZERVIRAJ!</span>
+        </button>
+      </a>
+    </div>
+    <!-- <div id="formahome">
       <center>
         <h1>
           REZERVIRAJ AUTO PO MJERI!
@@ -9,6 +19,7 @@
         </h1>
       </center>
       <section id="container">
+        <div class="bg-pic" style="background: url('assets/images/rentacar-audi.jpg') cover"></div>
         <section class="form-wrap">
           <br>
           <br>
@@ -44,33 +55,12 @@
             </div>
           </form>
         </section>
-        <button type="submit" class="btn">
-          <a id="link" href="/Vehicles">
-            <span>REZERVIRAJ!</span>
-          </a>
-        </button>
+        
       </section>
 
       <img id="image" src="~/assets/Images/a6.png">
-    </div>
+    </div>-->
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     <section id="onama" class="aboutus">
       <div class="divBox div1">
         <h2>O nama</h2>
@@ -79,7 +69,7 @@
         <p
           id="p3"
         >Integer luctus enim in odio semper, molestie convallis ipsum vehicula. Integer elementum mattis pretium. Etiam hendrerit lobortis justo, in lacinia justo efficitur ac. Fusce venenatis vitae odio dapibus mollis. Nunc pretium, libero ut rutrum sagittis, mauris nunc sollicitudin quam, a ullamcorper arcu leo nec ligula. Sed gravida nisi quam, ac tincidunt augue pharetra et. Mauris quis felis libero. Vivamus vehicula, leo ac volutpat tempus, purus mauris tincidunt dui, vitae tincidunt turpis ante quis purus. Nullam tempus aliquam sapien non accumsan.</p>
-        <button type="submit" class="btn2">
+        <button type="submit" class="btn">
           <a id="link" href="/Vehicles">
             <span>REZERVIRAJ!</span>
           </a>
@@ -222,6 +212,119 @@ export default {
 </script>
 
 <style scoped>
+body,
+html {
+  height: 100%;
+}
+
+#bg-pic {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  position: relative;
+  height: 90vh;
+  background-image: url('~assets/images/rentacar-audi.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.headline {
+  position: relative;
+  top: 20vh;
+  margin: 0 auto;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.headline h1 {
+  font-size: 3rem;
+}
+
+.button {
+  position: relative;
+  background: none;
+  top: 30vh;
+  margin: 0 auto;
+  display: block;
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  background-color: #448cff;
+  color: #f4f4f4;
+  border: 0px solid;
+  border-radius: 15px;
+}
+
+.button:hover {
+  background-color: #4781df;
+}
+
+.button:active {
+  background-color: #3364b4;
+}
+
+.btn {
+  position: relative;
+  top: 30vh;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: #448cff;
+  background: none;
+  cursor: pointer;
+  padding: 25px 80px;
+  display: block;
+  margin: 0 auto;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn-1 {
+  border: 3px solid #448cff;
+  color: #448cff;
+}
+
+/* .btn {
+  text-decoration: none !important;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  text-shadow: 2px 2px 6px #444444;
+  border: none;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  top: 30vh;
+  min-width: 21%;
+  margin: 0 auto;
+  background: #448cff;
+  height: 80px;
+  border-radius: 5px;
+  margin-top: 0;
+  color: #f4f4f4;
+  font-size: 24px;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.517), 0 6px 20px 0 rgba(0, 0, 0, 0.51);
+} */
+
 .flip-card {
   padding-left: 1%;
   margin-top: 2%;
@@ -442,109 +545,19 @@ select {
   z-index: 3;
 }
 
-#formahome {
-  background-color: #0054db;
-  min-height: 580px;
-  width: 33%;
-  margin-left: 32%;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.517), 0 6px 20px 0 rgba(0, 0, 0, 0.51);
-  z-index: 1;
-}
-
-.btn {
-  text-decoration: none !important;
-  font-family: 'Montserrat';
-  font-weight: bold;
-  text-shadow: 2px 2px 6px #444444;
-  border: none;
-  display: block;
-  text-align: center;
-  cursor: pointer;
-  text-transform: uppercase;
-  outline: none;
-  overflow: hidden;
-  position: absolute;
-  min-width: 21%;
-  margin: 0 auto;
-  background: #448cff;
-  height: 80px;
-  border-radius: 5px;
-  margin-top: 6%;
-  color: rgb(200, 233, 253);
-  font-size: 24px;
-  border: 2px solid white;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.517), 0 6px 20px 0 rgba(0, 0, 0, 0.51);
-}
-
 #link {
   text-decoration: none;
-  color: rgb(200, 233, 253);
+  color: #f4f4f4;
 }
 
-.btn:hover,
-#link:hover,
-.btn span:hover {
-  color: rgb(255, 255, 255);
-  text-shadow: 1px 1px 6px #1b1b1b;
-}
-.btn span,
-.btn2 span {
-  position: relative;
-  z-index: 1;
-  text-decoration: none;
-}
-
-.btn:after,
-.btn2:after {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 350%;
-  width: 130%;
-  background: #6ab3bd;
-  -webkit-transition: all 0.1s ease-in-out;
-  transition: all 0.1s ease-in-out;
-  -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
-  transform: translateX(-98%) translateY(-25%) rotate(45deg);
-}
+/* #link:hover {
+    color: #ff3abf;
+  } */
 
 #aboutus {
   background-color: red;
   height: 500px;
   width: 100%;
-}
-.btn2 {
-  font-family: 'Montserrat';
-  font-weight: bold;
-  text-shadow: 2px 2px 6px #444444;
-  border: none;
-  display: block;
-  text-align: center;
-  cursor: pointer;
-  text-transform: uppercase;
-  outline: none;
-  overflow: hidden;
-  position: relative;
-  width: 300px;
-  margin: 0 auto;
-  background: #0054db;
-  height: 80px;
-  border-radius: 5px;
-  margin-top: 15%;
-  color: rgb(200, 233, 253);
-  font-size: 23px;
-  border: 2px solid white;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.517), 0 6px 20px 0 rgba(0, 0, 0, 0.51);
-  width: 60%;
-}
-
-.btn:hover:after,
-.btn2:hover:after {
-  -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
-  transform: translateX(-9%) translateY(-25%) rotate(45deg);
-  color: #333;
 }
 
 @media screen and (max-width: 499px) {
