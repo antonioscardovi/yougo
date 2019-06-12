@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Vehicle;
 
 use App\CustomerVehicle;
-// use App\Mail\SendMail;
+ //use App\Mail\SendMail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 use App\Vehicle;
 use Illuminate\Support\Facades\DB;
-// use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Mail;
 // use DateTime;
 
 class VehicleController extends ApiController
@@ -71,6 +71,8 @@ class VehicleController extends ApiController
             $vehicle['status'] =  $vehicle->setToNotAvailable();
             $vehicle->save();
 
+
+
             $reservation = CustomerVehicle::create([
 
                 'customer_id' => $user->id,
@@ -79,6 +81,36 @@ class VehicleController extends ApiController
                 'to_date' => $request->to_date,
                 'vehicle_price' => $vehicle->price
             ]);
+
+            $name = $user->name;
+            $lastname = $user->lastname;
+            $email = $user->email;
+
+            $data = [
+                'name' => $name,
+                'lastname' => $lastname,
+                'email' => $email,
+                'vehicle' => $vehicle->id,
+                'from_date' => $request->from_date,
+                'to_date' => $request->to_date,
+                'vehicle_price' => $vehicle->price
+            ];
+
+            Mail::send('mails.reservation', $data, function ($message) use ($name, $lastname, $email) {
+                $message->from('rent.a.car.yougo@gmail.com', 'Adminko Admić');
+//                $message->attach('Vaša rezervacija: '.['password' => $password]);
+                $message->to([$email])->subject('Potvrda rezervacije');
+
+            });
+
+
+
+
+
+//            Mail::send('mails.reservation', $email = array(), function($message)
+//            {
+//                $message->to('aljukicadis@yahoo.com')->subject('Uspješna rezervacija');
+//            });
 
             //'price_of_reservation' => $request->get('days') * $vehicle['price'],
 
