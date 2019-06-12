@@ -21,7 +21,7 @@
           id="p3"
         >Integer luctus enim in odio semper, molestie convallis ipsum vehicula. Integer elementum mattis pretium. Etiam hendrerit lobortis justo, in lacinia justo efficitur ac. Fusce venenatis vitae odio dapibus mollis. Nunc pretium, libero ut rutrum sagittis, mauris nunc sollicitudin quam, a ullamcorper arcu leo nec ligula. Sed gravida nisi quam, ac tincidunt augue pharetra et. Mauris quis felis libero. Vivamus vehicula, leo ac volutpat tempus, purus mauris tincidunt dui, vitae tincidunt turpis ante quis purus. Nullam tempus aliquam sapien non accumsan.</p>
         <a id="link" href="/Vehicles">
-          <button type="submit" class="btn btn-1">
+          <button type="submit" class="btn-2">
             <span>REZERVIRAJ!</span>
           </button>
         </a>
@@ -209,35 +209,9 @@ html {
   padding: 10px;
 }
 
-/* .button {
-  position: relative;
-  background: none;
-  top: 30vh;
-  margin: 0 auto;
-  display: block;
-  padding: 15px 25px;
-  font-size: 24px;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
-  background-color: #448cff;
-  color: #f4f4f4;
-  border: 0px solid;
-  border-radius: 15px;
-}
-
-.button:hover {
-  background-color: #4781df;
-}
-
-.button:active {
-  background-color: #3364b4;
-} */
-
 .btn {
   position: relative;
   top: 45vh;
-  border: none;
   font-family: inherit;
   font-size: inherit;
   color: #448cff;
@@ -275,6 +249,47 @@ html {
 }
 
 .btn-1:active {
+  background-color: #0054db;
+  border: 4px solid #333;
+}
+
+.btn-2 {
+  position: relative;
+  top: 25%;
+  border: 3px solid #448cff;
+  color: #448cff;
+  font-family: inherit;
+  font-size: inherit;
+  background: none;
+  cursor: pointer;
+  padding: 25px 80px;
+  display: block;
+  margin: 0 auto;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn-2:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn-2:hover {
+  color: #f4f4f4;
+  background-color: #448cff;
+}
+
+.btn-2:active {
+  background-color: #0054db;
   border: 4px solid #333;
 }
 

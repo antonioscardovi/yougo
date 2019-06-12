@@ -22,7 +22,7 @@
           </li>
           <li>
             <img src="~/assets/images/snowflake.png" alt="auto klima">
-            &nbsp;&nbsp; {{ vehicle.auto_ac === 'No' ? 'Nema klimu' : 'Ima klimu' }}
+            &nbsp;&nbsp; {{ vehicle.auto_ac === 'false' ? 'Nema klimu' : 'Ima klimu' }}
           </li>
           <li>snaga motora: &nbsp; {{ vehicle.engine_power }} kW</li>
           <!-- <p>Opis: {{ description }}</p> -->
