@@ -20,8 +20,7 @@
                     <div class="panel-heading">Requesting Invitation</div>
 
                     <div class="panel-body">
-                        <p>{{ config('app.name') }} is a closed community. You must have an invitation
-                            link to register. You can request your link below.</p>
+                        <p>Add new user of {{ config('app.name') }} application.</p>
 
                         <form class="form-horizontal" method="POST" action="{{ route('storeInvitation') }}">
                             {{ csrf_field() }}
@@ -46,9 +45,6 @@
                                         Request An Invitation
                                     </button>
 
-                                    <a class="btn btn-link" href="{{ route('login') }}">
-                                        Already Have An Account?
-                                    </a>
                                 </div>
                             </div>
                         </form>
