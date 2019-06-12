@@ -21,10 +21,13 @@
       </li>
 
       <template v-if="authenticated">
-        <b-nav-item-dropdown>
+        <!-- <b-nav-item-dropdown>
           <template slot="button-content">{{user.name}}</template>
           <b-dropdown-item @click.prevent="signOut">Izlogiraj Se</b-dropdown-item>
-        </b-nav-item-dropdown>
+        </b-nav-item-dropdown> -->
+        <li class="nav-item link-1 link2">
+          <nuxt-link class="register" to="/auth/register">Odjava {{ user.usernamename }}</nuxt-link>
+        </li>
       </template>
       <template v-else>
         <li class="nav-item link-1 link2">

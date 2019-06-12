@@ -2,17 +2,15 @@
   <div>
     <TheSidenav/>
 
-    <div class="single-post-page">
-      <section class="post-list">
+    <div class="single-vehicle-page">
+      <section class="vehicle-list">
         <div v-if="isLoading">Loading...</div>
 
         <article v-else>
-          <div
-            v-for="(image, index) in vehicle.images"
-            :key="index"
-            class="post-thumbnail"
-            :style="{backgroundImage: 'url(' + image.filename + ')'}"
-          ></div>
+          <div class="description">
+          <div class="one-image" :style="{backgroundImage: 'url(' + image + ')'}">
+
+          </div>
 
           <div class="post-content">
             <h1>Model: {{ vehicle.model }}</h1>
@@ -39,9 +37,9 @@
                   <date-pick v-model="form.toDate" :pickTime="true" :format="'YYYY-MM-DD HH:mm'"></date-pick>
                 </div>
                 <br>
-                {{ numDays }}
+                <h4>Dani Rezervacije: {{ numDays }}</h4>
                 <br>
-                <button @click="alert()">Potvrdi Rezervaciju za {{ numDays }} dana</button>
+                <button @click="alert()">Potvrdi Rezervaciju</button>
               </form>
             </template>
 
@@ -49,6 +47,15 @@
               <br>
               <h1>Vozilo je trenutačno iznajmljeno</h1>
             </template>
+          </div>
+          </div>
+          <div class="test">
+          <div
+            v-for="(image, index) in vehicle.images"
+            :key="index"
+            class="vehicle-thumbnail"
+            :style="{backgroundImage: 'url(' + image.filename + ')'}"
+          ></div>
           </div>
         </article>
       </section>
@@ -76,6 +83,9 @@ export default {
     }
   },
   computed: {
+    image() {
+      return this.vehicle.images[0].filename
+    },
     numDays() {
       console.log('racunam numDays')
       if (this.form.fromDate === '' || this.form.toDate === '')
@@ -172,7 +182,23 @@ export default {
 
 
 <style scoped>
-.single-post-page {
+
+.test {
+  display: flex;
+  justify-content: center;
+
+}
+
+.one-image{
+  height:350px;
+  width:600px;
+  background: center center/cover;
+
+}
+article {
+  width:100%;
+}
+.single-vehicle-page {
   margin-top: 20px;
   padding: 30px;
   text-align: center;
@@ -182,13 +208,13 @@ export default {
   border: 1px solid #ccc;
   box-shadow: 0 2px 2px #ccc;
   background-color: white;
-  width: 90%;
+  /* width: 90%; */
 }
 
 .post {
   width: 100%;
 }
-.post-list {
+.vehicle-list {
   margin-top: 40px;
   background-color: #ccc;
   display: flex;
@@ -220,11 +246,14 @@ export default {
   flex-direction: column;
 }
 
-.post-thumbnail {
-  width: 100%;
+.vehicle-thumbnail {
+  width: 300px;
   height: 200px;
   background-position: center;
   background-size: cover;
+  background-color: #333;
+  margin:5px;
+  border: 2px solid #333;
 }
 
 .post-content {
@@ -257,4 +286,9 @@ a:active .post-content {
 .post-feedback a:active {
   color: salmon;
 }
+
+
+/* --------------------------   carousel ------------------------------------ */
+
+
 </style>
