@@ -22,9 +22,19 @@
                     <td>{{ $customer->lastname }}</td>
                     <td>{{ $customer->email }}</td>
                     <td style="text-align:right;">
-                        <button class="btn btn-primary" data-customerid={{$customer->id}} data-toggle="modal" data-target="#about"><span class="glyphicon glyphicon-eye-open"></span> About</button>
-                    <button class="btn btn-danger" data-customerid={{$customer->id}} data-toggle="modal" data-target="#delete"><span class="glyphicon glyphicon-trash"></span> Delete</button>
-                    </td>
+                        {{-- <button class="btn btn-primary" data-customerid={{$customer->id}} data-toggle="modal" data-target="#about"><span class="glyphicon glyphicon-eye-open"></span> About</button> --}}
+
+                      <a href="customers/{{ $customer->id }}">
+                        <button class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span> About</button>
+                      </a>
+
+                    {{-- <button class="btn btn-danger" data-customerid={{$customer->id}} data-toggle="modal" data-target="#delete"><span class="glyphicon glyphicon-trash"></span> Delete</button> --}}
+                    <form method="POST" action="/customers/{{ $customer->id }}" style="display:inline;">
+                      @method('DELETE')
+                      @csrf
+                         <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+                  </form>  
+                  </td>
                 </tr>
                 {{-- <a href="{{ url('customers/'. $customer->id) }}"></a> --}} <!-- LINK ZA JEDNOG CUSTOMERA -->
                 @endforeach

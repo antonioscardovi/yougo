@@ -56,7 +56,8 @@ class ReservationBackendController extends Controller
      */
     public function show(CustomerVehicle $reservation)
     {
-        return view('pages.reservation', compact('reservation'));
+        $i = 1;
+        return view('pages.reservation', compact('reservation', 'i'));
     }
 
     /**

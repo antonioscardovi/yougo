@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Vehicle;
 
 use App\CustomerVehicle;
+use App\Mail\SendMail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 use App\Vehicle;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use DateTime;
 
 class VehicleController extends ApiController
 {
@@ -78,6 +81,15 @@ class VehicleController extends ApiController
             ]);
 
             //'price_of_reservation' => $request->get('days') * $vehicle['price'],
+
+            $fDate = $reservation->from_date;
+            $tDate = $reservation->to_date;
+            $dateTime1 = new DateTime($fDate);
+            $dateTime2 = new DateTime($tDate);
+            $interval = $dateTime1->diff($dateTime2);
+            $days = $interval->format('%a');
+
+            Mail::send(new SendMail($user->email, $days));
 
             return $this->showOne($reservation, 201);
         });
