@@ -699,8 +699,9 @@ select {
     min-height: 75vh;
     flex-direction: column;
     flex-wrap: wrap;
-    padding-left: 5%;
-    margin-left: 5%;
+    
+   
+    width:100%;
   }
   .div1 {
     flex: 1;
