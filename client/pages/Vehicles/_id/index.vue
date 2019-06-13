@@ -7,24 +7,38 @@
         <div v-if="isLoading">Loading...</div>
 
         <article v-else>
+          
           <div class="description">
-          <div class="one-image" :style="{backgroundImage: 'url(' + image + ')'}">
-
-          </div>
-
+          <div class="one-image" :style="{backgroundImage: 'url(' + image + ')'}"></div>
           <div class="post-content">
-            <h1>Model: {{ vehicle.model }}</h1>
-            <h1>Vrsta: {{ vehicle.type }}</h1>
-            <h1>Konjaža: {{ vehicle.engine_power }}</h1>
-            <h1>Broj Vrata: {{ vehicle.door_number }}</h1>
-            <h1>Opis: {{ vehicle.description }}</h1>
-            <h1>Marka Vozila: {{vehicle.model_of_vehicle.make_of_vehicle.name}}</h1>
-            <h1>Model: {{vehicle.model_of_vehicle.name}}</h1>
-            <h1>Mjenjač: {{vehicle.gearbox}}</h1>
-            <h1>Dostupnost: {{ vehicle.status }}</h1>
-
-            <template v-if="vehicle.status === 'available'">
+            <i class="fa fa-info-circle" style="font-size:26px;color:#ff6002;padding-right:3%"></i><br><h4>Detalji</h4>
+            <ul>
               <br>
+            <li> Vrsta: {{ vehicle.type }}</li>
+            <li> Konjaža: {{ vehicle.engine_power }}</li>
+            <li> Broj Vrata: {{ vehicle.door_number }}</li>
+            <li> Marka Vozila: {{vehicle.model_of_vehicle.make_of_vehicle.name}}</li>
+            <li> Model: {{vehicle.model_of_vehicle.name}}</li>
+            <li> Mjenjač: {{vehicle.gearbox}}</li>
+            <li> Dostupnost: {{ vehicle.status }}</li>
+            </ul>
+            <div class="opis">
+            <i class="fa fa-asterisk" style="font-size:26px;color:#ff6002;padding-right:3%;margin-top:3%"></i><h4 class="description-title"  style="margin-left:7%">Opis:</h4>
+            <p>	{{ vehicle.description }}</p>
+            </div>
+            </div>
+           
+          </div>
+           <template v-if="vehicle.status === 'available'">
+              <br>
+              <div class="botun">
+              <button type="submit" class="btn">
+          <a id="link" href="/Vehicles">
+            <span>REZERVIRAJ!</span>
+          </a>
+        </button>
+        </div>
+              <!-- <div class="rezervacijaa">
               <form @submit.prevent="alert">
                 <div class="form-group">
                   <label for="date">3.Datum znajmljivanja:</label>
@@ -41,14 +55,14 @@
                 <br>
                 <button @click="alert()">Potvrdi Rezervaciju</button>
               </form>
+              </div>
             </template>
 
             <template v-else>
               <br>
-              <h1>Vozilo je trenutačno iznajmljeno</h1>
+              <h1>Vozilo je trenutačno iznajmljeno</h1> -->
+              
             </template>
-          </div>
-          </div>
           <div class="test">
           <div
             v-for="(image, index) in vehicle.images"
@@ -182,17 +196,57 @@ export default {
 
 
 <style scoped>
-
+.description {
+  display: flex;
+  justify-content: center;
+  
+  
+}
 .test {
   display: flex;
   justify-content: center;
+  margin-top: 4%;
 
+}
+ul {
+  list-style: none;
+}
+
+ul li:before {
+  content: '•';
+}
+
+.rezervacijaa{
+  text-align: left;
+  background-color: #ff6002;
+  display: flex;
+  flex-direction: column;
+    flex-wrap: wrap;
+    width: 50%;
+    
+    /* margin-top:-14%;  */
+    
+}
+
+h4{
+  font-size:18px;
+  font-family: 'montserrat';
+  padding-bottom: 3%;
+  padding-top: 2%;
 }
 
 .one-image{
   height:350px;
-  width:600px;
+  width:50%;
   background: center center/cover;
+  /* flex: 3; */
+   
+    
+    display: flex;
+
+flex-direction: row;
+    
+    flex-wrap: wrap;
 
 }
 article {
@@ -259,6 +313,18 @@ article {
 .post-content {
   padding: 10px;
   text-align: center;
+  flex: 1;
+   
+    width: 33%;
+    display: flex;
+
+  flex-direction: row;
+    
+    flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.401);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: justify;
+  padding: 3% 5% 3% 5%;
 }
 
 a:hover .post-content,
@@ -286,8 +352,111 @@ a:active .post-content {
 .post-feedback a:active {
   color: salmon;
 }
+.botun{
+  display: flex;
+  justify-content: center;
+  flex: 1;
+    width: 100%;
+    
+    
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-left: 25%;
+  
+}
+.btn {
+  
+  text-decoration: none !important;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  text-shadow: 2px 2px 6px #444444;
+  border: none;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  outline: none;
+  overflow: hidden;
+  
+  min-width: 50%;
+  margin: 0 auto;
+  background: #ff6002;;
+  height: 80px;
+  border-radius: 5px;
+  
+  color: rgb(255, 255, 255);
+  font-size: 24px;
+  border: 2px solid white;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.517), 0 6px 20px 0 rgba(0, 0, 0, 0.51);
+}
 
+#link {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
 
+.btn:hover,
+#link:hover,
+.btn span:hover {
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 6px #1b1b1b;
+  background-color: #ad470c;
+}
+.btn span,
+.btn2 span {
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
+}
+
+.btn:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 350%;
+  
+  background: #b94c0c;;
+  
+}
+
+@media (max-width: 900px){
+  .one-image{
+    width:100%;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .post-content{
+    flex: 1;
+    width: 100%;
+    display: flex;
+    
+    flex-direction: column;
+    padding-bottom: 4%;
+    padding-left: 5%;
+    padding-right: 5%;;
+    flex-wrap: wrap;
+    text-align: justify;
+  }
+
+  .description {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+    width: 100%;
+    
+    
+    flex-direction: column;
+    flex-wrap: wrap;
+  
+}
+
+.botun{
+  margin-left:0;
+  width:100%;
+}
+}
 /* --------------------------   carousel ------------------------------------ */
 
 
