@@ -35,26 +35,26 @@
       </div>
       <div class="form-wrap-3">
         <h3>Datum Najma</h3>
-         <form>
-                <div class="form-group">
-                  <div class="date-pick">
-                  <label for="date">Datum iznajmljivanja:</label><br>
-                  <date-pick v-model="form.fromDate" :pickTime="true" :format="'YYYY-MM-DD'"></date-pick>
+        <form>
+          <div class="form-group">
+            <div class="date-pick">
+              <label for="date">Datum iznajmljivanja:</label>
+              <br>
+              <date-pick v-model="form.fromDate" :pickTime="true" :format="'YYYY-MM-DD'"></date-pick>
 
+              <br>
+
+              <div class="form-group">
+                <label for="date">Datum vracanja:</label>
                 <br>
-
-                <div class="form-group">
-                  <label for="date">Datum vracanja:</label><br>
-                  <date-pick v-model="form.toDate" :pickTime="true" :format="'YYYY-MM-DD'"></date-pick>
-                </div>
-                </div>
-                </div>
-                <!-- <br>
+                <date-pick v-model="form.toDate" :pickTime="true" :format="'YYYY-MM-DD'"></date-pick>
+              </div>
+            </div>
+          </div>
+          <!-- <br>
                 <br>
-                <button @click="test()">Filtriraj</button> -->
-              </form>
-
-
+          <button @click="test()">Filtriraj</button>-->
+        </form>
 
         <ul>
           <li v-for="stat in status" :key="stat">
@@ -138,7 +138,6 @@ import axios from 'axios'
 import DatePick from 'vue-date-pick'
 import 'vue-date-pick/dist/vueDatePick.css'
 
-
 export default {
   data() {
     return {
@@ -150,16 +149,12 @@ export default {
       fVehicles: [],
       reservations: [],
       form: {
-        fromDate:'',
-        toDate:'',
+        fromDate: '',
+        toDate: ''
       },
       expanded1: false,
       expanded2: false,
-      expanded3: false,
-
-
-
-
+      expanded3: false
     }
   },
   computed: {
@@ -184,7 +179,6 @@ export default {
       }
       }
 
-
       if (!this.checkedVehicles.length) {
         return this.Vehicles
       } else if (
@@ -195,7 +189,7 @@ export default {
             x == 'hatchback' ||
             x == 'limousine'
         ).length <= 0 &&
-        this.checkedVehicles.filter(x => x == 'available'|| x == 'unavailable')
+        this.checkedVehicles.filter(x => x == 'available' || x == 'unavailable')
           .length <= 0
       ) {
         //console.log(this.form.fromDate)
@@ -205,7 +199,7 @@ export default {
       } else if (
         this.checkedVehicles.filter(x => x == 'automatic' || x == 'manual')
           .length <= 0 &&
-        this.checkedVehicles.filter(x => x == 'available'|| x == 'unavailable')
+        this.checkedVehicles.filter(x => x == 'available' || x == 'unavailable')
           .length <= 0
       ) {
         console.log('type')
@@ -226,7 +220,7 @@ export default {
           this.checkedVehicles.includes(j.status)
         )
       } else if (
-        this.checkedVehicles.filter(x => x == 'available'|| x == 'unavailable')
+        this.checkedVehicles.filter(x => x == 'available' || x == 'unavailable')
           .length <= 0
       ) {
         console.log('gearbox - type')
@@ -267,7 +261,7 @@ export default {
       axios
         .get('http://localhost/api/vehicles')
         .then(res => {
-          this.Vehicles = res.data.data;
+          this.Vehicles = res.data.data
         })
         .catch(error => {
           // eslint-disable-next-line
@@ -326,7 +320,7 @@ export default {
   },
   components: {
     PostPreview,
-     DatePick
+    DatePick
   }
 }
 </script>
@@ -336,10 +330,10 @@ export default {
 }
 
 .date-pick {
-  width:200px;
+  width: 200px;
 }
 .form-wrap-3 .form-group {
-  padding-bottom:10px;
+  padding-bottom: 10px;
 }
 
 .forms span {
@@ -352,13 +346,14 @@ export default {
   text-align: center;
   border: 1px solid #333;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: 0.3s;
 }
 input[type='checkbox']:checked ~ span {
   background: #0054db;
   color: #fff;
 }
 .to-post-list {
-  width:90%;
+  width: 90%;
 }
 .post-list {
   display: flex;
@@ -368,7 +363,6 @@ input[type='checkbox']:checked ~ span {
   align-items: center;
   justify-content: center;
   flex: 3;
-
 }
 .forms {
   /* display: flex; */
@@ -409,10 +403,9 @@ input[type='checkbox']:checked ~ span {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.form-wrap-3 form{
+.form-wrap-3 form {
   text-align: center;
   background: #fff;
-
 }
 
 .form-wrap-3 form datepick {
