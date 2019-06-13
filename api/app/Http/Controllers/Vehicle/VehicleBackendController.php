@@ -27,7 +27,7 @@ class VehicleBackendController extends Controller
     public function index()
     {
         $models = ModelOfVehicle::with('makeOfVehicle')->get();
-        $vehicles = Vehicle::with('modelOfVehicle.makeOfVehicle', 'images')->get();
+        $vehicles = Vehicle::with('modelOfVehicle.makeOfVehicle', 'images', 'reservations')->get();
 
         $i = 1;
         // $vehicles = Vehicle::all();
