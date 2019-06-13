@@ -24,21 +24,22 @@
         <nuxt-link to="/auth/login">PRIJAVA</nuxt-link>
       </li>-->
 
-      <template v-if="authenticated">
-        <li class="nav-item link-1">
-          <nuxt-link to="/auth/logout">ODJAVI SE</nuxt-link>
-        </li>
-        <!-- <b-nav-item-dropdown>
-          <template slot="button-content">{{user.name}}</template>
-          <b-dropdown-item @click.prevent="signOut">Izlogiraj Se</b-dropdown-item>
-        </b-nav-item-dropdown>-->
-      </template>
-      <template v-else>
+      <template v-if="isAuthTokenPresent">
         <li class="nav-item link-1">
           <nuxt-link to="/auth/login">PRIJAVA</nuxt-link>
         </li>
         <li class="nav-item">
           <nuxt-link class="register" to="/auth/register">REGISTRACIJA</nuxt-link>
+        </li>
+        <!-- <b-nav-item-dropdown>
+          <template slot="button-content">{{user.name}}</template>
+          <b-dropdown-item @click.prevent="signOut">Odjavi se</b-dropdown-item>
+        </b-nav-item-dropdown> -->
+      </template>
+      <template v-else>
+
+        <li class="nav-item link-1">
+          <nuxt-link to="/" @click.native="logoutMe()">ODJAVI SE</nuxt-link>
         </li>
       </template>
     </ul>
@@ -46,10 +47,29 @@
 </template>
 
 <script>
+
+
 export default {
   methods: {
+
     signOut() {
-      this.$auth.logout()
+      console.log("odjavaaaaa");
+      localStorage.clear();
+    },
+
+    logoutMe: function (event) {
+      // `this` inside methods point to the Vue instance
+      console.log("odjava");
+      localStorage.removeItem('authToken');
+      localStorage.clear();
+    },
+
+    isAuthTokenPresent() {
+      return localStorage.getItem('authToken');
+    },
+
+    data() {
+      var varijabla = true;
     }
   }
 }
