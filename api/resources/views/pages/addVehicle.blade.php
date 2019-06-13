@@ -39,9 +39,10 @@
             <select name="type" class="form-control">
                 <option disabled selected value style="display: none;"></option>
                 <option value="hatchback">Hatchback</option>
+                <option value="electric">Electric</option>
+                <option value="supercar">Supercar</option>
                 <option value="limousine">Limousine</option>
                 <option value="sport">Sport</option>
-                <option value="supersport">Supersport</option>
                 <option value="suv">SUV</option>
                 <option value="caravan">Caravan</option>
             </select>

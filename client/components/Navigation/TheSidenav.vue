@@ -2,7 +2,7 @@
   <div class="header">
     <nuxt-link to="/">
       <div class="logo">
-        <img class="logo" src="~/assets/images/yugo-svijetli.png" alt="logo">
+        <!-- <img class="logo" src="~/assets/images/yugo-svijetli.png" alt="logo"> -->
       </div>
     </nuxt-link>
     <input class="menu-btn" type="checkbox" id="menu-btn">
@@ -55,28 +55,42 @@ export default {
 
 
 <style scoped>
+.logo {
+  background-image: url('~assets/images/yugo-svijetli.png');
+  background-size: cover;
+  background-position: center center;
+  height: 64px;
+  width: 64px;
+}
+
 .header {
-  /* background-color:#333; */
+  background-color: #333;
   transition: all 0.1s ease-in-out;
-  background-color: transparent;
-  /* box-shadow: 0px 2px 8px 0 rgba(0, 0, 0, 0.707); */
+  /* background-color: transparent; */
+  box-shadow: 0px 2px 8px 0 rgba(0, 0, 0, 0.707);
   position: fixed;
   width: 100%;
   height: auto;
   top: 0px;
   z-index: 3;
 }
+
 .header:hover {
   background-color: #333;
   box-shadow: 0px 2px 8px 0 rgba(0, 0, 0, 0.707);
   transition: all 0.1s ease-in-out;
 }
-.header:hover li a {
+
+.header li a {
   transition: all 0.1s ease-in-out;
   color: #f4f4f4;
 }
 
-.header:hover li a.register {
+.header:hover .logo {
+  background-image: url('~assets/images/yugo-svijetli.png');
+}
+
+.header li a.register {
   transition: all 0.1s ease-in-out;
   color: #f4f4f4;
   border-color: #f4f4f4;
@@ -94,7 +108,7 @@ export default {
   padding: 20px 20px;
   text-decoration: none;
   /* color: rgb(255, 255, 255);  promjenjeno*/
-  color: #333;
+  /* color: #333; */
   transition: all 0.2s ease-in-out;
 
   /*text-shadow: 2px 2px 4px #333;*/
@@ -112,9 +126,9 @@ export default {
 } */
 
 .header li a.register {
-  color: #333;
+  color: #f4f4f4;
   text-shadow: 0 0 0;
-  border: 3px solid #333;
+  border: 3px solid #f4f4f4;
   border-radius: 20px;
   transition: 0.3s ease;
 }

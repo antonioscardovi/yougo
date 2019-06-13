@@ -1,76 +1,17 @@
 <template>
   <div class="container">
     <TheSidenav/>
-    <div id="formahome">
-      <center>
-        <h1>
-          REZERVIRAJ AUTO PO MJERI!
-          <br>
-        </h1>
-      </center>
-      <section id="container">
-        <section class="form-wrap">
-          <br>
-          <br>
-          <form action>
-            <div class="form-group">
-              <label for="date">1. Datum iznajmljivanja</label>
-              <input type="date" name="date">
-            </div>
-            <br>
-            <div class="form-group">
-              <label for="date">2. Datum vraćanja:</label>
-              <input type="date" name="date">
-            </div>
-            <br>
-            <div class="form-group">
-              <label for="type">3. Tip automobila</label>
-              <select name="type" id="type">
-                <option value="karavan">Karavan</option>
-                <option value="kabriolet">Kabriolet</option>
-                <option value="suv">SUV</option>
-                <option value="teretni">Teretni</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <br>
-              <label for="model">4. Model automobila</label>
-              <select name="type" id="type">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
-              </select>
-            </div>
-          </form>
-        </section>
-        <button type="submit" class="btn">
-          <a id="link" href="/Vehicles">
-            <span>REZERVIRAJ!</span>
-          </a>
+    <div id="bg-pic" class="overlay">
+      <div class="headline">
+        <h1>Iznajmite vozilo po svojoj mjeri!</h1>
+      </div>
+      <a id="link" href="/Vehicles">
+        <button type="submit" class="btn btn-1">
+          <span>REZERVIRAJ!</span>
         </button>
-      </section>
-
-      <img id="image" src="~/assets/Images/a6.png">
+      </a>
     </div>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     <section id="onama" class="aboutus">
       <div class="divBox div1">
         <h2>O nama</h2>
@@ -79,11 +20,11 @@
         <p
           id="p3"
         >Integer luctus enim in odio semper, molestie convallis ipsum vehicula. Integer elementum mattis pretium. Etiam hendrerit lobortis justo, in lacinia justo efficitur ac. Fusce venenatis vitae odio dapibus mollis. Nunc pretium, libero ut rutrum sagittis, mauris nunc sollicitudin quam, a ullamcorper arcu leo nec ligula. Sed gravida nisi quam, ac tincidunt augue pharetra et. Mauris quis felis libero. Vivamus vehicula, leo ac volutpat tempus, purus mauris tincidunt dui, vitae tincidunt turpis ante quis purus. Nullam tempus aliquam sapien non accumsan.</p>
-        <button type="submit" class="btn2">
-          <a id="link" href="/Vehicles">
+        <a id="link" href="/Vehicles">
+          <button type="submit" class="btn-2">
             <span>REZERVIRAJ!</span>
-          </a>
-        </button>
+          </button>
+        </a>
       </div>
       <div class="divBox div2">
         <div class="map-responsive">
@@ -222,6 +163,136 @@ export default {
 </script>
 
 <style scoped>
+body,
+html {
+  height: 100%;
+}
+
+#bg-pic {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  position: relative;
+  height: 100vh;
+  background-image: url('~assets/images/rentacar-audi.jpg');
+  background-position: center center;
+  background-size: cover;
+}
+
+.overlay {
+  position: relative;
+}
+
+.overlay:before {
+  position: absolute;
+  content: ' ';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+  background-color: rgba(51, 51, 51, 0.5);
+}
+
+.headline {
+  position: relative;
+  top: 20vh;
+  margin: 0 auto;
+  text-transform: uppercase;
+  text-align: center;
+  border: 3px solid #f4f4f4;
+}
+
+.headline h1 {
+  font-size: 3rem;
+  padding: 10px;
+}
+
+.btn {
+  position: relative;
+  top: 45vh;
+  font-family: inherit;
+  font-size: inherit;
+  color: #448cff;
+  background: none;
+  cursor: pointer;
+  padding: 25px 80px;
+  display: block;
+  margin: 0 auto;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn-1 {
+  border: 3px solid #448cff;
+  color: #448cff;
+}
+
+.btn-1:hover {
+  color: #f4f4f4;
+  background-color: #448cff;
+}
+
+.btn-1:active {
+  background-color: #0054db;
+  border: 4px solid #333;
+}
+
+.btn-2 {
+  position: relative;
+  top: 25%;
+  border: 3px solid #448cff;
+  color: #448cff;
+  font-family: inherit;
+  font-size: inherit;
+  background: none;
+  cursor: pointer;
+  padding: 25px 80px;
+  display: block;
+  margin: 0 auto;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn-2:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn-2:hover {
+  color: #f4f4f4;
+  background-color: #448cff;
+}
+
+.btn-2:active {
+  background-color: #0054db;
+  border: 4px solid #333;
+}
+
 .flip-card {
   padding-left: 1%;
   margin-top: 2%;
@@ -310,6 +381,7 @@ i {
   padding-left: 2%;
   padding-right: 2%;
 }
+
 .div3 {
   width: 100%;
   display: flex;
@@ -321,12 +393,14 @@ i {
   -webkit-box-shadow: inset 0 0 6px #000000a0;
   box-shadow: inset 0 0 6px #000000a0;
 }
+
 .aboutus {
   display: flex;
   min-height: 75vh;
   flex-direction: row;
   flex-wrap: wrap;
 }
+
 h2 {
   color: #0054db;
   font-family: 'Montserrat';
@@ -334,12 +408,14 @@ h2 {
   font-size: 30px;
   font-weight: bolder;
 }
+
 #p2 {
   margin-top: 1%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 18px;
   color: #0054db;
 }
+
 #p1 {
   padding-right: 13%;
   margin-top: 5%;
@@ -358,11 +434,10 @@ h2 {
   text-align: justify;
   color: #333;
 }
+
 .container {
-  padding-top: 100px;
+  padding-top: 0;
   min-height: 100vh;
-  /*background-image: url('~assets/Images/audi1.jpg');
-  background-size: cover;*/
 }
 
 h1 {
@@ -424,6 +499,7 @@ select {
     opacity: 1;
   }
 }
+
 #image {
   margin-top: -15%;
   position: absolute;
@@ -432,6 +508,7 @@ select {
   clear: both;
   z-index: 0;
 }
+
 .form-group {
   color: wheat;
   font-size: 18px;
@@ -442,109 +519,19 @@ select {
   z-index: 3;
 }
 
-#formahome {
-  background-color: #0054db;
-  min-height: 580px;
-  width: 33%;
-  margin-left: 32%;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.517), 0 6px 20px 0 rgba(0, 0, 0, 0.51);
-  z-index: 1;
-}
-
-.btn {
-  text-decoration: none !important;
-  font-family: 'Montserrat';
-  font-weight: bold;
-  text-shadow: 2px 2px 6px #444444;
-  border: none;
-  display: block;
-  text-align: center;
-  cursor: pointer;
-  text-transform: uppercase;
-  outline: none;
-  overflow: hidden;
-  position: absolute;
-  min-width: 21%;
-  margin: 0 auto;
-  background: #448cff;
-  height: 80px;
-  border-radius: 5px;
-  margin-top: 6%;
-  color: rgb(200, 233, 253);
-  font-size: 24px;
-  border: 2px solid white;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.517), 0 6px 20px 0 rgba(0, 0, 0, 0.51);
-}
-
 #link {
   text-decoration: none;
-  color: rgb(200, 233, 253);
+  color: #f4f4f4;
 }
 
-.btn:hover,
-#link:hover,
-.btn span:hover {
-  color: rgb(255, 255, 255);
-  text-shadow: 1px 1px 6px #1b1b1b;
-}
-.btn span,
-.btn2 span {
-  position: relative;
-  z-index: 1;
-  text-decoration: none;
-}
-
-.btn:after,
-.btn2:after {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 350%;
-  width: 130%;
-  background: #6ab3bd;
-  -webkit-transition: all 0.1s ease-in-out;
-  transition: all 0.1s ease-in-out;
-  -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
-  transform: translateX(-98%) translateY(-25%) rotate(45deg);
-}
+/* #link:hover {
+    color: #ff3abf;
+  } */
 
 #aboutus {
   background-color: red;
   height: 500px;
   width: 100%;
-}
-.btn2 {
-  font-family: 'Montserrat';
-  font-weight: bold;
-  text-shadow: 2px 2px 6px #444444;
-  border: none;
-  display: block;
-  text-align: center;
-  cursor: pointer;
-  text-transform: uppercase;
-  outline: none;
-  overflow: hidden;
-  position: relative;
-  width: 300px;
-  margin: 0 auto;
-  background: #0054db;
-  height: 80px;
-  border-radius: 5px;
-  margin-top: 15%;
-  color: rgb(200, 233, 253);
-  font-size: 23px;
-  border: 2px solid white;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.517), 0 6px 20px 0 rgba(0, 0, 0, 0.51);
-  width: 60%;
-}
-
-.btn:hover:after,
-.btn2:hover:after {
-  -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
-  transform: translateX(-9%) translateY(-25%) rotate(45deg);
-  color: #333;
 }
 
 @media screen and (max-width: 499px) {
@@ -562,7 +549,6 @@ select {
 
   .container {
     margin-top: 18%;
-    padding-top: 70px;
     min-height: 100vh;
     width: 100%;
   }
@@ -587,7 +573,6 @@ select {
     padding: 0 auto;
   }
   .container {
-    margin-top: 5%;
     width: 100%;
   }
 }
@@ -692,9 +677,7 @@ select {
     min-height: 45vh;
     width: 100%;
     display: flex;
-
     margin-top: 4%;
-
     flex-direction: column;
     flex-wrap: wrap;
   }
