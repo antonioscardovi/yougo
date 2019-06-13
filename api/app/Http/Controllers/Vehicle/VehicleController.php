@@ -98,8 +98,8 @@ class VehicleController extends ApiController
                 'lastname' => $lastname,
                 'email' => $email,
                 'vehicle' => $vehicle,
-                'from_date' => $request->from_date,
-                'to_date' => $request->to_date,
+                'from_date' => date("d.m.Y", strtotime($request->from_date)),
+                'to_date' => date("d.m.Y", strtotime($request->to_date)),
                 'vehicle_price' => $vehicle->price,
                 'days' => $days,
             ];

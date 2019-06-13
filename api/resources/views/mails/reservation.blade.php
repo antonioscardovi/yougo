@@ -8,8 +8,13 @@
     <title>Document</title>
 </head>
 <body>
+<div style='border: 3px solid #000; margin-down: 10px;'>
 <h2>Uspješna rezervacija automobila {{$vehicle->modelOfVehicle->makeOfVehicle->name}} {{$vehicle->modelOfVehicle->name}} za datume od {{$from_date}} do {{$to_date}}</h2>
+</div>
+<div style='border: 3px solid #000;'>
 <h3>Vaš račun je: {{$vehicle_price * $days }} Kn za {{$days}} dana</h3>
+</div>
+
 <h4></h4>
 </body>
 </html>
