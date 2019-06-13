@@ -56,7 +56,7 @@
 
 
 
-        <!-- <ul>
+        <ul>
           <li v-for="stat in status" :key="stat">
             <label>
               <input
@@ -68,7 +68,7 @@
               <span>{{ stat }}</span>
             </label>
           </li>
-        </ul> -->
+        </ul>
       </div>
     </div>
 
@@ -195,7 +195,7 @@ export default {
             x == 'hatchback' ||
             x == 'limousine'
         ).length <= 0 &&
-        this.checkedVehicles.filter(x => x.status == 'available')
+        this.checkedVehicles.filter(x => x == 'available'|| x == 'unavailable')
           .length <= 0
       ) {
         //console.log(this.form.fromDate)
@@ -205,7 +205,7 @@ export default {
       } else if (
         this.checkedVehicles.filter(x => x == 'automatic' || x == 'manual')
           .length <= 0 &&
-        this.checkedVehicles.filter(x => x.status == 'available')
+        this.checkedVehicles.filter(x => x == 'available'|| x == 'unavailable')
           .length <= 0
       ) {
         console.log('type')
@@ -226,7 +226,7 @@ export default {
           this.checkedVehicles.includes(j.status)
         )
       } else if (
-        this.checkedVehicles.filter(x => x.status == 'available')
+        this.checkedVehicles.filter(x => x == 'available'|| x == 'unavailable')
           .length <= 0
       ) {
         console.log('gearbox - type')
