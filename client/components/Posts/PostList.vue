@@ -127,7 +127,7 @@
       </div>
     </form>
     </div>-->
-    <section class="to_post-list">
+    <section class="post-list">
       <PostPreview v-for="vehicle in filteredVehicles" :key="vehicle.id" :vehicle="vehicle"/>
     </section>
   </div>
