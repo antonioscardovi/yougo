@@ -7,69 +7,84 @@
         <div v-if="isLoading">Loading...</div>
 
         <article v-else>
-          
           <div class="description">
-          <div class="one-image" :style="{backgroundImage: 'url(' + image + ')'}"></div>
-          <div class="post-content">
-            <i class="fa fa-info-circle" style="font-size:26px;color:#ff6002;padding-right:3%"></i><br><h4>Detalji</h4>
-            <ul>
+            <div class="one-image" :style="{backgroundImage: 'url(' + image + ')'}"></div>
+            <div class="post-content">
+              <i class="fa fa-info-circle" style="font-size:26px;color:#ff6002;padding-right:3%"></i>
               <br>
-            <li> Vrsta: {{ vehicle.type }}</li>
-            <li> Konjaža: {{ vehicle.engine_power }}</li>
-            <li> Broj Vrata: {{ vehicle.door_number }}</li>
-            <li> Marka Vozila: {{vehicle.model_of_vehicle.make_of_vehicle.name}}</li>
-            <li> Model: {{vehicle.model_of_vehicle.name}}</li>
-            <li> Mjenjač: {{vehicle.gearbox}}</li>
-            <li> Dostupnost: {{ vehicle.status }}</li>
-            </ul>
-            <div class="opis">
-            <i class="fa fa-asterisk" style="font-size:26px;color:#ff6002;padding-right:3%;margin-top:3%"></i><h4 class="description-title"  style="margin-left:7%">Opis:</h4>
-            <p>	{{ vehicle.description }}</p>
+              <h4>Detalji</h4>
+              <ul>
+                <br>
+                <li>Vrsta: {{ vehicle.type }}</li>
+                <li>Konjaža: {{ vehicle.engine_power }}</li>
+                <li>Broj Vrata: {{ vehicle.door_number }}</li>
+                <li>Marka Vozila: {{vehicle.model_of_vehicle.make_of_vehicle.name}}</li>
+                <li>Model: {{vehicle.model_of_vehicle.name}}</li>
+                <li>Mjenjač: {{vehicle.gearbox}}</li>
+                <li>Dostupnost: {{ vehicle.status }}</li>
+              </ul>
+              <div class="opis">
+                <i
+                  class="fa fa-asterisk"
+                  style="font-size:26px;color:#ff6002;padding-right:3%;margin-top:3%"
+                ></i>
+                <h4 class="description-title" style="margin-left:7%">Opis:</h4>
+                <p>{{ vehicle.description }}</p>
+              </div>
             </div>
-            </div>
-           
           </div>
-           <template v-if="vehicle.status === 'available'">
-              <br>
-              <div class="botun">
+          <template v-if="vehicle.status === 'available'">
+            <br>
+
+            <!-- <div class="botun">
               <button type="submit" class="btn">
           <a id="link" href="/Vehicles">
             <span>REZERVIRAJ!</span>
           </a>
         </button>
-        </div>
-              <div class="rezervacijaa">
+            </div>-->
+
+            <div class="rezervacijaa">
               <form @submit.prevent="alert">
                 <div class="form-group">
-                  <label for="date">3.Datum znajmljivanja:</label>
-                  <date-pick v-model="form.fromDate" :pickTime="true" :format="'YYYY-MM-DD HH:mm:ss'"></date-pick>
+                  <label for="date">Datum iznajmljivanja:</label>
+                  <date-pick
+                    class="input"
+                    v-model="form.fromDate"
+                    :pickTime="true"
+                    :format="'YYYY-MM-DD HH:mm:ss'"
+                  ></date-pick>
                 </div>
                 <br>
 
                 <div class="form-group">
-                  <label for="date">4.Datum vracanja:</label>
-                  <date-pick v-model="form.toDate" :pickTime="true" :format="'YYYY-MM-DD HH:mm:ss'"></date-pick>
+                  <label for="date">Datum vracanja:</label>
+                  <date-pick
+                    class="input"
+                    v-model="form.toDate"
+                    :pickTime="true"
+                    :format="'YYYY-MM-DD HH:mm:ss'"
+                  ></date-pick>
                 </div>
                 <br>
                 <h4>Dani Rezervacije: {{ numDays }}</h4>
                 <br>
-                <button @click="alert()">Potvrdi Rezervaciju</button>
+                <button @click="alert()" class="btn">Potvrdi Rezervaciju</button>
               </form>
-              </div>
-            </template>
+            </div>
+          </template>
 
-            <template v-else>
-              <br>
-              <h1>Vozilo je trenutačno iznajmljeno</h1>
-              
-            </template>
+          <template v-else>
+            <br>
+            <h1>Vozilo je trenutačno iznajmljeno</h1>
+          </template>
           <div class="test">
-          <div
-            v-for="(image, index) in vehicle.images"
-            :key="index"
-            class="vehicle-thumbnail"
-            :style="{backgroundImage: 'url(' + image.filename + ')'}"
-          ></div>
+            <div
+              v-for="(image, index) in vehicle.images"
+              :key="index"
+              class="vehicle-thumbnail"
+              :style="{backgroundImage: 'url(' + image.filename + ')'}"
+            ></div>
           </div>
         </article>
       </section>
@@ -196,17 +211,22 @@ export default {
 
 
 <style scoped>
+label {
+  font-size: 1.5rem;
+}
+
+input {
+  border: none;
+}
+
 .description {
   display: flex;
   justify-content: center;
-  
-  
 }
 .test {
   display: flex;
   justify-content: center;
   margin-top: 4%;
-
 }
 ul {
   list-style: none;
@@ -216,41 +236,39 @@ ul li:before {
   content: '•';
 }
 
-.rezervacijaa{
+.rezervacijaa {
+  padding: 20px;
   text-align: left;
-  background-color: #ff6002;
+  background-color: #ffffff66;
   display: flex;
   flex-direction: column;
-    flex-wrap: wrap;
-    width: 50%;
-    
-    /* margin-top:-14%;  */
-    
+  flex-wrap: wrap;
+  width: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* margin-top:-14%;  */
 }
 
-h4{
-  font-size:18px;
+h4 {
+  font-size: 18px;
   font-family: 'montserrat';
   padding-bottom: 3%;
   padding-top: 2%;
 }
 
-.one-image{
-  height:350px;
-  width:50%;
+.one-image {
+  height: 350px;
+  width: 50%;
   background: center center/cover;
   /* flex: 3; */
-   
-    
-    display: flex;
 
-flex-direction: row;
-    
-    flex-wrap: wrap;
+  display: flex;
 
+  flex-direction: row;
+
+  flex-wrap: wrap;
 }
 article {
-  width:100%;
+  width: 100%;
 }
 .single-vehicle-page {
   margin-top: 20px;
@@ -306,7 +324,7 @@ article {
   background-position: center;
   background-size: cover;
   background-color: #333;
-  margin:5px;
+  margin: 5px;
   border: 2px solid #333;
 }
 
@@ -314,14 +332,14 @@ article {
   padding: 10px;
   text-align: center;
   flex: 1;
-   
-    width: 33%;
-    display: flex;
+
+  width: 33%;
+  display: flex;
 
   flex-direction: row;
-    
-    flex-wrap: wrap;
-    background-color: rgba(255, 255, 255, 0.401);
+
+  flex-wrap: wrap;
+  background-color: #ffffff66;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: justify;
   padding: 3% 5% 3% 5%;
@@ -352,20 +370,17 @@ a:active .post-content {
 .post-feedback a:active {
   color: salmon;
 }
-.botun{
+.botun {
   display: flex;
   justify-content: center;
   flex: 1;
-    width: 100%;
-    
-    
-    flex-direction: column;
-    flex-wrap: wrap;
-    margin-left: 25%;
-  
+  width: 100%;
+
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-left: 25%;
 }
 .btn {
-  
   text-decoration: none !important;
   font-family: 'Montserrat';
   font-weight: bold;
@@ -377,13 +392,13 @@ a:active .post-content {
   text-transform: uppercase;
   outline: none;
   overflow: hidden;
-  
+
   min-width: 50%;
   margin: 0 auto;
-  background: #ff6002;;
+  background: #ff6002;
   height: 80px;
   border-radius: 5px;
-  
+
   color: rgb(255, 255, 255);
   font-size: 24px;
   border: 2px solid white;
@@ -400,7 +415,7 @@ a:active .post-content {
 .btn span:hover {
   color: rgb(255, 255, 255);
   text-shadow: 1px 1px 6px #1b1b1b;
-  background-color: #ad470c;
+  background-color: #e65400;
 }
 .btn span,
 .btn2 span {
@@ -415,49 +430,54 @@ a:active .post-content {
   left: 0;
   top: 0;
   height: 350%;
-  
-  background: #b94c0c;;
-  
+
+  background: #ce4b00;
 }
 
-@media (max-width: 900px){
-  .one-image{
-    width:100%;
+@media (max-width: 900px) {
+  .one-image {
+    width: 100%;
     flex-direction: column;
     flex-wrap: wrap;
   }
 
-  .post-content{
+  .post-content {
     flex: 1;
     width: 100%;
     display: flex;
-    
+
     flex-direction: column;
     padding-bottom: 4%;
     padding-left: 5%;
-    padding-right: 5%;;
+    padding-right: 5%;
     flex-wrap: wrap;
     text-align: justify;
   }
 
   .description {
-  display: flex;
-  justify-content: center;
-  flex: 1;
+    display: flex;
+    justify-content: center;
+    flex: 1;
     width: 100%;
-    
-    
+
     flex-direction: column;
     flex-wrap: wrap;
-  
+  }
+
+  .botun {
+    margin-left: 0;
+    width: 100%;
+  }
 }
 
-.botun{
-  margin-left:0;
-  width:100%;
-}
+.input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 /* --------------------------   carousel ------------------------------------ */
-
-
 </style>

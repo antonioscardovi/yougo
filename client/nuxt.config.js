@@ -113,7 +113,12 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['./plugins/mixins/validation', './plugins/mixins/user', '~plugins/vue-scrollto.js'],
+  plugins: [
+    './plugins/mixins/validation',
+    './plugins/mixins/user',
+    './plugins/axios',
+    '~plugins/vue-scrollto.js'
+  ],
 
   auth: {
     strategies: {
@@ -129,7 +134,7 @@ export default {
             method: 'get',
             propertyName: 'data'
           },
-          logout: 'auth/loguout',
+          logout: 'auth/logout',
           method: 'get'
           // url:'auth/logout',method:'get'
           // url:'auth/logout',
@@ -170,4 +175,3 @@ export default {
     mode: 'out-in'
   }
 }
-
