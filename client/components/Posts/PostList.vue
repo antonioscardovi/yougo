@@ -172,10 +172,10 @@ export default {
              //var b = Date(this.form.fromDate);
              //console.log(a, b, a == b);
              // (Date(el.from_date) >= Date(this.form.fromDate) || Date(el.from_date) <= Date(this.form.toDate)) || (Date(el.to_date) >= Date(this.form.fromDate) || Date(el.to_date) <= Date(this.form.toDate))
-             if((el.from_date >= this.form.fromDate && el.from_date <= this.form.toDate) || (el.to_date >= this.form.fromDate && el.to_date <= this.form.toDate)){
+             if ((el.from_date >= this.form.fromDate && el.from_date <= this.form.toDate) || (el.to_date >= this.form.fromDate && el.to_date <= this.form.toDate)) {
                element.status = 'unavailable';
              }
-             else{
+             else {
                element.status = 'available';
              }
            })
