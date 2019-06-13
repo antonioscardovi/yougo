@@ -172,7 +172,7 @@ export default {
 }
 
 .nav-item {
-  font-family: Roboto;
+  font-family: inherit;
   font-size: 16px;
 }
 

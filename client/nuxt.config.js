@@ -113,7 +113,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['./plugins/mixins/validation', './plugins/mixins/user'],
+  plugins: ['./plugins/mixins/validation', './plugins/mixins/user', '~plugins/vue-scrollto.js'],
 
   auth: {
     strategies: {
@@ -170,3 +170,4 @@ export default {
     mode: 'out-in'
   }
 }
+
