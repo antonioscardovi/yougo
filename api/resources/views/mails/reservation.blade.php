@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-<h2>Uspješna rezervacija automobila {{$vehicle}} za datume od {{$from_date}} do {{$to_date}}</h2>
+<h2>Uspješna rezervacija automobila {{$vehicle->modelOfVehicle->makeOfVehicle->name}} {{$vehicle->modelOfVehicle->name}} za datume od {{$from_date}} do {{$to_date}}</h2>
 <h3>Vaš račun je: {{$vehicle_price * $days }} Kn za {{$days}} dana</h3>
 <h4></h4>
 </body>
