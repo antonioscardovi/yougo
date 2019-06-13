@@ -84,6 +84,10 @@
               >{{ errors.password_confirmation[0]}}</div>
             </div>
 
+            <div id="error">
+              <p>Unesli ste krive podatke.</p>
+            </div>
+
             <div class="form2">
               <!-- <input
                   type="submit"
@@ -153,8 +157,15 @@ export default {
 
         this.$router.push({ path: '/' })
       } catch (e) {
-        alert('Nesto je poslo po zlu.')
         console.log('error', e.message)
+        var errors = document.getElementById('error')
+        if (errors.style.display == 'none') {
+          errors.style.display = 'block'
+          // text.innerHTML = 'show'
+        } else {
+          errors.style.display = 'block'
+          // text.innerHTML = 'hide'
+        }
       }
     }
   }
@@ -233,5 +244,11 @@ span {
   color: #0054db;
   font-weight: bolder;
   text-shadow: 0px 1px 2px #00000057;
+}
+
+#error {
+  display: none;
+  padding-top: 20px;
+  color: red;
 }
 </style>

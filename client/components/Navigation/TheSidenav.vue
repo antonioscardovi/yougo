@@ -20,13 +20,13 @@
         <nuxt-link to="/#onama">O NAMA</nuxt-link>
       </li>
 
-      <li class="nav-item link-1">
+      <!-- <li class="nav-item link-1">
         <nuxt-link to="/auth/login">PRIJAVA</nuxt-link>
-      </li>
+      </li>-->
 
       <template v-if="authenticated">
-        <li class="nav-item">
-          <nuxt-link class="register" to="/auth/register">LOGOUT</nuxt-link>
+        <li class="nav-item link-1">
+          <nuxt-link to="/auth/logout">ODJAVI SE</nuxt-link>
         </li>
         <!-- <b-nav-item-dropdown>
           <template slot="button-content">{{user.name}}</template>
@@ -34,6 +34,9 @@
         </b-nav-item-dropdown>-->
       </template>
       <template v-else>
+        <li class="nav-item link-1">
+          <nuxt-link to="/auth/login">PRIJAVA</nuxt-link>
+        </li>
         <li class="nav-item">
           <nuxt-link class="register" to="/auth/register">REGISTRACIJA</nuxt-link>
         </li>
