@@ -144,7 +144,7 @@ export default {
     return {
       Vehicles: {},
       checkedVehicles: [],
-      types: ['electric', 'supercar', 'hatchback', 'limousine'],
+      types: ['electric', 'supercar', 'hatchback', 'limousine','sport','suv','caravan'],
       transmission: ['automatic', 'manual'],
       status: ['available', 'unavailable'],
       fVehicles: [],
@@ -193,7 +193,10 @@ export default {
             x == 'electric' ||
             x == 'supercar' ||
             x == 'hatchback' ||
-            x == 'limousine'
+            x == 'limousine' ||
+            x == 'sport' ||
+            x == 'suv' ||
+            x == 'caravan'
         ).length <= 0 &&
         this.checkedVehicles.filter(x => x == 'available'|| x == 'unavailable')
           .length <= 0
@@ -216,7 +219,11 @@ export default {
             x == 'electric' ||
             x == 'supercar' ||
             x == 'hatchback' ||
-            x == 'limousine'
+            x == 'limousine' ||
+            x == 'limousine' ||
+            x == 'sport' ||
+            x == 'suv' ||
+            x == 'caravan'
         ).length <= 0 &&
         this.checkedVehicles.filter(x => x == 'automatic' || x == 'manual')
           .length <= 0
@@ -239,7 +246,11 @@ export default {
             x == 'electric' ||
             x == 'supercar' ||
             x == 'hatchback' ||
-            x == 'limousine'
+            x == 'limousine' ||
+            x == 'limousine' ||
+            x == 'sport' ||
+            x == 'suv' ||
+            x == 'caravan'
         ).length <= 0
       ) {
         console.log('gearbox - status')
@@ -339,7 +350,7 @@ export default {
   width:200px;
 }
 .form-wrap-3 .form-group {
-  padding-bottom:10px;
+  padding-bottom:5px;
 }
 
 .forms span {
@@ -381,11 +392,11 @@ input[type='checkbox']:checked ~ span {
 .form-wrap-1 {
   background-color: #333;
   padding: 10px auto;
-  margin: 10px 30px;
+  margin: 0px 30px;
   /* border-radius:10px; */
   position: -webkit-sticky;
   position: sticky;
-  top: 95px;
+  top: 80px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .form-wrap-2 {
@@ -395,17 +406,17 @@ input[type='checkbox']:checked ~ span {
   /* border-radius:10px; */
   position: -webkit-sticky;
   position: sticky;
-  top: 355px;
+  top: 330px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .form-wrap-3 {
   background-color: #333;
   padding: 20px auto;
-  margin: 20px 30px;
+  margin: 10px 30px;
   /* border-radius:10px; */
   position: -webkit-sticky;
   position: sticky;
-  top: 530px;
+  top: 440px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -422,7 +433,7 @@ input[type='checkbox']:checked ~ span {
 .forms h3 {
   color: #fff;
   text-align: center;
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
   background-color: #1e90ff;
 }
 /* _____________________________________________________________________________________________ */
@@ -436,15 +447,15 @@ ul {
   border-bottom-left-radius: 10px;
   border: none;
   color: #333;
-  padding-bottom: 10px;
-  padding-top: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
 }
 
 li {
   list-style-type: none;
-  line-height: 2rem;
+  line-height: 1.3rem;
   /* font-size: 1.2rem; */
-  margin: 10px 0;
+  margin: 5px 0;
 }
 span:hover {
   background-color: #1e90ff;
