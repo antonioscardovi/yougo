@@ -17,7 +17,7 @@ export default {
 </script>
 <style scoped>
 .top {
-  margin-top: 75px;
+  margin-top: 65px;
 }
 .bot {
   margin-bottom: 300px;
