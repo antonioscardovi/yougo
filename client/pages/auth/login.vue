@@ -31,6 +31,10 @@
               <div class="invalid-feedback" v-if="errors.password">{{ errors.password[0]}}</div>
             </div>
 
+            <div id="error">
+              <p>Unesli ste krivi email ili lozinku.</p>
+            </div>
+
             <div class="form-group">
               <!-- <input type="submit" value="Logiraj se" class="btn btn-primary w-100"> -->
               <button>Prijava</button>
@@ -105,7 +109,14 @@ export default {
         this.$router.push({ path: '/' })
       } catch (error) {
         console.log('Error', error.message)
-        alert('nesto je poslo po zlu')
+        var errors = document.getElementById('error')
+        if (errors.style.display == 'none') {
+          errors.style.display = 'block'
+          // text.innerHTML = 'show'
+        } else {
+          errors.style.display = 'block'
+          // text.innerHTML = 'hide'
+        }
       }
     }
   }
@@ -179,5 +190,11 @@ footer,
   color: #0054db;
   font-weight: bolder;
   text-shadow: 0px 1px 2px #00000057;
+}
+
+#error {
+  display: none;
+  padding-top: 20px;
+  color: red;
 }
 </style>
