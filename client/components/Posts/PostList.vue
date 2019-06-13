@@ -34,8 +34,29 @@
         </ul>
       </div>
       <div class="form-wrap-3">
-        <h3>Status</h3>
-        <ul>
+        <h3>Datum Najma</h3>
+         <form>
+                <div class="form-group">
+                  <div class="date-pick">
+                  <label for="date">Datum iznajmljivanja:</label><br>
+                  <date-pick v-model="form.fromDate" :pickTime="true" :format="'YYYY-MM-DD'"></date-pick>
+
+                <br>
+
+                <div class="form-group">
+                  <label for="date">Datum vracanja:</label><br>
+                  <date-pick v-model="form.toDate" :pickTime="true" :format="'YYYY-MM-DD'"></date-pick>
+                </div>
+                </div>
+                </div>
+                <!-- <br>
+                <br>
+                <button @click="test()">Filtriraj</button> -->
+              </form>
+
+
+
+        <!-- <ul>
           <li v-for="stat in status" :key="stat">
             <label>
               <input
@@ -47,7 +68,7 @@
               <span>{{ stat }}</span>
             </label>
           </li>
-        </ul>
+        </ul> -->
       </div>
     </div>
 
@@ -106,8 +127,7 @@
       </div>
     </form>
     </div>-->
-
-    <section class="post-list">
+    <section class="to_post-list">
       <PostPreview v-for="vehicle in filteredVehicles" :key="vehicle.id" :vehicle="vehicle"/>
     </section>
   </div>
@@ -115,23 +135,56 @@
 <script>
 import PostPreview from '@/components/Posts/PostPreview'
 import axios from 'axios'
+import DatePick from 'vue-date-pick'
+import 'vue-date-pick/dist/vueDatePick.css'
+
 
 export default {
   data() {
     return {
-      Vehicles: [],
+      Vehicles: {},
       checkedVehicles: [],
       types: ['electric', 'supercar', 'hatchback', 'limousine'],
       transmission: ['automatic', 'manual'],
       status: ['available', 'unavailable'],
       fVehicles: [],
+      // reservations: [],
+      form: {
+        fromDate:'',
+        toDate:'',
+      },
       expanded1: false,
       expanded2: false,
-      expanded3: false
+      expanded3: false,
+
+
+
+
     }
   },
   computed: {
     filteredVehicles() {
+      if(this.Vehicles[1]){
+        if(this.form.fromDate != '' && this.form.toDate != ''){
+        this.Vehicles.forEach(element => {
+           element.reservations.forEach(el => {
+             //var a = Date(el.from_date);
+             //var b = Date(this.form.fromDate);
+             //console.log(a, b, a == b);
+             // (Date(el.from_date) >= Date(this.form.fromDate) || Date(el.from_date) <= Date(this.form.toDate)) || (Date(el.to_date) >= Date(this.form.fromDate) || Date(el.to_date) <= Date(this.form.toDate))
+             if((el.from_date >= this.form.fromDate && el.from_date <= this.form.toDate) || (el.to_date >= this.form.fromDate && el.to_date <= this.form.toDate)){
+               element.status = 'unavailable';
+             }
+             else{
+               element.status = 'available';
+             }
+           })
+           console.log(element.id, element.status);
+        });
+      }
+      }
+
+
       if (!this.checkedVehicles.length) {
         return this.Vehicles
       } else if (
@@ -142,17 +195,17 @@ export default {
             x == 'hatchback' ||
             x == 'limousine'
         ).length <= 0 &&
-        this.checkedVehicles.filter(x => x == 'available' || x == 'unavailable')
+        this.checkedVehicles.filter(x => x.status == 'available')
           .length <= 0
       ) {
-        console.log('gearbox')
+        //console.log(this.form.fromDate)
         return this.Vehicles.filter(j =>
           this.checkedVehicles.includes(j.gearbox)
         )
       } else if (
         this.checkedVehicles.filter(x => x == 'automatic' || x == 'manual')
           .length <= 0 &&
-        this.checkedVehicles.filter(x => x == 'available' || x == 'unavailable')
+        this.checkedVehicles.filter(x => x.status == 'available')
           .length <= 0
       ) {
         console.log('type')
@@ -173,7 +226,7 @@ export default {
           this.checkedVehicles.includes(j.status)
         )
       } else if (
-        this.checkedVehicles.filter(x => x == 'available' || x == 'unavailable')
+        this.checkedVehicles.filter(x => x.status == 'available')
           .length <= 0
       ) {
         console.log('gearbox - type')
@@ -214,12 +267,27 @@ export default {
       axios
         .get('http://localhost/api/vehicles')
         .then(res => {
-          this.Vehicles = res.data.data
+          this.Vehicles = res.data.data;
         })
         .catch(error => {
           // eslint-disable-next-line
           console.error(error)
         })
+    },
+    // getReservations() {
+    //   axios
+    //     .get('http://localhost/api/reservations')
+    //     .then(res => {
+    //       this.reservations = res.data.data
+    //       // console.log(this.reservations)
+    //     })
+    //     .catch(error => {
+    //       // eslint-disable-next-line
+    //       console.error(error)
+    //     })
+    // },
+    test() {
+      console.log(this.form.fromDate)
     },
     showCheckboxes1() {
       var checkboxes = document.getElementById('checkboxes1')
@@ -254,9 +322,11 @@ export default {
   },
   created() {
     this.getVehicles()
+    // this.getReservations()
   },
   components: {
-    PostPreview
+    PostPreview,
+     DatePick
   }
 }
 </script>
@@ -264,6 +334,14 @@ export default {
 .container {
   display: flex;
 }
+
+.date-pick {
+  width:200px;
+}
+.form-wrap-3 .form-group {
+  padding-bottom:10px;
+}
+
 .forms span {
   background: #fff;
   /* margin: 5px 0;
@@ -327,6 +405,17 @@ input[type='checkbox']:checked ~ span {
   top: 530px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+.form-wrap-3 form{
+  text-align: center;
+  background: #fff;
+
+}
+
+.form-wrap-3 form datepick {
+  margin: 0px 5px;
+}
+
 .forms h3 {
   color: #fff;
   text-align: center;
