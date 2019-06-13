@@ -68,7 +68,7 @@ class VehicleController extends ApiController
         // }
 
         return DB::transaction(function () use ($request, $vehicle, $user) {
-            $vehicle['status'] =  $vehicle->setAvailable();
+            // $vehicle['status'] =  $vehicle->setAvailable();
             $vehicle->save();
 
 

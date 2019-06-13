@@ -159,28 +159,24 @@ export default {
   },
   computed: {
     filteredVehicles() {
-      if (this.Vehicles[1]) {
-        if (this.form.fromDate != '' && this.form.toDate != '') {
-          this.Vehicles.forEach(element => {
-            element.reservations.forEach(el => {
-              //var a = Date(el.from_date);
-              //var b = Date(this.form.fromDate);
-              //console.log(a, b, a == b);
-              // (Date(el.from_date) >= Date(this.form.fromDate) || Date(el.from_date) <= Date(this.form.toDate)) || (Date(el.to_date) >= Date(this.form.fromDate) || Date(el.to_date) <= Date(this.form.toDate))
-              if (
-                (el.from_date >= this.form.fromDate &&
-                  el.from_date <= this.form.toDate) ||
-                (el.to_date >= this.form.fromDate &&
-                  el.to_date <= this.form.toDate)
-              ) {
-                element.status = 'unavailable'
-              } else {
-                element.status = 'available'
-              }
-            })
-            console.log(element.id, element.status)
-          })
-        }
+      if(this.Vehicles[1]){
+        if(this.form.fromDate != '' && this.form.toDate != ''){
+        this.Vehicles.forEach(element => {
+           element.reservations.forEach(el => {
+             //var a = Date(el.from_date);
+             //var b = Date(this.form.fromDate);
+             //console.log(a, b, a == b);
+             // (Date(el.from_date) >= Date(this.form.fromDate) || Date(el.from_date) <= Date(this.form.toDate)) || (Date(el.to_date) >= Date(this.form.fromDate) || Date(el.to_date) <= Date(this.form.toDate))
+             if ((el.from_date >= this.form.fromDate && el.from_date <= this.form.toDate) || (el.to_date >= this.form.fromDate && el.to_date <= this.form.toDate)) {
+               element.status = 'unavailable';
+             }
+             else {
+               element.status = 'available';
+             }
+           })
+           console.log(element.id, element.status);
+        });
+      }
       }
 
       if (!this.checkedVehicles.length) {
