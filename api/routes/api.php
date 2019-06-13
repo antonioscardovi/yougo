@@ -31,7 +31,7 @@ Route::post('vehicles/{vehicle}', 'Vehicle\VehicleController@store')->name('vehi
 Route::resource('customers', 'Customer\CustomerController', ['except' => ['create', 'edit']]); // 'except' create edit
 Route::post('/login', 'Customer\CustomerController@login');
 Route::post('/register', 'Customer\CustomerController@register');
-//Route::post('/logout', 'Customer\CustomerController@logout');
+// Route::post('/logout', 'Customer\CustomerController@logout');
 
 
 /*

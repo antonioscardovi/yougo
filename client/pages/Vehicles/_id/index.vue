@@ -38,17 +38,17 @@
           </a>
         </button>
         </div>
-              <!-- <div class="rezervacijaa">
+              <div class="rezervacijaa">
               <form @submit.prevent="alert">
                 <div class="form-group">
                   <label for="date">3.Datum znajmljivanja:</label>
-                  <date-pick v-model="form.fromDate" :pickTime="true" :format="'YYYY-MM-DD HH:mm'"></date-pick>
+                  <date-pick v-model="form.fromDate" :pickTime="true" :format="'YYYY-MM-DD HH:mm:ss'"></date-pick>
                 </div>
                 <br>
 
                 <div class="form-group">
                   <label for="date">4.Datum vracanja:</label>
-                  <date-pick v-model="form.toDate" :pickTime="true" :format="'YYYY-MM-DD HH:mm'"></date-pick>
+                  <date-pick v-model="form.toDate" :pickTime="true" :format="'YYYY-MM-DD HH:mm:ss'"></date-pick>
                 </div>
                 <br>
                 <h4>Dani Rezervacije: {{ numDays }}</h4>
@@ -60,7 +60,7 @@
 
             <template v-else>
               <br>
-              <h1>Vozilo je trenutačno iznajmljeno</h1> -->
+              <h1>Vozilo je trenutačno iznajmljeno</h1>
               
             </template>
           <div class="test">

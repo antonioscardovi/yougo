@@ -63,12 +63,12 @@ class VehicleController extends ApiController
         //            return $this->errorResponse('Morate biti verificirani za nastavak', 409);
         //        }
 
-        if (!$vehicle->isAvailable()) {
-            return $this->errorResponse('Vozilo nije dostupno za rentanje', 409);
-        }
+        // if (!$vehicle->isAvailable()) {
+        //     return $this->errorResponse('Vozilo nije dostupno za rentanje', 409);
+        // }
 
         return DB::transaction(function () use ($request, $vehicle, $user) {
-            $vehicle['status'] =  $vehicle->setToNotAvailable();
+            $vehicle['status'] =  $vehicle->setAvailable();
             $vehicle->save();
 
 
