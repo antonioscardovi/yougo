@@ -23,24 +23,32 @@ export default {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css?family=Lato:300&display=swap'
       },
-      {rel: 'stylesheet',
-      href:'https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap'
-      },
-      {rel: 'stylesheet',
-      href:'https://fonts.googleapis.com/css?family=Work+Sans:300,400&display=swap'
-      },
-      {rel: 'stylesheet',
-      href:'https://fonts.googleapis.com/css?family=Raleway&display=swap'
-      },
-      {rel: 'stylesheet',
-      href:'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap'
       },
       {
-        rel:"stylesheet", href:"https://use.fontawesome.com/releases/v5.8.1/css/all.css",
-         integrity:"sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf", crossorigin:"anonymous"
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css?family=Work+Sans:300,400&display=swap'
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css?family=Raleway&display=swap'
+      },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://use.fontawesome.com/releases/v5.8.1/css/all.css',
+        integrity:
+          'sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf',
+        crossorigin: 'anonymous'
       }
-
-
     ],
     script: [
       {
@@ -52,30 +60,34 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: "#0054dB", height: "4px", duration: 5000 },
+  loading: { color: '#0054dB', height: '4px', duration: 5000 },
   loadingIndicator: {
-    name: "circle",
-    color: "#0054dB",
+    name: 'circle',
+    color: '#0054dB',
     background: 'white'
   },
 
   router: {
     middleware: ['clearValidationErrors'],
     // Dodano za smooth scroll
-    
+
     scrollBehavior: async (to, from, savedPosition) => {
       if (savedPosition) {
         return savedPosition
       }
 
       const findEl = async (hash, x) => {
-        return document.querySelector(hash) ||
+        return (
+          document.querySelector(hash) ||
           new Promise((resolve, reject) => {
             if (x > 50) {
               return resolve()
             }
-            setTimeout(() => { resolve(findEl(hash, ++x || 1)) }, 100)
+            setTimeout(() => {
+              resolve(findEl(hash, ++x || 1))
+            }, 100)
           })
+        )
       }
 
       if (to.hash) {
@@ -96,14 +108,12 @@ export default {
   /*
    ** Global CSS
    */
-  css: [
-    '~assets/styles/main.css'
-  ],
+  css: ['~assets/styles/main.css'],
 
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['./plugins/mixins/validation', './plugins/mixins/user'],
+  plugins: ['./plugins/mixins/validation', './plugins/mixins/user', '~plugins/vue-scrollto.js'],
 
   auth: {
     strategies: {
@@ -142,8 +152,7 @@ export default {
 
     // '@nuxtjs/bootstrap-vue',
 
-    '@nuxtjs/auth',
-
+    '@nuxtjs/auth'
   ],
 
   /*
@@ -157,7 +166,8 @@ export default {
     extend(config, ctx) {}
   },
   transition: {
-    name:'fade',
-    mode:'out-in'
+    name: 'fade',
+    mode: 'out-in'
   }
 }
+

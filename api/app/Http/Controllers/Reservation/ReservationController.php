@@ -19,7 +19,7 @@ class ReservationController extends ApiController
      */
     public function index()
     {
-        $reservations = CustomerVehicle::all();
+        $reservations = CustomerVehicle::with('vehicle.modelOfVehicle.makeOfVehicle')->get();
         //echo CustomerVehicle::all();
         return $this->showAll($reservations);
     }
@@ -38,7 +38,7 @@ class ReservationController extends ApiController
         }
 
         if (!$vehicle->isAvailable()) {
-            return $this->errorResponse('Vozilo nije dostupno za rentanje',409);
+            return $this->errorResponse('Vozilo nije dostupno za rentanje', 409);
         }
 
         return DB::transaction(function () use ($request, $vehicle, $customer) {

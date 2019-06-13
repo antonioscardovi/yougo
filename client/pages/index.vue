@@ -1,127 +1,157 @@
 <template>
   <div class="container">
     <TheSidenav/>
-    <div id="formahome">
-      
-        <center>
-          <h1>
-            REZERVIRAJ AUTO PO MJERI!
-            <br>
-          </h1>
-        </center>
-        <section id="container">
-          <section class="form-wrap">
-            <br>
-            <br>
-            <form action>
-              <div class="form-group">
-                <label for="date">1. Datum iznajmljivanja</label>
-                <input type="date" name="date">
-              </div>
-              <br>
-              <div class="form-group">
-                <label for="date">2. Datum vraćanja:</label>
-                <input type="date" name="date">
-              </div>
-              <br>
-              <div class="form-group">
-                <label for="type">3. Tip automobila</label>
-                <select name="type" id="type">
-                  <option value="karavan">Karavan</option>
-                  <option value="kabriolet">Kabriolet</option>
-                  <option value="suv">SUV</option>
-                  <option value="teretni">Teretni</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <br>
-                <label for="model">4. Model automobila</label>
-                <select name="type" id="type">
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="mercedes">Mercedes</option>
-                  <option value="audi">Audi</option>
-                </select>
-              </div>
-            </form>
-          </section>
-          <button type="submit" class="btn">
-          <a id="link" href="/Vehicles">
-            <span>REZERVIRAJ!</span>
-          </a>
+    <div id="bg-pic" class="overlay">
+      <div class="headline">
+        <h1>Iznajmite vozilo po svojoj mjeri!</h1>
+      </div>
+      <a id="link" href="/Vehicles">
+        <button type="submit" class="btn btn-1">
+          <span>REZERVIRAJ!</span>
         </button>
-      
-    </section>
-        
-      <img id="image" src="~/assets/Images/a6.png">
+      </a>
+
+      <button type="button" class="scroll_down" id="scroll_down" v-scroll-to="'#section2'"></button>
+      <!-- <nuxt-link type="button" to="/#onama" class="scroll_down" id="scroll_down" v-scroll-to="'#section2'"></nuxt-link> -->
     </div>
 
-
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  <section id="onama" class="aboutus">
-
-    <div class="divBox div1"><h2>O nama</h2><p id="p1">IZAĐI IZ OKVIRA SVAKODNEVICE UZ YouGo!</p>
-    <p id="p2">YouGo je sigurna i provjerena stranica za rezervaciju automobila</p>
-  	<p id="p3">Integer luctus enim in odio semper, molestie convallis ipsum vehicula. Integer elementum mattis pretium. Etiam hendrerit lobortis justo, in lacinia justo efficitur ac. Fusce venenatis vitae odio dapibus mollis. Nunc pretium, libero ut rutrum sagittis, mauris nunc sollicitudin quam, a ullamcorper arcu leo nec ligula. Sed gravida nisi quam, ac tincidunt augue pharetra et. Mauris quis felis libero. Vivamus vehicula, leo ac volutpat tempus, purus mauris tincidunt dui, vitae tincidunt turpis ante quis purus. Nullam tempus aliquam sapien non accumsan.</p>
-      <button type="submit" class="btn2"><a id="link" href="/Vehicles"><span>REZERVIRAJ!</span></a></button>
-    </div>
-    <div class="divBox div2"><div class="map-responsive">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d44879.80263543315!2d14.403759344503271!3d45.32887154779649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4764a6dcf256984b%3A0x1d0c2bb4ee6443b1!2sZametska+ul.%2C+51000%2C+Rijeka!5e0!3m2!1shr!2shr!4v1559565424534!5m2!1shr!2shr"
-        width="300" height="800" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+    <section id="onama" class="aboutus">
+      <div class="divBox div1">
+        <h2>O nama</h2>
+        <p id="p1">IZAĐI IZ OKVIRA SVAKODNEVICE UZ YouGo!</p>
+        <p id="p2">YouGo je sigurna i provjerena stranica za rezervaciju automobila</p>
+        <p
+          id="p3"
+        >Integer luctus enim in odio semper, molestie convallis ipsum vehicula. Integer elementum mattis pretium. Etiam hendrerit lobortis justo, in lacinia justo efficitur ac. Fusce venenatis vitae odio dapibus mollis. Nunc pretium, libero ut rutrum sagittis, mauris nunc sollicitudin quam, a ullamcorper arcu leo nec ligula. Sed gravida nisi quam, ac tincidunt augue pharetra et. Mauris quis felis libero. Vivamus vehicula, leo ac volutpat tempus, purus mauris tincidunt dui, vitae tincidunt turpis ante quis purus. Nullam tempus aliquam sapien non accumsan.</p>
+        <a id="link" href="/Vehicles">
+          <button type="submit" class="btn-2">
+            <span>REZERVIRAJ!</span>
+          </button>
+        </a>
+      </div>
+      <div class="divBox div2">
+        <div class="map-responsive">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d44879.80263543315!2d14.403759344503271!3d45.32887154779649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4764a6dcf256984b%3A0x1d0c2bb4ee6443b1!2sZametska+ul.%2C+51000%2C+Rijeka!5e0!3m2!1shr!2shr!4v1559565424534!5m2!1shr!2shr"
+            width="300"
+            height="800"
+            frameborder="0"
+            style="border:0"
+            allowfullscreen
+          ></iframe>
+        </div>
         <br>
         <p id="p2" style="color:#333;">Obratite nam se s povjerenjem!</p>
-        <p style="color:#4c4c4c;"><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal" style="padding-right: 7%;"></i>Rent-a-car</p>
-          <p style="color:#4c4c4c"><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal" style="padding-right: 7%;"></i>Rijeka, HR</p>
-          <p style="color:#4c4c4c"><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal" style="padding-right: 7%;"></i>yougo@mail.com</p>
-          <p style="color:#4c4c4c"><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal" style="padding-right: 7%;"></i>099/ 562 / 7892</p><br><br></div>
-
+        <p style="color:#4c4c4c;">
+          <i
+            class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"
+            style="padding-right: 7%;"
+          ></i>Rent-a-car
+        </p>
+        <p style="color:#4c4c4c">
+          <i
+            class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"
+            style="padding-right: 7%;"
+          ></i>Rijeka, HR
+        </p>
+        <p style="color:#4c4c4c">
+          <i
+            class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"
+            style="padding-right: 7%;"
+          ></i>yougo@mail.com
+        </p>
+        <p style="color:#4c4c4c">
+          <i
+            class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"
+            style="padding-right: 7%;"
+          ></i>099/ 562 / 7892
+        </p>
+        <br>
+        <br>
+      </div>
     </section>
-    <br><br><br><br><center><i style="font-size:65px;padding-bottom:2%" class="fa fa-user-circle"></i><br><h2 class="upoznajtetim"> UPOZNAJTE NAŠ TIM </h2></center><br><br><br><br>
-      <section class="div3">
-    <div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <source srcset="~/assets/Images/vecaslika1.jpg" media="(min-width: 1076px)" style="background-size: cover;height:auto;width:100%" >
-      <source srcset="~/assets/Images/c1.jpg" style="width:100%;height:100%;">
-      <img src="~/assets/Images/c1.jpg" style="width:100%;height:100%;" alt="Avatar" >
-    </div>
-    <div class="flip-card-back">
-      <h1><i class="fa fa-paint-brush" style="font-size:40px;color:white"></i> <br><br>Lana Horvat</h1>
-      <br><p>Arhitektica & dizajnerica</p>
-      <p style="font-weight:lighter;">Lana je ambiciozna i kreativa. Jako dobar radnik!
-      </p>
-    </div>
-  </div>
-</div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <center>
+      <i style="font-size:65px;padding-bottom:2%" class="fa fa-user-circle"></i>
+      <br>
+      <h2 class="upoznajtetim">UPOZNAJTE NAŠ TIM</h2>
+    </center>
+    <br>
+    <br>
+    <br>
+    <br>
+    <section class="div3">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <source
+              srcset="~/assets/Images/vecaslika1.jpg"
+              media="(min-width: 1076px)"
+              style="background-size: cover;height:auto;width:100%"
+            >
+            <source srcset="~/assets/Images/c1.jpg" style="width:100%;height:100%;">
+            <img src="~/assets/Images/c1.jpg" style="width:100%;height:100%;" alt="Avatar">
+          </div>
+          <div class="flip-card-back">
+            <h1>
+              <i class="fa fa-paint-brush" style="font-size:40px;color:white"></i>
+              <br>
+              <br>Lana Horvat
+            </h1>
+            <br>
+            <p>Arhitektica & dizajnerica</p>
+            <p style="font-weight:lighter;">Lana je ambiciozna i kreativa. Jako dobar radnik!</p>
+          </div>
+        </div>
+      </div>
 
-<div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <img src="~/assets/Images/c2.jpg" alt="Avatar" style="width:100%;height:100%;" class="slika1">
-    </div>
-    <div class="flip-card-back" style="background-color:#666666">
-      <h1><i class="fa fa-at" style="font-size:40px;color:white"></i> <br><br>Ivan Horvat</h1>
-     <br><p>Programer, Back-end i Front-end</p>
-      <p>Jako marljiv i vrijedan naš Ivan Horvat</p>
-    </div>
-  </div>
-</div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img
+              src="~/assets/Images/c2.jpg"
+              alt="Avatar"
+              style="width:100%;height:100%;"
+              class="slika1"
+            >
+          </div>
+          <div class="flip-card-back" style="background-color:#666666">
+            <h1>
+              <i class="fa fa-at" style="font-size:40px;color:white"></i>
+              <br>
+              <br>Ivan Horvat
+            </h1>
+            <br>
+            <p>Programer, Back-end i Front-end</p>
+            <p>Jako marljiv i vrijedan naš Ivan Horvat</p>
+          </div>
+        </div>
+      </div>
 
-<div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <img src="~/assets/Images/c3.jpg" alt="Avatar" style="width:100%;height:100%;">
-    </div>
-    <div class="flip-card-back" style="padding-left:3%;padding-right:3%;">
-     <h1><i class="fa fa-cogs" style="font-size:40px;color:white"></i> <br><br>Marko Srdoč</h1>
-     <br>
-      <p>Organizator i podrška</p>
-      <p>Glavni organizator i menadžer, sve kreće od ovog čovjeka.</p>
-    </div>
-  </div>
-</div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="~/assets/Images/c3.jpg" alt="Avatar" style="width:100%;height:100%;">
+          </div>
+          <div class="flip-card-back" style="padding-left:3%;padding-right:3%;">
+            <h1>
+              <i class="fa fa-cogs" style="font-size:40px;color:white"></i>
+              <br>
+              <br>Marko Srdoč
+            </h1>
+            <br>
+            <p>Organizator i podrška</p>
+            <p>Glavni organizator i menadžer, sve kreće od ovog čovjeka.</p>
+          </div>
+        </div>
+      </div>
     </section>
-    <br><br><br>
+    <br>
+    <br>
+    <br>
   </div>
 </template>
 
@@ -133,11 +163,228 @@ export default {
     TheSidenav
   }
 }
+
+// window.addEventListener('DOMContentLoaded', yourFunction, false);
+
+// SCROLL DOWN BUTTON
+// (function() {
+//   'use strict';
+
+//   var btnScrollDown = document.querySelector('#scroll_down');
+
+//   function scrollDown() {
+//     var windowCoords = document.documentElement.clientHeight;
+//     (function scroll() {
+//       if (window.pageYOffset < windowCoords) {
+//         window.scrollBy(0, 10);
+//         setTimeout(scroll, 0);
+//       };
+//       if (window.pageYOffset > windowCoords) {
+//         window.scrollTo(0, windowCoords);
+//       };
+//     })();
+//   };
+
+//   btnScrollDown.addEventListener('click', scrollDown);
+// })();
 </script>
 
 <style scoped>
+body,
+html {
+  height: 100%;
+}
 
+#bg-pic {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  position: relative;
+  height: 100vh;
+  background-image: url('~assets/images/rentacar-audi.jpg');
+  background-position: center center;
+  background-size: cover;
+}
 
+button.scroll_down {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  height: 50px;
+  width: 30px;
+  bottom: 60px;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 20px;
+  cursor: pointer;
+  outline: none;
+}
+button.scroll_down:before {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  content: '';
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  background-color: #fff;
+  border-radius: 100%;
+  -webkit-animation: scroll_down_btn-animation 2s infinite;
+  animation: scroll_down_btn-animation 2s infinite;
+  box-sizing: border-box;
+}
+
+@keyframes scroll_down_btn-animation {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    transform: translate(0, 20px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes scroll_down_btn-animation {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    -webkit-transform: translate(0, 20px);
+    transform: translate(0, 20px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.overlay {
+  position: relative;
+}
+
+.overlay:before {
+  position: absolute;
+  content: ' ';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+  background-color: rgba(51, 51, 51, 0.5);
+}
+
+.headline {
+  position: relative;
+  top: 20vh;
+  margin: 0 auto;
+  text-transform: uppercase;
+  text-align: center;
+  border: 3px solid #f4f4f4;
+}
+
+.headline h1 {
+  font-size: 3rem;
+  padding: 10px;
+}
+
+.btn {
+  position: relative;
+  top: 45vh;
+  font-family: inherit;
+  font-size: inherit;
+  color: #448cff;
+  background: none;
+  cursor: pointer;
+  padding: 25px 80px;
+  display: block;
+  margin: 0 auto;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn-1 {
+  border: 3px solid #448cff;
+  color: #448cff;
+}
+
+.btn-1:hover {
+  color: #f4f4f4;
+  background-color: #448cff;
+}
+
+.btn-1:active {
+  background-color: #0054db;
+  border: 4px solid #333;
+}
+
+.btn-2 {
+  position: relative;
+  top: 25%;
+  border: 3px solid #448cff;
+  color: #448cff;
+  font-family: inherit;
+  font-size: inherit;
+  background: none;
+  cursor: pointer;
+  padding: 25px 80px;
+  display: block;
+  margin: 0 auto;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn-2:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn-2:hover {
+  color: #f4f4f4;
+  background-color: #448cff;
+}
+
+.btn-2:active {
+  background-color: #0054db;
+  border: 4px solid #333;
+}
 
 .flip-card {
   padding-left: 1%;
@@ -154,7 +401,7 @@ export default {
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: transform 0.6s;
+  transition: transform 0.5s;
   transform-style: preserve-3d;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
@@ -177,7 +424,7 @@ export default {
 }
 
 .flip-card-back {
-  background-color: #0054dB;
+  background-color: #0054db;
   color: white;
   transform: rotateY(180deg);
 }
@@ -189,9 +436,8 @@ export default {
 
 i {
   font-size: 22px;
-  padding-top:3%;
-  color:#0054dB;
-
+  padding-top: 3%;
+  color: #0054db;
 }
 .map-responsive iframe {
   left: 0;
@@ -220,34 +466,34 @@ i {
   width: 40%;
   color: white;
   font-size: 17px;
-   
 }
 
-.upoznajtetim{
- font-size:26px;
- font-weight:bolder;
- padding-left:2%;
- padding-right: 2%;
+.upoznajtetim {
+  font-size: 26px;
+  font-weight: bolder;
+  padding-left: 2%;
+  padding-right: 2%;
 }
-.div3{
-  width:100%;
+
+.div3 {
+  width: 100%;
   display: flex;
   min-height: 40vh;
   flex-direction: row;
   flex-wrap: wrap;
   background-image: linear-gradient(-90deg, #5b5b5b, rgb(238, 238, 238));
-  -moz-box-shadow:    inset 0 0 36x #000000a0;
-   -webkit-box-shadow: inset 0 0 6px #000000a0;
-   box-shadow:         inset 0 0 6px #000000a0;
+  -moz-box-shadow: inset 0 0 36x #000000a0;
+  -webkit-box-shadow: inset 0 0 6px #000000a0;
+  box-shadow: inset 0 0 6px #000000a0;
 }
+
 .aboutus {
   display: flex;
   min-height: 75vh;
   flex-direction: row;
   flex-wrap: wrap;
-  padding-left: 5%;
-  margin-right: 5%;
 }
+
 h2 {
   color: #0054db;
   font-family: 'Montserrat';
@@ -255,12 +501,14 @@ h2 {
   font-size: 30px;
   font-weight: bolder;
 }
+
 #p2 {
   margin-top: 1%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 18px;
   color: #0054db;
 }
+
 #p1 {
   padding-right: 13%;
   margin-top: 5%;
@@ -279,11 +527,10 @@ h2 {
   text-align: justify;
   color: #333;
 }
+
 .container {
-  padding-top: 100px;
+  padding-top: 0;
   min-height: 100vh;
-  /*background-image: url('~assets/Images/audi1.jpg');
-  background-size: cover;*/
 }
 
 h1 {
@@ -345,6 +592,7 @@ select {
     opacity: 1;
   }
 }
+
 #image {
   margin-top: -15%;
   position: absolute;
@@ -353,6 +601,7 @@ select {
   clear: both;
   z-index: 0;
 }
+
 .form-group {
   color: wheat;
   font-size: 18px;
@@ -363,126 +612,38 @@ select {
   z-index: 3;
 }
 
-#formahome {
-  background-color: #0054db;
-  min-height: 580px;
-  width: 33%;
-  margin-left: 32%;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.517), 0 6px 20px 0 rgba(0, 0, 0, 0.51);
-  z-index: 1;
-}
-
-.btn {
-  text-decoration: none !important;
-  font-family: 'Montserrat';
-  font-weight: bold;
-  text-shadow: 2px 2px 6px #444444;
-  border: none;
-  display: block;
-  text-align: center;
-  cursor: pointer;
-  text-transform: uppercase;
-  outline: none;
-  overflow: hidden;
-  position: absolute;
-  min-width: 21%;
-  margin: 0 auto;
-  background: #448cff;
-  height: 80px;
-  border-radius: 5px;
-  margin-top: 6%;
-  color: rgb(200, 233, 253);
-  font-size: 24px;
-  border: 2px solid white;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.517), 0 6px 20px 0 rgba(0, 0, 0, 0.51);
-}
-
 #link {
   text-decoration: none;
-  color: rgb(200, 233, 253);
+  color: #f4f4f4;
 }
 
-.btn:hover,
-#link:hover,
-.btn span:hover {
-  color: rgb(255, 255, 255);
-  text-shadow: 1px 1px 6px #1b1b1b;
-}
-.btn span, .btn2 span {
-  position: relative;
-  z-index: 1;
-  text-decoration: none;
-}
-
-.btn:after, .btn2:after {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 350%;
-  width: 130%;
-  background: #6ab3bd;
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-  -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
-  transform: translateX(-98%) translateY(-25%) rotate(45deg);
-}
+/* #link:hover {
+    color: #ff3abf;
+  } */
 
 #aboutus {
   background-color: red;
   height: 500px;
   width: 100%;
 }
-.btn2 {
-  font-family: 'Montserrat';
-  font-weight: bold;
-  text-shadow: 2px 2px 6px #444444;
-  border: none;
-  display: block;
-  text-align: center;
-  cursor: pointer;
-  text-transform: uppercase;
-  outline: none;
-  overflow: hidden;
-  position: relative;
-  width: 300px;
-  margin: 0 auto;
-  background: #0054db;
-  height: 80px;
-  border-radius: 5px;
-  margin-top: 15%;
-  color: rgb(200, 233, 253);
-  font-size: 23px;
-  border: 2px solid white;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.517), 0 6px 20px 0 rgba(0, 0, 0, 0.51);
-  width: 60%;
-}
-
-.btn:hover:after, .btn2:hover:after {
-  -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
-  transform: translateX(-9%) translateY(-25%) rotate(45deg);
-  color: #333;
-}
 
 @media screen and (max-width: 499px) {
   #formahome {
-    margin-left:10%;
-    width:100%;
+    margin-left: 10%;
+    width: 100%;
   }
   #image {
     display: none;
   }
 
   .btn {
-    position: relative;   
+    position: relative;
   }
 
   .container {
-    margin-top:18%;
-    padding-top: 70px;
+    margin-top: 18%;
     min-height: 100vh;
-    width:100%;   
+    width: 100%;
   }
 }
 
@@ -500,17 +661,14 @@ select {
   }
 
   .btn {
-    width:40%;
-    margin-top:16%;
-    padding: 0 auto;   
+    width: 40%;
+    margin-top: 16%;
+    padding: 0 auto;
   }
-  .container{
-    margin-top: 5%;
-    width:100%;
+  .container {
+    width: 100%;
   }
 }
-
-
 
 @media screen and (max-width: 1103px) and (min-width: 861px) {
   #formahome {
@@ -537,96 +695,92 @@ select {
 
 @media screen and (max-width: 800px) {
   .aboutus {
-  display: flex;
-  min-height: 75vh;
-  flex-direction: column;
-  flex-wrap: wrap;
-  padding-left: 5%;
-  margin-left: 5%;
-}
-.div1 {
-  flex: 1;  
-  width: 100%;
-  padding-left: 5%;  
-  padding-top: 5%;
-  padding-bottom: 20%;
-}
-.div2 {
-  flex:1;  
-  width: 100%;
-  padding-left:5%;  
-}
-.p3{
-  padding-right: 2%;
-}
-}
-@media screen and (min-width:671px) and (max-width:999px) {
-  .div3{
-  flex:1;
-  width:100%;
-  display: flex;
-  min-height: 84vh;
-  flex-direction: column;
-  flex-wrap: wrap;
-  }
-  
-  .slika1{
-    width:100%;
-    height:400px;
-  }
-  .flip-card{
-    flex:1;
-    min-height: 45vh;
-  width:70%;
-  display: flex;
-  margin-left:15%;
-  margin-top:4%;
-  
-  flex-direction: column;
-  flex-wrap: wrap;
-  }
-  .flip-card-inner{
-    font-size:25px;
-  }
-  .slika1{
-    width:100%;
+    display: flex;
+    min-height: 75vh;
+    flex-direction: column;
+    flex-wrap: wrap;
     
+   
+    width:100%;
+  }
+  .div1 {
+    flex: 1;
+    width: 100%;
+    padding-left: 5%;
+    padding-top: 5%;
+    padding-bottom: 20%;
+  }
+  .div2 {
+    flex: 1;
+    width: 100%;
+    padding-left: 5%;
+  }
+  .p3 {
+    padding-right: 2%;
   }
 }
+@media screen and (min-width: 671px) and (max-width: 999px) {
+  .div3 {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    min-height: 84vh;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
 
-@media screen and (min-width:400px) and (max-width:670px){
-  .div3{
-  flex:1;
-  width:100%;
-  display: flex;
-  min-height: 84vh;
-  flex-direction: column;
-  flex-wrap: wrap;
+  .slika1 {
+    width: 100%;
+    height: 400px;
   }
-  
-  .slika1{
-    width:100%;
-    height:400px;
-  }
-  .flip-card{
-    flex:1;
+  .flip-card {
+    flex: 1;
     min-height: 45vh;
-  width:100%;
-  display: flex;
-  
-  margin-top:4%;
-  
-  flex-direction: column;
-  flex-wrap: wrap;
-  }
+    width: 70%;
+    display: flex;
+    margin-left: 15%;
+    margin-top: 4%;
 
-  .slika1{
-    width:100%;
-    
+    flex-direction: column;
+    flex-wrap: wrap;
   }
-  .flip-card-inner{
-    font-size:25px;
+  .flip-card-inner {
+    font-size: 25px;
+  }
+  .slika1 {
+    width: 100%;
   }
 }
 
+@media screen and (min-width: 400px) and (max-width: 670px) {
+  .div3 {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    min-height: 84vh;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .slika1 {
+    width: 100%;
+    height: 400px;
+  }
+  .flip-card {
+    flex: 1;
+    min-height: 45vh;
+    width: 100%;
+    display: flex;
+    margin-top: 4%;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .slika1 {
+    width: 100%;
+  }
+  .flip-card-inner {
+    font-size: 25px;
+  }
+}
 </style>

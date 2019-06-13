@@ -17,18 +17,17 @@ class CustomerVehicleTable extends Migration
             $table->bigIncrements('id');
 
             $table->bigInteger('customer_id')->unsigned();
-            $table->foreign('customer_id')->references('id')->on('customers');
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
 
             $table->bigInteger('vehicle_id')->unsigned();
-            $table->foreign('vehicle_id')->references('id')->on('vehicles');
+            $table->foreign('vehicle_id')->references('id')->on('vehicles')->onDelete('cascade');
 
-            $table->double('vehicle_price', 8, 2);//->unsigned();
+            $table->double('vehicle_price', 8, 2); //->unsigned();
             //$table->foreign('price_of_reservation')->references('price')->on('vehicles');
 
             $table->date('from_date');
             $table->date('to_date');
             $table->timestamps();
-
         });
     }
 

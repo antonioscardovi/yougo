@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CustomerVehicle extends Model
 {
+    protected $dates = ['from_date', 'to_date'];
     protected $guarded = [];
 
 

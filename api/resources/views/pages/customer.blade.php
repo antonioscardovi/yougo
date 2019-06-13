@@ -14,7 +14,6 @@
                                 <li><span style="font-weight:bold;">Is Verified:</span> @if ( $customer->verified ) verified @else not verified @endif</li>
                         </ul>
                 </figcaption>
-                <a href="{{ $customer->id }}/edit"><button class="btn btn-primary" style="margin-top: 1rem; width: 100px;">Edit</button></a>
             <form method="POST" action="/customers/{{ $customer->id }}" style="margin-top: 1rem">
                 @method('DELETE')
                 @csrf
