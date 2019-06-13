@@ -36,6 +36,7 @@ class SendMail extends Mailable
     {
         return $this->view('mails.registrationMail')->to($this->email);
     }
+
 }
 
 

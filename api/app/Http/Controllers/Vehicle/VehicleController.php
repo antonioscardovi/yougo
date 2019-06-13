@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Vehicle;
 
 use App\CustomerVehicle;
-// use App\Mail\SendMail;
+ //use App\Mail\SendMail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 use App\Vehicle;
 use Illuminate\Support\Facades\DB;
-// use Illuminate\Support\Facades\Mail;
-// use DateTime;
+use Illuminate\Support\Facades\Mail;
+use DateTime;
 
 class VehicleController extends ApiController
 {
@@ -71,6 +71,8 @@ class VehicleController extends ApiController
             $vehicle['status'] =  $vehicle->setToNotAvailable();
             $vehicle->save();
 
+
+
             $reservation = CustomerVehicle::create([
 
                 'customer_id' => $user->id,
@@ -80,14 +82,47 @@ class VehicleController extends ApiController
                 'vehicle_price' => $vehicle->price
             ]);
 
+            $name = $user->name;
+            $lastname = $user->lastname;
+            $email = $user->email;
+
+            $fDate = $request->from_date;
+            $tDate = $request->to_date;
+            $dateTime1 = new DateTime($fDate);
+            $dateTime2 = new DateTime($tDate);
+            $interval = $dateTime1->diff($dateTime2);
+            echo $days = $interval->format('%a');
+
+            $data = [
+                'name' => $name,
+                'lastname' => $lastname,
+                'email' => $email,
+                'vehicle' => $vehicle->id,
+                'from_date' => $request->from_date,
+                'to_date' => $request->to_date,
+                'vehicle_price' => $vehicle->price,
+                'days' => $days,
+            ];
+
+            Mail::send('mails.reservation', $data, function ($message) use ($name, $lastname, $email) {
+                $message->from('rent.a.car.yougo@gmail.com', 'Adminko Admić');
+//                $message->attach('Vaša rezervacija: '.['password' => $password]);
+                $message->to([$email])->subject('Potvrda rezervacije');
+
+            });
+
+
+
+
+
+//            Mail::send('mails.reservation', $email = array(), function($message)
+//            {
+//                $message->to('aljukicadis@yahoo.com')->subject('Uspješna rezervacija');
+//            });
+
             //'price_of_reservation' => $request->get('days') * $vehicle['price'],
 
-            // $fDate = $reservation->from_date;
-            // $tDate = $reservation->to_date;
-            // $dateTime1 = new DateTime($fDate);
-            // $dateTime2 = new DateTime($tDate);
-            // $interval = $dateTime1->diff($dateTime2);
-            // $days = $interval->format('%a');
+
 
             // Mail::send(new SendMail($user->email, $days));
 
