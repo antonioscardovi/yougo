@@ -23,7 +23,7 @@ class VehicleController extends ApiController
     public function index()
     {
 
-        $vehicles = Vehicle::with('modelOfVehicle.makeOfVehicle', 'images')->get();
+        $vehicles = Vehicle::with('modelOfVehicle.makeOfVehicle', 'images', 'reservations')->get();
 
         // $vehicles= Vehicle::all();
         // return view('pages.customers',compact('customers'));
