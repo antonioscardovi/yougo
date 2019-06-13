@@ -148,7 +148,7 @@ export default {
       transmission: ['automatic', 'manual'],
       status: ['available', 'unavailable'],
       fVehicles: [],
-      // reservations: [],
+      reservations: [],
       form: {
         fromDate:'',
         toDate:'',
