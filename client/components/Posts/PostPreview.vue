@@ -151,21 +151,21 @@ a {
 @media (max-width: 1000px){
   .vehicle{
     flex: 1;
-   
+
     width: 100%;
     display: flex;
 
 
     flex-direction: column;
     flex-wrap: wrap;
-    
-    
-   
-   
+
+
+
+
   }
   .post-content{
     text-align: center;
-   
+
   }
   .price-section {
   margin: 0rem 0rem;

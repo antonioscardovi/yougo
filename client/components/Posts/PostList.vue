@@ -357,7 +357,9 @@ input[type='checkbox']:checked ~ span {
   background: #0054db;
   color: #fff;
 }
-
+.to-post-list {
+  width:90%;
+}
 .post-list {
   display: flex;
   padding: 20px;
@@ -366,6 +368,7 @@ input[type='checkbox']:checked ~ span {
   align-items: center;
   justify-content: center;
   flex: 3;
+
 }
 .forms {
   /* display: flex; */
@@ -377,8 +380,8 @@ input[type='checkbox']:checked ~ span {
 }
 .form-wrap-1 {
   background-color: #333;
-  padding: 20px auto;
-  margin: 20px 30px;
+  padding: 10px auto;
+  margin: 10px 30px;
   /* border-radius:10px; */
   position: -webkit-sticky;
   position: sticky;
