@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "nuxt": "^2.8.0"
+    "nuxt": "^2.15.8"
   },
   "devDependencies": {},
   "scripts": {
